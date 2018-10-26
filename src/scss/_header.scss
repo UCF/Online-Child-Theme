@@ -1,0 +1,34 @@
+// Styles for Online's site-specific nav.  Overrides UCF WP Theme styles.
+// Selector depth required to match Bootstrap/Athena selectors
+// scss-lint:disable NestingDepth SelectorDepth
+.navbar-custom {
+  .navbar-collapse {
+    @include media-breakpoint-down(md) {
+      background-color: transparentize($brand-primary, .025);
+    }
+
+    @include media-breakpoint-up(lg) {
+      max-width: 80%;
+    }
+
+    @include media-breakpoint-up(xl) {
+      max-width: 88%;
+    }
+  }
+
+  .navbar-brand,
+  .navbar-toggler.collapsed .navbar-toggler-text {
+    text-shadow: 0 0 0 transparent;
+  }
+
+  .navbar-nav {
+    .nav-link {
+      text-shadow: 0 0 0 transparent;
+
+      @include media-breakpoint-only(lg) {
+        padding-left: .75rem;
+        padding-right: .75rem;
+      }
+    }
+  }
+}
