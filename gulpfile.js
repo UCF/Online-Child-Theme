@@ -186,4 +186,5 @@ gulp.task('watch', (done) => {
 //
 // Default task
 //
-gulp.task('default', gulp.series('components', 'css', 'js'));
+// gulp.task('default', gulp.series('components', 'css', 'js'));
+gulp.task('default', gulp.series('css'));
