@@ -15,13 +15,17 @@ function ucfwp_get_nav_markup( $image=true ) {
 }
 
 /**
- * Returns HTML markup for the primary site navigation for UCF Online.
+ * Displays the primary site navigation for UCF Online.
+ *
+ * NOTE: This function intentionally echoes its output, rather than
+ * returning a string, because we register this function as an action on the
+ * `after_body_open` hook.
  *
  * @author Jo Dickson
  * @since 1.0.0
  * @return void
  **/
-function online_get_nav_markup() {
+function online_nav_markup() {
 	$title_elem = ( is_home() || is_front_page() ) ? 'h1' : 'span';
 
 	ob_start();
@@ -65,7 +69,7 @@ function online_get_nav_markup() {
 	echo ob_get_clean();
 }
 
-add_action( 'after_body_open', 'online_get_nav_markup', 10, 0 );
+add_action( 'after_body_open', 'online_nav_markup', 10, 0 );
 
 
 /**
