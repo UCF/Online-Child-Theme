@@ -21,6 +21,9 @@ define( 'ONLINE_THEME_CUSTOMIZER_DEFAULTS', serialize( array(
  * @since 1.0.0
  */
 function online_init() {
+	// Register custom footer menu for this theme
+	register_nav_menu( 'footer-menu', __( 'Footer Menu' ) );
+
 	// Un-register sidebars provided by UCF WordPress Theme, then re-register
 	// to set custom descriptions and markup adjustments
 	unregister_sidebar( 'footer-col-1' );
