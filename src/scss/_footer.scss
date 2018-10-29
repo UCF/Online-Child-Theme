@@ -1,0 +1,34 @@
+.site-footer {
+  background-color: $site-footer-bg;
+  color: $white;
+
+  hr {
+    // Allow Athena's hr color overrides to still take effect
+    &:not(.hr-black):not(.hr-white):not(.hr-primary) {
+      border-color: lighten($site-footer-bg, 10%);
+    }
+  }
+
+  &,
+  .widget-heading {
+    font-size: .85rem;
+  }
+
+  .ucf-social-link {
+    &.md {
+      font-size: 1.75rem;
+      height: 3rem;
+      width: 3rem;
+
+      @include media-breakpoint-only(lg) {
+        font-size: 1.4rem;
+        height: 2.4rem;
+        width: 2.4rem;
+      }
+
+      &:not(:last-child) {
+        margin-right: .75rem;
+      }
+    }
+  }
+}
