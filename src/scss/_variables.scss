@@ -1,6 +1,6 @@
 $site-footer-bg: #44494c;
 
 $ucf-social-grey-bg-color: #b7b8be;
-$ucf-social-grey-bg-color-hover: lighten(#b7b8be, 15%);
+$ucf-social-grey-bg-color-hover: lighten($ucf-social-grey-bg-color, 15%);
 $ucf-social-grey-color: $site-footer-bg;
 $ucf-social-grey-color-hover: #fff;
