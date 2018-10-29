@@ -32,3 +32,16 @@
     }
   }
 }
+
+.site-footer-menu {
+  .nav-item {
+    display: flex;
+
+    &:not(:last-child)::after {
+      @include media-breakpoint-up(lg) {
+        align-self: center;
+        content: '|';
+      }
+    }
+  }
+}

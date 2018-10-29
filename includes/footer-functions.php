@@ -50,6 +50,23 @@ function ucfwp_get_footer_markup() {
 			<?php endif; ?>
 
 			</div>
+
+			<?php
+			if ( has_nav_menu( 'footer-menu' ) ) {
+				wp_nav_menu( array(
+					'container'       => '',
+					'depth'           => 1,
+					'fallback_cb'     => 'bs4Navwalker::fallback',
+					'menu_class'      => 'site-footer-menu nav flex-column flex-lg-row align-items-center justify-content-center align-items-start text-uppercase mb-3 mt-lg-3',
+					'theme_location'  => 'footer-menu',
+					'walker'          => new bs4Navwalker()
+				) );
+			}
+			?>
+
+			<div class="text-center text-uppercase mb-5">
+				<a class="text-primary" href="https://www.ucf.edu/">&copy; <?php echo date( 'Y' ); ?> University of Central Florida</a>
+			</div>
 		</div>
 	</footer>
 <?php
