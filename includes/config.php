@@ -15,7 +15,68 @@ define( 'ONLINE_THEME_CUSTOMIZER_DEFAULTS', serialize( array(
 
 
 /**
+ * Initialization functions to be fired early when WordPress loads the theme.
+ *
+ * @author Jo Dickson
+ * @since 1.0.0
+ */
+function online_init() {
+	// Register custom footer menu for this theme
+	register_nav_menu( 'footer-menu', __( 'Footer Menu' ) );
+
+	// Un-register sidebars provided by UCF WordPress Theme, then re-register
+	// to set custom descriptions and markup adjustments
+	unregister_sidebar( 'footer-col-1' );
+	unregister_sidebar( 'footer-col-2' );
+	unregister_sidebar( 'footer-col-3' );
+	unregister_sidebar( 'footer-col-4' );
+
+	register_sidebar( array(
+		'name'          => __( 'Footer - Column 1' ),
+		'id'            => 'footer-col-1',
+		'description'   => 'First column in the site footer. Shifts to the very bottom of the page at smaller screen sizes.',
+		'before_widget' => '<div id="%1$s" class="widget mb-5 %2$s">',
+		'after_widget'  => '</div>',
+		'before_title'  => '<h2 class="widget-heading heading-underline letter-spacing-3">',
+		'after_title'   => '</h2>',
+	) );
+	register_sidebar( array(
+		'name'          => __( 'Footer - Column 2' ),
+		'id'            => 'footer-col-2',
+		'description'   => 'Second column in the site footer.',
+		'before_widget' => '<div id="%1$s" class="widget mb-5 %2$s">',
+		'after_widget'  => '</div>',
+		'before_title'  => '<h2 class="widget-heading heading-underline letter-spacing-3">',
+		'after_title'   => '</h2>',
+	) );
+	register_sidebar( array(
+		'name'          => __( 'Footer - Column 3' ),
+		'id'            => 'footer-col-3',
+		'description'   => 'Third column in the site footer.',
+		'before_widget' => '<div id="%1$s" class="widget mb-5 %2$s">',
+		'after_widget'  => '</div>',
+		'before_title'  => '<h2 class="widget-heading heading-underline letter-spacing-3">',
+		'after_title'   => '</h2>',
+	) );
+	register_sidebar( array(
+		'name'          => __( 'Footer - Column 4' ),
+		'id'            => 'footer-col-4',
+		'description'   => 'Last column in the site footer (third at smaller screen sizes).',
+		'before_widget' => '<div id="%1$s" class="widget mb-5 %2$s">',
+		'after_widget'  => '</div>',
+		'before_title'  => '<h2 class="widget-heading heading-underline letter-spacing-3">',
+		'after_title'   => '</h2>',
+	) );
+}
+
+add_action( 'after_setup_theme', 'online_init', 11 );
+
+
+/**
  * Defines sections used in the WordPress Customizer.
+ *
+ * @author Jo Dickson
+ * @since 1.0.0
  */
 function online_define_customizer_sections( $wp_customize ) {
 	// Remove Navigation Settings section from UCF WP Theme since we don't
@@ -38,6 +99,9 @@ add_action( 'customize_register', 'online_define_customizer_sections', 11 );
 
 /**
  * Defines settings and controls used in the WordPress Customizer.
+ *
+ * @author Jo Dickson
+ * @since 1.0.0
  */
 function online_define_customizer_fields( $wp_customize ) {
 	// Site Navbar

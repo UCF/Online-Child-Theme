@@ -1,0 +1,21 @@
+//
+// UCF Social plugin style overrides
+//
+
+// Update styling of 'grey' social icon color scheme
+.ucf-social-icons {
+  .ucf-social-link {
+    &.grey {
+      background-color: $ucf-social-grey-bg-color;
+      // !important necessary to override greedy color styles on .site-footer links
+      color: $ucf-social-grey-color !important; // sass-lint:disable-line no-important
+
+      &:hover,
+      &:active,
+      &:focus {
+        background-color: $ucf-social-grey-bg-color-hover;
+        color: $ucf-social-grey-color-hover;
+      }
+    }
+  }
+}
