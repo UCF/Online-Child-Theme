@@ -1,0 +1,37 @@
+//
+// UCF Post List Plugin style overrides
+//
+
+
+.ucf-post-list-thumbnail-deck {
+  @include make-row();
+}
+
+.ucf-post-list-thumbnail-item {
+  @include make-col-ready();
+  margin-bottom: $spacer-y;
+
+  @include media-breakpoint-up(md) {
+    display: flex;
+    flex: 1 0 50%;
+    flex-direction: column;
+    max-width: 50%;
+  }
+
+  @include media-breakpoint-up(xl) {
+    flex: 1 0 0;
+    margin-bottom: 0;
+    max-width: 100%;
+  }
+
+  .ucf-post-list-thumbnail-title {
+    font-size: .75rem;
+  }
+}
+
+.ucf-post-list-thumbnail-link {
+  @include media-breakpoint-up(md) {
+    background-color: $gray-lighter;
+    min-height: $ucf-post-list-thumbnail-min-height;
+  }
+}
