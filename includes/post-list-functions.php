@@ -40,7 +40,7 @@ function online_post_list_display_thumbnail( $content, $posts, $atts ) {
 		?>
 			<div class="ucf-post-list-thumbnail-item">
 				<a class="ucf-post-list-thumbnail-link text-decoration-none d-flex flex-column" href="<?php echo get_permalink( $item->ID ); ?>">
-					<span class="ucf-post-list-thumbnail-title btn btn-primary btn-sm btn-block py-2"><?php echo $item->post_title; ?></span>
+					<span class="ucf-post-list-thumbnail-title"><?php echo $item->post_title; ?></span>
 
 					<?php if ( $item_img ) : ?>
 					<div class="ucf-post-list-thumbnail-block media-background-container h-100 hidden-sm-down">
