@@ -22,15 +22,34 @@
     flex: 1 0 0;
     max-width: 100%;
   }
+}
 
-  .ucf-post-list-thumbnail-title {
-    font-size: .75rem;
-  }
+.ucf-post-list-thumbnail-title {
+  @include transition($btn-transition);
+  background-color: $brand-primary;
+  color: $brand-primary-color;
+  display: block;
+  font-size: .75rem;
+  font-weight: bold;
+  letter-spacing: $letter-spacing-base;
+  line-height: $btn-line-height;
+  padding: .75rem;
+  text-align: center;
+  text-transform: uppercase;
 }
 
 .ucf-post-list-thumbnail-link {
   @include media-breakpoint-up(md) {
     background-color: $gray-lighter;
     min-height: $ucf-post-list-thumbnail-min-height;
+  }
+
+  &:hover,
+  &:active,
+  &:focus {
+    .ucf-post-list-thumbnail-title {
+      background-color: darken($btn-primary-bg, 10%);
+      color: $white;
+    }
   }
 }
