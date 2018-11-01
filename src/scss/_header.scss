@@ -32,3 +32,30 @@
     }
   }
 }
+
+
+// Object-position overrides for header media background pictures.
+// Attempts to position left-aligned image focal points within headers to
+// help prevent face clipping and text overlap.
+.header-media-background .media-background-picture .media-background {
+  object-position: 25% 50%;
+
+  @include media-breakpoint-up(sm) {
+    object-position: 0 50%;
+  }
+
+  @include media-breakpoint-up(md) {
+    object-position: 20% 50%;
+  }
+
+  @include media-breakpoint-up(lg) {
+    object-position: 30% 50%;
+  }
+
+  @include media-breakpoint-up(xl) {
+    // NOTE: this value must match what is returned by
+    // online_media_background_object_position(); see
+    // includes/media-backgrounds.php
+    object-position: 30% 30%;
+  }
+}
