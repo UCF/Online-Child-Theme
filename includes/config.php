@@ -124,3 +124,20 @@ function online_define_customizer_fields( $wp_customize ) {
 }
 
 add_action( 'customize_register', 'online_define_customizer_fields' );
+
+
+/**
+ * Adds a custom ACF WYSIWYG toolbar called 'Inline Text' that only includes
+ * simple inline text formatting tools and link insertion/deletion.
+ *
+ * @since 1.0.0
+ * @author Jo Dickson
+ * @param array $toolbars Array of toolbar information from ACF
+ * @return array
+ */
+function online_acf_text_toolbar( $toolbars ) {
+	$toolbars['Inline Text'] = array();
+	$toolbars['Inline Text'][1] = array( 'bold', 'italic', 'link', 'unlink', 'undo', 'redo' );
+	return $toolbars;
+}
+add_filter( 'acf/fields/wysiwyg/toolbars', 'online_acf_text_toolbar' );
