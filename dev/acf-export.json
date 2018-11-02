@@ -59,6 +59,30 @@
                 "endpoint": 0
             },
             {
+                "key": "field_5bdc9f5b77dda",
+                "label": "Header Text Color",
+                "name": "page_header_text_color",
+                "type": "radio",
+                "instructions": "Modify the color of the text within the page header.  Please keep in mind <a href=\"https:\/\/webaim.org\/resources\/contrastchecker\/\" target=\"_blank\">accessible color contrast requirements<\/a> when selecting a color to use.  If no header image\/video are provided, the header text will always be black, regardless of this option's value.",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {
+                    "black": "Black",
+                    "white": "White"
+                },
+                "allow_null": 0,
+                "other_choice": 0,
+                "save_other_choice": 0,
+                "default_value": "black",
+                "layout": "vertical",
+                "return_format": "value"
+            },
+            {
                 "key": "field_59aed971c187c",
                 "label": "Header Content - Type of Content",
                 "name": "page_header_content_type",
@@ -72,13 +96,13 @@
                     "id": ""
                 },
                 "choices": {
-                    "title_subtitle": "Default",
+                    "default": "Default",
                     "custom": "Custom content"
                 },
                 "allow_null": 0,
                 "other_choice": 0,
                 "save_other_choice": 0,
-                "default_value": "title_subtitle",
+                "default_value": "default",
                 "layout": "vertical",
                 "return_format": "value"
             },
