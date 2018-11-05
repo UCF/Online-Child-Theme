@@ -87,9 +87,25 @@ function online_define_customizer_sections( $wp_customize ) {
 
 	// Add section for customizing site navbar settings
 	$wp_customize->add_section(
-		ONLINE_THEME_CUSTOMIZER_PREFIX . 'site_navbar',
+		ONLINE_THEME_CUSTOMIZER_PREFIX . 'navbar',
 		array(
-			'title' => 'Site Navbar'
+			'title' => 'Navbar'
+		)
+	);
+
+	// Add section for customizing the site subfooter
+	$wp_customize->add_section(
+		ONLINE_THEME_CUSTOMIZER_PREFIX . 'subfooter',
+		array(
+			'title' => 'Subfooter'
+		)
+	);
+
+	// Add section for form-specific settings
+	$wp_customize->add_section(
+		ONLINE_THEME_CUSTOMIZER_PREFIX . 'forms',
+		array(
+			'title' => 'Forms'
 		)
 	);
 }
@@ -106,19 +122,56 @@ add_action( 'customize_register', 'online_define_customizer_sections', 11 );
 function online_define_customizer_fields( $wp_customize ) {
 	// Site Navbar
 	$wp_customize->add_setting(
-		'site_navbar_cta_text',
+		'navbar_cta_text',
 		array(
-			'default' => online_get_theme_mod_default( 'site_navbar_cta_text' )
+			'default' => online_get_theme_mod_default( 'navbar_cta_text' )
 		)
 	);
 
 	$wp_customize->add_control(
-		'site_navbar_cta_text',
+		'navbar_cta_text',
 		array(
 			'type'        => 'text',
-			'label'       => 'Site Navbar CTA Text',
+			'label'       => 'Navbar Call-to-Action (CTA) Text',
 			'description' => 'Text to display in the site navbar\'s call-to-action button (at the end of the site navigation menu).',
-			'section'     => ONLINE_THEME_CUSTOMIZER_PREFIX . 'site_navbar'
+			'section'     => ONLINE_THEME_CUSTOMIZER_PREFIX . 'navbar'
+		)
+	);
+
+
+	// Site Subfooter
+	$wp_customize->add_setting(
+		'subfooter_section',
+		array(
+			'default' => online_get_theme_mod_default( 'subfooter_section' )
+		)
+	);
+
+	$wp_customize->add_control(
+		'subfooter_section',
+		array(
+			'type'        => 'select',
+			'label'       => 'Subfooter Section',
+			'description' => 'Choose an existing Section to display immediately above the site footer on pages. This section is <strong>not</strong> displayed on single degrees, landing pages, or other types of content.',
+			'section'     => ONLINE_THEME_CUSTOMIZER_PREFIX . 'subfooter',
+			'choices'     => online_get_post_choices( 'ucf_section' )
+		)
+	);
+
+
+	// Forms
+	$wp_customize->add_setting(
+		'default_header_form'
+	);
+
+	$wp_customize->add_control(
+		'default_header_form',
+		array(
+			'type'        => 'select',
+			'label'       => 'Default Header Form',
+			'description' => 'The form shown by default in page and degree headers.',
+			'section'     => ONLINE_THEME_CUSTOMIZER_PREFIX . 'forms',
+			'choices'     => online_get_gf_choices()
 		)
 	);
 }

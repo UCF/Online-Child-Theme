@@ -206,12 +206,18 @@ function online_get_header_content_default( $obj ) {
 		<div class="container">
 			<div class="row">
 				<div class="col-9 offset-3 col-md-8 offset-md-4">
+					<<?php echo $title_elem; ?> class="mb-4"><?php echo $title; ?></<?php echo $title_elem; ?>>
+
+					<?php
+					$form_markup = online_get_header_form_markup();
+					if ( $form_markup ):
+					?>
 					<div class="row">
-						<div class="col">
-							<<?php echo $title_elem; ?>><?php echo $title; ?></<?php echo $title_elem; ?>>
+						<div class="col-lg-6 offset-lg-6">
+							<?php echo $form_markup; ?>
 						</div>
-						<?php // TODO add header form here in .col if present ?>
 					</div>
+					<?php endif; ?>
 				</div>
 			</div>
 		</div>
@@ -219,5 +225,27 @@ function online_get_header_content_default( $obj ) {
 <?php
 	endif;
 
+	return ob_get_clean();
+}
+
+
+/**
+ * Returns markup for a header form.
+ *
+ * @since 1.0.0
+ * @author Jo Dickson
+ * @return string HTML for the header form
+ */
+function online_get_header_form_markup() {
+	$form_id = online_get_theme_mod_or_default( 'default_header_form' );
+	ob_start();
+
+	if ( $form_id && shortcode_exists( 'gravityform' ) ):
+?>
+	<div class="header-form bg-inverse mb-3 p-3 p-md-4">
+		<?php echo do_shortcode( '[gravityform id="' . $form_id . '" title="true" description="true" ajax="true"]' ); ?>
+	</div>
+<?php
+	endif;
 	return ob_get_clean();
 }
