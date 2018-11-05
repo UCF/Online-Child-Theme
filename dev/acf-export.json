@@ -62,7 +62,7 @@
                 "key": "field_5bdc9f5b77dda",
                 "label": "Header Text Color",
                 "name": "page_header_text_color",
-                "type": "radio",
+                "type": "select",
                 "instructions": "Modify the color of the text within the page header.  Please keep in mind <a href=\"https:\/\/webaim.org\/resources\/contrastchecker\/\" target=\"_blank\">accessible color contrast requirements<\/a> when selecting a color to use.  If no header image\/video are provided, the header text will always be black, regardless of this option's value.",
                 "required": 1,
                 "conditional_logic": 0,
@@ -75,12 +75,15 @@
                     "black": "Black",
                     "white": "White"
                 },
+                "default_value": [
+                    "black"
+                ],
                 "allow_null": 0,
-                "other_choice": 0,
-                "save_other_choice": 0,
-                "default_value": "black",
-                "layout": "vertical",
-                "return_format": "value"
+                "multiple": 0,
+                "ui": 0,
+                "ajax": 0,
+                "return_format": "value",
+                "placeholder": ""
             },
             {
                 "key": "field_59aed971c187c",
@@ -864,7 +867,7 @@
                 "required": 0,
                 "conditional_logic": 0,
                 "wrapper": {
-                    "width": "40",
+                    "width": "50",
                     "class": "",
                     "id": ""
                 },
@@ -883,7 +886,7 @@
                 "required": 0,
                 "conditional_logic": 0,
                 "wrapper": {
-                    "width": "40",
+                    "width": "50",
                     "class": "",
                     "id": ""
                 },
