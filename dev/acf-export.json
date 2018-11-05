@@ -1024,7 +1024,7 @@
                 "key": "field_5bdc5d1fcd683",
                 "label": "Degree Video",
                 "name": "degree_header_video",
-                "type": "url",
+                "type": "oembed",
                 "instructions": "URL to a video that describes this degree.",
                 "required": 0,
                 "conditional_logic": 0,
@@ -1033,8 +1033,8 @@
                     "class": "",
                     "id": ""
                 },
-                "default_value": "",
-                "placeholder": ""
+                "width": "",
+                "height": ""
             },
             {
                 "key": "field_5bdc56985ff10",
