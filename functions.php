@@ -12,3 +12,7 @@ include_once 'includes/footer-functions.php';
 if ( class_exists( 'UCF_Post_List_Common' ) ) {
 	include_once 'includes/post-list-functions.php';
 }
+
+if ( class_exists( 'UCF_Degree_Search_Common' ) ) {
+	include_once 'includes/degree-search-functions.php';
+}
