@@ -24,7 +24,7 @@ if ( ! function_exists( 'ucf_degree_picker_inline_layout' ) ) {
 				<select class="custom-select form-control col-12 col-md mb-2 text-uppercase" id="sel_program" name="sel_program" disabled>
 					<option value="">Program</option>
 				</select>
-				<button type="submit" class="col-12 col-md-2 col-lg-1 btn btn-primary btn-inline h-100" name="submit" disabled><span class="hidden-md-up">View Program</span> <span class="fa fa-arrow-right" aria-hidden="true"></span></button>
+				<button type="submit" class="col-12 col-md-2 col-lg-1 btn btn-primary h-100" name="submit" disabled><span class="hidden-md-up">View Program</span> <span class="fa fa-arrow-right" aria-hidden="true"></span></button>
 			</div>
 		</form>
 	<?php
