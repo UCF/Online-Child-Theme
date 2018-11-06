@@ -10,7 +10,7 @@
  * @return string formatted HTML markup
  */
 function online_format_tuition_value( $tuition_str ) {
-	$pattern = '/^(\$[0-9\.]+) (.*)$/i';
+	$pattern = '/^(\$[0-9\.\,]+) (.*)$/i';
 	$replacement = '<span class="d-block display-4 tuition-value">${1}</span><span class="d-block small text-uppercase tuition-description"> ${2}</span>';
 
 	return preg_replace( $pattern, $replacement, $tuition_str );
