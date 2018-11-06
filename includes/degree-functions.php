@@ -213,7 +213,7 @@ function online_get_degree_career_paths_markup( $degree ) {
 
 
 /**
- * TODO Returns markup for a single degree's quotes.
+ * Returns markup for a single degree's quotes.
  *
  * @since 1.0.0
  * @author Jo Dickson
@@ -222,8 +222,39 @@ function online_get_degree_career_paths_markup( $degree ) {
  */
 function online_get_degree_quotes_markup( $degree ) {
 	ob_start();
+	if ( have_rows( 'degree_quotes', $degree->ID ) ):
+		while ( have_rows( 'degree_quotes', $degree->ID ) ) : the_row();
+
+			$quote           = get_sub_field( 'degree_quote' );
+			$source_title    = get_sub_field( 'degree_quote_source_title' );
+			$source_subtitle = get_sub_field( 'degree_quote_source_subtitle' );
+			$has_cite        = get_sub_field( 'degree_quote_source_has_cite' );
+
+			if ( ! $quote ) { break; }
 ?>
+			<blockquote class="blockquote blockquote-quotation font-serif mb-4">
+				<?php echo $quote; ?>
+				<footer class="blockquote-footer text-uppercase">
+					<?php if ( $has_cite ): ?>
+					<cite>
+					<?php endif; ?>
+
+					<?php if ( $source_title ): ?>
+					<strong class="d-block mb-1"><?php echo $source_title; ?></strong>
+					<?php endif; ?>
+
+					<?php if ( $source_subtitle ): ?>
+					<span class="d-block"><?php echo $source_subtitle; ?></span>
+					<?php endif; ?>
+
+					<?php if ( $has_cite ): ?>
+					</cite>
+					<?php endif; ?>
+				</footer>
+			</blockquote>
 <?php
+		endwhile;
+	endif;
 	return ob_get_clean();
 }
 
