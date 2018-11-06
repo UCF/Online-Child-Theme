@@ -18,32 +18,34 @@ $has_sidebar     = ( $career_paths || $quotes || $video );
 <article class="<?php echo $post->post_status; ?> post-list-item">
 
 	<?php if ( $has_at_a_glance ): ?>
-	<section class="jumbotron bg-faded">
+	<section class="jumbotron bg-faded pb-4 pb-md-5">
 		<div class="container">
 			<h2 class="h4 font-condensed text-uppercase mb-4 <?php if ( $details ){ ?>hidden-sm-up<?php } ?>">Program at a Glance</h2>
 			<div class="row">
 
 				<?php if ( $details ): ?>
-				<div class="col col-lg-3 mb-3 mb-lg-0">
+				<div class="col pr-lg-4 mb-4 mb-lg-0">
 					<h2 class="h4 font-condensed text-uppercase hidden-xs-down mb-4">Program at a Glance</h2>
 					<?php echo $details; ?>
 				</div>
 				<?php endif; ?>
 
 				<?php if ( $credit_hours ): ?>
-				<div class="col-auto mb-3 mb-lg-0">
+				<div class="col-auto mb-4 mb-lg-0">
 					<?php echo $credit_hours; ?>
 				</div>
 				<?php endif; ?>
 
+				<div class="w-100 hidden-sm-down hidden-lg-up"></div>
+
 				<?php if ( $tuition ): ?>
-				<div class="col-md-6 col-lg-5 col-xl-4 mb-3 mb-lg-0">
+				<div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
 					<?php echo $tuition; ?>
 				</div>
 				<?php endif; ?>
 
 				<?php if ( $badges ): ?>
-				<div class="col-lg d-flex flex-row mb-3 mb-lg-0">
+				<div class="col-md-6 col-lg d-flex flex-row mb-4 mb-lg-0">
 					<?php echo $badges; ?>
 				</div>
 				<?php endif; ?>

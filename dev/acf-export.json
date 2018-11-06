@@ -1051,7 +1051,7 @@
                 },
                 "collapsed": "",
                 "min": 0,
-                "max": 0,
+                "max": 2,
                 "layout": "block",
                 "button_label": "Add Badge",
                 "sub_fields": [
@@ -1084,7 +1084,7 @@
                         "label": "Award Details",
                         "name": "degree_award_details",
                         "type": "textarea",
-                        "instructions": "A brief description of this award.  Will be used as alt text for the award graphic (the image's alt text from the Media Library will be used as a fallback if no description is provided).  If the graphic contains text, this description should contain that text for accessibility.",
+                        "instructions": "A brief description of this award.  Will be used as alt text for the award graphic.  The image's caption, description, or alt text from the Media Library will be used as a fallback if no description is provided (prioritized in that order).\r\n\r\nIf the graphic contains text, this description should contain that text for accessibility.",
                         "required": 0,
                         "conditional_logic": 0,
                         "wrapper": {
