@@ -1,6 +1,8 @@
 <?php get_header(); the_post(); ?>
 
 <?php
+$post = ucf_degree_append_meta( $post );
+
 // Degree data markup
 $details      = online_get_degree_details_markup( $post );
 $credit_hours = online_get_degree_hours_markup( $post );
@@ -68,7 +70,9 @@ $has_sidebar     = ( $career_paths || $quotes || $video );
 			<div class="col-lg-4">
 				<?php if ( $career_paths ): ?>
 				<section>
-					<h2>Career Opportunities</h2>
+					<h2 class="h5 mb-3">
+						<span class="badge badge-default p-4">Career Opportunities</span>
+					</h2>
 					<?php echo $career_paths; ?>
 				</section>
 				<?php endif; ?>

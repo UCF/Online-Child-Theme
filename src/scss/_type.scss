@@ -84,3 +84,28 @@
     color: $brand-primary;
   }
 }
+
+
+// Custom colored bullet lists
+.list-bullets {
+  list-style-type: none;
+
+  li {
+    align-items: baseline;
+    display: flex;
+    flex-direction: row;
+    line-height: 1.4;
+    margin-bottom: .5rem;
+
+    &::before {
+      color: $brand-primary;
+      content: '•';
+      display: flex;
+      flex: 0 0 .55em;
+      font-size: 2em;
+      line-height: 0;
+      position: relative;
+      top: .125em;
+    }
+  }
+}
