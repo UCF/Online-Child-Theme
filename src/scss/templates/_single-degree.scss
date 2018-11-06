@@ -26,8 +26,8 @@
   }
 
   @include media-breakpoint-up(md) {
-    margin-top: $spacer-y;
     margin-bottom: $spacer-y;
+    margin-top: $spacer-y;
   }
 
   @include media-breakpoint-only(lg) {
