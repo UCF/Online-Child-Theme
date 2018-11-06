@@ -1,0 +1,6 @@
+// Reduce display-4 font size slightly at -lg breakpoint
+.display-4 {
+  @include media-breakpoint-only(lg) {
+    font-size: 3.125rem;
+  }
+}

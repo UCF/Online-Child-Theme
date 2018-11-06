@@ -135,7 +135,7 @@ function online_get_degree_tuition_markup( $degree ) {
 				<?php endif; ?>
 			</ul>
 		</div>
-		<div class="card-block d-flex flex-column justify-content-center px-sm-4 px-md-2 px-lg-3 pt-4 tab-content" id="tuition-tabs">
+		<div class="card-block d-flex flex-column justify-content-center px-sm-4 px-md-2 px-xl-3 pt-4 tab-content" id="tuition-tabs">
 			<?php if ( $resident_tuition ): ?>
 			<div class="tab-pane fade show active" id="resident-tuition" role="tabpanel" aria-labelledby="resident-tuition-tab">
 				<?php echo $resident_tuition; ?>
@@ -166,6 +166,35 @@ function online_get_degree_tuition_markup( $degree ) {
 function online_get_degree_badges_markup( $degree ) {
 	ob_start();
 ?>
+
+
+<?php if ( have_rows( 'degree_awards', $degree->ID ) ): ?>
+	<div class="degree-badges">
+
+	<?php while ( have_rows( 'degree_awards', $degree->ID ) ) : the_row(); ?>
+		<?php
+		$img_obj = get_sub_field( 'degree_award_graphic' );
+		$details = get_sub_field( 'degree_award_details' );
+
+		if ( ! $img_obj ) { break; }
+
+		// Fallback details
+		$img_caption = $img_obj['caption'];
+		$img_desc    = $img_obj['description'];
+		$img_alt     = $img_obj['alt'];
+
+		$badge = $img_obj['sizes']['thumbnail'];
+		$alt   = $details ?: $img_caption ?: $img_desc ?: $img_alt;
+		?>
+		<div class="degree-badge-col">
+			<img src="<?php echo $badge; ?>" alt="<?php echo $alt; ?>" class="degree-badge">
+		</div>
+	<?php endwhile; ?>
+
+	</div>
+<?php endif; ?>
+
+
 <?php
 	return ob_get_clean();
 }

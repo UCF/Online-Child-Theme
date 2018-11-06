@@ -1,0 +1,41 @@
+.degree-badges {
+  @include make-row();
+  align-items: center;
+  display: flex;
+  flex: 1;
+  justify-content: center;
+}
+
+.degree-badge-col {
+  @include make-col-ready();
+  flex-basis: 0;
+  flex-grow: 1;
+  max-width: 200px;
+  text-align: center;
+
+  &:not(:only-child) {
+    max-width: 150px;
+
+    .degree-badge {
+      max-height: 150px;
+
+      @include media-breakpoint-only(lg) {
+        max-height: 100px;
+      }
+    }
+  }
+
+  @include media-breakpoint-up(md) {
+    margin-top: $spacer-y;
+    margin-bottom: $spacer-y;
+  }
+
+  @include media-breakpoint-only(lg) {
+    @include make-col(12);
+  }
+
+  .degree-badge {
+    max-height: 200px;
+    max-width: 100%;
+  }
+}
