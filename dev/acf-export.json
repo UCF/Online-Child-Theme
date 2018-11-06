@@ -1160,7 +1160,7 @@
                     {
                         "key": "field_5bdc5efdcd687",
                         "label": "Source - subtitle",
-                        "name": "degree_quote_source_title",
+                        "name": "degree_quote_source_subtitle",
                         "type": "text",
                         "instructions": "Specify a subtitle for the source of this quote (e.g. a student's major + graduating year.)",
                         "required": 0,
