@@ -27,7 +27,9 @@ function online_format_tuition_value( $tuition_str ) {
  * @return string HTML markup for a single degree's details, like college and program type
  */
 function online_get_degree_details_markup( $degree ) {
-	$degree = ucf_degree_append_meta( $degree );
+	if ( ! isset( $degree->taxonomies ) ) {
+		$degree = ucf_degree_append_meta( $degree );
+	}
 
 	// Program type data
 	$program_types = $degree->taxonomies['program_types'];
@@ -156,7 +158,7 @@ function online_get_degree_tuition_markup( $degree ) {
 
 
 /**
- * TODO Returns HTML markup for a single degree's badges and awards.
+ * Returns HTML markup for a single degree's badges and awards.
  *
  * @since 1.0.0
  * @author Jo Dickson
@@ -197,7 +199,7 @@ function online_get_degree_badges_markup( $degree ) {
 
 
 /**
- * TODO Returns HTML markup for a single degree's career paths list.
+ * Returns HTML markup for a single degree's career paths list.
  *
  * @since 1.0.0
  * @author Jo Dickson
@@ -205,9 +207,24 @@ function online_get_degree_badges_markup( $degree ) {
  * @return string HTML markup for a single degree's career paths list
  */
 function online_get_degree_career_paths_markup( $degree ) {
+	if ( ! isset( $degree->taxonomies ) ) {
+		$degree = ucf_degree_append_meta( $degree );
+	}
+
+	$career_paths = isset( $degree->taxonomies['career_paths'] ) ? $degree->taxonomies['career_paths'] : null;
+
 	ob_start();
+	if ( $career_paths ):
 ?>
+	<ul class="list-bullets mb-5 pl-0">
+		<?php foreach ( $career_paths as $term ): ?>
+		<li class="text-capitalize">
+			<?php echo $term->name; ?>
+		</li>
+		<?php endforeach; ?>
+	</ul>
 <?php
+	endif;
 	return ob_get_clean();
 }
 
