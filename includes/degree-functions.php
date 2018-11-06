@@ -165,10 +165,8 @@ function online_get_degree_tuition_markup( $degree ) {
  */
 function online_get_degree_badges_markup( $degree ) {
 	ob_start();
+	if ( have_rows( 'degree_awards', $degree->ID ) ):
 ?>
-
-
-<?php if ( have_rows( 'degree_awards', $degree->ID ) ): ?>
 	<div class="degree-badges">
 
 	<?php while ( have_rows( 'degree_awards', $degree->ID ) ) : the_row(); ?>
@@ -192,10 +190,8 @@ function online_get_degree_badges_markup( $degree ) {
 	<?php endwhile; ?>
 
 	</div>
-<?php endif; ?>
-
-
 <?php
+	endif;
 	return ob_get_clean();
 }
 
