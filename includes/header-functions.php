@@ -209,7 +209,7 @@ function online_get_header_content_default( $obj ) {
 					<<?php echo $title_elem; ?> class="mb-4"><?php echo $title; ?></<?php echo $title_elem; ?>>
 
 					<?php
-					$form_markup = online_get_header_form_markup();
+					$form_markup = online_get_header_form_markup( $obj );
 					if ( $form_markup ):
 					?>
 					<div class="row">
@@ -234,12 +234,33 @@ function online_get_header_content_default( $obj ) {
  *
  * @since 1.0.0
  * @author Jo Dickson
+ * @param object $obj A WP_Post or WP_Term object
  * @return string HTML for the header form
  */
-function online_get_header_form_markup() {
-	$form_id = online_get_theme_mod_or_default( 'default_header_form' );
-	ob_start();
+function online_get_header_form_markup( $obj ) {
+	$field_id            = ucfwp_get_object_field_id( $obj );
+	$form_id             = null;
+	$obj_custom_form_val = get_field( 'page_header_form_option', $field_id );
 
+	if ( $obj_custom_form_val !== 'none' ) {
+		// Retrieve a custom form ID first
+		if ( $obj_custom_form_val === 'custom' ) {
+			$form_id = get_field( 'page_header_form_custom', $field_id );
+		}
+
+		// If we can't retrieve a custom form ID, or if
+		// the page is configured to just use the default form,
+		// use the default
+		if (
+			( $obj_custom_form_val === 'custom' && ! $form_id )
+			|| $obj_custom_form_val === 'default'
+			|| ! $obj_custom_form_val
+		) {
+			$form_id = online_get_theme_mod_or_default( 'default_header_form' );
+		}
+	}
+
+	ob_start();
 	if ( $form_id && shortcode_exists( 'gravityform' ) ):
 ?>
 	<div class="header-form bg-inverse mb-3 p-3 p-md-4">

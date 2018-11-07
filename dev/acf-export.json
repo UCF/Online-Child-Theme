@@ -190,7 +190,7 @@
                     "class": "",
                     "id": ""
                 },
-                "return_format": "post_object",
+                "return_format": "id",
                 "allow_null": 0,
                 "multiple": 0
             },
