@@ -14,6 +14,15 @@
 function ucfwp_get_footer_markup() {
 	ob_start();
 
+	$subfooter_section = online_get_theme_mod_or_default( 'subfooter_section' );
+	if ( is_page() && $subfooter_section && shortcode_exists( 'ucf-section' ) ):
+?>
+	<div class="site-subfooter py-4 py-md-5">
+		<?php echo do_shortcode( '[ucf-section id="' . $subfooter_section . '"]' ); ?>
+	</div>
+<?php
+	endif;
+
 	if (
 		is_active_sidebar( 'footer-col-1' )
 		|| is_active_sidebar( 'footer-col-2' )

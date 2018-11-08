@@ -1,0 +1,112 @@
+// Reduce display-4 font size slightly at -lg breakpoint
+.display-4 {
+  @include media-breakpoint-only(lg) {
+    font-size: 3.125rem;
+  }
+}
+
+
+// Reduce font size of standard blockquotes
+@include font-family-blockquote-variant(
+  $blockquote-font-size,
+  $blockquote-font-size-md,
+  $blockquote-line-height
+);
+
+@include font-family-blockquote-variant(
+  $font-serif-blockquote-size,
+  $font-serif-blockquote-size-md,
+  $font-serif-blockquote-line-height,
+  '.font-serif'
+);
+
+@include font-family-blockquote-variant(
+  $font-slab-serif-blockquote-size,
+  $font-slab-serif-blockquote-size-md,
+  $font-slab-serif-blockquote-line-height,
+  '.font-slab-serif'
+);
+
+// Modify blockquote footer, cite styles
+.blockquote-footer {
+  font-size: .825rem;
+  font-style: normal;
+
+  @include media-breakpoint-up(md) {
+    font-size: .875rem;
+  }
+}
+
+// Modify quotation-styled blockquotes
+.blockquote-quotation,
+.blockquote-quotation-inverse {
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 0;
+  position: static;
+
+  @include media-breakpoint-up(md) {
+    padding-left: 0;
+  }
+
+  &::before {
+    border-radius: 50%;
+    content: '“';
+    display: block;
+    font-family: $blockquote-quotation-mark-font-family;
+    font-size: 3em;
+    height: .85em;
+    left: 0;
+    line-height: 1.3;
+    margin-bottom: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+    position: static;
+    text-align: center;
+    width: .85em;
+
+    @include media-breakpoint-up(md) {
+      top: 0;
+    }
+  }
+}
+
+.blockquote-quotation {
+  &::before {
+    background-color: $brand-primary;
+    color: $brand-secondary;
+  }
+}
+
+.blockquote-quotation-inverse {
+  &::before {
+    background-color: $brand-inverse;
+    color: $brand-primary;
+  }
+}
+
+
+// Custom colored bullet lists
+.list-bullets {
+  list-style-type: none;
+
+  li {
+    align-items: baseline;
+    display: flex;
+    flex-direction: row;
+    line-height: 1.4;
+    margin-bottom: .5rem;
+
+    &::before {
+      color: $brand-primary;
+      content: '•';
+      display: flex;
+      flex: 0 0 .75em;
+      font-family: Arial, sans-serif;
+      font-size: 1.55em;
+      line-height: 0;
+      position: relative;
+      top: .125em;
+    }
+  }
+}
