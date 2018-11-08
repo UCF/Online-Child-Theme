@@ -1,0 +1,55 @@
+.degree-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+  min-width: 100%;
+}
+
+.ucf-degree-list-title {
+  font-size: 2rem;
+  text-transform: uppercase;
+}
+
+.degree-list-program {
+  border-bottom: 1px solid $gray-lighter;
+  box-sizing: border-box;
+  display: table;
+  flex: 1 0 40%;
+  margin-bottom: 0;
+  padding: 0;
+  position: relative;
+  min-width: 100%;
+
+  @include media-breakpoint-up(md) {
+    margin-right: 10%;
+    min-width: 40%;
+  }
+
+  &:last-child {
+    border-bottom: 0;
+  }
+
+  a {
+    box-sizing: border-box;
+    color: #3d3d3d;
+    display: table;
+    font-size: 1.1rem;
+    margin-bottom: 0;
+    padding: 1.1rem;
+    min-width: 100%;
+
+    @include media-breakpoint-up(md) {
+      font-size: 1rem;
+    }
+
+    &:hover,
+    &:active,
+    &:focus {
+      background: $gray-lighter;
+      color: $brand-secondary;
+      text-decoration: none;
+    }
+  }
+}
