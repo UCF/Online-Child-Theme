@@ -213,7 +213,7 @@ function online_get_header_content_default( $obj ) {
 					if ( $form_markup ):
 					?>
 					<div class="row">
-						<div class="col-lg-6 offset-lg-6">
+						<div class="col-lg-7 offset-lg-5 col-xl-6 offset-xl-6">
 							<?php echo $form_markup; ?>
 						</div>
 					</div>
