@@ -47,7 +47,7 @@ function ucfwp_get_header_media_markup( $obj, $videos, $images ) {
 	$video_loop = get_field( 'page_header_video_loop', $field_id );
 	$header_text_color   = get_field( 'page_header_text_color', $field_id );
 	$header_content_type = get_field( 'page_header_content_type', $field_id );
-	$header_height       = get_field( 'page_header_height', $field_id );
+	$header_height       = get_field( 'page_header_height', $field_id ) ?: 'header-media-default'; // for imported, unmodified pages
 	$exclude_nav         = get_field( 'page_header_exclude_nav', $field_id );
 
 	// We modify the header's text color using bg utilities to make sure we
@@ -263,7 +263,7 @@ function online_get_header_form_markup( $obj ) {
 	ob_start();
 	if ( $form_id && shortcode_exists( 'gravityform' ) ):
 ?>
-	<div class="header-form bg-inverse mb-3 p-3 p-md-4">
+	<div class="header-form bg-inverse mb-4 mb-lg-5 p-3 p-md-4">
 		<?php echo do_shortcode( '[gravityform id="' . $form_id . '" title="true" description="true" ajax="true"]' ); ?>
 	</div>
 <?php
