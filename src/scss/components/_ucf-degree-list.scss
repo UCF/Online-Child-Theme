@@ -1,7 +1,9 @@
 .degree-list {
+  align-items: center;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  justify-content: space-between;
   list-style: none;
   padding: 0;
   min-width: 100%;
@@ -16,18 +18,19 @@
   border-bottom: 1px solid $gray-lighter;
   box-sizing: border-box;
   display: table;
-  flex: 1 0 40%;
+  flex: 1;
   margin-bottom: 0;
   padding: 0;
   position: relative;
   width: 100%;
 
-  @include media-breakpoint-up(md) {
-    margin-right: 10%;
-    width: 40%;
+  @include media-breakpoint-up(lg) {
+    width: 45%;
   }
 
-  &:last-child {
+  &:nth-last-child(1),
+  &:nth-last-child(2)
+   {
     border-bottom: 0;
   }
 
