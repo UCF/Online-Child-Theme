@@ -24,8 +24,12 @@
   position: relative;
   width: 100%;
 
+  @include media-breakpoint-up(xl) {
+    width: 500px;
+  }
+
   @include media-breakpoint-up(lg) {
-    width: 45%;
+    width: 418px;
   }
 
   &:nth-last-child(1),
