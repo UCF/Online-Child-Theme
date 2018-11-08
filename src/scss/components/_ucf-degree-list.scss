@@ -42,13 +42,13 @@
     box-sizing: border-box;
     color: #3d3d3d;
     display: table;
-    font-size: 1.1rem;
+    font-size: $font-size-base;
     margin-bottom: 0;
-    padding: 1.1rem;
+    padding: $font-size-base;
     min-width: 100%;
 
     @include media-breakpoint-up(md) {
-      font-size: 1rem;
+      font-size: $font-size-base-md;
     }
 
     &:hover,
