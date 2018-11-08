@@ -206,7 +206,7 @@ function online_get_header_content_default( $obj ) {
 		<div class="container">
 			<div class="row">
 				<div class="col-9 offset-3 col-md-8 offset-md-4">
-					<<?php echo $title_elem; ?> class="mb-4"><?php echo $title; ?></<?php echo $title_elem; ?>>
+					<<?php echo $title_elem; ?> class="header-title mb-4"><?php echo $title; ?></<?php echo $title_elem; ?>>
 
 					<?php
 					$form_markup = online_get_header_form_markup( $obj );
