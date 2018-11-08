@@ -1,6 +1,6 @@
 // Styles for Online's site-specific nav.  Overrides UCF WP Theme styles.
 // Selector depth required to match Bootstrap/Athena selectors
-// scss-lint:disable NestingDepth SelectorDepth
+// sass-lint:disable nesting-depth
 .navbar-custom {
   .navbar-collapse {
     @include media-breakpoint-down(md) {
@@ -75,5 +75,40 @@
 
   @include media-breakpoint-up(md) {
     font-size: $font-size-h1-md;
+  }
+}
+
+
+// Header forms
+.header-form {
+  .gform_title {
+    font-size: $font-size-h4;
+
+    @include media-breakpoint-up(md) {
+      font-size: $font-size-h4-md;
+    }
+  }
+
+  .gfield_label {
+    font-size: $font-size-xs;
+    text-transform: uppercase;
+  }
+
+  .gform_wrapper {
+    .gform_body {
+      margin-bottom: 1.25rem;
+      margin-top: 1.25rem;
+    }
+
+    .gform_footer {
+      margin-top: 1.25rem;;
+    }
+
+    .gform_button {
+      @include button-variant($btn-primary-color, $btn-primary-bg, $btn-primary-border);
+      @include button-variant-overrides($btn-primary-color, $btn-primary-bg, $btn-primary-border, $white);
+      display: block;
+      width: 100%;
+    }
   }
 }
