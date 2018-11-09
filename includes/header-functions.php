@@ -153,7 +153,7 @@ function online_nav_markup() {
 				if ( $navbar_cta_text ):
 				?>
 				<div class="pb-3 pb-lg-2 pt-lg-2 my-auto mx-3 mx-lg-0">
-					<button class="btn btn-complementary btn-block">
+					<button class="btn btn-complementary btn-block header-cta">
 						<?php echo $navbar_cta_text; ?>
 					</button>
 				</div>
