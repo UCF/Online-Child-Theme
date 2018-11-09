@@ -19,8 +19,13 @@
 // Project-specific styles and overrides
 //
 
+@import 'type';
+
 @import 'header';
 @import 'footer';
+
+// Custom template styles
+@import 'templates/single-degree';
 
 // Components
 @import 'components/ucf-social';
