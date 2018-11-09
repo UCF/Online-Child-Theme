@@ -47,7 +47,7 @@ function ucfwp_get_header_media_markup( $obj, $videos, $images ) {
 	$video_loop = get_field( 'page_header_video_loop', $field_id );
 	$header_text_color   = get_field( 'page_header_text_color', $field_id );
 	$header_content_type = get_field( 'page_header_content_type', $field_id );
-	$header_height       = get_field( 'page_header_height', $field_id );
+	$header_height       = get_field( 'page_header_height', $field_id ) ?: 'header-media-default'; // for imported, unmodified pages
 	$exclude_nav         = get_field( 'page_header_exclude_nav', $field_id );
 
 	// We modify the header's text color using bg utilities to make sure we
@@ -153,7 +153,7 @@ function online_nav_markup() {
 				if ( $navbar_cta_text ):
 				?>
 				<div class="pb-3 pb-lg-2 pt-lg-2 my-auto mx-3 mx-lg-0">
-					<button class="btn btn-complementary btn-block">
+					<button class="btn btn-complementary btn-block header-cta">
 						<?php echo $navbar_cta_text; ?>
 					</button>
 				</div>
@@ -206,14 +206,14 @@ function online_get_header_content_default( $obj ) {
 		<div class="container">
 			<div class="row">
 				<div class="col-9 offset-3 col-md-8 offset-md-4">
-					<<?php echo $title_elem; ?> class="mb-4"><?php echo $title; ?></<?php echo $title_elem; ?>>
+					<<?php echo $title_elem; ?> class="header-title mb-4"><?php echo $title; ?></<?php echo $title_elem; ?>>
 
 					<?php
 					$form_markup = online_get_header_form_markup( $obj );
 					if ( $form_markup ):
 					?>
 					<div class="row">
-						<div class="col-lg-6 offset-lg-6">
+						<div class="col-lg-7 offset-lg-5 col-xl-6 offset-xl-6">
 							<?php echo $form_markup; ?>
 						</div>
 					</div>
@@ -263,7 +263,7 @@ function online_get_header_form_markup( $obj ) {
 	ob_start();
 	if ( $form_id && shortcode_exists( 'gravityform' ) ):
 ?>
-	<div class="header-form bg-inverse mb-3 p-3 p-md-4">
+	<div class="header-form bg-inverse mb-4 mb-lg-5 p-3 p-md-4">
 		<?php echo do_shortcode( '[gravityform id="' . $form_id . '" title="true" description="true" ajax="true"]' ); ?>
 	</div>
 <?php
