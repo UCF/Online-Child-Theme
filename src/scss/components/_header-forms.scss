@@ -1,0 +1,109 @@
+// Styles for forms included in page headers
+// sass-lint:disable class-name-format
+.header-form {
+  .gform_title {
+    font-size: $font-size-h4;
+
+    @include media-breakpoint-up(md) {
+      font-size: $font-size-h4-md;
+    }
+  }
+
+  .gfield_label {
+    font-size: $font-size-xs;
+    text-transform: uppercase;
+  }
+
+  .gform_wrapper {
+    .gform_body {
+      margin-bottom: 1.25rem;
+      margin-top: 1.25rem;
+    }
+
+    .ginput_container {
+      .instruction {
+        font-size: .75rem;
+        margin-top: .25rem;
+      }
+    }
+
+    .gform_footer {
+      margin-top: 1.25rem;
+    }
+
+    .gform_button {
+      @include button-variant($btn-primary-color, $btn-primary-bg, $btn-primary-border);
+      @include button-variant-overrides($btn-primary-color, $btn-primary-bg, $btn-primary-border, $white);
+      display: block;
+      width: 100%;
+    }
+
+    .gfield_error {
+      position: relative;
+
+      .gfield_label,
+      .ginput_container_name label,
+      .ginput_container_address label,
+      .clear-multi label {
+        color: $brand-danger; // catch sublabels
+      }
+
+      .ginput_container {
+        // Prioritize validation messages outside of .ginput_container
+        // when more than one validation message is present
+        .validation_message {
+          display: none;
+        }
+      }
+
+      .validation_message {
+        background: transparentize($brand-danger, .25);
+        border-radius: $border-radius;
+        bottom: 0;
+        color: $brand-danger-color;
+        font-size: .7rem;
+        left: calc(-20vw - 2.5rem);
+        line-height: 1.2;
+        margin: 0;
+        max-width: calc(28vw - .5rem);
+        padding: .5rem;
+        position: absolute;
+
+        @include media-breakpoint-up(sm) {
+          left: calc(-40% - 1rem);
+          max-width: 140px;
+        }
+
+        @include media-breakpoint-up(md) {
+          left: calc(-39% - 1rem);
+        }
+
+        @include media-breakpoint-up(lg) {
+          left: calc(-53% - 1rem);
+        }
+
+        &::after {
+          border-color: transparent transparent transparent transparentize($brand-danger, .25);
+          border-style: solid;
+          border-width: 8px 0 8px 8px;
+          content: '';
+          display: block;
+          height: 0;
+          position: absolute;
+          right: -8px;
+          top: calc(50% - 8px);
+          width: 0;
+        }
+
+        // Make sure we only display one message at a time
+        + .validation_message {
+          display: none;
+        }
+      }
+    }
+  }
+
+  .validation_error {
+    @include sr-only();
+  }
+}
