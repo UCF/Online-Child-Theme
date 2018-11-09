@@ -31,6 +31,14 @@
       }
     }
   }
+
+  a:not(.btn):not(.ucf-degree-search-submit):not(.ucf-social-link) {
+    text-decoration: underline;
+
+    @include hover-focus {
+      color: darken($white, 25%);
+    }
+  }
 }
 
 .site-footer-menu {
