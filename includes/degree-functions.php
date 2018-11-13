@@ -303,3 +303,51 @@ function online_get_degree_video_markup( $degree ) {
 	endif;
 	return ob_get_clean();
 }
+
+/**
+ * Returns the markup for the ucf-degree-typeahead
+ * @author Jim Barnes
+ * @since 1.0.0
+ * @return string
+ */
+function online_get_degree_typeahead_markup() {
+	if ( class_exists( 'UCF_Degree_Search_Common' ) ) {
+		global $post;
+
+		$college      = get_field( 'degree_search_college_filter', $post->ID );
+		$program_type = get_field( 'degree_search_program_type_filter', $post->ID );
+		$interest     = get_field( 'degree_search_interest_filter', $post->ID );
+		$placeholder  = get_field( 'degree_search_placeholder', $post->ID );
+
+		$atts = array();
+
+		if ( $college ) $atts['colleges'] = $college->slug;
+		if ( $program_type ) $atts['program_types'] = $program_type->slug;
+		if ( $interest ) $atts['interest'] = $interest->slug;
+
+		$query_params = '?' . http_build_query( $atts );
+
+		$query_params .= ( $query_params === '?' ) ? 'search=%q' : '&search=%q';
+
+		$retval = '';
+
+		ob_start();
+	?>
+		<div class="bg-inverse">
+			<div class="container py-4">
+				<div class="row py-lg-1">
+					<div class="col-12 col-lg-auto mb-3 mb-lg-0 align-self-lg-center">
+					<h2 class="h6 text-uppercase letter-spacing-3 mb-0"><span class="fa fa-search fa-2x text-primary mr-2" style="vertical-align: sub;"></span> Search for a Degree</h2>
+					</div>
+					<div class="col-12 col-lg">
+						<?php echo do_shortcode( '[ucf-degree-search placeholder="' . $placeholder . '" form_action="" query_params="' . $query_params . '"]' ); ?>
+					</div>
+				</div>
+			</div>
+		</div>
+	<?php
+		$retval = ob_get_clean();
+	}
+
+	return $retval;
+}
