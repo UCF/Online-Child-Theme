@@ -1,5 +1,3 @@
-$site-footer-bg: #44494c;
-
 // Blockquote font size overrides
 $blockquote-font-size: 1rem;
 $blockquote-font-size-md: 1.4rem;
@@ -18,7 +16,7 @@ $blockquote-quotation-mark-font-family: 'Chronicle Text G3 A', 'Chronicle Text G
 // UCF Social style variables
 $ucf-social-grey-bg-color: #b7b8be;
 $ucf-social-grey-bg-color-hover: lighten($ucf-social-grey-bg-color, 15%);
-$ucf-social-grey-color: $site-footer-bg;
+$ucf-social-grey-color: #404040;
 $ucf-social-grey-color-hover: #fff;
 
 // UCF Post List style variables
