@@ -317,6 +317,7 @@ function online_get_typeahead_markup() {
 		$college      = get_field( 'degree_search_college_filter', $post->ID );
 		$program_type = get_field( 'degree_search_program_type_filter', $post->ID );
 		$interest     = get_field( 'degree_search_interest_filter', $post->ID );
+		$placeholder  = get_field( 'degree_search_placeholder', $post->ID );
 
 		$atts = array();
 
@@ -339,7 +340,7 @@ function online_get_typeahead_markup() {
 					<h2 class="h6 text-uppercase letter-spacing-3 mb-0"><span class="fa fa-search fa-2x text-primary mr-2" style="vertical-align: sub;"></span> Search for a Degree</h2>
 					</div>
 					<div class="col-12 col-lg">
-						<?php echo do_shortcode( '[ucf-degree-search placeholder="e.g. Healthcare informatics" form_action="" query_params="' . $query_params . '"]' ); ?>
+						<?php echo do_shortcode( '[ucf-degree-search placeholder="' . $placeholder . '" form_action="" query_params="' . $query_params . '"]' ); ?>
 					</div>
 				</div>
 			</div>
