@@ -1,11 +1,8 @@
 .site-footer {
-  background-color: $site-footer-bg;
-  color: $white;
-
   hr {
     // Allow Athena's hr color overrides to still take effect
     &:not(.hr-black):not(.hr-white):not(.hr-primary) {
-      border-color: lighten($site-footer-bg, 10%);
+      border-color: transparentize($white, .875);
     }
   }
 
