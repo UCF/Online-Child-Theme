@@ -71,7 +71,7 @@ $has_sidebar     = ( $career_paths || $quotes || $video );
 				<?php if ( $career_paths ): ?>
 				<section>
 					<h2 class="h5 mb-3">
-						<span class="badge badge-default p-4">Career Opportunities</span>
+						<span class="badge badge-inverse bg-inverse-t-3 p-4">Career Opportunities</span>
 					</h2>
 					<?php echo $career_paths; ?>
 				</section>

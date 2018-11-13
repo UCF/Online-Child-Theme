@@ -30,7 +30,7 @@ function ucfwp_get_footer_markup() {
 		|| is_active_sidebar( 'footer-col-4' )
 	):
 ?>
-	<footer class="site-footer pt-4 py-md-5">
+	<footer class="site-footer bg-inverse-t-3 pt-4 py-md-5">
 		<div class="container mt-4">
 			<div class="row">
 
