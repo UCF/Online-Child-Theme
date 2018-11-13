@@ -311,25 +311,25 @@ function online_get_degree_video_markup( $degree ) {
  * @return string
  */
 function online_get_typeahead_markup() {
-	global $post;
-
-	$college      = get_field( 'degree_search_college_filter', $post->ID );
-	$program_type = get_field( 'degree_search_program_type_filter', $post->ID );
-	$interest     = get_field( 'degree_search_interest_filter', $post->ID );
-
-	$atts = array();
-
-	if ( $college ) $atts['colleges'] = $college->slug;
-	if ( $program_type ) $atts['program_types'] = $program_type->slug;
-	if ( $interest ) $atts['interest'] = $interest->slug;
-
-	$query_params = '?' . http_build_query( $atts );
-
-	$query_params .= ( $query_params === '?' ) ? 'search=%q' : '&search=%q';
-
-	$retval = '';
-
 	if ( class_exists( 'UCF_Degree_Search_Common' ) ) {
+		global $post;
+
+		$college      = get_field( 'degree_search_college_filter', $post->ID );
+		$program_type = get_field( 'degree_search_program_type_filter', $post->ID );
+		$interest     = get_field( 'degree_search_interest_filter', $post->ID );
+
+		$atts = array();
+
+		if ( $college ) $atts['colleges'] = $college->slug;
+		if ( $program_type ) $atts['program_types'] = $program_type->slug;
+		if ( $interest ) $atts['interest'] = $interest->slug;
+
+		$query_params = '?' . http_build_query( $atts );
+
+		$query_params .= ( $query_params === '?' ) ? 'search=%q' : '&search=%q';
+
+		$retval = '';
+
 		ob_start();
 	?>
 		<div class="bg-inverse">
