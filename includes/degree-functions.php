@@ -310,7 +310,7 @@ function online_get_degree_video_markup( $degree ) {
  * @since 1.0.0
  * @return string
  */
-function online_get_typeahead_markup() {
+function online_get_degree_typeahead_markup() {
 	if ( class_exists( 'UCF_Degree_Search_Common' ) ) {
 		global $post;
 

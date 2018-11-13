@@ -91,7 +91,7 @@
                 "label": "Degree Search Interest Filter",
                 "name": "degree_search_interest_filter",
                 "type": "taxonomy",
-                "instructions": "Choose the interest to use for filtering degree search results. Leave blank if this is not a interest vertical page.",
+                "instructions": "Choose the interest to use for filtering degree search results. Leave blank if this is not an interest vertical page.",
                 "required": 0,
                 "conditional_logic": 0,
                 "wrapper": {
