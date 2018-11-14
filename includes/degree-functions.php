@@ -362,6 +362,10 @@ function online_get_popular_programs() {
 		$program_type = get_field( 'vertical_program_type_filter', $post->ID );
 		$interest     = get_field( 'vertical_interest_filter', $post->ID );
 
+		$heading_text = get_field( 'popular_programs_text', $post->ID );
+
+		$heading_text = isset( $heading_text ) ? $heading_text : 'Popular Online Programs';
+
 		$args = array(
 			'post_type'      => 'degree',
 			'posts_per_page' => 3,
@@ -391,7 +395,7 @@ function online_get_popular_programs() {
 			<div class="container py-4">
 				<div class="row">
 					<div class="col-lg-3">
-						<h2 class="text-uppercase font-condensed">Popular Online Programs</h2>
+						<h2 class="text-uppercase font-condensed"><?php echo $heading_text; ?></h2>
 					</div>
 					<div class="col-lg-9">
 						<?php echo sc_ucf_post_list( $args ); ?>
