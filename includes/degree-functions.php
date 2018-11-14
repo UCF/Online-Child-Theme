@@ -395,7 +395,7 @@ function online_get_popular_programs() {
 			<div class="container py-4">
 				<div class="row">
 					<div class="col-lg-3">
-						<h2 class="text-uppercase font-condensed"><?php echo $heading_text; ?></h2>
+						<h2 class="text-uppercase font-condensed mb-4 mb-md-2"><?php echo $heading_text; ?></h2>
 					</div>
 					<div class="col-lg-9">
 						<?php echo sc_ucf_post_list( $args ); ?>
