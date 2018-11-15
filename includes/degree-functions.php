@@ -314,9 +314,9 @@ function online_get_degree_typeahead_markup() {
 	if ( class_exists( 'UCF_Degree_Search_Common' ) ) {
 		global $post;
 
-		$college      = get_field( 'degree_search_college_filter', $post->ID );
-		$program_type = get_field( 'degree_search_program_type_filter', $post->ID );
-		$interest     = get_field( 'degree_search_interest_filter', $post->ID );
+		$college      = get_field( 'vertical_college_filter', $post->ID );
+		$program_type = get_field( 'vertical_program_type_filter', $post->ID );
+		$interest     = get_field( 'vertical_interest_filter', $post->ID );
 		$placeholder  = get_field( 'degree_search_placeholder', $post->ID );
 
 		$atts = array();
@@ -347,6 +347,70 @@ function online_get_degree_typeahead_markup() {
 		</div>
 	<?php
 		$retval = ob_get_clean();
+	}
+
+	return $retval;
+}
+
+/**
+ * Returns the markup for the the popular-programs section on vertical pages.
+ * @author Jim Barnes
+ * @since 1.0.0
+ * @return string
+ */
+function online_get_popular_programs_markup() {
+	$retval = '';
+
+	if ( function_exists( 'sc_ucf_post_list' ) ) {
+
+		$college      = get_field( 'vertical_college_filter', $post->ID );
+		$program_type = get_field( 'vertical_program_type_filter', $post->ID );
+		$interest     = get_field( 'vertical_interest_filter', $post->ID );
+
+		$heading_text = get_field( 'popular_programs_text', $post->ID );
+
+		$heading_text = isset( $heading_text ) ? $heading_text : 'Popular Online Programs';
+
+		$args = array(
+			'post_type'      => 'degree',
+			'posts_per_page' => 3,
+			'posts_per_row'  => 3,
+			'layout'         => 'thumbnail',
+			'tag'            => 'popular'
+		);
+
+		if ( $college ) {
+			$args['tax_colleges'] = $college->slug;
+			$args['tax_colleges__field'] = 'slug';
+		}
+
+		if ( $program_type ) {
+			$args['tax_program_types'] = $program_type->slug;
+			$args['tax_program_types__field'] = 'slug';
+		}
+
+		if ( $interest ) {
+			$args['tax_interest'] = $interest->slug;
+			$args['tax_interests__field'] = 'slug';
+		}
+
+		ob_start();
+	?>
+		<div class="bg-inverse">
+			<div class="container py-4">
+				<div class="row">
+					<div class="col-lg-3">
+						<h2 class="text-uppercase font-condensed mb-4 mb-md-2"><?php echo $heading_text; ?></h2>
+					</div>
+					<div class="col-lg-9">
+						<?php echo sc_ucf_post_list( $args ); ?>
+					</div>
+				</div>
+			</div>
+		</div>
+	<?php
+		$retval = ob_get_clean();
+
 	}
 
 	return $retval;
