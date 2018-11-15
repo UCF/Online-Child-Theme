@@ -352,7 +352,12 @@ function online_get_degree_typeahead_markup() {
 	return $retval;
 }
 
-
+/**
+ * Returns the markup for the the popular-programs section on vertical pages.
+ * @author Jim Barnes
+ * @since 1.0.0
+ * @return string
+ */
 function online_get_popular_programs_markup() {
 	$retval = '';
 
