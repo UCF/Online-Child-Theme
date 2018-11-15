@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Vertical
+ * Template Name: Simple Vertical
  * Template Post Type: page, post
  */
 ?>
