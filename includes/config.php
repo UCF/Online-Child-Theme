@@ -10,14 +10,15 @@ define( 'ONLINE_THEME_JS_URL', ONLINE_THEME_STATIC_URL . '/js' );
 define( 'ONLINE_THEME_IMG_URL', ONLINE_THEME_STATIC_URL . '/img' );
 define( 'ONLINE_THEME_CUSTOMIZER_PREFIX', 'online_' );
 define( 'ONLINE_THEME_CUSTOMIZER_DEFAULTS', serialize( array(
-	'site_navbar_cta_text' => 'Get Started'
+	'site_navbar_cta_text'     => 'Get Started',
+	'degree_catalog_thumbnail' => ONLINE_THEME_IMG_URL . '/degree-catalog-thumb.jpg'
 ) ) );
 define( 'ONLINE_DEGREE_PROGRAM_ORDER', serialize( array(
 	'online-major',
 	'online-master',
 	'online-doctorate',
 	'online-certificate'
-) ) ); // TODO make a customizer option?
+) ) );
 
 
 /**
@@ -120,6 +121,14 @@ function online_define_customizer_sections( $wp_customize ) {
 			'title' => 'Forms'
 		)
 	);
+
+	// Add section for degree-specific settings
+	$wp_customize->add_section(
+		ONLINE_THEME_CUSTOMIZER_PREFIX . 'degrees',
+		array(
+			'title' => 'Degrees'
+		)
+	);
 }
 
 add_action( 'customize_register', 'online_define_customizer_sections', 11 );
@@ -185,6 +194,27 @@ function online_define_customizer_fields( $wp_customize ) {
 			'section'     => ONLINE_THEME_CUSTOMIZER_PREFIX . 'forms',
 			'choices'     => online_get_gf_choices()
 		)
+	);
+
+
+	// Degrees
+	$wp_customize->add_setting(
+		'degree_catalog_thumbnail',
+		array(
+			'default' => online_get_theme_mod_default( 'degree_catalog_thumbnail' )
+		)
+	);
+
+	$wp_customize->add_control(
+		new WP_Customize_Image_Control(
+           $wp_customize,
+           'degree_catalog_thumbnail',
+           array(
+			   'label'       => 'Degree Catalog Thumbnail',
+			   'description' => 'The thumbnail to display on degree information request confirmation pages.',
+			   'section'     => ONLINE_THEME_CUSTOMIZER_PREFIX . 'degrees'
+           )
+       )
 	);
 }
 
