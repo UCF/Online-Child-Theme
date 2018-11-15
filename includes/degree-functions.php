@@ -351,3 +351,40 @@ function online_get_typeahead_markup() {
 
 	return $retval;
 }
+
+
+/**
+ * Modifies the sort order of grouped degree lists.
+ *
+ * Adapted from Online-Theme
+ *
+ * @author Jo Dickson
+ * @since 1.0.0
+ * @param array $items An array of grouped post data processed by the [degree-list] shortcode callback
+ * @return array Modified array of post data
+ */
+function online_degree_list_sort_grouped_degrees( $items ) {
+	$slugs = unserialize( ONLINE_DEGREE_PROGRAM_ORDER );
+	$items_sorted = array();
+
+	foreach ( $slugs as $slug ) {
+		$term = get_term_by( 'slug', $slug, 'program_types' );
+		if ( $term ) {
+			$items_sorted[$term->name] = array();
+		}
+	}
+
+	// Insert items in the desired order into $items_sorted.
+	// Program types not specified in $slugs should be added to the end
+	// of the sorted list.
+	foreach ( $items as $item ) {
+		$items_sorted[$item['term']['name']] = $item;
+	}
+
+	// Remove any empty sorted items
+	$items_sorted = array_filter( $items_sorted );
+
+	return $items_sorted;
+}
+
+add_filter( 'ucf_degree_list_sort_grouped_degrees', 'online_degree_list_sort_grouped_degrees', 10, 1 );
