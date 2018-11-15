@@ -12,6 +12,12 @@ define( 'ONLINE_THEME_CUSTOMIZER_PREFIX', 'online_' );
 define( 'ONLINE_THEME_CUSTOMIZER_DEFAULTS', serialize( array(
 	'site_navbar_cta_text' => 'Get Started'
 ) ) );
+define( 'ONLINE_DEGREE_PROGRAM_ORDER', serialize( array(
+	'online-major',
+	'online-master',
+	'online-doctorate',
+	'online-certificate'
+) ) ); // TODO make a customizer option?
 
 
 /**
