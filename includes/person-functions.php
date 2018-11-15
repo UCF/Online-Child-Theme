@@ -50,6 +50,157 @@ function online_get_person_degrees_markup( $post ) {
 
 
 /**
+ * Displays contact buttons for a person. For use on single-person.php
+ *
+ * @author Jo Dickson
+ * @since 1.0.0
+ * @param $post object | Person post object
+ * @return Mixed | Grid and contact btn HTML or void
+ **/
+function online_get_person_contact_btns_markup( $post ) {
+	if ( $post->post_type !== 'person' ) { return; }
+
+	$email      = get_field( 'person_email', $post->ID );
+	$has_phones = have_rows( 'person_phone_numbers', $post->ID );
+	$phones     = get_field( 'person_phone_numbers', $post->ID );
+
+	ob_start();
+	if ( $email || $phones ):
+?>
+	<div class="row my-5">
+		<?php if ( $email ): ?>
+		<div class="col-md-6 offset-md-0 my-1 email-button-container">
+			<a href="mailto:<?php echo $email; ?>" class="btn btn-primary btn-block contact-button">Email</a>
+		</div>
+		<?php endif; ?>
+		<?php if ( $has_phones ): ?>
+		<div class="col-md-6 offset-md-0 my-1">
+			<a href="tel:<?php echo preg_replace( "/\D/", '', $phones[0]['number'] ); ?>" class="btn btn-primary btn-block contact-button">Phone</a>
+		</div>
+		<?php endif; ?>
+	</div>
+<?php
+	endif;
+	return ob_get_clean();
+}
+
+
+/**
+ * Display's a person's office location in a condensed table-like format.
+ * For use on single-person.php
+ *
+ * @author Jo Dickson
+ * @since 1.0.0
+ * @param $post object | Person post object
+ * @return Mixed | Grid and contact info HTML or void
+ **/
+function online_get_person_office_markup( $post ) {
+	if ( $post->post_type !== 'person' ) { return; }
+
+	ob_start();
+	if ( $room = get_field( 'person_room', $post->ID ) ):
+?>
+	<div class="row">
+		<div class="col-sm-4 col-md-5 person-label">
+			Office
+		</div>
+		<div class="col-sm-8 col-md-7 person-attr">
+			<?php if ( $room_url = get_field( 'person_room_url', $post->ID ) ): ?>
+			<a href="<?php echo $room_url; ?>">
+				<?php echo $room; ?>
+			</a>
+			<?php else: ?>
+			<span>
+				<?php echo $room; ?>
+			</span>
+			<?php endif; ?>
+		</div>
+	</div>
+	<hr class="my-2">
+<?php
+	endif;
+	return ob_get_clean();
+}
+
+
+/**
+ * Display's a person's email in a condensed table-like format.
+ * For use on single-person.php
+ *
+ * @author Jo Dickson
+ * @since 1.0.0
+ * @param $post object | Person post object
+ * @return Mixed | Grid and contact info HTML or void
+ **/
+function online_get_person_email_markup( $post ) {
+	if ( $post->post_type !== 'person' ) { return; }
+
+	ob_start();
+	if ( $email = get_field( 'person_email', $post->ID ) ):
+?>
+	<div class="row">
+		<div class="col-sm-4 col-md-5 person-label">
+			E-mail
+		</div>
+		<div class="col-sm-8 col-md-7 person-attr">
+			<a href="mailto:<?php echo $email; ?>" class="person-email">
+				<?php echo $email; ?>
+			</a>
+		</div>
+	</div>
+	<hr class="my-2">
+<?php
+	endif;
+	return ob_get_clean();
+}
+
+
+/**
+ * Display's a person's phone numbers in a condensed table-like format.
+ * For use on single-person.php
+ *
+ * @author Jo Dickson
+ * @since 1.0.0
+ * @param $post object | Person post object
+ * @return Mixed | Grid and contact info HTML or void
+ **/
+function online_get_person_phones_markup( $post ) {
+	if ( $post->post_type !== 'person' ) { return; }
+
+	ob_start();
+	if ( have_rows( 'person_phone_numbers', $post->ID ) ):
+?>
+	<div class="row">
+		<div class="col-sm-4 col-md-5 person-label">
+			Phone
+		</div>
+		<div class="col-sm-8 col-md-7 person-attr">
+			<ul class="list-unstyled mb-0">
+			<?php
+			while ( have_rows( 'person_phone_numbers', $post->ID ) ): the_row();
+				$phone = get_sub_field( 'number' );
+				if ( $phone ):
+			?>
+				<li>
+					<a href="tel:<?php echo preg_replace( "/\D/", '', $phone ); ?>" class="person-tel">
+						<?php echo $phone; ?>
+					</a>
+				</li>
+			<?php
+				endif;
+			endwhile;
+			?>
+			</ul>
+		</div>
+	</div>
+	<hr class="my-2">
+<?php
+	endif;
+	return ob_get_clean();
+}
+
+
+/**
  * Add custom profile people list layout for UCF Post List shortcode
  *
  * @since 1.0.0

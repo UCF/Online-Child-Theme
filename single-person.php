@@ -1,8 +1,8 @@
 <?php get_header(); the_post(); ?>
 
 <?php
-$subnav    = get_vertical_subnav( $post ); // TODO
-$subfooter = get_vertical_subfooter( $post ); // TODO
+$subnav    = online_get_vertical_subnav( $post );
+$subfooter = online_get_vertical_subfooter( $post );
 ?>
 
 <?php if ( $subnav ) { echo $subnav; } ?>
@@ -27,6 +27,12 @@ $subfooter = get_vertical_subfooter( $post ); // TODO
 					<?php endif; ?>
 
 					<?php echo online_get_person_degrees_markup( $post ); ?>
+
+					<?php echo online_get_person_contact_btns_markup( $post ); ?>
+
+					<?php echo online_get_person_office_markup( $post ); ?>
+					<?php echo online_get_person_email_markup( $post ); ?>
+					<?php echo online_get_person_phones_markup( $post ); ?>
 
 				</aside>
 
