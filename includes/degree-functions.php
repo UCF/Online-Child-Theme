@@ -353,7 +353,7 @@ function online_get_degree_typeahead_markup() {
 }
 
 
-function online_get_popular_programs() {
+function online_get_popular_programs_markup() {
 	$retval = '';
 
 	if ( function_exists( 'sc_ucf_post_list' ) ) {
