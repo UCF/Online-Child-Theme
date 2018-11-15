@@ -27,6 +27,12 @@ define( 'ONLINE_DEGREE_PROGRAM_ORDER', serialize( array(
  * @since 1.0.0
  */
 function online_init() {
+	// Register custom image sizes
+	add_image_size( '16x9-xs', 320, 129, true );
+	add_image_size( '16x9-sm', 767, 431, true );
+	add_image_size( '16x9-md', 970, 546, true );
+	add_image_size( '16x9-lg', 1200, 675, true );
+
 	// Register custom footer menu for this theme
 	register_nav_menu( 'footer-menu', __( 'Footer Menu' ) );
 
@@ -200,3 +206,26 @@ function online_acf_text_toolbar( $toolbars ) {
 	return $toolbars;
 }
 add_filter( 'acf/fields/wysiwyg/toolbars', 'online_acf_text_toolbar' );
+
+
+/**
+ * Modify settings for supported plugins to prevent duplicate registration and
+ * enqueuing of assets.
+ */
+
+function online_post_list_js_deps( $deps ) {
+	return array( 'jquery', 'typeaheadjs', 'handlebars' );
+}
+
+add_filter( 'ucf_post_list_js_deps', 'online_post_list_js_deps', 10, 1 );
+
+
+if ( filter_var( get_option( 'ucf_post_list_include_js_libs' ), FILTER_VALIDATE_BOOLEAN ) !== false ) {
+	update_option( 'ucf_post_list_include_js_libs', false );
+}
+if ( filter_var( get_option( 'ucf_post_list_include_js' ), FILTER_VALIDATE_BOOLEAN ) !== true ) {
+	update_option( 'ucf_post_list_include_js', true );
+}
+if ( filter_var( get_option( 'ucf_degree_search_include_typeahead' ), FILTER_VALIDATE_BOOLEAN ) !== false ) {
+	update_option( 'ucf_degree_search_include_typeahead', false );
+}
