@@ -20,3 +20,8 @@ if ( class_exists( 'UCF_Post_List_Common' ) ) {
 if ( class_exists( 'UCF_Degree_Search_Common' ) ) {
 	include_once 'includes/degree-search-functions.php';
 }
+
+if ( class_exists( 'UCF_People_PostType' ) ) {
+	include_once 'includes/person-functions.php';
+}
+
