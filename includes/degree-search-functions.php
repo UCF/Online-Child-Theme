@@ -41,6 +41,8 @@ if ( ! function_exists( 'ucf_degree_picker_inline_layout' ) ) {
  * Adds a degree's thumbnail image next to its name in degree search
  * autosuggestions.
  *
+ * Adapted from Online-Theme
+ *
  * @since 1.0.0
  * @return string
  */
@@ -59,6 +61,8 @@ add_filter( 'ucf_degree_search_suggestion', 'online_degree_search_suggestion', 1
 
 /**
  * Modifies the footer of the degree search autosuggestion box.
+ *
+ * Adapted from Online-Theme
  *
  * @since 1.0.0
  * @return string

@@ -83,6 +83,8 @@ add_filter( 'ucf_post_list_display_thumbnail', 'online_post_list_display_thumbna
  * Helper function that returns an <img> tag for this theme's modified
  * post list card layout.
  *
+ * Adapted from Online-Theme
+ *
  * @param object $item WP Post object
  * @param string $size a registered attachment thumbnail size
  * @return string
@@ -122,6 +124,8 @@ function online_get_post_list_card_img( $item, $size='16x9-lg' ) {
 
 /**
  * Modify UCF Post List card layout for this theme.
+ *
+ * Adapted from Online-Theme
  *
  * @author Jo Dickson
  * @since 1.0.0

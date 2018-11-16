@@ -19,6 +19,8 @@ add_action( 'wp_enqueue_scripts', 'online_enqueue_frontend_assets', 11, 0 );
 /**
  * Modify settings for supported plugins to prevent duplicate registration and
  * enqueuing of assets.
+ *
+ * Adapted from Online-Theme
  */
 
 function online_post_list_js_deps( $deps ) {

@@ -3,6 +3,8 @@
 /**
  * Returns a vertical ID related to the given post object.
  *
+ * Adapted from Online-Theme
+ *
  * @param object $post WP Post object
  * @return mixed Vertical page ID, or false on failure
  *
@@ -25,6 +27,8 @@ function online_get_post_vertical_id( $post ) {
 
 /**
  * Returns a subnav navbar for a vertical page or its child content.
+ *
+ * Adapted from Online-Theme
  *
  * @param object $post WP Post object
  * @return string subnav navbar markup
@@ -78,6 +82,8 @@ function online_get_vertical_subnav( $post ) {
 
 /**
  * Returns a subfooter for a vertical page or its child content.
+ *
+ * Adapted from Online-Theme
  *
  * @param object $post WP Post object
  * @return string subfooter markup
@@ -143,6 +149,8 @@ function online_get_vertical_subfooter( $post ) {
  * Updates the Vertical Children Fields > Related Vertical ACF field's
  * available options to only include pages with the 'Vertical' template
  *
+ * Adapted from Online-Theme
+ *
  * @author Jo Dickson
  * @since 1.0.0
  */
@@ -170,6 +178,8 @@ add_filter( 'acf/fields/post_object/query/name=post_vertical', 'online_related_v
  *
  * People with no vertical should use a normal permalink structure, e.g.
  * "www.ucf.edu/online/person/person-slug/"
+ *
+ * Adapted from Online-Theme
  *
  * @author Jo Dickson
  * @since 1.0.0
@@ -202,6 +212,8 @@ add_filter( 'post_type_link', 'online_vertical_person_replace_link', 1, 2 );
  * Posts with no vertical should use a normal permalink structure, e.g.
  * "www.ucf.edu/online/post-slug/"
  *
+ * Adapted from Online-Theme
+ *
  * @author Jo Dickson
  * @since 1.0.0
  */
@@ -225,6 +237,8 @@ add_filter( 'post_link', 'online_vertical_post_replace_link', 1, 2 );
 
 /**
  * Adds permalink rewrite rules for all verticals' related people and posts.
+ *
+ * Adapted from Online-Theme
  *
  * @see online_vertical_post_replace_link()
  * @see online_vertical_person_replace_link()

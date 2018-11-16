@@ -3,6 +3,8 @@
 /**
  * Displays related degrees for a person. For use on single-person.php
  *
+ * Adapted from Online-Theme
+ *
  * @author Jo Dickson
  * @since 1.0.0
  * @param $post object | Person post object
@@ -52,6 +54,8 @@ function online_get_person_degrees_markup( $post ) {
 /**
  * Displays contact buttons for a person. For use on single-person.php
  *
+ * Adapted from Online-Theme
+ *
  * @author Jo Dickson
  * @since 1.0.0
  * @param $post object | Person post object
@@ -88,6 +92,8 @@ function online_get_person_contact_btns_markup( $post ) {
 /**
  * Display's a person's office location in a condensed table-like format.
  * For use on single-person.php
+ *
+ * Adapted from Online-Theme
  *
  * @author Jo Dickson
  * @since 1.0.0
@@ -127,6 +133,8 @@ function online_get_person_office_markup( $post ) {
  * Display's a person's email in a condensed table-like format.
  * For use on single-person.php
  *
+ * Adapted from Online-Theme
+ *
  * @author Jo Dickson
  * @since 1.0.0
  * @param $post object | Person post object
@@ -158,6 +166,8 @@ function online_get_person_email_markup( $post ) {
 /**
  * Display's a person's phone numbers in a condensed table-like format.
  * For use on single-person.php
+ *
+ * Adapted from Online-Theme
  *
  * @author Jo Dickson
  * @since 1.0.0
@@ -202,6 +212,8 @@ function online_get_person_phones_markup( $post ) {
 
 /**
  * Add custom profile people list layout for UCF Post List shortcode
+ *
+ * Adapted from Online-Theme
  *
  * @since 1.0.0
  */
@@ -294,6 +306,8 @@ add_filter( 'ucf_post_list_display_person_profile', 'online_post_list_display_pe
 /**
  * Add custom blockquote people list layout for UCF Post List shortcode
  *
+ * Adapted from Online-Theme
+ *
  * @since 1.0.0
  */
 
@@ -361,6 +375,8 @@ add_filter( 'ucf_post_list_display_person_quote', 'online_post_list_display_pers
 /**
  * Modifies searchable values for each person in a 'people' post list search.
  *
+ * Adapted from Online-Theme
+ *
  * @since 1.0.0
  **/
 
@@ -422,6 +438,8 @@ add_filter( 'ucf_post_list_search_localdata', 'online_search_people_localdata', 
 
 /**
  * Modifies templates for the 'people' post list layout typeahead results.
+ *
+ * Adapted from Online-Theme
  *
  * @since 1.0.0
  **/
