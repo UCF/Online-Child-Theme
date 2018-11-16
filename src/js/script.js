@@ -9,5 +9,5 @@
 // Project-specific scripts
 //
 
-// Require your theme's custom script files here
-// ...
+// =require video-tracking.js
+// =require degree-search.js
