@@ -122,6 +122,13 @@ function ucfwp_get_header_media_markup( $obj, $videos, $images ) {
  * @return void
  **/
 function online_nav_markup() {
+	global $post;
+
+	if ( $post->post_type === 'landing-page' ) {
+		echo online_landing_page_header_bar_markup();
+		return;
+	}
+
 	$title_elem = ( is_home() || is_front_page() ) ? 'h1' : 'span';
 
 	ob_start();
@@ -167,6 +174,27 @@ function online_nav_markup() {
 
 add_action( 'after_body_open', 'online_nav_markup', 10, 0 );
 
+function online_landing_page_header_bar_markup() {
+	global $post;
+	$title = $post->post_title;
+
+	ob_start();
+?>
+	<div class="bg-inverse">
+		<div class="container">
+			<div class="row align-items-center justify-content-between">
+				<?php if ( $title ) : ?>
+					<h1 class="col h3 mb-0"><?php echo $title; ?></h1>
+				<?php endif; ?>
+				<div class="col-1">
+					<img src="<?php echo ONLINE_THEME_IMG_URL . '/ucf-tab.jpg'; ?>" alt="University of Central Florida">
+				</div>
+			</div>
+		</div>
+	</div>
+<?php
+	return ob_get_clean();
+}
 
 /**
  * Returns formatted text to display within the site navbar's

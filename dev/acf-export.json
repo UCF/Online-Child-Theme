@@ -481,6 +481,13 @@
                     "operator": "==",
                     "value": "degree"
                 }
+            ],
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "landing-page"
+                }
             ]
         ],
         "menu_order": 0,
