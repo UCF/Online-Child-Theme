@@ -10,7 +10,7 @@ define( 'ONLINE_THEME_JS_URL', ONLINE_THEME_STATIC_URL . '/js' );
 define( 'ONLINE_THEME_IMG_URL', ONLINE_THEME_STATIC_URL . '/img' );
 define( 'ONLINE_THEME_CUSTOMIZER_PREFIX', 'online_' );
 define( 'ONLINE_THEME_CUSTOMIZER_DEFAULTS', serialize( array(
-	'site_navbar_cta_text' => 'Get Started'
+	// ...
 ) ) );
 define( 'ONLINE_DEGREE_PROGRAM_ORDER', serialize( array(
 	'online-major',
@@ -91,14 +91,6 @@ function online_define_customizer_sections( $wp_customize ) {
 		$wp_customize->remove_section( UCFWP_THEME_CUSTOMIZER_PREFIX . 'nav_settings' );
 	}
 
-	// Add section for customizing site navbar settings
-	$wp_customize->add_section(
-		ONLINE_THEME_CUSTOMIZER_PREFIX . 'navbar',
-		array(
-			'title' => 'Navbar'
-		)
-	);
-
 	// Add section for customizing the site subfooter
 	$wp_customize->add_section(
 		ONLINE_THEME_CUSTOMIZER_PREFIX . 'subfooter',
@@ -126,25 +118,6 @@ add_action( 'customize_register', 'online_define_customizer_sections', 11 );
  * @since 1.0.0
  */
 function online_define_customizer_fields( $wp_customize ) {
-	// Site Navbar
-	$wp_customize->add_setting(
-		'navbar_cta_text',
-		array(
-			'default' => online_get_theme_mod_default( 'navbar_cta_text' )
-		)
-	);
-
-	$wp_customize->add_control(
-		'navbar_cta_text',
-		array(
-			'type'        => 'text',
-			'label'       => 'Navbar Call-to-Action (CTA) Text',
-			'description' => 'Text to display in the site navbar\'s call-to-action button (at the end of the site navigation menu).',
-			'section'     => ONLINE_THEME_CUSTOMIZER_PREFIX . 'navbar'
-		)
-	);
-
-
 	// Site Subfooter
 	$wp_customize->add_setting(
 		'subfooter_section',
