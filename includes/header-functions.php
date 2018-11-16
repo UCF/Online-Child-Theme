@@ -122,6 +122,13 @@ function ucfwp_get_header_media_markup( $obj, $videos, $images ) {
  * @return void
  **/
 function online_nav_markup() {
+	global $post;
+
+	if ( $post->post_type === 'landing-page' ) {
+		echo online_landing_page_header_bar_markup();
+		return;
+	}
+
 	$title_elem = ( is_home() || is_front_page() ) ? 'h1' : 'span';
 
 	ob_start();
@@ -142,22 +149,12 @@ function online_nav_markup() {
 						'container'       => '',
 						'depth'           => 2,
 						'fallback_cb'     => 'bs4Navwalker::fallback',
-						'menu_class'      => 'nav navbar-nav ml-md-auto mr-lg-4',
+						'menu_class'      => 'nav navbar-nav ml-md-auto',
 						'theme_location'  => 'header-menu',
 						'walker'          => new bs4Navwalker()
 					) );
 				}
 				?>
-				<?php
-				$navbar_cta_text = online_get_navbar_cta_text();
-				if ( $navbar_cta_text ):
-				?>
-				<div class="pb-3 pb-lg-2 pt-lg-2 my-auto mx-3 mx-lg-0">
-					<button class="btn btn-complementary btn-block header-cta">
-						<?php echo $navbar_cta_text; ?>
-					</button>
-				</div>
-				<?php endif; ?>
 			</div>
 		</div>
 	</nav>
@@ -167,23 +164,27 @@ function online_nav_markup() {
 
 add_action( 'after_body_open', 'online_nav_markup', 10, 0 );
 
+function online_landing_page_header_bar_markup() {
+	global $post;
+	$title = $post->post_title;
 
-/**
- * Returns formatted text to display within the site navbar's
- * call-to-action button.
- *
- * @since 1.0.0
- * @author Jo Dickson
- * @return string
- */
-function online_get_navbar_cta_text() {
-	$val = online_get_theme_mod_or_default( 'site_navbar_cta_text' );
-	if ( $val ) {
-		return wptexturize( $val );
-	}
-	return '';
+	ob_start();
+?>
+	<div class="bg-inverse">
+		<div class="container">
+			<div class="row align-items-center justify-content-between">
+				<?php if ( $title ) : ?>
+					<h1 class="col h3 mb-0"><?php echo $title; ?></h1>
+				<?php endif; ?>
+				<div class="col-1">
+					<img src="<?php echo ONLINE_THEME_IMG_URL . '/ucf-tab.jpg'; ?>" alt="University of Central Florida">
+				</div>
+			</div>
+		</div>
+	</div>
+<?php
+	return ob_get_clean();
 }
-
 
 /**
  * Returns default inner content markup for page headers that
