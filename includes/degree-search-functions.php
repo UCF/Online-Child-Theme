@@ -15,15 +15,15 @@ if ( ! function_exists( 'ucf_degree_picker_inline_layout' ) ) {
 		<form class="form" action="" method="GET" data-degree-picker>
 			<div class="row">
 				<label class="sr-only" for="sel_program_type">Select Program Type</label>
-				<select class="custom-select form-control col-12 col-md mb-2 text-uppercase" id="sel_program_type" name="sel_program_type">
+				<select class="custom-select col-12 col-md mb-2 text-uppercase" id="sel_program_type" name="sel_program_type">
 					<option value="" selected>Degree Level</option>
 				</select>
 				<label class="sr-only" for="sel_interest">Select an Area of Interest</label>
-				<select class="custom-select form-control col-12 col-md mb-2 text-uppercase" id="sel_interest" name="sel_interest" disabled>
+				<select class="custom-select col-12 col-md mb-2 text-uppercase" id="sel_interest" name="sel_interest" disabled>
 					<option value="" selected>Interest</option>
 				</select>
 				<label class="sr-only" for="sel_program">Select Program</label>
-				<select class="custom-select form-control col-12 col-md mb-2 text-uppercase" id="sel_program" name="sel_program" disabled>
+				<select class="custom-select col-12 col-md mb-2 text-uppercase" id="sel_program" name="sel_program" disabled>
 					<option value="" selected>Program</option>
 				</select>
 				<button type="submit" class="col-12 col-md-2 col-lg-1 btn btn-primary h-100" name="submit" disabled aria-label="View Program"><span class="hidden-md-up" aria-hidden="true">View Program</span> <span class="fa fa-arrow-right" aria-hidden="true"></span></button>

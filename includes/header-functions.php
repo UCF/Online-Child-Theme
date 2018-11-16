@@ -122,6 +122,13 @@ function ucfwp_get_header_media_markup( $obj, $videos, $images ) {
  * @return void
  **/
 function online_nav_markup() {
+	global $post;
+
+	if ( $post->post_type === 'landing-page' ) {
+		echo online_landing_page_header_bar_markup();
+		return;
+	}
+
 	$title_elem = ( is_home() || is_front_page() ) ? 'h1' : 'span';
 
 	ob_start();
@@ -142,22 +149,12 @@ function online_nav_markup() {
 						'container'       => '',
 						'depth'           => 2,
 						'fallback_cb'     => 'bs4Navwalker::fallback',
-						'menu_class'      => 'nav navbar-nav ml-md-auto mr-lg-4',
+						'menu_class'      => 'nav navbar-nav ml-md-auto',
 						'theme_location'  => 'header-menu',
 						'walker'          => new bs4Navwalker()
 					) );
 				}
 				?>
-				<?php
-				$navbar_cta_text = online_get_navbar_cta_text();
-				if ( $navbar_cta_text ):
-				?>
-				<div class="pb-3 pb-lg-2 pt-lg-2 my-auto mx-3 mx-lg-0">
-					<button class="btn btn-complementary btn-block header-cta">
-						<?php echo $navbar_cta_text; ?>
-					</button>
-				</div>
-				<?php endif; ?>
 			</div>
 		</div>
 	</nav>
@@ -167,23 +164,27 @@ function online_nav_markup() {
 
 add_action( 'after_body_open', 'online_nav_markup', 10, 0 );
 
+function online_landing_page_header_bar_markup() {
+	global $post;
+	$title = $post->post_title;
 
-/**
- * Returns formatted text to display within the site navbar's
- * call-to-action button.
- *
- * @since 1.0.0
- * @author Jo Dickson
- * @return string
- */
-function online_get_navbar_cta_text() {
-	$val = online_get_theme_mod_or_default( 'site_navbar_cta_text' );
-	if ( $val ) {
-		return wptexturize( $val );
-	}
-	return '';
+	ob_start();
+?>
+	<div class="bg-inverse">
+		<div class="container">
+			<div class="row align-items-center justify-content-between">
+				<?php if ( $title ) : ?>
+					<h1 class="col h3 mb-0"><?php echo $title; ?></h1>
+				<?php endif; ?>
+				<div class="col-1">
+					<img src="<?php echo ONLINE_THEME_IMG_URL . '/ucf-tab.jpg'; ?>" alt="University of Central Florida">
+				</div>
+			</div>
+		</div>
+	</div>
+<?php
+	return ob_get_clean();
 }
-
 
 /**
  * Returns default inner content markup for page headers that
@@ -201,24 +202,20 @@ function online_get_header_content_default( $obj ) {
 	ob_start();
 
 	if ( $title ):
+		$form_markup = online_get_header_form_markup( $obj );
 ?>
 	<div class="header-content-inner align-self-start pt-4 pt-md-5">
 		<div class="container">
 			<div class="row">
-				<div class="col-9 offset-3 col-md-8 offset-md-4">
-					<<?php echo $title_elem; ?> class="header-title mb-4"><?php echo $title; ?></<?php echo $title_elem; ?>>
-
-					<?php
-					$form_markup = online_get_header_form_markup( $obj );
-					if ( $form_markup ):
-					?>
-					<div class="row">
-						<div class="col-lg-7 offset-lg-5 col-xl-6 offset-xl-6">
-							<?php echo $form_markup; ?>
-						</div>
-					</div>
-					<?php endif; ?>
+				<div class="<?php echo ( $form_markup ) ? 'col-8 offset-4 col-md-6 offset-md-6 col-xl-4 offset-xl-4' : 'col-12'; ?> mb-5 mb-sm-4 mb-md-5 mb-xl-0 mt-xl-4">
+					<<?php echo $title_elem; ?> class="header-title mb-0 d-inline-block"><?php echo $title; ?></<?php echo $title_elem; ?>>
 				</div>
+
+				<?php if ( $form_markup ): ?>
+				<div class="col-sm-8 offset-sm-4 col-md-6 offset-md-6 col-xl-4 offset-xl-0 mt-lg-0">
+					<?php echo $form_markup; ?>
+				</div>
+				<?php endif; ?>
 			</div>
 		</div>
 	</div>
