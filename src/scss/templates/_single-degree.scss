@@ -39,3 +39,8 @@
     max-width: 100%;
   }
 }
+
+// Hide degree dropdown on single degree template forms:
+.single-degree .site-main .populate-degrees {
+  display: none;
+}
