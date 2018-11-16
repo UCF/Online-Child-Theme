@@ -167,6 +167,21 @@
     .gform_validation_container {
       display: none;
     }
+
+    // Administrative, hidden fields
+    input[type=hidden],
+    input.gform_hidden,
+    .gform_hidden,
+    .gf_hidden,
+    .field_admin_only,
+    .gfield_visibility_administrative {
+      display: none;
+    }
+
+    .gfield_visibility_hidden,
+    .gf_invisible {
+      @include invisible();
+    }
   }
 
   .validation_error {
