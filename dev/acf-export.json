@@ -1032,7 +1032,7 @@
     },
     {
         "key": "group_5beae367b5809",
-        "title": "Vertical Filter Fields",
+        "title": "Simple Vertical Filter Fields",
         "fields": [
             {
                 "key": "field_5beae3e312753",
@@ -1144,7 +1144,7 @@
                 {
                     "param": "post_template",
                     "operator": "==",
-                    "value": "vertical-template.php"
+                    "value": "simple-vertical-template.php"
                 }
             ]
         ],
