@@ -85,6 +85,10 @@
       @include button-variant-overrides($btn-primary-color, $btn-primary-bg, $btn-primary-border, $white);
       display: block;
       width: 100%;
+
+      @include media-breakpoint-only(md) {
+        font-size: $font-size-sm;
+      }
     }
 
     .gfield_error {
