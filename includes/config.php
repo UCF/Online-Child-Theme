@@ -10,14 +10,14 @@ define( 'ONLINE_THEME_JS_URL', ONLINE_THEME_STATIC_URL . '/js' );
 define( 'ONLINE_THEME_IMG_URL', ONLINE_THEME_STATIC_URL . '/img' );
 define( 'ONLINE_THEME_CUSTOMIZER_PREFIX', 'online_' );
 define( 'ONLINE_THEME_CUSTOMIZER_DEFAULTS', serialize( array(
-	// ...
+	'degree_catalog_thumbnail' => ONLINE_THEME_IMG_URL . '/degree-catalog-thumb.jpg'
 ) ) );
 define( 'ONLINE_DEGREE_PROGRAM_ORDER', serialize( array(
 	'online-major',
 	'online-master',
 	'online-doctorate',
 	'online-certificate'
-) ) ); // TODO make a customizer option?
+) ) );
 
 
 /**
@@ -27,6 +27,12 @@ define( 'ONLINE_DEGREE_PROGRAM_ORDER', serialize( array(
  * @since 1.0.0
  */
 function online_init() {
+	// Register custom image sizes
+	add_image_size( '16x9-xs', 320, 129, true );
+	add_image_size( '16x9-sm', 767, 431, true );
+	add_image_size( '16x9-md', 970, 546, true );
+	add_image_size( '16x9-lg', 1200, 675, true );
+
 	// Register custom footer menu for this theme
 	register_nav_menu( 'footer-menu', __( 'Footer Menu' ) );
 
@@ -106,6 +112,14 @@ function online_define_customizer_sections( $wp_customize ) {
 			'title' => 'Forms'
 		)
 	);
+
+	// Add section for degree-specific settings
+	$wp_customize->add_section(
+		ONLINE_THEME_CUSTOMIZER_PREFIX . 'degrees',
+		array(
+			'title' => 'Degrees'
+		)
+	);
 }
 
 add_action( 'customize_register', 'online_define_customizer_sections', 11 );
@@ -152,6 +166,27 @@ function online_define_customizer_fields( $wp_customize ) {
 			'section'     => ONLINE_THEME_CUSTOMIZER_PREFIX . 'forms',
 			'choices'     => online_get_gf_choices()
 		)
+	);
+
+
+	// Degrees
+	$wp_customize->add_setting(
+		'degree_catalog_thumbnail',
+		array(
+			'default' => online_get_theme_mod_default( 'degree_catalog_thumbnail' )
+		)
+	);
+
+	$wp_customize->add_control(
+		new WP_Customize_Image_Control(
+           $wp_customize,
+           'degree_catalog_thumbnail',
+           array(
+			   'label'       => 'Degree Catalog Thumbnail',
+			   'description' => 'The catalog thumbnail to display on form redirect confirmation pages. Will only be displayed if the confirmation page is related to a degree, and that degree has a Catalog URL meta value set.',
+			   'section'     => ONLINE_THEME_CUSTOMIZER_PREFIX . 'degrees'
+           )
+       )
 	);
 }
 

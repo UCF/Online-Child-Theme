@@ -304,8 +304,11 @@ function online_get_degree_video_markup( $degree ) {
 	return ob_get_clean();
 }
 
+
 /**
- * Returns the markup for the ucf-degree-typeahead
+ * Returns the markup for the ucf-degree-typeahead for
+ * the single degree template.
+ *
  * @author Jim Barnes
  * @since 1.0.0
  * @return string
