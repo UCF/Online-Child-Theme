@@ -174,7 +174,7 @@ function online_landing_page_header_bar_markup() {
 		<div class="container">
 			<div class="row align-items-center justify-content-between">
 				<?php if ( $title ) : ?>
-					<h1 class="col heading-title"><?php echo $title; ?></h1>
+					<h1 class="col h3 mb-0"><?php echo $title; ?></h1>
 				<?php endif; ?>
 				<div class="col-1">
 					<img src="<?php echo ONLINE_THEME_IMG_URL . '/ucf-tab.jpg'; ?>" alt="University of Central Florida">
