@@ -77,12 +77,3 @@
     font-size: $font-size-h1-md;
   }
 }
-
-// Call-to-action button in header
-.header-cta {
-  @include media-breakpoint-only(lg) {
-    font-size: $font-size-xs;
-    padding-left: $font-size-xs;
-    padding-right: $font-size-xs;
-  }
-}
