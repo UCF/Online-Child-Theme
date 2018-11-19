@@ -11,7 +11,7 @@ function online_enqueue_frontend_assets() {
 	$theme_version = $theme->get( 'Version' );
 
 	wp_enqueue_style( 'style-child', ONLINE_THEME_CSS_URL . '/style.min.css', array( 'style' ), $theme_version );
-	wp_enqueue_script( 'script-child', ONLINE_THEME_JS_URL . '/script.min.js', array( 'jquery', 'script' ), $theme_version, true );
+	wp_enqueue_script( 'script-child', ONLINE_THEME_JS_URL . '/script.min.js', array( 'jquery', 'script', 'ucf-degree-search-js' ), $theme_version, true );
 
 	wp_register_script( 'typeaheadjs', 'https://cdnjs.cloudflare.com/ajax/libs/corejs-typeahead/1.0.1/typeahead.bundle.min.js', array( 'jquery' ), null, false );
 	wp_register_script( 'handlebars', 'https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.6/handlebars.min.js', null, null, false );
