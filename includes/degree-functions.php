@@ -311,12 +311,11 @@ function online_get_degree_video_markup( $degree ) {
  *
  * @author Jim Barnes
  * @since 1.0.0
+ * @param object $post WP_Post object
  * @return string
  */
-function online_get_degree_typeahead_markup() {
+function online_get_degree_typeahead_markup( $post ) {
 	if ( class_exists( 'UCF_Degree_Search_Common' ) ) {
-		global $post;
-
 		$college      = get_field( 'vertical_college_filter', $post->ID );
 		$program_type = get_field( 'vertical_program_type_filter', $post->ID );
 		$interest     = get_field( 'vertical_interest_filter', $post->ID );
@@ -360,9 +359,10 @@ function online_get_degree_typeahead_markup() {
  * Returns the markup for the the popular-programs section on vertical pages.
  * @author Jim Barnes
  * @since 1.0.0
+ * @param object $post WP_Post object
  * @return string
  */
-function online_get_popular_programs_markup() {
+function online_get_popular_programs_markup( $post ) {
 	$retval = '';
 
 	if ( function_exists( 'sc_ucf_post_list' ) ) {
