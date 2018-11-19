@@ -242,7 +242,7 @@
                 "label": "Header Height (sm+)",
                 "name": "page_header_height",
                 "type": "radio",
-                "instructions": "Height of the page header at the -sm breakpoint and above.",
+                "instructions": "Minimum height of the page header at the -sm breakpoint and above.",
                 "required": 1,
                 "conditional_logic": 0,
                 "wrapper": {
