@@ -18,7 +18,7 @@ function online_enqueue_frontend_assets() {
 
 	global $post;
 
-	if ( $post && $post->post_type === 'landing-page' ) {
+	if ( $post && $post->post_type === 'landing' ) {
 		wp_deregister_script( 'ucf-header' );
 	}
 }
