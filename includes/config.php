@@ -208,3 +208,14 @@ function online_acf_text_toolbar( $toolbars ) {
 	return $toolbars;
 }
 add_filter( 'acf/fields/wysiwyg/toolbars', 'online_acf_text_toolbar' );
+
+
+/**
+ * Hide unused admin tools (Links, Comments, etc)
+ *
+ * @since 1.0.0
+ **/
+function hide_admin_links() {
+	remove_menu_page( 'edit-comments.php' );
+}
+add_action( 'admin_menu', 'hide_admin_links' );
