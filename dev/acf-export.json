@@ -500,15 +500,31 @@
         "description": ""
     },
     {
-        "key": "group_5b56304a509c9",
+        "key": "group_5953a81f683a8",
         "title": "Person Fields",
         "fields": [
             {
-                "key": "field_5b577c6238612",
+                "key": "field_5a01bcdcfb1a1",
+                "label": "Name\/Title",
+                "name": "",
+                "type": "tab",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "placement": "top",
+                "endpoint": 0
+            },
+            {
+                "key": "field_5953a8f425c12",
                 "label": "Title Prefix",
                 "name": "person_title_prefix",
                 "type": "text",
-                "instructions": "",
+                "instructions": "A prefix to be applied to this person's name when displayed formally, e.g. \"Mr.\", \"Mrs.\", \"Dr.\".",
                 "required": 0,
                 "conditional_logic": 0,
                 "wrapper": {
@@ -523,11 +539,11 @@
                 "maxlength": ""
             },
             {
-                "key": "field_5b577cbd38613",
+                "key": "field_5953a9ca25c13",
                 "label": "Title Suffix",
                 "name": "person_title_suffix",
                 "type": "text",
-                "instructions": "",
+                "instructions": "A suffix to be applied to this person's name when displayed formally, e.g. \"Jr.\", \"III\".\r\nInclude a preceding comma and space when denoting a person's earned academic degree, e.g. \", Ph.D.\"",
                 "required": 0,
                 "conditional_logic": 0,
                 "wrapper": {
@@ -542,11 +558,11 @@
                 "maxlength": ""
             },
             {
-                "key": "field_5b563216fec03",
-                "label": "Job Title",
+                "key": "field_5953aa3d25c14",
+                "label": "Academic\/Professional Title",
                 "name": "person_jobtitle",
                 "type": "text",
-                "instructions": "",
+                "instructions": "A title that describes this person, academic or professional; e.g. \"Student\" or \"Professor of Economics\"",
                 "required": 0,
                 "conditional_logic": 0,
                 "wrapper": {
@@ -561,7 +577,181 @@
                 "maxlength": ""
             },
             {
-                "key": "field_5b563259a2356",
+                "key": "field_59669002f433d",
+                "label": "Order By Name",
+                "name": "person_orderby_name",
+                "type": "text",
+                "instructions": "Name by which this person should be sorted when people are displayed in alphabetical lists.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_5a01bcedfb1a2",
+                "label": "Quote",
+                "name": "",
+                "type": "tab",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "placement": "top",
+                "endpoint": 0
+            },
+            {
+                "key": "field_5a01bcfafb1a3",
+                "label": "Quote",
+                "name": "person_quote",
+                "type": "textarea",
+                "instructions": "A relevant quote, by or about the person.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "maxlength": "",
+                "rows": "",
+                "new_lines": "wpautop"
+            },
+            {
+                "key": "field_5a01bd65fb1a4",
+                "label": "Quote Citation",
+                "name": "person_quote_citation",
+                "type": "text",
+                "instructions": "A citation for the person's blockquote; e.g. the publication that printed the original quote, or the name of the person that stated it",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_5a0318c69f25c",
+                "label": "Degrees",
+                "name": "",
+                "type": "tab",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "placement": "top",
+                "endpoint": 0
+            },
+            {
+                "key": "field_5a009f2a0246f",
+                "label": "Related Degree(s)",
+                "name": "person_degrees",
+                "type": "post_object",
+                "instructions": "For students, list one or more degrees that this person is earning\/has earned.  For faculty\/staff, list any degrees that this person provides courses or advising for.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "post_type": [
+                    "degree"
+                ],
+                "taxonomy": [],
+                "allow_null": 0,
+                "multiple": 1,
+                "return_format": "object",
+                "ui": 1
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "person"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": 1,
+        "description": ""
+    },
+    {
+        "key": "group_5a009e57ac55f",
+        "title": "Person Fields - Faculty\/Staff",
+        "fields": [
+            {
+                "key": "field_5953aa7625c15",
+                "label": "Phone Numbers",
+                "name": "person_phone_numbers",
+                "type": "repeater",
+                "instructions": "One or more phone numbers at which the person can be contacted.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "collapsed": "field_5953aaca25c16",
+                "min": 0,
+                "max": 0,
+                "layout": "row",
+                "button_label": "Add Phone Number",
+                "sub_fields": [
+                    {
+                        "key": "field_5953aaca25c16",
+                        "label": "Phone Number",
+                        "name": "number",
+                        "type": "text",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "maxlength": ""
+                    }
+                ]
+            },
+            {
+                "key": "field_5953ac93b95b5",
                 "label": "Email",
                 "name": "person_email",
                 "type": "email",
@@ -579,9 +769,9 @@
                 "append": ""
             },
             {
-                "key": "field_5b5632763853a",
-                "label": "Phone",
-                "name": "person_phone",
+                "key": "field_5953acb0b95b6",
+                "label": "Office Location",
+                "name": "person_room",
                 "type": "text",
                 "instructions": "",
                 "required": 0,
@@ -598,11 +788,11 @@
                 "maxlength": ""
             },
             {
-                "key": "field_5b563055054fb",
-                "label": "Order By Name",
-                "name": "person_orderby_name",
-                "type": "text",
-                "instructions": "The name by which this person should be sorted when people are displayed in alphabetical lists.",
+                "key": "field_5953ad16b95b7",
+                "label": "Office Map URL",
+                "name": "person_room_url",
+                "type": "url",
+                "instructions": "URL that displays the Office Location on a map; e.g. http:\/\/map.ucf.edu\/?show=45",
                 "required": 0,
                 "conditional_logic": 0,
                 "wrapper": {
@@ -611,10 +801,7 @@
                     "id": ""
                 },
                 "default_value": "",
-                "placeholder": "",
-                "prepend": "",
-                "append": "",
-                "maxlength": ""
+                "placeholder": ""
             }
         ],
         "location": [
@@ -623,6 +810,11 @@
                     "param": "post_type",
                     "operator": "==",
                     "value": "person"
+                },
+                {
+                    "param": "post_taxonomy",
+                    "operator": "!=",
+                    "value": "people_group:student"
                 }
             ]
         ],

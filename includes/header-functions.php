@@ -124,7 +124,7 @@ function ucfwp_get_header_media_markup( $obj, $videos, $images ) {
 function online_nav_markup() {
 	global $post;
 
-	if ( $post->post_type === 'landing' ) {
+	if ( $post && $post->post_type === 'landing' ) {
 		echo online_landing_page_header_bar_markup();
 		return;
 	}
