@@ -19,17 +19,18 @@
   box-sizing: border-box;
   display: table;
   flex: 1;
+  flex-basis: auto;
   margin-bottom: 0;
   padding: 0;
   position: relative;
   width: 100%;
 
   @include media-breakpoint-up(lg) {
-    width: 418px;
+    max-width: 418px;
   }
 
   @include media-breakpoint-up(xl) {
-    width: 500px;
+    max-width: 500px;
   }
 
   &:nth-last-child(1),
