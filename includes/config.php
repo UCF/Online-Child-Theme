@@ -27,6 +27,19 @@ define( 'ONLINE_DEGREE_PROGRAM_ORDER', serialize( array(
  * @since 1.0.0
  */
 function online_init() {
+	// Remove and re-register header image sizes from UCF WP Theme, with
+	// custom dimensions applied:
+	remove_image_size( 'header-img' );
+	remove_image_size( 'header-img-sm' );
+	remove_image_size( 'header-img-md' );
+	remove_image_size( 'header-img-lg' );
+	remove_image_size( 'header-img-xl' );
+	add_image_size( 'header-img', 575, 750, true );
+	add_image_size( 'header-img-sm', 767, 750, true );
+	add_image_size( 'header-img-md', 991, 800, true );
+	add_image_size( 'header-img-lg', 1199, 800, true );
+	add_image_size( 'header-img-xl', 1600, 650, true );
+
 	// Register custom image sizes
 	add_image_size( '16x9-xs', 320, 129, true );
 	add_image_size( '16x9-sm', 767, 431, true );

@@ -38,7 +38,7 @@
 // Attempts to position left-aligned image focal points within headers to
 // help prevent face clipping and text overlap.
 .header-media-background .media-background-picture .media-background {
-  object-position: 25% 50%;
+  object-position: 25% 0%;
 
   @include media-breakpoint-up(sm) {
     object-position: 0 50%;
