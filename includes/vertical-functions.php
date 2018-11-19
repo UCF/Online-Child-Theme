@@ -81,6 +81,122 @@ function online_get_vertical_subnav( $post ) {
 
 
 /**
+ * Returns the markup for the ucf-degree-typeahead for
+ * the simple vertical template.
+ *
+ * @author Jim Barnes
+ * @since 1.0.0
+ * @param object $post WP_Post object
+ * @return string
+ */
+function online_get_vertical_degree_typeahead_markup( $post ) {
+	if ( class_exists( 'UCF_Degree_Search_Common' ) ) {
+		$college      = get_field( 'vertical_college_filter', $post->ID );
+		$program_type = get_field( 'vertical_program_type_filter', $post->ID );
+		$interest     = get_field( 'vertical_interest_filter', $post->ID );
+		$placeholder  = get_field( 'degree_search_placeholder', $post->ID );
+
+		$atts = array();
+
+		if ( $college ) $atts['colleges'] = $college->slug;
+		if ( $program_type ) $atts['program_types'] = $program_type->slug;
+		if ( $interest ) $atts['interest'] = $interest->slug;
+
+		$query_params = '?' . http_build_query( $atts );
+
+		$query_params .= ( $query_params === '?' ) ? 'search=%q' : '&search=%q';
+
+		$retval = '';
+
+		ob_start();
+	?>
+		<div class="bg-inverse">
+			<div class="container py-4">
+				<div class="row py-lg-1">
+					<div class="col-12 col-lg-auto mb-3 mb-lg-0 align-self-lg-center">
+					<h2 class="h6 text-uppercase letter-spacing-3 mb-0"><span class="fa fa-search fa-2x text-primary mr-2" style="vertical-align: sub;"></span> Search for a Degree</h2>
+					</div>
+					<div class="col-12 col-lg">
+						<?php echo do_shortcode( '[ucf-degree-search placeholder="' . $placeholder . '" form_action="" query_params="' . $query_params . '"]' ); ?>
+					</div>
+				</div>
+			</div>
+		</div>
+	<?php
+		$retval = ob_get_clean();
+	}
+
+	return $retval;
+}
+
+
+/**
+ * Returns the markup for the the popular-programs section on vertical pages.
+ * @author Jim Barnes
+ * @since 1.0.0
+ * @param object $post WP_Post object
+ * @return string
+ */
+function online_get_vertical_popular_programs_markup( $post ) {
+	$retval = '';
+
+	if ( function_exists( 'sc_ucf_post_list' ) ) {
+
+		$college      = get_field( 'vertical_college_filter', $post->ID );
+		$program_type = get_field( 'vertical_program_type_filter', $post->ID );
+		$interest     = get_field( 'vertical_interest_filter', $post->ID );
+
+		$heading_text = get_field( 'popular_programs_text', $post->ID );
+
+		$heading_text = isset( $heading_text ) ? $heading_text : 'Popular Online Programs';
+
+		$args = array(
+			'post_type'      => 'degree',
+			'posts_per_page' => 3,
+			'posts_per_row'  => 3,
+			'layout'         => 'thumbnail',
+			'tag'            => 'popular'
+		);
+
+		if ( $college ) {
+			$args['tax_colleges'] = $college->slug;
+			$args['tax_colleges__field'] = 'slug';
+		}
+
+		if ( $program_type ) {
+			$args['tax_program_types'] = $program_type->slug;
+			$args['tax_program_types__field'] = 'slug';
+		}
+
+		if ( $interest ) {
+			$args['tax_interest'] = $interest->slug;
+			$args['tax_interests__field'] = 'slug';
+		}
+
+		ob_start();
+	?>
+		<div class="bg-inverse">
+			<div class="container py-4">
+				<div class="row">
+					<div class="col-lg-3">
+						<h2 class="text-uppercase font-condensed mb-4 mb-md-2"><?php echo $heading_text; ?></h2>
+					</div>
+					<div class="col-lg-9">
+						<?php echo sc_ucf_post_list( $args ); ?>
+					</div>
+				</div>
+			</div>
+		</div>
+	<?php
+		$retval = ob_get_clean();
+
+	}
+
+	return $retval;
+}
+
+
+/**
  * Returns a subfooter for a vertical page or its child content.
  *
  * Adapted from Online-Theme
