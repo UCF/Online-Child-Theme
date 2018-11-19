@@ -240,7 +240,7 @@ function online_post_list_display_person_profile( $content, $items, $atts ) {
 			// Get the person's thumbnail; use the post list fallback if
 			// no person thumbnail/person-specific fallback is returned
 			$item_img_src = null;
-			$item_img = get_person_thumbnail( $item );
+			$item_img = ucfwp_get_person_thumbnail( $item );
 			if ( !$item_img ) {
 				$item_img_src = UCF_Post_List_Common::get_image_or_fallback( $item );
 				if ( $item_img_src ) {
@@ -254,7 +254,7 @@ function online_post_list_display_person_profile( $content, $items, $atts ) {
 				}
 			}
 
-			$name = get_person_name( $item ) ?: $item->post_title;
+			$name = ucfwp_get_person_name( $item ) ?: $item->post_title;
 			$title = wptexturize( get_field( 'person_jobtitle', $item->ID ) );
 			$degrees = get_field( 'person_degrees', $item->ID );
 			$desc = has_excerpt( $item ) ? wp_trim_words( get_the_excerpt( $item ), 25 ) : wp_trim_words( $item->post_content, 25 );
@@ -387,7 +387,7 @@ function online_search_people_localdata( $localdata, $posts, $atts ) {
 		foreach ( $data as $index => $item ) {
 			if ( isset( $item['id'] ) && get_post_type( $item['id'] ) === 'person' ) {
 				$person = get_post( $item['id'] );
-				$name = get_person_name( $person );
+				$name = ucfwp_get_person_name( $person );
 				$job_title = get_field( 'person_jobtitle', $person->ID );
 				$job_title = $job_title ? strip_tags( $job_title ) : false; // Fix stupid job title hackery
 
@@ -412,7 +412,7 @@ function online_search_people_localdata( $localdata, $posts, $atts ) {
 	?>
 				<div class="media">
 					<div class="d-flex mr-2">
-						<?php echo get_person_thumbnail( $person ); ?>
+						<?php echo ucfwp_get_person_thumbnail( $person ); ?>
 					</div>
 					<div class="media-body">
 						<?php echo $name; ?>
