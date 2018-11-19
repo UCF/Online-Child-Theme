@@ -179,14 +179,14 @@ function online_define_customizer_fields( $wp_customize ) {
 
 	$wp_customize->add_control(
 		new WP_Customize_Image_Control(
-           $wp_customize,
-           'degree_catalog_thumbnail',
-           array(
+		   $wp_customize,
+		   'degree_catalog_thumbnail',
+		   array(
 			   'label'       => 'Degree Catalog Thumbnail',
 			   'description' => 'The catalog thumbnail to display on form redirect confirmation pages. Will only be displayed if the confirmation page is related to a degree, and that degree has a Catalog URL meta value set.',
 			   'section'     => ONLINE_THEME_CUSTOMIZER_PREFIX . 'degrees'
-           )
-       )
+		   )
+	   )
 	);
 }
 
