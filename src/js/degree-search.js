@@ -4,11 +4,6 @@
 
   let degree;
 
-  // Return out of all of this if `UCFDegreeSearch` is not defined.
-  if (typeof UCFDegreeSearch === 'undefined') {
-    return;
-  }
-
   if ($('.degree-search-typeahead')) {
     let keywords = {
         bachelor: ['bachelor\'s', 'bachelors', 'bs', 'ba', 'major', 'majors'],
