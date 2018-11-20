@@ -13,7 +13,6 @@
  */
 function online_get_post_vertical_id( $post ) {
 	$vertical_id = false;
-	// TODO modify template name here
 	if ( $post->post_type === 'page' && get_post_meta( $post->ID, '_wp_page_template', true ) === 'template-vertical.php' ) {
 		$vertical_id = $post->ID;
 	}
@@ -275,7 +274,7 @@ function online_related_vertical_query( $args, $field, $post ) {
 	$args['meta_query'] = array(
 		array(
 			'key' => '_wp_page_template',
-			'value' => 'template-vertical.php', // TODO update template name
+			'value' => 'template-vertical.php',
 			'compare' => '='
 		)
 	);
@@ -369,7 +368,7 @@ function online_verticals_rewrite_rule() {
 		'meta_query'  => array(
 			array(
 				'key'     => '_wp_page_template',
-				'value'   => 'template-vertical.php', // TODO update template name
+				'value'   => 'template-vertical.php',
 				'compare' => '='
 			)
 		)

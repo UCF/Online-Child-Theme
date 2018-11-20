@@ -1165,6 +1165,156 @@
         "description": ""
     },
     {
+        "key": "group_59f8dc1b9d863",
+        "title": "Standard Vertical Children Fields",
+        "fields": [
+            {
+                "key": "field_59f8dc2430782",
+                "label": "Related Vertical",
+                "name": "post_vertical",
+                "type": "post_object",
+                "instructions": "A vertical (page with the \"Vertical\" template) to associate this post with.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "post_type": [
+                    "page"
+                ],
+                "taxonomy": [],
+                "allow_null": 0,
+                "multiple": 0,
+                "return_format": "id",
+                "ui": 1
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "post"
+                }
+            ],
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "page"
+                },
+                {
+                    "param": "page_template",
+                    "operator": "==",
+                    "value": "template-vertical-child.php"
+                }
+            ],
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "person"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": 1,
+        "description": ""
+    },
+    {
+        "key": "group_59f8daf22abe2",
+        "title": "Standard Vertical Fields",
+        "fields": [
+            {
+                "key": "field_59f8db00be9a2",
+                "label": "Vertical Submenu",
+                "name": "vertical_submenu",
+                "type": "nav_menu",
+                "instructions": "Menu to use for subnavigation on this page and other pages\/posts associated with this vertical.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "save_format": "id",
+                "container": "div",
+                "allow_null": 0
+            },
+            {
+                "key": "field_5a02284dcaefe",
+                "label": "Vertical Submenu Brand",
+                "name": "vertical_submenu_brand",
+                "type": "text",
+                "instructions": "Text to use as the \"brand\" (title) of the submenu.  Will always link back to this vertical.  If a value isn't provided, the vertical's post title will be used.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_59fa1250393f5",
+                "label": "Vertical Degree List Tag",
+                "name": "vertical_degrees_tag",
+                "type": "taxonomy",
+                "instructions": "A post tag by which degrees listed in the page footer should be filtered by.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "taxonomy": "post_tag",
+                "field_type": "select",
+                "allow_null": 0,
+                "add_term": 1,
+                "save_terms": 0,
+                "load_terms": 0,
+                "return_format": "id",
+                "multiple": 0
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "page"
+                },
+                {
+                    "param": "post_template",
+                    "operator": "==",
+                    "value": "template-vertical.php"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": 1,
+        "description": ""
+    },
+    {
         "key": "group_594170b492ded",
         "title": "Degree Fields",
         "fields": [
