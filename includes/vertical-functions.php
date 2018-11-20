@@ -90,13 +90,14 @@ function online_get_vertical_degree_typeahead_markup( $post ) {
 		$college      = get_field( 'vertical_college_filter', $post->ID );
 		$program_type = get_field( 'vertical_program_type_filter', $post->ID );
 		$interest     = get_field( 'vertical_interest_filter', $post->ID );
+		$tag          = get_field( 'vertical_degrees_tag', $post->ID );
 		$placeholder  = get_field( 'degree_search_placeholder', $post->ID );
-
 		$atts = array();
 
 		if ( $college ) $atts['colleges'] = $college->slug;
 		if ( $program_type ) $atts['program_types'] = $program_type->slug;
 		if ( $interest ) $atts['interest'] = $interest->slug;
+		if ( $tag ) $atts['post_tag'] = $tag->slug; // TODO make sure this actually has any effect
 
 		$query_params = '?' . http_build_query( $atts );
 
@@ -141,6 +142,7 @@ function online_get_vertical_popular_programs_markup( $post ) {
 		$college      = get_field( 'vertical_college_filter', $post->ID );
 		$program_type = get_field( 'vertical_program_type_filter', $post->ID );
 		$interest     = get_field( 'vertical_interest_filter', $post->ID );
+		$tag          = get_field( 'vertical_degrees_tag', $post->ID );
 
 		$heading_text = get_field( 'popular_programs_text', $post->ID );
 
@@ -169,6 +171,11 @@ function online_get_vertical_popular_programs_markup( $post ) {
 			$args['tax_interests__field'] = 'slug';
 		}
 
+		if ( $tag ) {
+			unset( $args['tag'] );
+			$args['tag_slug__and'] = implode( array( $tag->slug, 'popular' ) );
+		}
+
 		ob_start();
 	?>
 		<div class="bg-inverse">
@@ -189,71 +196,6 @@ function online_get_vertical_popular_programs_markup( $post ) {
 	}
 
 	return $retval;
-}
-
-
-/**
- * Returns a subfooter for a vertical page or its child content.
- *
- * Adapted from Online-Theme
- *
- * @param object $post WP Post object
- * @return string subfooter markup
- *
- * @author Jo Dickson
- * @since 1.0.0
- */
-function online_get_vertical_subfooter( $post ) {
-	$vertical_id = online_get_post_vertical_id( $post );
-	if ( !$vertical_id ) { return false; }
-
-	$vertical    = get_post( $vertical_id );
-	if ( !$vertical ) { return false; }
-
-	$form_id     = get_field( 'vertical_contact_form', $vertical_id );
-	$degrees_tag = get_term( get_field( 'vertical_degrees_tag', $vertical_id ) );
-
-	// Require at least a list of degrees to continue
-	if ( $degrees_tag ) {
-		$degrees_tag = $degrees_tag->slug;
-	}
-	else {
-		return false;
-	}
-
-	ob_start();
-?>
-<div class="container" id="degrees">
-	<?php
-	// Display divider above subfooter on child pages/posts
-	if ( $vertical_id !== $post->ID ):
-	?>
-	<hr>
-	<?php endif; ?>
-
-	<div class="row">
-		<div class="<?php echo ( $vertical_id !== $post->ID ) ? 'col-md-8' : 'col-md-12'; ?>">
-			<h2><?php echo $vertical->post_title; ?> Degrees</h2>
-			<?php echo do_shortcode( '[degree-list title="" filter_by_tax="post_tag" terms="' . $degrees_tag . '" groupby="program_types" groupby_field="program_types_alias"]' ); ?>
-		</div>
-
-		<?php
-		// Display Vertical form in subfooter on child pages/posts
-		if ( $vertical_id !== $post->ID ):
-		?>
-		<div class="col-md-4 mt-3 mt-md-0">
-			<?php if ( $form_id ) : ?>
-			<div class="degree-cta-section">
-				<h2 class="h3 text-center mt-0">Request Info <span class="fa fa-envelope ml-2" aria-hidden="true"></span></h2>
-				<?php echo do_shortcode( '[gravityform id="' . $form_id . '" ajax="true" title="false" description="true"]' ); ?>
-			</div>
-			<?php endif; ?>
-		</div>
-		<?php endif; ?>
-	</div>
-</div>
-<?php
-	return ob_get_clean();
 }
 
 
