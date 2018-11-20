@@ -3,6 +3,10 @@
 }
 
 .tt-suggestion:hover {
-  background-color: $light-grey !important;
+  background-color: $gray-lighter !important;
 }
 
+.empty-message {
+  margin-left: 1rem;
+  margin-top: 1rem;
+}
