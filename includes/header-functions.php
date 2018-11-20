@@ -254,13 +254,6 @@ function online_get_header_content_default( $obj ) {
  * @return string HTML for the header form
  */
 function online_get_header_form_markup( $obj ) {
-	// If a Child Vertical is requested, make sure we
-	// fetch the form relative to its parent
-	$vertical_parent_id = null;
-	if ( $obj instanceof WP_Post && $vertical_parent_id = get_field( 'post_vertical', $obj->ID ) ) {
-		$obj = get_post( $vertical_parent_id );
-	}
-
 	$field_id            = ucfwp_get_object_field_id( $obj );
 	$form_id             = null;
 	$obj_custom_form_val = get_field( 'page_header_form_option', $field_id );
@@ -307,13 +300,14 @@ function online_get_header_form_markup( $obj ) {
 			$form_desc  = "Fill out the form below, and we'll send you more information about the <strong>{$obj->post_title}</strong> program.";
 		}
 		// Vertical Children
-		else if ( $vertical_parent_id ) {
+		else if ( get_field( 'post_vertical', $obj->ID ) ) {
 			$form_title = 'Request Info <span class="fa fa-envelope ml-2" aria-hidden="true"></span>';
 		}
 		// Standard Vertical
 		else if ( get_post_meta( $obj->ID, '_wp_page_template', true ) === 'template-vertical.php' ) {
 			$show_title = false;
 		}
+		// TODO any other exceptions??
 
 	}
 
