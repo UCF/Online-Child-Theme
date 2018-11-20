@@ -13,7 +13,6 @@
  */
 function online_get_post_vertical_id( $post ) {
 	$vertical_id = false;
-	// TODO modify template name here
 	if ( $post->post_type === 'page' && get_post_meta( $post->ID, '_wp_page_template', true ) === 'template-vertical.php' ) {
 		$vertical_id = $post->ID;
 	}
@@ -48,30 +47,27 @@ function online_get_vertical_subnav( $post ) {
 	$brand_url = get_permalink( $vertical_id );
 
 	ob_start();
-	// TODO update navbar markup for Athena Framework compat.
 ?>
-<nav class="navbar-subnav" role="navigation">
-	<div class="navbar navbar-default" id="secondary-nav">
-		<div class="container">
-			<div class="navbar-header">
-				<a class="navbar-brand" href="<?php echo $brand_url; ?>"><?php echo wptexturize( $brand ); ?></a>
-				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#secondary-menu">
-					<span class="navbar-toggle-text">Sections</span>
-					<span class="fa fa-bars" aria-hidden="true"></span>
-				</button>
-			</div>
-			<div class="collapse navbar-collapse navbar-right" id="secondary-menu">
-				<?php
-				wp_nav_menu( array(
-					'container'       => 'false',
-					'depth'           => 2,
-					'fallback_cb'     => 'bs4Navwalker::fallback',
-					'menu'            => $submenu_id,
-					'menu_class'      => 'nav navbar-nav ml-md-auto',
-					'walker'          => new bs4Navwalker()
-				) );
-				?>
-			</div>
+<nav class="navbar navbar-toggleable-md navbar-light bg-faded sticky-top navbar-subnav" id="secondary-nav" role="navigation">
+	<div class="container">
+		<a class="navbar-brand" href="<?php echo $brand_url; ?>">
+			<?php echo wptexturize( $brand ); ?>
+		</a>
+		<button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#secondary-menu" aria-controls="secondary-menu" aria-expanded="false" aria-label="Toggle sub-navigation">
+			<span class="navbar-toggler-text">Sections</span>
+			<span class="navbar-toggler-icon" aria-hidden="true"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="secondary-menu">
+			<?php
+			wp_nav_menu( array(
+				'container'       => 'false',
+				'depth'           => 2,
+				'fallback_cb'     => 'bs4Navwalker::fallback',
+				'menu'            => $submenu_id,
+				'menu_class'      => 'nav navbar-nav ml-md-auto',
+				'walker'          => new bs4Navwalker()
+			) );
+			?>
 		</div>
 	</div>
 </nav>
@@ -275,7 +271,7 @@ function online_related_vertical_query( $args, $field, $post ) {
 	$args['meta_query'] = array(
 		array(
 			'key' => '_wp_page_template',
-			'value' => 'template-vertical.php', // TODO update template name
+			'value' => 'template-vertical.php',
 			'compare' => '='
 		)
 	);
@@ -369,7 +365,7 @@ function online_verticals_rewrite_rule() {
 		'meta_query'  => array(
 			array(
 				'key'     => '_wp_page_template',
-				'value'   => 'template-vertical.php', // TODO update template name
+				'value'   => 'template-vertical.php',
 				'compare' => '='
 			)
 		)

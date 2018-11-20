@@ -129,11 +129,13 @@ function online_nav_markup() {
 		return;
 	}
 
-	$title_elem = ( is_home() || is_front_page() ) ? 'h1' : 'span';
+	$title_elem      = ( is_home() || is_front_page() ) ? 'h1' : 'span';
+	$vertical_subnav = ( $post ) ? online_get_vertical_subnav( $post ) : '';
+	$sticky_class    = ( $vertical_subnav ) ? '' : 'sticky-top';
 
 	ob_start();
 ?>
-	<nav class="site-nav navbar navbar-toggleable-md navbar-custom navbar-light bg-primary sticky-top" role="navigation">
+	<nav class="site-nav navbar navbar-toggleable-md navbar-custom navbar-light bg-primary <?php echo $sticky_class; ?>" role="navigation">
 		<div class="container d-flex flex-row flex-nowrap justify-content-between">
 			<<?php echo $title_elem; ?> class="mb-0">
 				<a class="navbar-brand font-weight-black text-uppercase letter-spacing-1 mr-lg-4" href="<?php echo get_home_url(); ?>"><?php echo bloginfo( 'name' ); ?></a>
@@ -159,13 +161,29 @@ function online_nav_markup() {
 		</div>
 	</nav>
 <?php
+	// If this is a standard Vertical or Vertical Child,
+	// display its subnav:
+	if ( $vertical_subnav ) { echo $vertical_subnav; }
+
 	echo ob_get_clean();
 }
 
 add_action( 'after_body_open', 'online_nav_markup', 10, 0 );
 
+
+/**
+ * Returns a simplfied site navbar for use on Landing Pages.
+ *
+ * Adapted from Online-Theme
+ *
+ * @author Jim Barnes
+ * @since 1.0.0
+ * @return string
+ */
 function online_landing_page_header_bar_markup() {
 	global $post;
+	if ( ! $post ) { return; }
+
 	$title = $post->post_title;
 
 	ob_start();
@@ -185,6 +203,7 @@ function online_landing_page_header_bar_markup() {
 <?php
 	return ob_get_clean();
 }
+
 
 /**
  * Returns default inner content markup for page headers that
