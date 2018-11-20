@@ -228,7 +228,7 @@ function online_get_vertical_subfooter( $post ) {
 	// Display divider above subfooter on child pages/posts
 	if ( $vertical_id !== $post->ID ):
 	?>
-	<hr>
+	<hr class="my-5">
 	<?php endif; ?>
 
 	<div class="row">
@@ -239,17 +239,10 @@ function online_get_vertical_subfooter( $post ) {
 
 		<?php
 		// Display Vertical form in subfooter on child pages/posts
-		if ( $vertical_id !== $post->ID ):
+		if ( $vertical_id !== $post->ID ) {
+			echo online_get_header_form_markup( $post );
+		}
 		?>
-		<div class="col-md-4 mt-3 mt-md-0">
-			<?php if ( $form_id ) : ?>
-			<div class="degree-cta-section">
-				<h2 class="h3 text-center mt-0">Request Info <span class="fa fa-envelope ml-2" aria-hidden="true"></span></h2>
-				<?php echo do_shortcode( '[gravityform id="' . $form_id . '" ajax="true" title="false" description="true"]' ); ?>
-			</div>
-			<?php endif; ?>
-		</div>
-		<?php endif; ?>
 	</div>
 </div>
 <?php
