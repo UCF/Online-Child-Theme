@@ -50,7 +50,7 @@ function online_degree_search_suggestion() {
 	ob_start();
 ?>
 	<p class="ucf-degree-search-suggestion">
-		{{encodeMyString title.rendered}} <em class="suggestion-match-type text-capitalize">{{matchString}}</em>
+		{{encodeString title.rendered}} <em class="suggestion-match-type text-capitalize">{{matchString}}</em>
 	</p>
 <?php
 	return ob_get_clean();
