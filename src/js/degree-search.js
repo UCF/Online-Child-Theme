@@ -4,7 +4,7 @@
 
   let degree;
 
-  Handlebars.registerHelper('encodeMyString', (inputData) => {
+  Handlebars.registerHelper('encodeString', (inputData) => {
     return new Handlebars.SafeString(inputData);
   });
 
