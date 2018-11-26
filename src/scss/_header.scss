@@ -66,15 +66,15 @@
 // and form stack. 
 .header-media {
   @include media-breakpoint-down(xs) {
-    position: static;
     background-color: $white !important;
+    position: static;
   }
 }
 
 .header-media-background-wrap {
   @include media-breakpoint-down(xs) {
-    position: static;
     height: 71.65vw;
+    position: static;
   }
 }
 
