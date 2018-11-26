@@ -226,12 +226,12 @@ function online_get_header_content_default( $obj ) {
 	<div class="header-content-inner align-self-start pt-4 pt-md-5">
 		<div class="container">
 			<div class="row">
-				<div class="<?php echo ( $form_markup ) ? 'header-title-container col-12 col-sm-8 offset-sm-4 col-md-6 offset-md-6 col-xl-4 offset-xl-4 mb-0' : 'col-12 mb-5'; ?> mb-sm-4 mb-md-5 mb-xl-0 mt-xl-4">
+				<div class="<?php echo ( $form_markup ) ? 'col-12 col-sm-8 offset-sm-4 col-md-6 offset-md-6 col-xl-4 offset-xl-4 mb-4' : 'col-12 mb-5'; ?> mb-sm-4 mb-md-5 mb-xl-0 mt-xl-4">
 					<<?php echo $title_elem; ?> class="header-title mb-0 d-inline-block"><?php echo $title; ?></<?php echo $title_elem; ?>>
 				</div>
 
 				<?php if ( $form_markup ): ?>
-				<div class="header-form-container col-sm-8 offset-sm-4 col-md-6 offset-md-6 col-xl-4 offset-xl-0 mt-lg-0">
+				<div class="col-sm-8 offset-sm-4 col-md-6 offset-md-6 col-xl-4 offset-xl-0 mt-lg-0">
 					<?php echo $form_markup; ?>
 				</div>
 				<?php endif; ?>
