@@ -96,7 +96,7 @@ function online_get_vertical_degree_typeahead_markup( $post ) {
 
 		if ( $college ) $atts['colleges'] = $college->slug;
 		if ( $program_type ) $atts['program_types'] = $program_type->slug;
-		if ( $interest ) $atts['interest'] = $interest->slug;
+		if ( $interest ) $atts['interests'] = $interest->slug;
 		if ( $tag ) $atts['post_tag'] = $tag->slug; // TODO make sure this actually has any effect
 
 		$query_params = '?' . http_build_query( $atts );
@@ -167,7 +167,7 @@ function online_get_vertical_popular_programs_markup( $post ) {
 		}
 
 		if ( $interest ) {
-			$args['tax_interest'] = $interest->slug;
+			$args['tax_interests'] = $interest->slug;
 			$args['tax_interests__field'] = 'slug';
 		}
 
