@@ -96,7 +96,7 @@ function online_get_vertical_degree_typeahead_markup( $post ) {
 
 		if ( $college ) $atts['colleges'] = $college->slug;
 		if ( $program_type ) $atts['program_types'] = $program_type->slug;
-		if ( $interest ) $atts['interest'] = $interest->slug;
+		if ( $interest ) $atts['interests'] = $interest->slug;
 		if ( $tag ) $atts['post_tag'] = $tag->slug; // TODO make sure this actually has any effect
 
 		$query_params = '?' . http_build_query( $atts );
@@ -167,7 +167,7 @@ function online_get_vertical_popular_programs_markup( $post ) {
 		}
 
 		if ( $interest ) {
-			$args['tax_interest'] = $interest->slug;
+			$args['tax_interests'] = $interest->slug;
 			$args['tax_interests__field'] = 'slug';
 		}
 
@@ -181,10 +181,10 @@ function online_get_vertical_popular_programs_markup( $post ) {
 		<div class="bg-inverse">
 			<div class="container py-4">
 				<div class="row">
-					<div class="col-lg-3">
-						<h2 class="text-uppercase font-condensed mb-4 mb-md-2"><?php echo $heading_text; ?></h2>
+					<div class="col-lg-4 col-xl-3 align-self-lg-center">
+						<h2 class="h3 text-uppercase font-condensed mb-4 mb-md-2"><?php echo $heading_text; ?></h2>
 					</div>
-					<div class="col-lg-9">
+					<div class="col-lg-8 col-xl-9">
 						<?php echo sc_ucf_post_list( $args ); ?>
 					</div>
 				</div>
