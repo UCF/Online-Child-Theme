@@ -26,3 +26,6 @@ if ( class_exists( 'UCF_People_PostType' ) ) {
 	include_once 'includes/person-functions.php';
 }
 
+if ( class_exists( 'UCF_News_Common' ) ) {
+	include_once 'includes/news-functions.php';
+}
