@@ -34,11 +34,41 @@
 }
 
 
+// Styles the header on pages with a form in the xs viewport
+// to have a white background and a gradient above the header 
+// to ease the header image into the page header.
+.header-title-container {
+  @include media-breakpoint-down(xs) {
+    background-color: $white;
+    color: $black !important;
+    margin-top: 300px;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+
+    &:before {
+      background: linear-gradient(to top, $white 0%, rgba(255,255,255,0) 100%);
+      content: "";
+      display: block;
+      height: 25%;
+      left: 0;
+      position: absolute;
+      top: -24%;
+      width: 100%;
+    }
+  }
+}
+.header-form-container {
+  @include media-breakpoint-down(xs) {
+    background: $white;
+  }
+}
+
+
 // Object-position overrides for header media background pictures.
 // Attempts to position left-aligned image focal points within headers to
 // help prevent face clipping and text overlap.
 .header-media-background .media-background-picture .media-background {
-  object-position: 25% 0%;
+  object-position: 50% 0%;
 
   @include media-breakpoint-up(sm) {
     object-position: 0 50%;
