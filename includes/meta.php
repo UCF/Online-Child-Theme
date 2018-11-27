@@ -49,3 +49,6 @@ if ( filter_var( get_option( 'ucf_post_list_include_js' ), FILTER_VALIDATE_BOOLE
 if ( filter_var( get_option( 'ucf_degree_search_include_typeahead' ), FILTER_VALIDATE_BOOLEAN ) !== false ) {
 	update_option( 'ucf_degree_search_include_typeahead', false );
 }
+if ( filter_var( get_option( 'ucf_degree_search_auto_initialize' ), FILTER_VALIDATE_BOOLEAN ) !== false ) {
+	update_option( 'ucf_degree_search_auto_initialize', false );
+}
