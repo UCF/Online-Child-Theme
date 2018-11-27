@@ -318,7 +318,7 @@
                 "preview_size": "header-img",
                 "library": "all",
                 "min_width": 575,
-                "min_height": 575,
+                "min_height": 412,
                 "min_size": "",
                 "max_width": "",
                 "max_height": "",
