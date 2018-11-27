@@ -97,7 +97,7 @@ function online_get_vertical_degree_typeahead_markup( $post ) {
 		if ( $college ) $atts['colleges'] = $college->slug;
 		if ( $program_type ) $atts['program_types'] = $program_type->slug;
 		if ( $interest ) $atts['interests'] = $interest->slug;
-		if ( $tag ) $atts['post_tag'] = $tag->slug; // TODO make sure this actually has any effect
+		if ( $tag ) $atts['post_tag'] = $tag->slug;
 
 		$query_params = '?' . http_build_query( $atts );
 
@@ -173,7 +173,7 @@ function online_get_vertical_popular_programs_markup( $post ) {
 
 		if ( $tag ) {
 			unset( $args['tag'] );
-			$args['tag_slug__and'] = implode( array( $tag->slug, 'popular' ) );
+			$args['tag_slug__and'] = implode( ',', array( $tag->slug, 'popular' ) );
 		}
 
 		ob_start();
