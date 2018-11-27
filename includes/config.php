@@ -34,7 +34,7 @@ function online_init() {
 	remove_image_size( 'header-img-md' );
 	remove_image_size( 'header-img-lg' );
 	remove_image_size( 'header-img-xl' );
-	add_image_size( 'header-img', 575, 750, true );
+	add_image_size( 'header-img', 575, 412, true );
 	add_image_size( 'header-img-sm', 767, 750, true );
 	add_image_size( 'header-img-md', 991, 800, true );
 	add_image_size( 'header-img-lg', 1199, 800, true );
