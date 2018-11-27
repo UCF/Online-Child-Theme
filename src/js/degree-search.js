@@ -4,6 +4,10 @@
 
   let degree;
 
+  Handlebars.registerHelper('encodeString', (inputData) => {
+    return new Handlebars.SafeString(inputData);
+  });
+
   if ($('.degree-search-typeahead')) {
     let keywords = {
         bachelor: ['bachelor\'s', 'bachelors', 'bs', 'ba', 'major', 'majors'],

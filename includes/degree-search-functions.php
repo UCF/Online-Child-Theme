@@ -49,8 +49,8 @@ if ( ! function_exists( 'ucf_degree_picker_inline_layout' ) ) {
 function online_degree_search_suggestion() {
 	ob_start();
 ?>
-	<p class="ucf-degree-search-suggestion">
-		<img src="{{thumbnail}}" class="rounded-circle suggestion-image" alt="">{{title.rendered}}  <em class="suggestion-match-type text-capitalize">{{matchString}}</em>
+	<p class="ucf-degree-search-suggestion mb-0">
+		<img src="{{thumbnail}}" class="rounded-circle suggestion-image" alt="">{{encodeString title.rendered}} <em class="suggestion-match-type text-capitalize">{{matchString}}</em>
 	</p>
 <?php
 	return ob_get_clean();
@@ -75,7 +75,7 @@ function online_degree_search_footer() {
 	ob_start();
 ?>
 	<div class="dropdown-divider"></div>
-	<p class="ucf-degree-search-suggestion">What kind of degree are you interested in?</p>
+	<p class="ucf-degree-search-suggestion ml-3 mt-3 mb-2 font-weight-bold">What kind of degree are you interested in?</p>
 	<a href="<?php echo get_permalink( $majors->ID ); ?>" class="ucf-degree-search-suggestion tt-suggestion tt-selectable">Bachelor</a>
 	<a href="<?php echo get_permalink( $masters->ID ); ?>" class="ucf-degree-search-suggestion tt-suggestion tt-selectable">Master</a>
 	<a href="<?php echo get_permalink( $docorates->ID ); ?>" class="ucf-degree-search-suggestion tt-suggestion tt-selectable">Doctorate</a>
