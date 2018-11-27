@@ -307,8 +307,6 @@ function online_get_header_form_markup( $obj ) {
 		else if ( get_post_meta( $obj->ID, '_wp_page_template', true ) === 'template-vertical.php' ) {
 			$show_title = false;
 		}
-		// TODO any other exceptions??
-
 	}
 
 	ob_start();
