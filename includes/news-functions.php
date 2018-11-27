@@ -30,9 +30,9 @@ if ( ! function_exists( 'ucf_news_display_simple' ) ) {
 	<?php
         foreach( $items as $item ) :
 	?>
-			<div class="ucf-news-item flex-column">
+			<div class="ucf-news-item flex-column mb-4">
                 <div class="ucf-news-item-title">
-                    <a href="<?php echo $item->link; ?>" class="h5">
+                    <a href="<?php echo $item->link; ?>" class="h5 text-inverse">
                         <?php echo $item->title->rendered; ?>
                     </a>
                 </div>
