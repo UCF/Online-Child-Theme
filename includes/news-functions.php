@@ -2,6 +2,18 @@
 /**
  * Adds the simple layout for displaying News stories
  **/
+if ( ! function_exists( 'ucf_news_display_simple_before' ) ) {
+	function ucf_news_display_simple_before( $content, $items, $args, $display_type ) {
+		ob_start();
+	?>
+		<div class="ucf-news ucf-news-simple">
+	<?php
+		return ob_get_clean();
+	}
+	add_filter( 'ucf_news_display_simple_before', 'ucf_news_display_simple_before', 10, 4 );
+}
+
+
 if ( ! function_exists( 'ucf_news_display_simple' ) ) {
 	function ucf_news_display_simple( $content, $items, $args, $display_type, $fallback_message='' ) {
 		if ( $items === false ) {
