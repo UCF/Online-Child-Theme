@@ -20,7 +20,7 @@ if ( ! function_exists( 'ucf_news_display_simple' ) ) {
 	?>
 			<div class="ucf-news-item flex-column">
                 <div class="ucf-news-item-title">
-                    <a href="<?php echo $item->link; ?>" class="font-weight-bold">
+                    <a href="<?php echo $item->link; ?>" class="h5">
                         <?php echo $item->title->rendered; ?>
                     </a>
                 </div>
