@@ -8,7 +8,7 @@
     height: 45vw;
 
     @include media-breakpoint-up(sm) {
-      height: 12rem;
+      height: 14rem;
     }
 
     @include media-breakpoint-only(md) {

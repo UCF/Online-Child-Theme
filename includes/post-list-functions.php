@@ -44,7 +44,7 @@ function online_post_list_display_default( $content, $posts, $atts ) {
 				echo '</div><div class="row ucf-post-list-items">';
 			}
 		?>
-			<article class="col-12 col-lg mb-4 ucf-post-list-item">
+			<article class="col-12 col-lg mb-4 mb-lg-5 ucf-post-list-item">
 				<a class="d-block text-secondary text-decoration-none" href="<?php echo get_permalink( $item->ID ); ?>">
 					<?php if ( $item_img ) : ?>
 					<div class="ucf-post-list-thumbnail-block media-background-container mb-4">
