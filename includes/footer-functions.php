@@ -14,6 +14,7 @@
 function ucfwp_get_footer_markup() {
 	ob_start();
 
+	// Display subfooter section on pages
 	$subfooter_section                   = online_get_theme_mod_or_default( 'subfooter_section' );
 	$page_subfooter_section_option_value = get_field( 'page_subfooter_section_option' );
 	$page_subfooter_section_option       = ( isset( $page_subfooter_section_option_value ) ) ? $page_subfooter_section_option_value : true;
@@ -26,6 +27,7 @@ function ucfwp_get_footer_markup() {
 <?php
 	endif;
 
+	// Display primary site footer
 	if (
 		is_active_sidebar( 'footer-col-1' )
 		|| is_active_sidebar( 'footer-col-2' )
