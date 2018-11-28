@@ -241,6 +241,6 @@ add_action( 'admin_menu', 'hide_admin_links' );
 
 // Force Tuition and Fees plugin to use 'degree_code' field for
 // a single degree's degree plan code value
-if ( filter_var( get_option( 'ucf_tuition_fees_degree_plan_code_name' ), FILTER_VALIDATE_BOOLEAN ) !== 'degree_code' ) {
+if ( get_option( 'ucf_tuition_fees_degree_plan_code_name' ) !== 'degree_code' ) {
 	update_option( 'ucf_tuition_fees_degree_plan_code_name', 'degree_code' );
 }
