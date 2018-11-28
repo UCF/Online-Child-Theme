@@ -60,6 +60,12 @@
   }
 }
 
+// Updates the header form background color to a semi-transparent black
+.header-form {
+  background-color: rgba($black, .66);
+  color: #fff;
+}
+
 
 // Header title overrides
 .header-title {

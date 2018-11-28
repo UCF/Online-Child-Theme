@@ -311,7 +311,7 @@ function online_get_header_form_markup( $obj ) {
 
 	ob_start();
 ?>
-	<div class="header-form bg-inverse mb-4 mb-lg-5 p-3 p-md-4">
+	<div class="header-form mb-4 mb-lg-5 p-3 p-md-4">
 		<?php if ( $show_title ): ?>
 		<h2 class="h5 text-center">
 			<?php echo $form_title; ?>
