@@ -15,8 +15,11 @@ function ucfwp_get_footer_markup() {
 	ob_start();
 
 	// Display subfooter section on pages
-	$subfooter_section = online_get_theme_mod_or_default( 'subfooter_section' );
-	if ( is_page() && $subfooter_section && shortcode_exists( 'ucf-section' ) ):
+	$subfooter_section                   = online_get_theme_mod_or_default( 'subfooter_section' );
+	$page_subfooter_section_option_value = get_field( 'page_subfooter_section_option' );
+	$page_subfooter_section_option       = ( isset( $page_subfooter_section_option_value ) ) ? $page_subfooter_section_option_value : true;
+
+	if ( is_page() && $subfooter_section && shortcode_exists( 'ucf-section' ) && $page_subfooter_section_option ):
 ?>
 	<div class="site-subfooter py-4 py-md-5">
 		<?php echo do_shortcode( '[ucf-section id="' . $subfooter_section . '"]' ); ?>
