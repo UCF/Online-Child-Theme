@@ -3,6 +3,21 @@
 //
 
 
+.ucf-post-list-default {
+  .ucf-post-list-thumbnail-block {
+    height: 45vw;
+
+    @include media-breakpoint-up(sm) {
+      height: 14rem;
+    }
+
+    @include media-breakpoint-only(md) {
+      height: 20rem;
+    }
+  }
+}
+
+
 .ucf-post-list-thumbnail-deck {
   @include make-row();
 }
