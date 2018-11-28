@@ -232,3 +232,15 @@ function hide_admin_links() {
 	remove_menu_page( 'edit-comments.php' );
 }
 add_action( 'admin_menu', 'hide_admin_links' );
+
+
+/**
+ * Force update various plugin settings that are directly tied
+ * to theme-controlled options or meta fields
+ */
+
+// Force Tuition and Fees plugin to use 'degree_code' field for
+// a single degree's degree plan code value
+if ( get_option( 'ucf_tuition_fees_degree_plan_code_name' ) !== 'degree_code' ) {
+	update_option( 'ucf_tuition_fees_degree_plan_code_name', 'degree_code' );
+}
