@@ -129,11 +129,13 @@ function online_nav_markup() {
 		return;
 	}
 
-	$title_elem = ( is_home() || is_front_page() ) ? 'h1' : 'span';
+	$title_elem      = ( is_home() || is_front_page() ) ? 'h1' : 'span';
+	$vertical_subnav = ( $post ) ? online_get_vertical_subnav( $post ) : '';
+	$sticky_class    = ( $vertical_subnav ) ? '' : 'sticky-top';
 
 	ob_start();
 ?>
-	<nav class="site-nav navbar navbar-toggleable-md navbar-custom navbar-light bg-primary sticky-top" role="navigation">
+	<nav class="site-nav navbar navbar-toggleable-md navbar-custom navbar-light bg-primary <?php echo $sticky_class; ?>" role="navigation">
 		<div class="container d-flex flex-row flex-nowrap justify-content-between">
 			<<?php echo $title_elem; ?> class="mb-0">
 				<a class="navbar-brand font-weight-black text-uppercase letter-spacing-1 mr-lg-4" href="<?php echo get_home_url(); ?>"><?php echo bloginfo( 'name' ); ?></a>
@@ -159,13 +161,29 @@ function online_nav_markup() {
 		</div>
 	</nav>
 <?php
+	// If this is a standard Vertical or Vertical Child,
+	// display its subnav:
+	if ( $vertical_subnav ) { echo $vertical_subnav; }
+
 	echo ob_get_clean();
 }
 
 add_action( 'after_body_open', 'online_nav_markup', 10, 0 );
 
+
+/**
+ * Returns a simplfied site navbar for use on Landing Pages.
+ *
+ * Adapted from Online-Theme
+ *
+ * @author Jim Barnes
+ * @since 1.0.0
+ * @return string
+ */
 function online_landing_page_header_bar_markup() {
 	global $post;
+	if ( ! $post ) { return; }
+
 	$title = $post->post_title;
 
 	ob_start();
@@ -185,6 +203,7 @@ function online_landing_page_header_bar_markup() {
 <?php
 	return ob_get_clean();
 }
+
 
 /**
  * Returns default inner content markup for page headers that
@@ -238,7 +257,9 @@ function online_get_header_form_markup( $obj ) {
 	$field_id            = ucfwp_get_object_field_id( $obj );
 	$form_id             = null;
 	$obj_custom_form_val = get_field( 'page_header_form_option', $field_id );
+	$form                = null;
 
+	// Determine which form to retrieve
 	if ( $obj_custom_form_val !== 'none' ) {
 		// Retrieve a custom form ID first
 		if ( $obj_custom_form_val === 'custom' ) {
@@ -257,13 +278,54 @@ function online_get_header_form_markup( $obj ) {
 		}
 	}
 
+	// Retrieve the form by ID
+	if ( $form_id && class_exists( 'GFAPI' ) ) {
+		$form = GFAPI::get_form( $form_id );
+	}
+
+	// Stop now if we can't retrieve the actual form object
+	if ( ! $form ) { return ''; }
+
+	$form_title = $form['title'];
+	$form_desc  = $form['description'];
+	$show_title = true;
+	$show_desc  = true;
+
+	// Modify how the form title and description are displayed
+	// for specific types of content
+	if ( $obj instanceof WP_Post ) {
+		// Single degrees
+		if ( $obj->post_type === 'degree' ) {
+			$form_title = 'Get More Information';
+			$form_desc  = "Fill out the form below, and we'll send you more information about the <strong>{$obj->post_title}</strong> program.";
+		}
+		// Vertical Children
+		else if ( get_field( 'post_vertical', $obj->ID ) ) {
+			$form_title = 'Request Info <span class="fa fa-envelope ml-2" aria-hidden="true"></span>';
+		}
+		// Standard Vertical
+		else if ( get_post_meta( $obj->ID, '_wp_page_template', true ) === 'template-vertical.php' ) {
+			$show_title = false;
+		}
+	}
+
 	ob_start();
-	if ( $form_id && shortcode_exists( 'gravityform' ) ):
 ?>
 	<div class="header-form bg-inverse mb-4 mb-lg-5 p-3 p-md-4">
-		<?php echo do_shortcode( '[gravityform id="' . $form_id . '" title="true" description="true" ajax="true"]' ); ?>
+		<?php if ( $show_title ): ?>
+		<h2 class="h5 text-center">
+			<?php echo $form_title; ?>
+		</h2>
+		<?php endif; ?>
+
+		<?php if ( $show_desc ): ?>
+		<div class="">
+			<?php echo wptexturize( $form_desc ); ?>
+		</div>
+		<?php endif; ?>
+
+		<?php echo do_shortcode( '[gravityform id="' . $form_id . '" title="false" description="false" ajax="true"]' ); ?>
 	</div>
 <?php
-	endif;
 	return ob_get_clean();
 }

@@ -13,7 +13,6 @@
  */
 function online_get_post_vertical_id( $post ) {
 	$vertical_id = false;
-	// TODO modify template name here
 	if ( $post->post_type === 'page' && get_post_meta( $post->ID, '_wp_page_template', true ) === 'template-vertical.php' ) {
 		$vertical_id = $post->ID;
 	}
@@ -48,30 +47,27 @@ function online_get_vertical_subnav( $post ) {
 	$brand_url = get_permalink( $vertical_id );
 
 	ob_start();
-	// TODO update navbar markup for Athena Framework compat.
 ?>
-<nav class="navbar-subnav" role="navigation">
-	<div class="navbar navbar-default" id="secondary-nav">
-		<div class="container">
-			<div class="navbar-header">
-				<a class="navbar-brand" href="<?php echo $brand_url; ?>"><?php echo wptexturize( $brand ); ?></a>
-				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#secondary-menu">
-					<span class="navbar-toggle-text">Sections</span>
-					<span class="fa fa-bars" aria-hidden="true"></span>
-				</button>
-			</div>
-			<div class="collapse navbar-collapse navbar-right" id="secondary-menu">
-				<?php
-				wp_nav_menu( array(
-					'container'       => 'false',
-					'depth'           => 2,
-					'fallback_cb'     => 'bs4Navwalker::fallback',
-					'menu'            => $submenu_id,
-					'menu_class'      => 'nav navbar-nav ml-md-auto',
-					'walker'          => new bs4Navwalker()
-				) );
-				?>
-			</div>
+<nav class="navbar navbar-toggleable-md navbar-light bg-faded sticky-top navbar-subnav" id="secondary-nav" role="navigation">
+	<div class="container">
+		<a class="navbar-brand" href="<?php echo $brand_url; ?>">
+			<?php echo wptexturize( $brand ); ?>
+		</a>
+		<button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#secondary-menu" aria-controls="secondary-menu" aria-expanded="false" aria-label="Toggle sub-navigation">
+			<span class="navbar-toggler-text">Sections</span>
+			<span class="navbar-toggler-icon" aria-hidden="true"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="secondary-menu">
+			<?php
+			wp_nav_menu( array(
+				'container'       => 'false',
+				'depth'           => 2,
+				'fallback_cb'     => 'bs4Navwalker::fallback',
+				'menu'            => $submenu_id,
+				'menu_class'      => 'nav navbar-nav ml-md-auto',
+				'walker'          => new bs4Navwalker()
+			) );
+			?>
 		</div>
 	</div>
 </nav>
@@ -94,13 +90,14 @@ function online_get_vertical_degree_typeahead_markup( $post ) {
 		$college      = get_field( 'vertical_college_filter', $post->ID );
 		$program_type = get_field( 'vertical_program_type_filter', $post->ID );
 		$interest     = get_field( 'vertical_interest_filter', $post->ID );
+		$tag          = get_field( 'vertical_degrees_tag', $post->ID );
 		$placeholder  = get_field( 'degree_search_placeholder', $post->ID );
-
 		$atts = array();
 
 		if ( $college ) $atts['colleges'] = $college->slug;
 		if ( $program_type ) $atts['program_types'] = $program_type->slug;
-		if ( $interest ) $atts['interest'] = $interest->slug;
+		if ( $interest ) $atts['interests'] = $interest->slug;
+		if ( $tag ) $atts['post_tag'] = $tag->slug;
 
 		$query_params = '?' . http_build_query( $atts );
 
@@ -145,6 +142,7 @@ function online_get_vertical_popular_programs_markup( $post ) {
 		$college      = get_field( 'vertical_college_filter', $post->ID );
 		$program_type = get_field( 'vertical_program_type_filter', $post->ID );
 		$interest     = get_field( 'vertical_interest_filter', $post->ID );
+		$tag          = get_field( 'vertical_degrees_tag', $post->ID );
 
 		$heading_text = get_field( 'popular_programs_text', $post->ID );
 
@@ -169,8 +167,13 @@ function online_get_vertical_popular_programs_markup( $post ) {
 		}
 
 		if ( $interest ) {
-			$args['tax_interest'] = $interest->slug;
+			$args['tax_interests'] = $interest->slug;
 			$args['tax_interests__field'] = 'slug';
+		}
+
+		if ( $tag ) {
+			unset( $args['tag'] );
+			$args['tag_slug__and'] = implode( ',', array( $tag->slug, 'popular' ) );
 		}
 
 		ob_start();
@@ -178,10 +181,10 @@ function online_get_vertical_popular_programs_markup( $post ) {
 		<div class="bg-inverse">
 			<div class="container py-4">
 				<div class="row">
-					<div class="col-lg-3">
-						<h2 class="text-uppercase font-condensed mb-4 mb-md-2"><?php echo $heading_text; ?></h2>
+					<div class="col-lg-4 col-xl-3 align-self-lg-center">
+						<h2 class="h3 text-uppercase font-condensed mb-4 mb-lg-2"><?php echo $heading_text; ?></h2>
 					</div>
-					<div class="col-lg-9">
+					<div class="col-lg-8 col-xl-9">
 						<?php echo sc_ucf_post_list( $args ); ?>
 					</div>
 				</div>
@@ -193,71 +196,6 @@ function online_get_vertical_popular_programs_markup( $post ) {
 	}
 
 	return $retval;
-}
-
-
-/**
- * Returns a subfooter for a vertical page or its child content.
- *
- * Adapted from Online-Theme
- *
- * @param object $post WP Post object
- * @return string subfooter markup
- *
- * @author Jo Dickson
- * @since 1.0.0
- */
-function online_get_vertical_subfooter( $post ) {
-	$vertical_id = online_get_post_vertical_id( $post );
-	if ( !$vertical_id ) { return false; }
-
-	$vertical    = get_post( $vertical_id );
-	if ( !$vertical ) { return false; }
-
-	$form_id     = get_field( 'vertical_contact_form', $vertical_id );
-	$degrees_tag = get_term( get_field( 'vertical_degrees_tag', $vertical_id ) );
-
-	// Require at least a list of degrees to continue
-	if ( $degrees_tag ) {
-		$degrees_tag = $degrees_tag->slug;
-	}
-	else {
-		return false;
-	}
-
-	ob_start();
-?>
-<div class="container" id="degrees">
-	<?php
-	// Display divider above subfooter on child pages/posts
-	if ( $vertical_id !== $post->ID ):
-	?>
-	<hr>
-	<?php endif; ?>
-
-	<div class="row">
-		<div class="<?php echo ( $vertical_id !== $post->ID ) ? 'col-md-8' : 'col-md-12'; ?>">
-			<h2><?php echo $vertical->post_title; ?> Degrees</h2>
-			<?php echo do_shortcode( '[degree-list title="" filter_by_tax="post_tag" terms="' . $degrees_tag . '" groupby="program_types" groupby_field="program_types_alias"]' ); ?>
-		</div>
-
-		<?php
-		// Display Vertical form in subfooter on child pages/posts
-		if ( $vertical_id !== $post->ID ):
-		?>
-		<div class="col-md-4 mt-3 mt-md-0">
-			<?php if ( $form_id ) : ?>
-			<div class="degree-cta-section">
-				<h2 class="h3 text-center mt-0">Request Info <span class="fa fa-envelope ml-2" aria-hidden="true"></span></h2>
-				<?php echo do_shortcode( '[gravityform id="' . $form_id . '" ajax="true" title="false" description="true"]' ); ?>
-			</div>
-			<?php endif; ?>
-		</div>
-		<?php endif; ?>
-	</div>
-</div>
-<?php
-	return ob_get_clean();
 }
 
 
@@ -275,7 +213,7 @@ function online_related_vertical_query( $args, $field, $post ) {
 	$args['meta_query'] = array(
 		array(
 			'key' => '_wp_page_template',
-			'value' => 'template-vertical.php', // TODO update template name
+			'value' => 'template-vertical.php',
 			'compare' => '='
 		)
 	);
@@ -369,7 +307,7 @@ function online_verticals_rewrite_rule() {
 		'meta_query'  => array(
 			array(
 				'key'     => '_wp_page_template',
-				'value'   => 'template-vertical.php', // TODO update template name
+				'value'   => 'template-vertical.php',
 				'compare' => '='
 			)
 		)
