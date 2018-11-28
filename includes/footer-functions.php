@@ -14,7 +14,8 @@
 function ucfwp_get_footer_markup() {
 	ob_start();
 
-	// Display subfooter section on pages
+	// Display subfooter section on pages unless 'page_subfooter_section_option'
+	// is not set or set to false
 	$subfooter_section                   = online_get_theme_mod_or_default( 'subfooter_section' );
 	$page_subfooter_section_option_value = get_field( 'page_subfooter_section_option' );
 	$page_subfooter_section_option       = ( isset( $page_subfooter_section_option_value ) ) ? $page_subfooter_section_option_value : true;
