@@ -505,6 +505,48 @@
         "description": ""
     },
     {
+        "key": "group_5bfea9fa38aa6",
+        "title": "Page Subfooter",
+        "fields": [
+            {
+                "key": "field_5bfeaa012f87c",
+                "label": "Subfooter Section",
+                "name": "page_subfooter_section_option",
+                "type": "true_false",
+                "instructions": "Whether or not to display the Subfooter Section right above the footer on this page. Defaults to true.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "message": "",
+                "default_value": 1,
+                "ui": 0,
+                "ui_on_text": "",
+                "ui_off_text": ""
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "page"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": 1,
+        "description": ""
+    },
+    {
         "key": "group_5953a81f683a8",
         "title": "Person Fields",
         "fields": [
