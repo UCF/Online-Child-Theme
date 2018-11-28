@@ -37,6 +37,8 @@ function online_post_list_display_default( $content, $posts, $atts ) {
 		<?php
 		foreach ( $posts as $index=>$item ) :
 			$item_img = UCF_Post_List_Common::get_image_or_fallback( $item );
+			$excerpt  = apply_filters( 'the_excerpt', get_post_field( 'post_excerpt', $item ) );
+			$excerpt  = trim( $excerpt );
 
 			if ( $atts['posts_per_row'] > 0 && $index !== 0 && ( $index % $atts['posts_per_row'] ) === 0 ) {
 				echo '</div><div class="row ucf-post-list-items">';
@@ -55,9 +57,11 @@ function online_post_list_display_default( $content, $posts, $atts ) {
 					</h3>
 				</a>
 
+				<?php if ( $excerpt ): ?>
 				<div class="hidden-md-down ucf-post-list-item-desc">
-					<?php echo get_the_excerpt( $item ); ?>
+					<?php echo $excerpt; ?>
 				</div>
+				<?php endif; ?>
 			</article>
 		<?php endforeach; ?>
 
