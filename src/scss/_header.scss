@@ -74,7 +74,7 @@
   @include media-breakpoint-only(xs) {
     // Prevent short header titles from pushing header forms
     // undesirably high up the header (prevent face clipping)
-    min-height: 20vw;
+    min-height: 25vw;
   }
 
   @include media-breakpoint-up(sm) {
