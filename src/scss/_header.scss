@@ -38,6 +38,8 @@
 // Attempts to position left-aligned image focal points within headers to
 // help prevent face clipping and text overlap.
 .header-media-background .media-background-picture .media-background {
+  object-position: 25% 0%;
+
   @include media-breakpoint-up(sm) {
     object-position: 0 50%;
   }
@@ -59,32 +61,6 @@
 }
 
 
-// Position overrides for the header image wrappers
-// in mobile viewports so that the header image, title
-// and form stack. 
-.header-media {
-  @include media-breakpoint-down(xs) {
-    position: static;
-  }
-}
-
-.header-media-background-wrap {
-  @include media-breakpoint-down(xs) {
-    height: 71.65vw;
-    position: static;
-  }
-}
-
-
-// Sets the header content background color to white
-// at the xs breakpoint.
-.header-content {
-  @include media-breakpoint-down(xs) {
-    background-color: $white;
-  }
-}
-
-
 // Header title overrides
 .header-title {
   background-color: transparent;
@@ -101,10 +77,6 @@
 
   @include media-breakpoint-up(md) {
     font-size: $font-size-h1-md;
-  }
-
-  @include media-breakpoint-down(xs) {
-    color: $black;
   }
 }
 
