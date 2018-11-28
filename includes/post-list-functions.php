@@ -21,6 +21,59 @@ add_filter( 'ucf_post_list_get_layouts', 'online_post_list_layouts' );
 
 
 /**
+ * Modifies the existing "default" layout for the [ucf-post-list] shortcode
+ *
+ * @since 1.0.0
+ * @author Jo Dickson
+ */
+
+function online_post_list_display_default( $content, $posts, $atts ) {
+	if ( $posts && ! is_array( $posts ) ) { $posts = array( $posts ); }
+	ob_start();
+?>
+	<?php if ( $posts ): ?>
+		<div class="row ucf-post-list-items">
+
+		<?php
+		foreach ( $posts as $index=>$item ) :
+			$item_img = UCF_Post_List_Common::get_image_or_fallback( $item );
+
+			if ( $atts['posts_per_row'] > 0 && $index !== 0 && ( $index % $atts['posts_per_row'] ) === 0 ) {
+				echo '</div><div class="row ucf-post-list-items">';
+			}
+		?>
+			<article class="col-12 col-lg mb-4 ucf-post-list-item">
+				<a class="d-block text-secondary text-decoration-none" href="<?php echo get_permalink( $item->ID ); ?>">
+					<?php if ( $item_img ) : ?>
+					<div class="ucf-post-list-thumbnail-block media-background-container mb-4">
+						<img src="<?php echo $item_img; ?>" class="ucf-post-list-thumbnail-image media-background object-fit-cover" alt="">
+					</div>
+					<?php endif; ?>
+
+					<h3 class="h6 mb-3 text-uppercase ucf-post-list-item-title">
+						<?php echo $item->post_title; ?>
+					</h3>
+				</a>
+
+				<div class="hidden-md-down ucf-post-list-item-desc">
+					<?php echo get_the_excerpt( $item ); ?>
+				</div>
+			</article>
+		<?php endforeach; ?>
+
+		</div>
+
+	<?php else: ?>
+		<div class="ucf-post-list-error">No results found.</div>
+	<?php endif;
+
+	return ob_get_clean();
+}
+
+add_filter( 'ucf_post_list_display_default', 'online_post_list_display_default', 10, 3 );
+
+
+/**
  * Defines a new "thumbnail" layout for the [ucf-post-list] shortcode
  *
  * @since 1.0.0
