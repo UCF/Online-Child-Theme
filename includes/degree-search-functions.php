@@ -49,8 +49,8 @@ if ( ! function_exists( 'ucf_degree_picker_inline_layout' ) ) {
 function online_degree_search_suggestion() {
 	ob_start();
 ?>
-	<p class="ucf-degree-search-suggestion mb-0">
-		<img src="{{thumbnail}}" class="rounded-circle suggestion-image" alt="">{{encodeString title.rendered}} <em class="suggestion-match-type text-capitalize">{{matchString}}</em>
+	<p class="d-flex flex-row mb-0 ucf-degree-search-suggestion">
+		<img src="{{thumbnail}}" class="rounded-circle mr-2 suggestion-image" alt=""><span class="suggestion-text">{{encodeString title.rendered}} <em class="suggestion-match-type text-capitalize">{{matchString}}</em></span>
 	</p>
 <?php
 	return ob_get_clean();

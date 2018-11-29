@@ -1,0 +1,7 @@
+.suggestion-image {
+  width: 2.5rem;
+
+  &[src=""] {
+    display: none;
+  }
+}
