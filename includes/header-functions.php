@@ -1,6 +1,28 @@
 <?php
 
 /**
+ * Overrides how term/post object h1 text is determined in the parent theme.
+ *
+ * @author Jo Dickson
+ * @since 1.0.0
+ * @param string $title The determined page title string
+ * @param object $obj A WP_Post or WP_Term object
+ * @return string The modified page title string
+ */
+function online_get_header_title_after( $title, $obj ) {
+	// Forces the parent theme to return an empty value for single Person
+	// h1's.  Prevents duplicate h1's on the single Person template.
+	if ( $obj instanceof WP_Post && $obj->post_type === 'person' ) {
+		$title = '';
+	}
+
+	return $title;
+}
+
+add_filter( 'ucfwp_get_header_title_after', 'online_get_header_title_after', 10, 2 );
+
+
+/**
  * Short-circuit this function from the UCF WordPress Theme to always
  * return 'title', since page header subtitles are not used in this theme.
  *
