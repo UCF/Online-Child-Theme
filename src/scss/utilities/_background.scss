@@ -1,0 +1,7 @@
+// Create custom inverse transparent background class specifically
+// created to place on the header forms. Black at .66 transparency
+// meets WCAG AAA contrast requirements
+.bg-inverse-t-4 {
+  background-color: rgba($black, .66);
+  color: #fff;
+}
