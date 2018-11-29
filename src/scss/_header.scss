@@ -75,6 +75,11 @@
   letter-spacing: -.025em;
   line-height: 1.2;
   padding: 0;
+  text-shadow: 1px 1px 3px rgba(255,255,255,.4),-1px -1px 1px rgba(206,206,206,.4),0 0 3rem rgba(255,255,255,1);
+
+  .bg-inverse & {
+    text-shadow: 1px 1px 3px rgba(0,0,0,.4), -1px -1px 1px rgba(40, 40, 40, .75), 0 0 3rem rgba(0,0,0,1);
+  }
 
   @include media-breakpoint-only(xs) {
     // Prevent short header titles from pushing header forms
