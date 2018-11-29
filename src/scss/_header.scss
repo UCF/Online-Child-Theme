@@ -67,8 +67,8 @@
 
 
 // Header title overrides
-.bg-inverse > .header-title {
-  text-shadow: rgba(255, 255, 255, .4) 1px 1px 3px;
+.bg-inverse .header-title {
+  text-shadow: rgba(0, 0, 0, .4) 1px 1px 3px;
 }
 
 .header-title {
@@ -79,7 +79,7 @@
   letter-spacing: -.025em;
   line-height: 1.2;
   padding: 0;
-  text-shadow: rgba(0, 0, 0, .4) 1px 1px 3px;
+  text-shadow: rgba(255, 255, 255, .4) 1px 1px 3px;
 
   @include media-breakpoint-only(xs) {
     // Prevent short header titles from pushing header forms
