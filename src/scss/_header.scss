@@ -2,6 +2,11 @@
 // Selector depth required to match Bootstrap/Athena selectors
 // sass-lint:disable nesting-depth
 .navbar-custom {
+  // Ensure that primary site nav z-index is greater than
+  // a Standard Vertical's affixed subnav to prevent
+  // site nav dropdown layering issues
+  z-index: $zindex-sticky + 1;
+
   .navbar-collapse {
     @include media-breakpoint-down(md) {
       background-color: transparentize($brand-primary, .025);
