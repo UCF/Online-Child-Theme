@@ -1,0 +1,13 @@
+.suggestion-image {
+  flex: 0 0 2.5rem;
+  height: 2.5rem;
+  width: 2.5rem;
+
+  &[src=""] {
+    display: none;
+  }
+}
+
+.suggestion-text {
+  flex: 1 1 auto;
+}
