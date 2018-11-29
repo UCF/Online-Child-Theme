@@ -18,7 +18,7 @@
 					</h1>
 
 					<?php if ( $job_title = get_field( 'person_jobtitle' ) ): ?>
-					<div class="person-job-title text-center mb-2"><?php echo $job_title; ?></div>
+					<div class="person-job-title text-center mb-3"><?php echo $job_title; ?></div>
 					<?php endif; ?>
 
 					<?php echo online_get_person_degrees_markup( $post ); ?>
