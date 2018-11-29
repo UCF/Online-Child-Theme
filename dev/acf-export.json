@@ -643,60 +643,6 @@
                 "maxlength": ""
             },
             {
-                "key": "field_5a01bcedfb1a2",
-                "label": "Quote",
-                "name": "",
-                "type": "tab",
-                "instructions": "",
-                "required": 0,
-                "conditional_logic": 0,
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "placement": "top",
-                "endpoint": 0
-            },
-            {
-                "key": "field_5a01bcfafb1a3",
-                "label": "Quote",
-                "name": "person_quote",
-                "type": "textarea",
-                "instructions": "A relevant quote, by or about the person.",
-                "required": 0,
-                "conditional_logic": 0,
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "default_value": "",
-                "placeholder": "",
-                "maxlength": "",
-                "rows": "",
-                "new_lines": "wpautop"
-            },
-            {
-                "key": "field_5a01bd65fb1a4",
-                "label": "Quote Citation",
-                "name": "person_quote_citation",
-                "type": "text",
-                "instructions": "A citation for the person's blockquote; e.g. the publication that printed the original quote, or the name of the person that stated it",
-                "required": 0,
-                "conditional_logic": 0,
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "default_value": "",
-                "placeholder": "",
-                "prepend": "",
-                "append": "",
-                "maxlength": ""
-            },
-            {
                 "key": "field_5a0318c69f25c",
                 "label": "Degrees",
                 "name": "",

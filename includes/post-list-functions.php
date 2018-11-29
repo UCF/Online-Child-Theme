@@ -11,9 +11,7 @@
  * @since 1.0.0
  */
 function online_post_list_layouts( $layouts ) {
-	$layouts['thumbnail']      = 'Thumbnail Layout';
-	$layouts['person_profile'] = 'Person Profile Layout';
-	$layouts['person_quote']   = 'Person Quote Layout';
+	$layouts['thumbnail'] = 'Thumbnail Layout';
 	return $layouts;
 }
 
@@ -177,90 +175,3 @@ function online_get_post_list_card_img( $item, $size='16x9-lg' ) {
 	}
 	return $item_img;
 }
-
-
-/**
- * Modify UCF Post List card layout for this theme.
- *
- * Adapted from Online-Theme
- *
- * @author Jo Dickson
- * @since 1.0.0
- */
-function online_post_list_display_card( $content, $posts, $atts ) {
-	if ( $posts && ! is_array( $posts ) ) { $posts = array( $posts ); }
-	ob_start();
-?>
-	<?php
-	if ( $posts ):
-		// Make sure posts_per_row value is sane/compatible with Bootstrap
-		$col_width = 4;
-		if (
-			$atts['posts_per_row'] > 0
-			&& 12 % $atts['posts_per_row'] === 0
-			&& $atts['posts_per_row'] <= 12
-		) {
-			$col_width = 12 / $atts['posts_per_row'];
-		}
-		$col_class = 'col-sm-' . $col_width;
-	?>
-		<div class="row">
-
-		<?php
-		foreach ( $posts as $index => $item ) :
-			// Handle post description output
-			$desc = has_excerpt( $item ) ? wp_trim_words( get_the_excerpt( $item ), 25 ) : wp_trim_words( $item->post_content, 25 );
-			$desc = wptexturize( do_shortcode( $desc ) );
-			// Handle img output
-			$item_img = '';
-			if ( $atts['show_image'] ) {
-				if ( $col_width === 12 ) {
-					$item_img = online_get_post_list_card_img( $item, $size='16x9-lg' );
-				}
-				else if ( $col_width >= 6 && $col_width < 12 ) {
-					$item_img = online_get_post_list_card_img( $item, $size='16x9-md' );
-				}
-				else if ( $col_width >= 4 && $col_width < 6 ) {
-					$item_img = online_get_post_list_card_img( $item, $size='16x9-sm' );
-				}
-				else {
-					$item_img = online_get_post_list_card_img( $item, $size='16x9-xs' );
-				}
-			}
-			// Break into new row if necessary
-			if ( $index !== 0 && $atts['posts_per_row'] > 0 && ( $index % $atts['posts_per_row'] ) === 0 ) {
-				echo '</div><div class="row">';
-			}
-			// Echo card contents
-		?>
-			<div class="<?php echo $col_class; ?>" data-mh="ucf-post-list-cards">
-				<div class="ucf-post-list-card">
-					<a class="ucf-post-list-card-link" href="<?php echo get_permalink( $item->ID ); ?>">
-						<?php if ( $atts['show_image'] && $item_img ): ?>
-						<div class="ucf-post-list-thumbnail">
-							<?php echo $item_img; ?>
-						</div>
-						<?php endif; ?>
-
-						<div class="ucf-post-list-card-block">
-							<h3 class="ucf-post-list-card-title"><?php echo $item->post_title; ?></h3>
-							<?php if ( $desc ) : ?>
-							<div class="ucf-post-list-card-text">
-								<?php echo $desc; ?>
-							</div>
-							<?php endif; ?>
-						</div>
-					</a>
-				</div>
-			</div>
-		<?php endforeach; ?>
-
-		</div>
-
-	<?php else: ?>
-		<div class="ucf-post-list-error">No results found.</div>
-	<?php endif;
-	return ob_get_clean();
-}
-
-add_filter( 'ucf_post_list_display_card', 'online_post_list_display_card', 10, 3 );
