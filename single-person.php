@@ -7,11 +7,13 @@
 
 				<aside class="person-contact-container">
 
-					<div class="mb-4">
-						<?php echo ucfwp_get_person_thumbnail( $post, 'rounded-circle' ); ?>
+					<div class="row mb-4">
+						<div class="col-8 offset-2 col-sm-6 offset-sm-3 col-md-8 offset-md-2">
+							<?php echo ucfwp_get_person_thumbnail( $post ); ?>
+						</div>
 					</div>
 
-					<h1 class="h5 person-title text-center mb-3">
+					<h1 class="h4 person-title text-center mb-3">
 						<?php echo ucfwp_get_person_name( $post ); ?>
 					</h1>
 
@@ -31,10 +33,10 @@
 
 			</div>
 
-			<div class="col-md-7 offset-md-1">
+			<div class="col-lg-7 offset-lg-1">
 
 				<section class="person-content">
-					<h2 class="person-subheading">Biography</h2>
+					<h2 class="text-uppercase mb-4 person-subheading">Biography</h2>
 					<?php if ( $post->post_content ) {
 						the_content();
 					}
