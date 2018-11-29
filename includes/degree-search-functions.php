@@ -50,7 +50,7 @@ function online_degree_search_suggestion() {
 	ob_start();
 ?>
 	<p class="d-flex flex-row mb-0 ucf-degree-search-suggestion">
-		<img src="{{thumbnail}}" class="rounded-circle mr-2 suggestion-image" alt=""><span class="suggestion-text">{{encodeString title.rendered}} <em class="suggestion-match-type text-capitalize">{{matchString}}</em></span>
+		<img src="{{thumbnail}}" class="rounded-circle mr-2 align-self-center suggestion-image" alt=""><span class="suggestion-text">{{encodeString title.rendered}} <em class="suggestion-match-type text-capitalize">{{matchString}}</em></span>
 	</p>
 <?php
 	return ob_get_clean();
