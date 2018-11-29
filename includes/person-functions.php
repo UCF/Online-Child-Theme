@@ -40,9 +40,11 @@ function online_get_person_degrees_markup( $post ) {
 				$degree_str = 'Teaching in the ' . $degree_name_str . ' Program';
 			}
 	?>
-		<a class="center-block text-center mb-2" href="<?php echo get_permalink( $degree ); ?>">
-			<?php echo $degree_str; ?>
-		</a>
+		<p class="text-center">
+			<a href="<?php echo get_permalink( $degree ); ?>">
+				<?php echo $degree_str; ?>
+			</a>
+		</p>
 	<?php
 		endforeach;
 	endif;
