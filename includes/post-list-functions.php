@@ -34,10 +34,9 @@ function online_post_list_display_default( $content, $posts, $atts ) {
 
 		<?php
 		foreach ( $posts as $index=>$item ) :
-			$item_img        = UCF_Post_List_Common::get_image_or_fallback( $item );
-			$item_img_srcset = UCF_Post_List_Common::get_image_srcset( $item );
-			$excerpt         = apply_filters( 'the_excerpt', get_post_field( 'post_excerpt', $item ) );
-			$excerpt         = trim( $excerpt );
+			$item_img = UCF_Post_List_Common::get_image_or_fallback( $item, 'post-list-default-img' );
+			$excerpt  = apply_filters( 'the_excerpt', get_post_field( 'post_excerpt', $item ) );
+			$excerpt  = trim( $excerpt );
 
 			if ( $atts['posts_per_row'] > 0 && $index !== 0 && ( $index % $atts['posts_per_row'] ) === 0 ) {
 				echo '</div><div class="row ucf-post-list-items">';
@@ -47,7 +46,7 @@ function online_post_list_display_default( $content, $posts, $atts ) {
 				<a class="d-block text-secondary text-decoration-none" href="<?php echo get_permalink( $item->ID ); ?>">
 					<?php if ( $item_img ) : ?>
 					<div class="ucf-post-list-thumbnail-block media-background-container mb-4">
-						<img src="<?php echo $item_img; ?>" srcset="<?php echo $item_img_srcset; ?>" class="ucf-post-list-thumbnail-image media-background object-fit-cover" alt="">
+						<img src="<?php echo $item_img; ?>" class="ucf-post-list-thumbnail-image media-background object-fit-cover" alt="">
 					</div>
 					<?php endif; ?>
 
@@ -104,8 +103,7 @@ function online_post_list_display_thumbnail( $content, $posts, $atts ) {
 		<?php
 		foreach ( $posts as $index=>$item ) :
 			$date = date( "M d", strtotime( $item->post_date ) );
-			$item_img = UCF_Post_List_Common::get_image_or_fallback( $item );
-			$item_img_srcset = UCF_Post_List_Common::get_image_srcset( $item );
+			$item_img = UCF_Post_List_Common::get_image_or_fallback( $item, 'post-list-thumbnail-img' );
 
 			if ( $atts['posts_per_row'] > 0 && $index !== 0 && ( $index % $atts['posts_per_row'] ) === 0 ) {
 				echo '</div><div class="ucf-post-list-thumbnail-deck">';
@@ -117,7 +115,7 @@ function online_post_list_display_thumbnail( $content, $posts, $atts ) {
 
 					<?php if ( $item_img ) : ?>
 					<div class="ucf-post-list-thumbnail-block media-background-container h-100 hidden-sm-down">
-						<img src="<?php echo $item_img; ?>" srcset="<?php echo $item_img_srcset; ?>" class="ucf-post-list-thumbnail-image media-background object-fit-cover" alt="">
+						<img src="<?php echo $item_img; ?>" class="ucf-post-list-thumbnail-image media-background object-fit-cover" alt="">
 					</div>
 					<?php endif; ?>
 				</a>
