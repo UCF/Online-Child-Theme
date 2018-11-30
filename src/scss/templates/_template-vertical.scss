@@ -1,0 +1,9 @@
+.vertical-popular-programs {
+  background-color: $brand-secondary;
+  color: $brand-secondary-color;
+
+  @include media-breakpoint-up(md) {
+    background-color: darken($body-bg, 3%); // like .bg-faded
+    color: $black;
+  }
+}
