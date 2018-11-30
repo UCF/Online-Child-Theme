@@ -139,6 +139,8 @@ function online_get_vertical_popular_programs_markup( $post ) {
 
 	if ( function_exists( 'sc_ucf_post_list' ) ) {
 
+		$mode         = get_field( 'popular_programs_config', $post->ID );
+
 		$college      = get_field( 'vertical_college_filter', $post->ID );
 		$program_type = get_field( 'vertical_program_type_filter', $post->ID );
 		$interest     = get_field( 'vertical_interest_filter', $post->ID );
@@ -171,9 +173,42 @@ function online_get_vertical_popular_programs_markup( $post ) {
 			$args['tax_interests__field'] = 'slug';
 		}
 
+		$tags = array();
+
 		if ( $tag ) {
-			unset( $args['tag'] );
-			$args['tag_slug__and'] = implode( ',', array( $tag->slug, 'popular' ) );
+			$tags[] = $tag->slug;
+		}
+
+		if ( $mode === 'tag_override' ) {
+
+			$override_tags = get_field( 'popular_programs_tag_override', $post->ID );
+
+			if ( ! empty( $override_tags ) ) {
+				foreach( $override_tags as $ot ) {
+					$tags[] = $ot->slug;
+				}
+			}
+		} else {
+			$tags[] = 'popular';
+		}
+
+		if ( count( $tags ) > 1 ) {
+			$args['tag_slug__and'] = implode( ',', $tags );
+		} else {
+			// We still have to parse the array, and this is the safest way
+			$args['tag'] = implode( ',', $tags );
+		}
+
+		if ( $mode === 'manual' ) {
+			$posts = get_field( 'popular_programs_programs', $post->ID );
+
+			$args = array(
+				'post_type'      => 'degree',
+				'posts_per_page' => 3,
+				'posts_per_row'  => 3,
+				'layout'         => 'thumbnail',
+				'post__in'       => implode( ',', $posts )
+			);
 		}
 
 		ob_start();
