@@ -178,8 +178,8 @@ function online_get_vertical_popular_programs_markup( $post ) {
 
 		ob_start();
 	?>
-		<div class="bg-inverse">
-			<div class="container py-4">
+		<div class="vertical-popular-programs">
+			<div class="container py-4 py-md-5">
 				<div class="row">
 					<div class="col-lg-4 col-xl-3 align-self-lg-center">
 						<h2 class="h3 text-uppercase font-condensed mb-4 mb-lg-2"><?php echo $heading_text; ?></h2>
