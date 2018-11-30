@@ -45,6 +45,8 @@ function online_init() {
 	add_image_size( '16x9-sm', 767, 431, true );
 	add_image_size( '16x9-md', 970, 546, true );
 	add_image_size( '16x9-lg', 1200, 675, true );
+	add_image_size( 'post-list-default-img', 767, 767 );
+	add_image_size( 'post-list-thumbnail-img', 575, 575 );
 
 	// Register custom footer menu for this theme
 	register_nav_menu( 'footer-menu', __( 'Footer Menu' ) );

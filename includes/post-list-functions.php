@@ -34,7 +34,7 @@ function online_post_list_display_default( $content, $posts, $atts ) {
 
 		<?php
 		foreach ( $posts as $index=>$item ) :
-			$item_img = UCF_Post_List_Common::get_image_or_fallback( $item );
+			$item_img = UCF_Post_List_Common::get_image_or_fallback( $item, 'post-list-default-img' );
 			$excerpt  = apply_filters( 'the_excerpt', get_post_field( 'post_excerpt', $item ) );
 			$excerpt  = trim( $excerpt );
 
@@ -103,7 +103,7 @@ function online_post_list_display_thumbnail( $content, $posts, $atts ) {
 		<?php
 		foreach ( $posts as $index=>$item ) :
 			$date = date( "M d", strtotime( $item->post_date ) );
-			$item_img = UCF_Post_List_Common::get_image_or_fallback( $item );
+			$item_img = UCF_Post_List_Common::get_image_or_fallback( $item, 'post-list-thumbnail-img' );
 
 			if ( $atts['posts_per_row'] > 0 && $index !== 0 && ( $index % $atts['posts_per_row'] ) === 0 ) {
 				echo '</div><div class="ucf-post-list-thumbnail-deck">';
@@ -132,46 +132,3 @@ function online_post_list_display_thumbnail( $content, $posts, $atts ) {
 }
 
 add_filter( 'ucf_post_list_display_thumbnail', 'online_post_list_display_thumbnail', 10, 3 );
-
-
-/**
- * Helper function that returns an <img> tag for this theme's modified
- * post list card layout.
- *
- * Adapted from Online-Theme
- *
- * @param object $item WP Post object
- * @param string $size a registered attachment thumbnail size
- * @return string
- *
- * @author Jo Dickson
- * @since 1.0.0
- */
-function online_get_post_list_card_img( $item, $size='16x9-lg' ) {
-	$item_img = $item_img_src = '';
-	$item_img_id = $header_img = null;
-	// Use the post's featured image, or header image as a fallback
-	// (if available)
-	$item_img_id = get_post_thumbnail_id( $item );
-	if ( !$item_img_id ) {
-		$header_img = get_field( 'page_header_image', $item->ID );
-		if ( $header_img ) {
-			$item_img_id = $header_img['id'];
-		}
-	}
-	// Generate an image with srcsets, or use the Post List
-	// plugin's provided fallback img url
-	if ( $item_img_id ) {
-		$item_img = wp_get_attachment_image( $item_img_id, $size, false, array(
-			'class' => 'ucf-post-list-thumbnail-image img-fluid',
-			'alt' => $item->post_title
-		) );
-	}
-	else {
-		$item_img_src = UCF_Post_List_Common::get_image_or_fallback( $item );
-		if ( $item_img_src ) {
-			$item_img = '<img class="ucf-post-list-thumbnail-image img-fluid" src="'. $item_img_src .'" alt="'. $item->post_title .'">';
-		}
-	}
-	return $item_img;
-}
