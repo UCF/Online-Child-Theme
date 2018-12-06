@@ -70,7 +70,7 @@ add_filter( 'ucf_degree_search_suggestion', 'online_degree_search_suggestion', 1
  * @return string
  */
 function online_degree_search_footer() {
-	$majors = get_page_by_path( 'majors' );
+	$majors = get_page_by_path( 'bachelors' );
 	$masters = get_page_by_path( 'masters' );
 	$docorates = get_page_by_path( 'doctorates' );
 	$certificates = get_page_by_path( 'certificates' );
