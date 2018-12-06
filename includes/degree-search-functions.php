@@ -70,17 +70,17 @@ add_filter( 'ucf_degree_search_suggestion', 'online_degree_search_suggestion', 1
  * @return string
  */
 function online_degree_search_footer() {
-	$majors = get_page_by_path( 'majors' );
+	$bachelors = get_page_by_path( 'bachelors' );
 	$masters = get_page_by_path( 'masters' );
-	$docorates = get_page_by_path( 'doctorates' );
+	$doctorates = get_page_by_path( 'doctorates' );
 	$certificates = get_page_by_path( 'certificates' );
 	ob_start();
 ?>
 	<div class="dropdown-divider"></div>
 	<p class="ucf-degree-search-suggestion ml-3 mt-3 mb-2 font-weight-bold">What kind of degree are you interested in?</p>
-	<a href="<?php echo get_permalink( $majors->ID ); ?>" class="ucf-degree-search-suggestion tt-suggestion tt-selectable">Bachelor</a>
+	<a href="<?php echo get_permalink( $bachelors->ID ); ?>" class="ucf-degree-search-suggestion tt-suggestion tt-selectable">Bachelor</a>
 	<a href="<?php echo get_permalink( $masters->ID ); ?>" class="ucf-degree-search-suggestion tt-suggestion tt-selectable">Master</a>
-	<a href="<?php echo get_permalink( $docorates->ID ); ?>" class="ucf-degree-search-suggestion tt-suggestion tt-selectable">Doctorate</a>
+	<a href="<?php echo get_permalink( $doctorates->ID ); ?>" class="ucf-degree-search-suggestion tt-suggestion tt-selectable">Doctorate</a>
 	<a href="<?php echo get_permalink( $certificates->ID ); ?>" class="ucf-degree-search-suggestion tt-suggestion tt-selectable">Certificate</a>
 <?php
 	return ob_get_clean();
