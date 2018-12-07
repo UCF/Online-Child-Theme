@@ -84,3 +84,38 @@ function online_get_post_choices( $post_type='post', $args=array() ) {
 
 	return $retval;
 }
+
+
+/**
+ * Filter for get_terms hook that, by default, sorts any
+ * program_types term queries by the ONLINE_DEGREE_PROGRAM_ORDER sort order.
+ *
+ * Allows program types displayed in the degree picker interface to be
+ * sorted as expected. Also applies anywhere get_terms() is called.
+ *
+ * @author Jo Dickson
+ * @since 1.0.0
+ */
+function online_program_types_terms_sorting( $terms, $taxonomies, $args, $term_query ) {
+	// Only perform sorting if this is a query exclusively
+	// for program_types terms
+	if ( $taxonomies === array( 'program_types' ) ) {
+		$term_slugs = unserialize( ONLINE_DEGREE_PROGRAM_ORDER );
+		$items_sorted = array_fill_keys( $term_slugs, false );
+
+		foreach ( $terms as $term ) {
+			$items_sorted[$term->slug] = $term;
+		}
+
+		// Replace associative keys with numeric keys
+		$items_sorted = array_values( $items_sorted );
+
+		// Remove any empty sorted items
+		$items_sorted = array_filter( $items_sorted );
+
+		$terms = $items_sorted;
+	}
+	return $terms;
+}
+
+add_filter( 'get_terms', 'online_program_types_terms_sorting', 10, 4 );
