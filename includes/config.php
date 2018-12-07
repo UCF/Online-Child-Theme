@@ -15,8 +15,8 @@ define( 'ONLINE_THEME_CUSTOMIZER_DEFAULTS', serialize( array(
 define( 'ONLINE_DEGREE_PROGRAM_ORDER', serialize( array(
 	'online-major',
 	'online-master',
-	'online-doctorate',
-	'online-certificate'
+	'online-certificate',
+	'online-doctorate'
 ) ) );
 
 
