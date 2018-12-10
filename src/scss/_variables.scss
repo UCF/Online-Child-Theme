@@ -1,1 +1,25 @@
-// ...
+// Blockquote font size overrides
+$blockquote-font-size: 1rem;
+$blockquote-font-size-md: 1.4rem;
+$blockquote-line-height: 1.45;
+
+$font-serif-blockquote-size: 1.14rem;
+$font-serif-blockquote-size-md: 1.625rem;
+$font-serif-blockquote-line-height: 1.4;
+
+$font-slab-serif-blockquote-size: 1.25rem;
+$font-slab-serif-blockquote-size-md: 1.7rem;
+$font-slab-serif-blockquote-line-height: 1.4;
+
+$blockquote-quotation-mark-font-family: 'Chronicle Text G3 A', 'Chronicle Text G3 B', Georgia, 'Times New Roman', Times, serif;
+
+$brand-danger-against-gold: #973D2B;
+
+// UCF Social style variables
+$ucf-social-grey-bg-color: #b7b8be;
+$ucf-social-grey-bg-color-hover: lighten($ucf-social-grey-bg-color, 15%);
+$ucf-social-grey-color: #404040;
+$ucf-social-grey-color-hover: #fff;
+
+// UCF Post List style variables
+$ucf-post-list-thumbnail-min-height: 250px;

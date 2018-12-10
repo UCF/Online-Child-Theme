@@ -9,15 +9,33 @@
 //
 
 // Athena Framework
-@import './ucf-athena-framework/src/scss/framework';
-
-// import any other third-party styles here
-// ...
+@import './ucf-athena-framework/src/scss/variables';
+@import './ucf-athena-framework/src/scss/bootstrap/variables';
+@import './ucf-athena-framework/src/scss/mixins';
+@import './ucf-athena-framework/src/scss/bootstrap/mixins';
 
 
 //
 // Project-specific styles and overrides
 //
 
-// Add/import your theme's custom styles here
-// ...
+@import 'type';
+
+@import 'header';
+@import 'footer';
+
+// Custom template styles
+@import 'templates/single-degree';
+@import 'templates/single-person';
+@import 'templates/template-vertical';
+
+// Components
+@import 'components/header-forms';
+@import 'components/ucf-social';
+@import 'components/ucf-post-list';
+@import 'components/ucf-degree-list';
+@import 'components/ucf-degree-search';
+@import 'components/typeahead';
+
+// Utilities
+@import 'utilities/background';

@@ -1,0 +1,1820 @@
+[
+    {
+        "key": "group_58ff540088983",
+        "title": "College Fields",
+        "fields": [
+            {
+                "key": "field_58ff547f2d1ef",
+                "label": "URL",
+                "name": "colleges_url",
+                "type": "url",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": ""
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "taxonomy",
+                    "operator": "==",
+                    "value": "colleges"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "acf_after_title",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": 1,
+        "description": ""
+    },
+    {
+        "key": "group_58f7a73f5fecc",
+        "title": "Page Header Fields",
+        "fields": [
+            {
+                "key": "field_590ca423f6654",
+                "label": "Header Content",
+                "name": "",
+                "type": "tab",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "placement": "top",
+                "endpoint": 0
+            },
+            {
+                "key": "field_5bdc9f5b77dda",
+                "label": "Header Text Color",
+                "name": "page_header_text_color",
+                "type": "select",
+                "instructions": "Modify the color of the text within the page header.  Please keep in mind <a href=\"https:\/\/webaim.org\/resources\/contrastchecker\/\" target=\"_blank\">accessible color contrast requirements<\/a> when selecting a color to use.  If no header image\/video are provided, the header text will always be black, regardless of this option's value.",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {
+                    "black": "Black",
+                    "white": "White"
+                },
+                "default_value": [
+                    "black"
+                ],
+                "allow_null": 0,
+                "multiple": 0,
+                "ui": 0,
+                "ajax": 0,
+                "return_format": "value",
+                "placeholder": ""
+            },
+            {
+                "key": "field_59aed971c187c",
+                "label": "Header Content - Type of Content",
+                "name": "page_header_content_type",
+                "type": "radio",
+                "instructions": "Specify the type of content that should be displayed within the header.  Choose \"Default\" to display a styled page title and optional form, or choose \"Custom content\" to add any arbitrary content.  If \"Custom content\" is selected, a page title (h1) and form are NOT included by default and must be added manually.",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {
+                    "default": "Default",
+                    "custom": "Custom content"
+                },
+                "allow_null": 0,
+                "other_choice": 0,
+                "save_other_choice": 0,
+                "default_value": "default",
+                "layout": "vertical",
+                "return_format": "value"
+            },
+            {
+                "key": "field_58fe096728bcc",
+                "label": "Header Title Text",
+                "name": "page_header_title",
+                "type": "text",
+                "instructions": "Overrides the page title.",
+                "required": 0,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_59aed971c187c",
+                            "operator": "==",
+                            "value": "title_subtitle"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_5bdc82cbdd438",
+                "label": "Header Form",
+                "name": "page_header_form_option",
+                "type": "radio",
+                "instructions": "Select what form, if any, should be displayed in the header.",
+                "required": 1,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_59aed971c187c",
+                            "operator": "==",
+                            "value": "default"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {
+                    "none": "None",
+                    "default": "Default Header Form (set in Theme Customizer)",
+                    "custom": "Custom Header Form"
+                },
+                "allow_null": 0,
+                "other_choice": 0,
+                "save_other_choice": 0,
+                "default_value": "default",
+                "layout": "vertical",
+                "return_format": "value"
+            },
+            {
+                "key": "field_5bdc831fdd439",
+                "label": "Custom Header Form",
+                "name": "page_header_form_custom",
+                "type": "forms",
+                "instructions": "Select a custom form to display in the header.",
+                "required": 1,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_5bdc82cbdd438",
+                            "operator": "==",
+                            "value": "custom"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "return_format": "id",
+                "allow_null": 0,
+                "multiple": 0
+            },
+            {
+                "key": "field_59aed93dc187b",
+                "label": "Header Custom Contents",
+                "name": "page_header_content",
+                "type": "wysiwyg",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_59aed971c187c",
+                            "operator": "==",
+                            "value": "custom"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "tabs": "all",
+                "toolbar": "full",
+                "media_upload": 1,
+                "delay": 0
+            },
+            {
+                "key": "field_590ca453f6655",
+                "label": "Header Size",
+                "name": "",
+                "type": "tab",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "placement": "top",
+                "endpoint": 0
+            },
+            {
+                "key": "field_590ca47bf6656",
+                "label": "Header Height (sm+)",
+                "name": "page_header_height",
+                "type": "radio",
+                "instructions": "Minimum height of the page header at the -sm breakpoint and above.",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {
+                    "header-media-default": "Default (500px)",
+                    "header-media-fullscreen": "Fullscreen"
+                },
+                "allow_null": 0,
+                "other_choice": 0,
+                "save_other_choice": 0,
+                "default_value": "header-media-default",
+                "layout": "vertical",
+                "return_format": "value"
+            },
+            {
+                "key": "field_590ca625f6657",
+                "label": "Header Images",
+                "name": "",
+                "type": "tab",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "placement": "top",
+                "endpoint": 0
+            },
+            {
+                "key": "field_58f7a778185ef",
+                "label": "Header Image (-sm+)",
+                "name": "page_header_image",
+                "type": "image",
+                "instructions": "Header image to display at the -sm breakpoint and up.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "return_format": "id",
+                "preview_size": "header-img-sm",
+                "library": "all",
+                "min_width": 1200,
+                "min_height": "",
+                "min_size": "",
+                "max_width": "",
+                "max_height": "",
+                "max_size": "",
+                "mime_types": "png,jpg,jpeg"
+            },
+            {
+                "key": "field_58f7a7b8185f0",
+                "label": "Header Image (-xs)",
+                "name": "page_header_image_xs",
+                "type": "image",
+                "instructions": "Header image to display at the -xs breakpoint.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "return_format": "id",
+                "preview_size": "header-img",
+                "library": "all",
+                "min_width": 575,
+                "min_height": 575,
+                "min_size": "",
+                "max_width": "",
+                "max_height": "",
+                "max_size": "",
+                "mime_types": "png,jpg,jpeg"
+            },
+            {
+                "key": "field_590ca64ef6659",
+                "label": "Header Video",
+                "name": "",
+                "type": "tab",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "placement": "top",
+                "endpoint": 0
+            },
+            {
+                "key": "field_58fe08bf28bc9",
+                "label": "Header Video (MP4)",
+                "name": "page_header_mp4",
+                "type": "file",
+                "instructions": "If a MP4 video is defined, video will be used instead of an image in the header at the -sm breakpoint and higher.  Note that videos will never be displayed at the -xs breakpoint, so a fallback header image should always be provided when using video.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "return_format": "url",
+                "library": "all",
+                "min_size": "",
+                "max_size": "",
+                "mime_types": "mp4"
+            },
+            {
+                "key": "field_58fe08ff28bca",
+                "label": "Header Video (WebM)",
+                "name": "page_header_webm",
+                "type": "file",
+                "instructions": "Supplemental video format used by supported browsers for optimized performance.  Note that a MP4 must at least be provided for video to be displayed in the header.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "return_format": "url",
+                "library": "all",
+                "min_size": "",
+                "max_size": "",
+                "mime_types": "webm"
+            },
+            {
+                "key": "field_590c84c7a1360",
+                "label": "Header Video Loop",
+                "name": "page_header_video_loop",
+                "type": "true_false",
+                "instructions": "If checked, and a header video is available, the header video will loop indefinitely.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "message": "Loop video indefinitely",
+                "default_value": 0,
+                "ui": 0,
+                "ui_on_text": "",
+                "ui_off_text": ""
+            },
+            {
+                "key": "field_5a564fecfb51d",
+                "label": "Navigation",
+                "name": "",
+                "type": "tab",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "placement": "top",
+                "endpoint": 0
+            },
+            {
+                "key": "field_5a0dead0cd525",
+                "label": "Exclude Primary Site Navigation",
+                "name": "page_header_exclude_nav",
+                "type": "true_false",
+                "instructions": "Controls whether or not the primary site navigation should be displayed at the top of the page.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "message": "Exclude site navigation",
+                "default_value": 0,
+                "ui": 0,
+                "ui_on_text": "",
+                "ui_off_text": ""
+            },
+            {
+                "key": "field_5a56501afb51e",
+                "label": "Include Subnavigation",
+                "name": "page_header_include_subnav",
+                "type": "true_false",
+                "instructions": "Enable this setting to display an affixed subnavigation bar below the page header.  Requires the Automatic Sections Menu plugin to be activated, and for at least one section within the page's content to be configured to appear in the navbar.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "message": "Include subnavigation",
+                "default_value": 0,
+                "ui": 0,
+                "ui_on_text": "",
+                "ui_off_text": ""
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "page"
+                },
+                {
+                    "param": "page_template",
+                    "operator": "!=",
+                    "value": "template-vertical-child.php"
+                }
+            ],
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "post"
+                }
+            ],
+            [
+                {
+                    "param": "taxonomy",
+                    "operator": "==",
+                    "value": "all"
+                }
+            ],
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "degree"
+                }
+            ],
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "landing"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": 1,
+        "description": ""
+    },
+    {
+        "key": "group_5bfea9fa38aa6",
+        "title": "Page Subfooter",
+        "fields": [
+            {
+                "key": "field_5bfeaa012f87c",
+                "label": "Subfooter Section",
+                "name": "page_subfooter_section_option",
+                "type": "true_false",
+                "instructions": "Whether or not to display the Subfooter Section right above the footer on this page. Defaults to true.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "message": "",
+                "default_value": 1,
+                "ui": 0,
+                "ui_on_text": "",
+                "ui_off_text": ""
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "page"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": 1,
+        "description": ""
+    },
+    {
+        "key": "group_5953a81f683a8",
+        "title": "Person Fields",
+        "fields": [
+            {
+                "key": "field_5a01bcdcfb1a1",
+                "label": "Name\/Title",
+                "name": "",
+                "type": "tab",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "placement": "top",
+                "endpoint": 0
+            },
+            {
+                "key": "field_5953a8f425c12",
+                "label": "Title Prefix",
+                "name": "person_title_prefix",
+                "type": "text",
+                "instructions": "A prefix to be applied to this person's name when displayed formally, e.g. \"Mr.\", \"Mrs.\", \"Dr.\".",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_5953a9ca25c13",
+                "label": "Title Suffix",
+                "name": "person_title_suffix",
+                "type": "text",
+                "instructions": "A suffix to be applied to this person's name when displayed formally, e.g. \"Jr.\", \"III\".\r\nInclude a preceding comma and space when denoting a person's earned academic degree, e.g. \", Ph.D.\"",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_5953aa3d25c14",
+                "label": "Academic\/Professional Title",
+                "name": "person_jobtitle",
+                "type": "text",
+                "instructions": "A title that describes this person, academic or professional; e.g. \"Student\" or \"Professor of Economics\"",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_59669002f433d",
+                "label": "Order By Name",
+                "name": "person_orderby_name",
+                "type": "text",
+                "instructions": "Name by which this person should be sorted when people are displayed in alphabetical lists.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_5a0318c69f25c",
+                "label": "Degrees",
+                "name": "",
+                "type": "tab",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "placement": "top",
+                "endpoint": 0
+            },
+            {
+                "key": "field_5a009f2a0246f",
+                "label": "Related Degree(s)",
+                "name": "person_degrees",
+                "type": "post_object",
+                "instructions": "For students, list one or more degrees that this person is earning\/has earned.  For faculty\/staff, list any degrees that this person provides courses or advising for.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "post_type": [
+                    "degree"
+                ],
+                "taxonomy": [],
+                "allow_null": 0,
+                "multiple": 1,
+                "return_format": "object",
+                "ui": 1
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "person"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": 1,
+        "description": ""
+    },
+    {
+        "key": "group_5a009e57ac55f",
+        "title": "Person Fields - Faculty\/Staff",
+        "fields": [
+            {
+                "key": "field_5953aa7625c15",
+                "label": "Phone Numbers",
+                "name": "person_phone_numbers",
+                "type": "repeater",
+                "instructions": "One or more phone numbers at which the person can be contacted.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "collapsed": "field_5953aaca25c16",
+                "min": 0,
+                "max": 0,
+                "layout": "row",
+                "button_label": "Add Phone Number",
+                "sub_fields": [
+                    {
+                        "key": "field_5953aaca25c16",
+                        "label": "Phone Number",
+                        "name": "number",
+                        "type": "text",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "maxlength": ""
+                    }
+                ]
+            },
+            {
+                "key": "field_5953ac93b95b5",
+                "label": "Email",
+                "name": "person_email",
+                "type": "email",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+            },
+            {
+                "key": "field_5953acb0b95b6",
+                "label": "Office Location",
+                "name": "person_room",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_5953ad16b95b7",
+                "label": "Office Map URL",
+                "name": "person_room_url",
+                "type": "url",
+                "instructions": "URL that displays the Office Location on a map; e.g. http:\/\/map.ucf.edu\/?show=45",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": ""
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "person"
+                },
+                {
+                    "param": "post_taxonomy",
+                    "operator": "!=",
+                    "value": "people_group:student"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": 1,
+        "description": ""
+    },
+    {
+        "key": "group_58f8d037a370f",
+        "title": "Section Fields",
+        "fields": [
+            {
+                "key": "field_58f8d03d1abb3",
+                "label": "Background Color",
+                "name": "section_background_color",
+                "type": "select",
+                "instructions": "Select the background color of the section.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {
+                    "custom": "Custom color",
+                    "bg-primary": "Gold (brand-primary)",
+                    "bg-secondary": "White (brand-secondary)",
+                    "bg-inverse": "Black (brand-inverse)",
+                    "bg-default": "Gray (brand-default)",
+                    "bg-primary-darkest": "Gold Darkest (brand-primary-darkest)",
+                    "bg-primary-darker": "Gold Darker (brand-primary-darker)",
+                    "bg-primary-lighter": "Gold Lighter (brand-primary-lighter)",
+                    "bg-primary-lightest": "Gold Lightest (brand-primary-lightest)",
+                    "bg-metallic-darkest": "Metallic Gold Darkest (brand-metallic-darkest)",
+                    "bg-metallic-darker": "Metallic Gold Darker (brand-metallic-darker)",
+                    "bg-metallic": "Metallic Gold (brand-metallic)",
+                    "bg-metallic-lighter": "Metallic Gold Lighter (brand-metallic-lighter)",
+                    "bg-metallic-lightest": "Metallic Gold Lightest (brand-metallic-lightest)",
+                    "bg-complementary": "Blue (brand-complementary)",
+                    "bg-success": "Green (brand-success)",
+                    "bg-info": "Light Blue (brand-info)",
+                    "bg-warning": "Orange (brand-warning)",
+                    "bg-danger": "Red (brand-danger)"
+                },
+                "default_value": [],
+                "allow_null": 1,
+                "multiple": 0,
+                "ui": 1,
+                "ajax": 0,
+                "return_format": "value",
+                "placeholder": ""
+            },
+            {
+                "key": "field_59088a54aa936",
+                "label": "Custom Background Color",
+                "name": "section_background_color_custom",
+                "type": "color_picker",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_58f8d03d1abb3",
+                            "operator": "==",
+                            "value": "custom"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": ""
+            },
+            {
+                "key": "field_59089420aa937",
+                "label": "Text Color",
+                "name": "section_text_color",
+                "type": "select",
+                "instructions": "Override the default text color within the section.\r\n\r\nNote that if you picked a predefined color in the Background Color field, an accessible text color will already be applied.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {
+                    "custom": "Custom color",
+                    "text-primary": "Gold (brand-primary)",
+                    "text-secondary": "Black (brand-secondary)",
+                    "text-inverse": "White (brand-inverse)",
+                    "text-default": "Gray (brand-default)",
+                    "text-primary-aw": "Gold AW (brand-primary, against-white accessible)",
+                    "text-secondary-aw": "Black AW (brand-secondary, against-white accessible)",
+                    "text-inverse-aw": "White AW (brand-inverse, against-white accessible)",
+                    "text-default-aw": "Gray AW (brand-default, against-white accessible)",
+                    "text-primary-darkest": "Gold Darkest (brand-primary-darkest)",
+                    "text-primary-darker": "Gold Darker (brand-primary-darker)",
+                    "text-primary-lighter": "Gold Lighter (brand-primary-lighter)",
+                    "text-primary-lightest": "Gold Lightest (brand-primary-lightest)",
+                    "text-metallic-darkest": "Metallic Gold Darkest (brand-metallic-darkest)",
+                    "text-metallic-darker": "Metallic Gold Darker (brand-metallic-darker)",
+                    "text-metallic": "Metallic Gold (brand-metallic)",
+                    "text-metallic-lighter": "Metallic Gold Lighter (brand-metallic-lighter)",
+                    "text-metallic-lightest": "Metallic Gold Lightest (brand-metallic-lightest)",
+                    "text-complementary": "Blue (brand-complementary)",
+                    "text-success": "Green (brand-success)",
+                    "text-info": "Light Blue (brand-info)",
+                    "text-warning": "Orange (brand-warning)",
+                    "text-danger": "Red (brand-danger)",
+                    "text-complementary-aw": "Blue AW (brand-complementary, against-white accessible)",
+                    "text-success-aw": "Green AW (brand-success, against-white accessible)",
+                    "text-info-aw": "Light Blue AW (brand-info, against-white accessible)",
+                    "text-warning-aw": "Orange AW (brand-warning, against-white accessible)",
+                    "text-danger-aw": "Red AW (brand-danger, against-white accessible)"
+                },
+                "default_value": [],
+                "allow_null": 1,
+                "multiple": 0,
+                "ui": 1,
+                "ajax": 0,
+                "return_format": "value",
+                "placeholder": ""
+            },
+            {
+                "key": "field_59089624aa938",
+                "label": "Custom Text Color",
+                "name": "section_text_color_custom",
+                "type": "color_picker",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_59089420aa937",
+                            "operator": "==",
+                            "value": "custom"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": ""
+            },
+            {
+                "key": "field_58f8d0611abb4",
+                "label": "Background Image (-sm+)",
+                "name": "section_background_image",
+                "type": "image",
+                "instructions": "The background image to display behind the section at the -sm breakpoint and up (576px+ wide).",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "return_format": "id",
+                "preview_size": "bg-img-sm",
+                "library": "all",
+                "min_width": 767,
+                "min_height": "",
+                "min_size": "",
+                "max_width": 1600,
+                "max_height": "",
+                "max_size": "",
+                "mime_types": ""
+            },
+            {
+                "key": "field_58f8d08b1abb5",
+                "label": "Background Image (-xs)",
+                "name": "section_background_image_xs",
+                "type": "image",
+                "instructions": "The background image to display behind the section at the -xs breakpoint (<=575px wide).  This image is only displayed when a -sm background image has also been selected.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "return_format": "id",
+                "preview_size": "bg-img",
+                "library": "all",
+                "min_width": 575,
+                "min_height": "",
+                "min_size": "",
+                "max_width": "",
+                "max_height": "",
+                "max_size": "",
+                "mime_types": ""
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "ucf_section"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": 1,
+        "description": ""
+    },
+    {
+        "key": "group_59f8daf22abe2",
+        "title": "Standard Vertical Fields",
+        "fields": [
+            {
+                "key": "field_59f8db00be9a2",
+                "label": "Vertical Submenu",
+                "name": "vertical_submenu",
+                "type": "nav_menu",
+                "instructions": "Menu to use for subnavigation on this page and other pages\/posts associated with this vertical.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "save_format": "id",
+                "container": "div",
+                "allow_null": 0
+            },
+            {
+                "key": "field_5a02284dcaefe",
+                "label": "Vertical Submenu Brand",
+                "name": "vertical_submenu_brand",
+                "type": "text",
+                "instructions": "Text to use as the \"brand\" (title) of the submenu.  Will always link back to this vertical.  If a value isn't provided, the vertical's post title will be used.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "page"
+                },
+                {
+                    "param": "post_template",
+                    "operator": "==",
+                    "value": "template-vertical.php"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": 1,
+        "description": ""
+    },
+    {
+        "key": "group_59f8dc1b9d863",
+        "title": "Vertical Children Fields",
+        "fields": [
+            {
+                "key": "field_59f8dc2430782",
+                "label": "Related Vertical",
+                "name": "post_vertical",
+                "type": "post_object",
+                "instructions": "A vertical (page with the \"Vertical\" template) to associate this post with.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "post_type": [
+                    "page"
+                ],
+                "taxonomy": [],
+                "allow_null": 0,
+                "multiple": 0,
+                "return_format": "id",
+                "ui": 1
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "post"
+                }
+            ],
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "page"
+                },
+                {
+                    "param": "page_template",
+                    "operator": "==",
+                    "value": "template-vertical-child.php"
+                }
+            ],
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "person"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": 1,
+        "description": ""
+    },
+    {
+        "key": "group_5beae367b5809",
+        "title": "Vertical Fields",
+        "fields": [
+            {
+                "key": "field_5beae3e312753",
+                "label": "College Filter",
+                "name": "vertical_college_filter",
+                "type": "taxonomy",
+                "instructions": "Choose the college to use for filtering degree search and popular program results. Leave blank if this is not a college vertical page.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "taxonomy": "colleges",
+                "field_type": "select",
+                "allow_null": 1,
+                "add_term": 0,
+                "save_terms": 0,
+                "load_terms": 0,
+                "return_format": "object",
+                "multiple": 0
+            },
+            {
+                "key": "field_5beae43a12754",
+                "label": "Program Type Filter",
+                "name": "vertical_program_type_filter",
+                "type": "taxonomy",
+                "instructions": "Choose the program type to use for filtering degree search and popular program results. Leave blank if this is not a program type vertical page.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "taxonomy": "program_types",
+                "field_type": "select",
+                "allow_null": 1,
+                "add_term": 0,
+                "save_terms": 0,
+                "load_terms": 0,
+                "return_format": "object",
+                "multiple": 0
+            },
+            {
+                "key": "field_5beae47912755",
+                "label": "Interest Filter",
+                "name": "vertical_interest_filter",
+                "type": "taxonomy",
+                "instructions": "Choose the interest to use for filtering degree search and popular program results. Leave blank if this is not a interest vertical page.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "taxonomy": "interests",
+                "field_type": "select",
+                "allow_null": 1,
+                "add_term": 0,
+                "save_terms": 0,
+                "load_terms": 0,
+                "return_format": "object",
+                "multiple": 0
+            },
+            {
+                "key": "field_59fa1250393f5",
+                "label": "Tag Filter",
+                "name": "vertical_degrees_tag",
+                "type": "taxonomy",
+                "instructions": "Choose the post tag to use for filtering degree search and popular program results. Leave blank if this is not a tag-based vertical page.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "taxonomy": "post_tag",
+                "field_type": "select",
+                "allow_null": 0,
+                "add_term": 1,
+                "save_terms": 0,
+                "load_terms": 0,
+                "return_format": "object",
+                "multiple": 0
+            },
+            {
+                "key": "field_5beaf737c87d5",
+                "label": "Degree Search Placeholder Text",
+                "name": "degree_search_placeholder",
+                "type": "text",
+                "instructions": "The placeholder text to use in the degree search.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "e.g. Healthcare Informatics",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_5bec7855b4dab",
+                "label": "Popular Programs Text",
+                "name": "popular_programs_text",
+                "type": "text",
+                "instructions": "The text that will be used for the \"Popular Programs\" heading.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "Popular Online Programs",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_5c018664dd0d5",
+                "label": "Popular Program Configuration",
+                "name": "popular_programs_config",
+                "type": "radio",
+                "instructions": "Choose how you would like to filter the popular programs displayed on this page.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {
+                    "default": "Display programs with the tag 'popular'. (Default)",
+                    "tag_override": "Display programs with a specific tag.",
+                    "manual": "Select specific programs to display."
+                },
+                "allow_null": 0,
+                "other_choice": 0,
+                "save_other_choice": 0,
+                "default_value": "default",
+                "layout": "vertical",
+                "return_format": "value"
+            },
+            {
+                "key": "field_5c018719dd0d6",
+                "label": "Popular Programs Tag Override",
+                "name": "popular_programs_tag_override",
+                "type": "taxonomy",
+                "instructions": "Choose the tag to use to display programs.",
+                "required": 0,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_5c018664dd0d5",
+                            "operator": "==",
+                            "value": "tag_override"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "taxonomy": "post_tag",
+                "field_type": "multi_select",
+                "allow_null": 0,
+                "add_term": 0,
+                "save_terms": 0,
+                "load_terms": 0,
+                "return_format": "object",
+                "multiple": 0
+            },
+            {
+                "key": "field_5c018783dd0d7",
+                "label": "Select Popular Programs",
+                "name": "popular_programs_programs",
+                "type": "relationship",
+                "instructions": "Select the programs to be displayed.",
+                "required": 0,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_5c018664dd0d5",
+                            "operator": "==",
+                            "value": "manual"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "post_type": [
+                    "degree"
+                ],
+                "taxonomy": [],
+                "filters": [
+                    "search"
+                ],
+                "elements": "",
+                "min": 1,
+                "max": 3,
+                "return_format": "id"
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_template",
+                    "operator": "==",
+                    "value": "template-vertical-simple.php"
+                }
+            ],
+            [
+                {
+                    "param": "post_template",
+                    "operator": "==",
+                    "value": "template-vertical.php"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": 1,
+        "description": ""
+    },
+    {
+        "key": "group_594170b492ded",
+        "title": "Degree Fields",
+        "fields": [
+            {
+                "key": "field_585429c3b33bd",
+                "label": "Degree Data",
+                "name": "",
+                "type": "tab",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "placement": "top",
+                "endpoint": 0
+            },
+            {
+                "key": "field_5970d3291ed62",
+                "label": "Degree Plan Code",
+                "name": "degree_code",
+                "type": "text",
+                "instructions": "The plan code of the degree.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_5989d40f66709",
+                "label": "Degree SubPlan Code",
+                "name": "degree_subplan_code",
+                "type": "text",
+                "instructions": "The subplan code of the degree.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_5bdb4a95089e3",
+                "label": "Credit Hours",
+                "name": "degree_hours",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_596e47d3ed1fc",
+                "label": "Resident Tuition",
+                "name": "degree_resident_tuition",
+                "type": "read_only",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "copy_to_clipboard": 0,
+                "display_type": "text"
+            },
+            {
+                "key": "field_596e47e6ed1fd",
+                "label": "Nonresident Tuition",
+                "name": "degree_nonresident_tuition",
+                "type": "read_only",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "copy_to_clipboard": 0,
+                "display_type": "text"
+            },
+            {
+                "key": "field_596f740d354f1",
+                "label": "Tuition Override",
+                "name": "degree_tuition_code",
+                "type": "text",
+                "instructions": "When retrieving tuition information, use this specific code to retrieve the fee schedule.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_5bdc5aa3cd682",
+                "label": "Documents, Media and More",
+                "name": "",
+                "type": "tab",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "placement": "top",
+                "endpoint": 0
+            },
+            {
+                "key": "field_58408b3e07519",
+                "label": "Brochure Document",
+                "name": "degree_brochure_document",
+                "type": "text",
+                "instructions": "Enter a URL to the degree brochure document",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "http:\/\/...",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_598cb0772a92d",
+                "label": "Catalog Document",
+                "name": "catalog_document",
+                "type": "file",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "return_format": "array",
+                "library": "all",
+                "min_size": "",
+                "max_size": "",
+                "mime_types": "pdf"
+            },
+            {
+                "key": "field_5bdc5d1fcd683",
+                "label": "Degree Video",
+                "name": "degree_header_video",
+                "type": "oembed",
+                "instructions": "URL to a video that describes this degree.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "width": "",
+                "height": ""
+            },
+            {
+                "key": "field_5bdc56985ff10",
+                "label": "Badges and Awards",
+                "name": "degree_awards",
+                "type": "repeater",
+                "instructions": "Upload one or more unique badges or awards pertaining to this program.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "collapsed": "",
+                "min": 0,
+                "max": 2,
+                "layout": "block",
+                "button_label": "Add Badge",
+                "sub_fields": [
+                    {
+                        "key": "field_5bdc572b5ff11",
+                        "label": "Badge\/Award Graphic",
+                        "name": "degree_award_graphic",
+                        "type": "image",
+                        "instructions": "",
+                        "required": 1,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "40",
+                            "class": "",
+                            "id": ""
+                        },
+                        "return_format": "array",
+                        "preview_size": "thumbnail",
+                        "library": "all",
+                        "min_width": "",
+                        "min_height": "",
+                        "min_size": "",
+                        "max_width": "",
+                        "max_height": "",
+                        "max_size": "",
+                        "mime_types": ""
+                    },
+                    {
+                        "key": "field_5bdc58295ff12",
+                        "label": "Award Details",
+                        "name": "degree_award_details",
+                        "type": "textarea",
+                        "instructions": "A brief description of this award.  Will be used as alt text for the award graphic.  The image's caption, description, or alt text from the Media Library will be used as a fallback if no description is provided (prioritized in that order).\r\n\r\nIf the graphic contains text, this description should contain that text for accessibility.",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "60",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": "",
+                        "maxlength": 125,
+                        "rows": 5,
+                        "new_lines": ""
+                    }
+                ]
+            },
+            {
+                "key": "field_5bdc5ddecd684",
+                "label": "Quotes",
+                "name": "degree_quotes",
+                "type": "repeater",
+                "instructions": "Add one or more quotes about this degree or related subject matter.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "collapsed": "",
+                "min": 0,
+                "max": 0,
+                "layout": "block",
+                "button_label": "Add Quote",
+                "sub_fields": [
+                    {
+                        "key": "field_5bdc5df9cd685",
+                        "label": "Quote",
+                        "name": "degree_quote",
+                        "type": "wysiwyg",
+                        "instructions": "The blockquote content.  Do <em>not<\/em> include surrounding quotation marks.",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "tabs": "all",
+                        "toolbar": "inline_text",
+                        "media_upload": 0,
+                        "delay": 0
+                    },
+                    {
+                        "key": "field_5bdc5e8ecd686",
+                        "label": "Source - title",
+                        "name": "degree_quote_source_title",
+                        "type": "text",
+                        "instructions": "Who said the quote? (e.g. a person's name or publication title)",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "50",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "maxlength": ""
+                    },
+                    {
+                        "key": "field_5bdc5efdcd687",
+                        "label": "Source - subtitle",
+                        "name": "degree_quote_source_subtitle",
+                        "type": "text",
+                        "instructions": "Specify a subtitle for the source of this quote (e.g. a student's major + graduating year.)",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "50",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "maxlength": ""
+                    },
+                    {
+                        "key": "field_5bdc5f39cd688",
+                        "label": "Is this quote sourced from an existing publication?",
+                        "name": "degree_quote_source_has_cite",
+                        "type": "true_false",
+                        "instructions": "If this quote originates from an existing publication, magazine, etc, check this box.  Leave unchecked if it is a direct quote from a student, faculty member, etc.",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "message": "Quote's source is a publication",
+                        "default_value": 0,
+                        "ui": 1,
+                        "ui_on_text": "",
+                        "ui_off_text": ""
+                    }
+                ]
+            },
+            {
+                "key": "field_599454a5f93c3",
+                "label": "Header Form Settings",
+                "name": "",
+                "type": "tab",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "placement": "top",
+                "endpoint": 0
+            },
+            {
+                "key": "field_584ec2eec963b",
+                "label": "Contact Email",
+                "name": "degree_contact_email",
+                "type": "text",
+                "instructions": "(Optional) The email address that header form submission confirmations should be sent to. Leave blank to send to the form's default email address.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "degree"
+                }
+            ]
+        ],
+        "menu_order": 1,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": [
+            "custom_fields"
+        ],
+        "active": 1,
+        "description": ""
+    }
+]

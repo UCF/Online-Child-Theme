@@ -1,0 +1,72 @@
+.degree-list-wrapper,
+.degree-list-group {
+  margin-bottom: 1.5rem;
+  overflow-y: hidden;
+}
+
+.degree-list-wrapper .degree-list-group:last-child {
+  margin-bottom: 0;
+}
+
+.degree-list {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  list-style: none;
+  margin-bottom: -1px;
+  min-width: 100%;
+  padding: 0;
+}
+
+.ucf-degree-list-title {
+  font-size: 2rem;
+  text-transform: uppercase;
+}
+
+.degree-list-program {
+  border-bottom: 1px solid $gray-lighter;
+  box-sizing: border-box;
+  display: table;
+  flex: 1;
+  flex-basis: auto;
+  margin-bottom: 0;
+  padding: 0;
+  position: relative;
+  width: 100%;
+
+  @include media-breakpoint-up(lg) {
+    max-width: 418px;
+  }
+
+  @include media-breakpoint-up(xl) {
+    max-width: 500px;
+  }
+
+  &:last-child {
+    border-bottom: 1px solid transparent;
+  }
+
+  a {
+    box-sizing: border-box;
+    color: #3d3d3d;
+    display: table;
+    font-size: $font-size-base;
+    margin-bottom: 0;
+    padding: $font-size-base;
+    min-width: 100%;
+
+    @include media-breakpoint-up(md) {
+      font-size: $font-size-base-md;
+    }
+
+    &:hover,
+    &:active,
+    &:focus {
+      background: $gray-lighter;
+      color: $brand-secondary;
+      text-decoration: none;
+    }
+  }
+}

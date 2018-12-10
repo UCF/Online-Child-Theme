@@ -1,0 +1,99 @@
+// Styles for Online's site-specific nav.  Overrides UCF WP Theme styles.
+// Selector depth required to match Bootstrap/Athena selectors
+// sass-lint:disable nesting-depth
+.navbar-custom {
+  // Ensure that primary site nav z-index is greater than
+  // a Standard Vertical's affixed subnav to prevent
+  // site nav dropdown layering issues
+  z-index: $zindex-sticky + 1;
+
+  .navbar-collapse {
+    @include media-breakpoint-down(md) {
+      background-color: transparentize($brand-primary, .025);
+    }
+
+    @include media-breakpoint-up(lg) {
+      max-width: 80%;
+    }
+
+    @include media-breakpoint-up(xl) {
+      max-width: 88%;
+    }
+  }
+
+  .navbar-brand,
+  .navbar-toggler.collapsed .navbar-toggler-text {
+    text-shadow: 0 0 0 transparent;
+  }
+
+  .navbar-nav {
+    .nav-link {
+      text-shadow: 0 0 0 transparent;
+
+      @include media-breakpoint-only(lg) {
+        padding-left: .75rem;
+        padding-right: .75rem;
+      }
+    }
+  }
+}
+
+
+// Object-position overrides for header media background pictures.
+// Attempts to position left-aligned image focal points within headers to
+// help prevent face clipping and text overlap.
+.header-media-background .media-background-picture .media-background {
+  object-position: 25% 0%;
+
+  @include media-breakpoint-up(sm) {
+    object-position: 0 50%;
+  }
+
+  @include media-breakpoint-up(md) {
+    object-position: 20% 50%;
+  }
+
+  @include media-breakpoint-up(lg) {
+    object-position: 30% 50%;
+  }
+
+  @include media-breakpoint-up(xl) {
+    // NOTE: this value must match what is returned by
+    // online_media_background_object_position(); see
+    // includes/media-backgrounds.php
+    object-position: 30% 30%;
+  }
+}
+
+
+// Header title overrides
+.header-title {
+  background-color: transparent;
+  font-family: $font-family-sans-serif;
+  font-size: 7vw;
+  font-weight: bold;
+  letter-spacing: -.025em;
+  line-height: 1.2;
+  padding: 0;
+  text-shadow: 1px 1px 3px rgba(255,255,255,.4),-1px -1px 1px rgba(206,206,206,.4),0 0 3rem rgba(255,255,255,1);
+
+  .bg-inverse & {
+    text-shadow: 1px 1px 3px rgba(0,0,0,.4), -1px -1px 1px rgba(40, 40, 40, .75), 0 0 3rem rgba(0,0,0,1);
+  }
+
+  @include media-breakpoint-only(xs) {
+    // Prevent short header titles from pushing header forms
+    // undesirably high up the header (prevent face clipping)
+    min-height: 25vw;
+  }
+
+  @include media-breakpoint-up(sm) {
+    font-size: 2.25rem;
+  }
+
+  @include media-breakpoint-up(md) {
+    font-size: $font-size-h1-md;
+  }
+}
+
+

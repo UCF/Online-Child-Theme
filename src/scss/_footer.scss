@@ -1,0 +1,52 @@
+.site-footer {
+  hr {
+    // Allow Athena's hr color overrides to still take effect
+    &:not(.hr-black):not(.hr-white):not(.hr-primary) {
+      border-color: transparentize($white, .875);
+    }
+  }
+
+  &,
+  .widget-heading {
+    font-size: .85rem;
+  }
+
+  .ucf-social-link {
+    &.md {
+      font-size: 1.75rem;
+      height: 3rem;
+      width: 3rem;
+
+      @include media-breakpoint-only(lg) {
+        font-size: 1.4rem;
+        height: 2.4rem;
+        width: 2.4rem;
+      }
+
+      &:not(:last-child) {
+        margin-right: .75rem;
+      }
+    }
+  }
+
+  a:not(.btn):not(.ucf-degree-search-submit):not(.ucf-social-link) {
+    text-decoration: underline;
+
+    @include hover-focus {
+      color: darken($white, 25%);
+    }
+  }
+}
+
+.site-footer-menu {
+  .nav-item {
+    display: flex;
+
+    &:not(:last-child)::after {
+      @include media-breakpoint-up(lg) {
+        align-self: center;
+        content: '|';
+      }
+    }
+  }
+}
