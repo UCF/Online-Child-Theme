@@ -1483,7 +1483,7 @@
                 "key": "field_596e47d3ed1fc",
                 "label": "Resident Tuition",
                 "name": "degree_resident_tuition",
-                "type": "read_only",
+                "type": "text",
                 "instructions": "",
                 "required": 0,
                 "conditional_logic": 0,
@@ -1492,14 +1492,17 @@
                     "class": "",
                     "id": ""
                 },
-                "copy_to_clipboard": 0,
-                "display_type": "text"
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
             },
             {
                 "key": "field_596e47e6ed1fd",
                 "label": "Nonresident Tuition",
                 "name": "degree_nonresident_tuition",
-                "type": "read_only",
+                "type": "text",
                 "instructions": "",
                 "required": 0,
                 "conditional_logic": 0,
@@ -1508,8 +1511,11 @@
                     "class": "",
                     "id": ""
                 },
-                "copy_to_clipboard": 0,
-                "display_type": "text"
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
             },
             {
                 "key": "field_596f740d354f1",
