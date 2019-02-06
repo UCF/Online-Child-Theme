@@ -110,18 +110,18 @@
                 "return_format": "value"
             },
             {
-                "key": "field_58fe096728bcc",
+                "key": "field_5c5b31bf100c8",
                 "label": "Header Title Text",
                 "name": "page_header_title",
                 "type": "text",
-                "instructions": "Overrides the page title.",
+                "instructions": "(Optional) Title text to display in the header.  The page title will be used if left blank.",
                 "required": 0,
                 "conditional_logic": [
                     [
                         {
                             "field": "field_59aed971c187c",
                             "operator": "==",
-                            "value": "title_subtitle"
+                            "value": "default"
                         }
                     ]
                 ],
