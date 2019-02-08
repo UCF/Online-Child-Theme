@@ -45,6 +45,7 @@ if (fs.existsSync('./gulp-config.json')) {
 function lintSCSS(src) {
   return gulp.src(src)
     .pipe(sassLint())
+    .pipe(sassLint.format())
     .pipe(sassLint.failOnError());
 }
 
