@@ -106,8 +106,8 @@
 
     degree = new UCFDegreeSearch({
       transform: addMeta,
-      queryTokenizer,
-      prepare
+      queryTokenizer: queryTokenizer,
+      prepare: prepare
     });
   }
 
