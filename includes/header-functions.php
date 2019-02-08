@@ -157,7 +157,7 @@ function online_nav_markup() {
 
 	ob_start();
 ?>
-	<nav class="site-nav navbar navbar-toggleable-md navbar-custom navbar-light bg-primary <?php echo $sticky_class; ?>" role="navigation">
+	<nav class="site-nav navbar navbar-toggleable-md navbar-custom navbar-light bg-primary <?php echo $sticky_class; ?>" role="navigation" aria-label="Site navigation">
 		<div class="container d-flex flex-row flex-nowrap justify-content-between">
 			<<?php echo $title_elem; ?> class="mb-0">
 				<a class="navbar-brand font-weight-black text-uppercase letter-spacing-1 mr-lg-4" href="<?php echo get_home_url(); ?>"><?php echo bloginfo( 'name' ); ?></a>
