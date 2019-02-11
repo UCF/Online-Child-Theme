@@ -48,12 +48,12 @@ function online_get_vertical_subnav( $post ) {
 
 	ob_start();
 ?>
-<nav class="navbar navbar-toggleable-md navbar-light bg-faded sticky-top navbar-subnav" id="secondary-nav" role="navigation">
+<nav class="navbar navbar-toggleable-md navbar-light bg-faded sticky-top navbar-subnav" id="secondary-nav" role="navigation" aria-labelledby="vertical-brand">
 	<div class="container">
-		<a class="navbar-brand" href="<?php echo $brand_url; ?>">
+		<a class="navbar-brand" href="<?php echo $brand_url; ?>" id="vertical-brand">
 			<?php echo wptexturize( $brand ); ?>
 		</a>
-		<button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#secondary-menu" aria-controls="secondary-menu" aria-expanded="false" aria-label="Toggle sub-navigation">
+		<button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#secondary-menu" aria-controls="secondary-menu" aria-expanded="false" aria-label="Toggle subnavigation">
 			<span class="navbar-toggler-text">Sections</span>
 			<span class="navbar-toggler-icon" aria-hidden="true"></span>
 		</button>

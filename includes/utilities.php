@@ -91,24 +91,83 @@ function online_get_post_choices( $post_type='post', $args=array() ) {
  * program_types term queries by the ONLINE_DEGREE_PROGRAM_ORDER sort order.
  *
  * Allows program types displayed in the degree picker interface to be
- * sorted as expected. Also applies anywhere get_terms() is called.
+ * sorted as expected. Also applies anywhere get_terms() is called with
+ * params that call for sorted term results.
  *
  * @author Jo Dickson
  * @since 1.0.0
  */
 function online_program_types_terms_sorting( $terms, $taxonomies, $args, $term_query ) {
-	// Only perform sorting if this is a query exclusively
-	// for program_types terms
-	if ( $taxonomies === array( 'program_types' ) ) {
+	// Only perform sorting if this is a query exclusively for
+	// program_types terms that are sortable (e.g. not a request
+	// for a term count or parent terms)
+	if (
+		$taxonomies === array( 'program_types' )
+		&& in_array( $args['fields'], array( 'all', 'all_with_object_id', 'ids', 'names', 'id=>name', 'id=>slug' ) )
+	) {
+		// Create a new, empty array ($items_sorted) whose keys
+		// are the term IDs we need to sort against:
 		$term_slugs = unserialize( ONLINE_DEGREE_PROGRAM_ORDER );
-		$items_sorted = array_fill_keys( $term_slugs, false );
+		$term_ids   = array();
+		foreach ( $term_slugs as $term_slug ) {
+			$term_obj = get_term_by( 'slug', $term_slug, 'program_types' );
+			if ( $term_obj && isset( $term_obj->term_id ) ) {
+				$term_ids[] = $term_obj->term_id;
+			}
+		}
+		$items_sorted = array_fill_keys( $term_ids, false );
 
-		foreach ( $terms as $term ) {
-			$items_sorted[$term->slug] = $term;
+		// Perform sorting for each term. Add any terms we don't have
+		// an explicit sorting rule for to the end of $items_sorted.
+		foreach ( $terms as $key => $term ) {
+			// Depending on what $args['fields'] is, $term may be a
+			// WP_Term obj, term name, term slug, or term ID.
+			// Get the term ID based on whatever $key or $term are:
+			$term_id = null;
+
+			switch ( $args['fields'] ) {
+				case 'all':
+				case 'all_with_object_id':
+					$term_id = $term->term_id;
+					break;
+				case 'ids':
+					$term_id = $term;
+					break;
+				case 'names':
+					$term_obj = get_term_by( 'name', $term, 'program_types' );
+					if ( $term_obj && isset( $term_obj->term_id ) ) {
+						$term_id = $term_obj->term_id;
+					}
+					break;
+				case 'id=>name':
+				case 'id=>slug':
+					$term_id = $key;
+					break;
+				default:
+					break;
+			}
+
+			// If we know the term ID, we can sort the term in the
+			// desired order. Else, it goes to the end of the list:
+			if ( $term_id ) {
+				$items_sorted[$term_id] = $term;
+			}
+			else {
+				// Preserve existing keys if necessary:
+				if ( in_array( $args['fields'], array( 'id=>name', 'id=>slug' ) ) ) {
+					$items_sorted[$key] = $term;
+				}
+				else {
+					$items_sorted[] = $term;
+				}
+			}
 		}
 
-		// Replace associative keys with numeric keys
-		$items_sorted = array_values( $items_sorted );
+		// Remove term_id-based keys if the requested returned fields
+		// ($args['fields']) doesn't specify using them
+		if ( ! in_array( $args['fields'], array( 'id=>name', 'id=>slug' ) ) ) {
+			$items_sorted = array_values( $items_sorted );
+		}
 
 		// Remove any empty sorted items
 		$items_sorted = array_filter( $items_sorted );

@@ -26,13 +26,65 @@
     text-shadow: 0 0 0 transparent;
   }
 
-  .navbar-nav {
-    .nav-link {
-      text-shadow: 0 0 0 transparent;
+  // Force black bg color for navbar link hover/active states
+  // Match nesting + combo selectors in Athena Framework
+  &.navbar-light.bg-primary {
+    // sass-lint:disable-block nesting-depth
+    .navbar-nav {
+      .nav-link {
+        text-shadow: 0 0 0 transparent;
 
-      @include media-breakpoint-only(lg) {
-        padding-left: .75rem;
-        padding-right: .75rem;
+        @include media-breakpoint-only(lg) {
+          padding-left: .75rem;
+          padding-right: .75rem;
+        }
+
+        @include hover-focus-active {
+          background-color: $brand-secondary;
+          color: $brand-secondary-color;
+
+          &.dropdown-toggle::after {
+            border-top-color: $brand-default;
+          }
+        }
+      }
+
+      .show > .nav-link,
+      .open > .nav-link,
+      .active > .nav-link,
+      .nav-link.open,
+      .nav-link:hover,
+      .nav-link.active,
+      .nav-link:active {
+        background-color: $brand-secondary;
+      }
+
+      .show > .nav-link {
+        color: $brand-secondary-color;
+
+        .dropdown-toggle::after {
+          border-top-color: $brand-secondary-color;
+        }
+      }
+    }
+
+    &.navbar-toggleable {
+      @each $breakpoint in map-keys($grid-breakpoints) {
+        $next: breakpoint-next($breakpoint, $grid-breakpoints);
+        $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+        &#{$infix} {
+          .navbar-nav {
+            .dropdown-item {
+              @include hover-focus-active {
+                @include media-breakpoint-down($breakpoint) {
+                  background-color: $brand-secondary;
+                  color: $brand-secondary-color;
+                }
+              }
+            }
+          }
+        }
       }
     }
   }
@@ -75,10 +127,10 @@
   letter-spacing: -.025em;
   line-height: 1.2;
   padding: 0;
-  text-shadow: 1px 1px 3px rgba(255,255,255,.4),-1px -1px 1px rgba(206,206,206,.4),0 0 3rem rgba(255,255,255,1);
+  text-shadow: 1px 1px 3px rgba(255, 255, 255, .4), -1px -1px 1px rgba(206, 206, 206, .4), 0 0 3rem rgba(255, 255, 255, 1);
 
   .bg-inverse & {
-    text-shadow: 1px 1px 3px rgba(0,0,0,.4), -1px -1px 1px rgba(40, 40, 40, .75), 0 0 3rem rgba(0,0,0,1);
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, .4), -1px -1px 1px rgba(40, 40, 40, .75), 0 0 3rem rgba(0, 0, 0, 1);
   }
 
   @include media-breakpoint-only(xs) {
