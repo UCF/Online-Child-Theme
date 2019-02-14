@@ -12,6 +12,7 @@
  */
 function online_post_list_layouts( $layouts ) {
 	$layouts['thumbnail'] = 'Thumbnail Layout';
+	$layouts['link']      = 'Link Layout';
 	return $layouts;
 }
 
@@ -132,3 +133,51 @@ function online_post_list_display_thumbnail( $content, $posts, $atts ) {
 }
 
 add_filter( 'ucf_post_list_display_thumbnail', 'online_post_list_display_thumbnail', 10, 3 );
+
+
+/**
+ * Defines a new "link" layout for the [ucf-post-list] shortcode.
+ *
+ * @since 1.0.2
+ * @author Cadie Brown
+ */
+
+function online_post_list_display_link_before( $content, $posts, $atts ) {
+	ob_start();
+?>
+<div class="ucf-post-list ucf-post-list-link" id="post-list-<?php echo $atts['list_id']; ?>">
+<?php
+	return ob_get_clean();
+}
+
+add_filter( 'ucf_post_list_display_link_before', 'online_post_list_display_link_before', 10, 3 );
+
+
+function online_post_list_display_link( $content, $posts, $atts ) {
+	if ( $posts && ! is_array( $posts ) ) { $posts = array( $posts ); }
+	ob_start();
+?>
+	<?php if ( $posts ): ?>
+		<div class="row ucf-post-list-items">
+
+		<?php
+		foreach ( $posts as $index=>$item ) :
+			if ( $atts['posts_per_row'] > 0 && $index !== 0 && ( $index % $atts['posts_per_row'] ) === 0 ) {
+				echo '</div><div class="row ucf-post-list-items">';
+			}
+		?>
+			<a class="col-12 col-lg mb-4 mb-lg-5 ucf-post-list-item" href="<?php echo get_permalink( $item->ID ); ?>">
+				<?php echo $item->post_title; ?>
+			</a>
+		<?php endforeach; ?>
+
+		</div>
+
+	<?php else: ?>
+		<div class="ucf-post-list-error">No results found.</div>
+	<?php endif;
+
+	return ob_get_clean();
+}
+
+add_filter( 'ucf_post_list_display_link', 'online_post_list_display_link', 10, 3 );
