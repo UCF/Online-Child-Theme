@@ -166,7 +166,7 @@ function online_post_list_display_link( $content, $posts, $atts ) {
 				echo '</div><div class="row ucf-post-list-items">';
 			}
 		?>
-			<a class="col-12 col-lg mb-3 mb-lg-4 ucf-post-list-item" href="<?php echo get_permalink( $item->ID ); ?>">
+			<a class="col-12 col-lg ucf-post-list-item mb-3 mb-lg-4" href="<?php echo get_permalink( $item->ID ); ?>">
 				<?php echo $item->post_title; ?>
 			</a>
 		<?php endforeach; ?>
