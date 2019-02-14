@@ -132,3 +132,45 @@ function online_post_list_display_thumbnail( $content, $posts, $atts ) {
 }
 
 add_filter( 'ucf_post_list_display_thumbnail', 'online_post_list_display_thumbnail', 10, 3 );
+
+
+/**
+ * Defines a new "select" layout for the [ucf-post-list] shortcode
+ *
+ * @since 1.1.0
+ * @author Cadie Brown
+ */
+
+function online_post_list_display_select_before( $content, $posts, $atts ) {
+	ob_start();
+?>
+<div class="ucf-post-list ucf-post-list-select" id="post-list-<?php echo $atts['list_id']; ?>">
+<?php
+	return ob_get_clean();
+}
+
+add_filter( 'ucf_post_list_display_select_before', 'online_post_list_display_select_before', 10, 3 );
+
+
+function online_post_list_display_select( $content, $posts, $atts ) {
+	if ( $posts && ! is_array( $posts ) ) { $posts = array( $posts ); }
+	ob_start();
+?>
+	<?php if ( $posts ) : ?>
+		<label class="d-block" for="ucf-post-list-select-<?php echo $atts['list_id']; ?>">Select a Resource</label>
+		<select class="ucf-post-list-select custom-select" id="ucf-post-list-select-<?php echo $atts['list_id']; ?>" onchange="javascript:location.href = this.value;">
+			<option value="" selected>Select a Resource</option>
+			<?php foreach ( $posts as $item ): ?>
+			<option value="<?php echo get_permalink( $item->ID ); ?>" class="ucf-post-list-item">
+				<?php echo $item->post_title; ?>
+			</option>
+			<?php endforeach; ?>
+		</select>
+	<?php else : ?>
+		<div class="ucf-post-list-error">No results found.</div>
+	<?php endif;
+
+	return ob_get_clean();
+}
+
+add_filter( 'ucf_post_list_display_select', 'online_post_list_display_select', 10, 3 );
