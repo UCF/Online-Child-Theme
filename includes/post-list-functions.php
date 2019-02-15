@@ -13,10 +13,27 @@
 function online_post_list_layouts( $layouts ) {
 	$layouts['thumbnail'] = 'Thumbnail Layout';
 	$layouts['link']      = 'Link Layout';
+	$layouts['select']    = 'Select Layout';
 	return $layouts;
 }
 
 add_filter( 'ucf_post_list_get_layouts', 'online_post_list_layouts' );
+
+
+/**
+ * Adds custom attributes for the UCF Post List plugin.
+ *
+ * @author Cadie Brown
+ * @since 1.1.0
+ */
+function online_post_list_sc_atts( $atts ) {
+	$atts['link_layout__link_classes']  = 'mb-3 mb-lg-4';
+	$atts['select_layout__label_text']  = 'Select an Option';
+	$atts['select_layout__option_text'] = 'Select an Option';
+	return $atts;
+}
+
+add_filter( 'ucf_post_list_get_sc_atts', 'online_post_list_sc_atts', 10 );
 
 
 /**
@@ -138,7 +155,7 @@ add_filter( 'ucf_post_list_display_thumbnail', 'online_post_list_display_thumbna
 /**
  * Defines a new "link" layout for the [ucf-post-list] shortcode.
  *
- * @since 1.0.2
+ * @since 1.1.0
  * @author Cadie Brown
  */
 
@@ -166,7 +183,7 @@ function online_post_list_display_link( $content, $posts, $atts ) {
 				echo '</div><div class="row ucf-post-list-items">';
 			}
 		?>
-			<a class="col-12 col-lg ucf-post-list-item mb-3 mb-lg-4" href="<?php echo get_permalink( $item->ID ); ?>">
+			<a class="col-12 col-lg ucf-post-list-item <?php echo $atts['link_layout__link_classes']; ?>" href="<?php echo get_permalink( $item->ID ); ?>">
 				<?php echo $item->post_title; ?>
 			</a>
 		<?php endforeach; ?>
@@ -206,15 +223,20 @@ function online_post_list_display_select( $content, $posts, $atts ) {
 	ob_start();
 ?>
 	<?php if ( $posts ) : ?>
-		<label class="d-block" for="ucf-post-list-select-<?php echo $atts['list_id']; ?>">Select a Resource</label>
-		<select class="ucf-post-list-select custom-select" id="ucf-post-list-select-<?php echo $atts['list_id']; ?>" onchange="javascript:location.href = this.value;">
-			<option value="" selected>Select a Resource</option>
-			<?php foreach ( $posts as $item ): ?>
-			<option value="<?php echo get_permalink( $item->ID ); ?>" class="ucf-post-list-item">
-				<?php echo $item->post_title; ?>
-			</option>
-			<?php endforeach; ?>
-		</select>
+		<form action="#" id="ucf-post-list-select-form-<?php echo $atts['list_id']; ?>" class="form-inline align-items-end">
+			<div class="mr-2">
+				<label class="d-block" for="ucf-post-list-select-<?php echo $atts['list_id']; ?>"><?php echo $atts['select_layout__label_text']; ?></label>
+				<select class="ucf-post-list-select custom-select form-control" id="ucf-post-list-select-<?php echo $atts['list_id']; ?>" onchange="javascript:getElementById('ucf-post-list-select-form-<?php echo $atts['list_id']; ?>').action = this.value;">
+					<option value="" selected disabled><?php echo $atts['select_layout__option_text']; ?></option>
+					<?php foreach ( $posts as $item ): ?>
+					<option value="<?php echo get_permalink( $item->ID ); ?>" class="ucf-post-list-item">
+						<?php echo $item->post_title; ?>
+					</option>
+					<?php endforeach; ?>
+				</select>
+			</div>
+			<button type="submit" class="btn btn-primary">Go</button>
+		</form>
 	<?php else : ?>
 		<div class="ucf-post-list-error">No results found.</div>
 	<?php endif;
