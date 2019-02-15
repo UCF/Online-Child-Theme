@@ -223,7 +223,7 @@ function online_post_list_display_select( $content, $posts, $atts ) {
 	ob_start();
 ?>
 	<?php if ( $posts ) : ?>
-		<form action="#" id="ucf-post-list-select-form-<?php echo $atts['list_id']; ?>" class="form-inline align-items-end">
+		<form action="#" id="ucf-post-list-select-form-<?php echo $atts['list_id']; ?>" class="d-flex align-items-end">
 			<div class="mr-2">
 				<label class="d-block" for="ucf-post-list-select-<?php echo $atts['list_id']; ?>"><?php echo $atts['select_layout__label_text']; ?></label>
 				<select class="ucf-post-list-select custom-select form-control" id="ucf-post-list-select-<?php echo $atts['list_id']; ?>" onchange="javascript:getElementById('ucf-post-list-select-form-<?php echo $atts['list_id']; ?>').action = this.value;">
