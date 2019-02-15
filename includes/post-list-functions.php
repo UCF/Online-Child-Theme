@@ -20,6 +20,20 @@ add_filter( 'ucf_post_list_get_layouts', 'online_post_list_layouts' );
 
 
 /**
+ * Adds custom attributes for the UCF Post List plugin.
+ *
+ * @author Cadie Brown
+ * @since 1.1.0
+ */
+function online_post_list_sc_atts( $atts ) {
+	$atts['link_classes'] = 'mb-3 mb-lg-4';
+	return $atts;
+}
+
+add_filter( 'ucf_post_list_get_sc_atts', 'online_post_list_sc_atts', 10 );
+
+
+/**
  * Modifies the existing "default" layout for the [ucf-post-list] shortcode
  *
  * @since 1.0.0
@@ -138,7 +152,7 @@ add_filter( 'ucf_post_list_display_thumbnail', 'online_post_list_display_thumbna
 /**
  * Defines a new "link" layout for the [ucf-post-list] shortcode.
  *
- * @since 1.0.2
+ * @since 1.1.0
  * @author Cadie Brown
  */
 
@@ -166,7 +180,7 @@ function online_post_list_display_link( $content, $posts, $atts ) {
 				echo '</div><div class="row ucf-post-list-items">';
 			}
 		?>
-			<a class="col-12 col-lg ucf-post-list-item mb-3 mb-lg-4" href="<?php echo get_permalink( $item->ID ); ?>">
+			<a class="col-12 col-lg ucf-post-list-item <?php echo $atts['link_classes']; ?>" href="<?php echo get_permalink( $item->ID ); ?>">
 				<?php echo $item->post_title; ?>
 			</a>
 		<?php endforeach; ?>
