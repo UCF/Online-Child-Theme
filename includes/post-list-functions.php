@@ -27,7 +27,9 @@ add_filter( 'ucf_post_list_get_layouts', 'online_post_list_layouts' );
  * @since 1.1.0
  */
 function online_post_list_sc_atts( $atts ) {
-	$atts['link_classes'] = 'mb-3 mb-lg-4';
+	$atts['link_layout__link_classes']  = 'mb-3 mb-lg-4';
+	$atts['select_layout__label_text']  = 'Select an Option';
+	$atts['select_layout__option_text'] = 'Select an Option';
 	return $atts;
 }
 
@@ -181,7 +183,7 @@ function online_post_list_display_link( $content, $posts, $atts ) {
 				echo '</div><div class="row ucf-post-list-items">';
 			}
 		?>
-			<a class="col-12 col-lg ucf-post-list-item <?php echo $atts['link_classes']; ?>" href="<?php echo get_permalink( $item->ID ); ?>">
+			<a class="col-12 col-lg ucf-post-list-item <?php echo $atts['link_layout__link_classes']; ?>" href="<?php echo get_permalink( $item->ID ); ?>">
 				<?php echo $item->post_title; ?>
 			</a>
 		<?php endforeach; ?>
@@ -221,9 +223,9 @@ function online_post_list_display_select( $content, $posts, $atts ) {
 	ob_start();
 ?>
 	<?php if ( $posts ) : ?>
-		<label class="d-block" for="ucf-post-list-select-<?php echo $atts['list_id']; ?>">Select a Resource</label>
+		<label class="d-block" for="ucf-post-list-select-<?php echo $atts['list_id']; ?>"><?php echo $atts['select_layout__label_text']; ?></label>
 		<select class="ucf-post-list-select custom-select" id="ucf-post-list-select-<?php echo $atts['list_id']; ?>" onchange="javascript:location.href = this.value;">
-			<option value="" selected>Select a Resource</option>
+			<option value="" selected><?php echo $atts['select_layout__option_text']; ?></option>
 			<?php foreach ( $posts as $item ): ?>
 			<option value="<?php echo get_permalink( $item->ID ); ?>" class="ucf-post-list-item">
 				<?php echo $item->post_title; ?>
