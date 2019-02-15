@@ -213,14 +213,14 @@ add_filter( 'post_link', 'online_resources_cat_post_replace_link', 1, 2 );
  *
  * @see online_resources_cat_post_replace_link()
  * @author Cadie Brown
- * @since 1.0.0
+ * @since 1.1.0
  */
 
 function online_resources_cat_rewrite_rule() {
 	$resources_posts = get_posts( array(
 		'post_type' => 'post',
 		'numberposts' => -1,
-		'category' => 'Resources'
+		'category_name' => 'resources'
 	) );
 
 	if ( $resources_posts ) {
