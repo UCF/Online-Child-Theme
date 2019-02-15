@@ -13,6 +13,7 @@
 function online_post_list_layouts( $layouts ) {
 	$layouts['thumbnail'] = 'Thumbnail Layout';
 	$layouts['link']      = 'Link Layout';
+	$layouts['select']    = 'Select Layout';
 	return $layouts;
 }
 
