@@ -27,9 +27,12 @@ add_filter( 'ucf_post_list_get_layouts', 'online_post_list_layouts' );
  * @since 1.1.0
  */
 function online_post_list_sc_atts( $atts ) {
-	$atts['link_layout__link_classes']  = 'mb-3 mb-lg-4';
-	$atts['select_layout__label_text']  = 'Select an Option';
-	$atts['select_layout__option_text'] = 'Select an Option';
+	if ( $atts['layout'] === 'link' ) {
+		$atts['link_layout__link_classes']  = 'mb-3 mb-lg-4';
+	} elseif ( $atts['layout'] === 'select' ) {
+		$atts['select_layout__label_text']  = 'Select an Option';
+		$atts['select_layout__option_text'] = 'Select an Option';
+	}
 	return $atts;
 }
 
