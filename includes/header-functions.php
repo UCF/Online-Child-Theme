@@ -52,88 +52,53 @@ function ucfwp_get_nav_markup( $image=true ) {
 
 
 /**
- * Overrides UCF WordPress Theme function to return the markup for
- * page headers with media backgrounds.
+ * Modifies how the UCF WordPress theme determines the header type to
+ * use for the given object's page header.
  *
  * @author Jo Dickson
- * @since 1.0.0
- * @param object $obj A WP_Post or WP_Term object
- * @param array $videos Assoc. array of video Attachment IDs for use in page header media background
- * @param array $images Assoc. array of image Attachment IDs for use in page header media background
- * @return string HTML for the page header
- **/
-function ucfwp_get_header_media_markup( $obj, $videos, $images ) {
-	$field_id   = ucfwp_get_object_field_id( $obj );
-	$videos     = $videos ?: ucfwp_get_header_videos( $obj );
-	$images     = $images ?: ucfwp_get_header_images( $obj );
-	$video_loop = get_field( 'page_header_video_loop', $field_id );
-	$header_text_color   = get_field( 'page_header_text_color', $field_id );
-	$header_content_type = get_field( 'page_header_content_type', $field_id );
-	$header_height       = get_field( 'page_header_height', $field_id ) ?: 'header-media-default'; // for imported, unmodified pages
-	$exclude_nav         = get_field( 'page_header_exclude_nav', $field_id );
+ * @since TODO
+ * @param string $header_type The determined header type slug (corresponds to a "header-" template part slug)
+ * @param mixed $obj A queried object (e.g. WP_Post, WP_Term), or null
+ * @return string The determined header type slug
+ */
+function online_get_header_type( $header_type, $obj ) {
+	// TODO modify for landing pages
+	return $header_type;
+}
 
-	// We modify the header's text color using bg utilities to make sure we
-	// still meet color contrast req's when bg imgs/videos fail to load
-	$header_bg_class = '';
-	switch ( $header_text_color ) {
-		case 'white':
-			$header_bg_class = 'bg-inverse';
-			break;
-		default:
-			break;
+add_filter( 'ucfwp_get_header_type', 'online_get_header_type', 10, 2 );
+
+
+/**
+ * Modifies how the UCF WordPress theme determines the header content
+ * type to use for the given object's page header.
+ *
+ * @author Jo Dickson
+ * @since TODO
+ * @param string $content_type The determined header content type slug (corresponds to a "header_content-" template part slug)
+ * @param mixed $obj A queried object (e.g. WP_Post, WP_Term), or null
+ * @return string The determined header content type slug
+ */
+function online_get_header_content_type( $content_type, $obj ) {
+	$header_type  = ucfwp_get_header_type( $obj );
+
+	// Required for compatibility with existing content type names:
+	// if $header_content_type is empty or set to 'default',
+	// update it to 'title_form' instead
+	if ( $header_type === 'media' && in_array( $content_type, array( '', 'default' ) ) ) {
+		$content_type = 'title_form';
 	}
 
-	ob_start();
-?>
-	<div class="header-media <?php echo $header_height; ?> <?php echo $header_bg_class; ?> mb-0 d-flex flex-column">
-		<div class="header-media-background-wrap">
-			<div class="header-media-background media-background-container">
-				<?php
-				// Display the media background (video + picture)
-
-				if ( $videos ) {
-					echo ucfwp_get_media_background_video( $videos, $video_loop );
-				}
-				if ( $images ) {
-					$bg_image_srcs = ucfwp_get_header_media_picture_srcs( $header_height, $images );
-					echo ucfwp_get_media_background_picture( $bg_image_srcs );
-				}
-				?>
-			</div>
-		</div>
-
-		<?php
-		// Display the inner header contents
-		?>
-		<div class="header-content">
-			<div class="header-content-flexfix">
-				<?php
-				if ( $header_content_type === 'custom' ) {
-					echo ucfwp_get_header_content_custom( $obj );
-				}
-				else {
-					echo online_get_header_content_default( $obj );
-				}
-				?>
-			</div>
-		</div>
-
-		<?php
-		// Print a spacer div for headers with background videos (to make
-		// control buttons accessible), and for headers showing a standard
-		// title/subtitle to push them up a bit
-		if ( $videos || $header_content_type === 'default' ):
-		?>
-		<div class="header-media-controlfix"></div>
-		<?php endif; ?>
-	</div>
-<?php
-	return ob_get_clean();
+	return $content_type;
 }
+
+add_filter( 'ucfwp_get_header_content_type', 'online_get_header_content_type', 10, 2 );
 
 
 /**
  * Displays the primary site navigation for UCF Online.
+ *
+ * TODO move to template part
  *
  * NOTE: This function intentionally echoes its output, rather than
  * returning a string, because we register this function as an action on the
@@ -147,7 +112,6 @@ function online_nav_markup() {
 	global $post;
 
 	if ( $post && $post->post_type === 'landing' ) {
-		echo online_landing_page_header_bar_markup();
 		return;
 	}
 
@@ -194,81 +158,9 @@ add_action( 'after_body_open', 'online_nav_markup', 10, 0 );
 
 
 /**
- * Returns a simplfied site navbar for use on Landing Pages.
- *
- * Adapted from Online-Theme
- *
- * @author Jim Barnes
- * @since 1.0.0
- * @return string
- */
-function online_landing_page_header_bar_markup() {
-	global $post;
-	if ( ! $post ) { return; }
-
-	$title = $post->post_title;
-
-	ob_start();
-?>
-	<div class="bg-inverse">
-		<div class="container">
-			<div class="row align-items-center justify-content-between">
-				<?php if ( $title ) : ?>
-					<h1 class="col h3 mb-0"><?php echo $title; ?></h1>
-				<?php endif; ?>
-				<div class="col-1">
-					<img src="<?php echo ONLINE_THEME_IMG_URL . '/ucf-tab.jpg'; ?>" alt="University of Central Florida">
-				</div>
-			</div>
-		</div>
-	</div>
-<?php
-	return ob_get_clean();
-}
-
-
-/**
- * Returns default inner content markup for page headers that
- * use a media background.
- *
- * @author Jo Dickson
- * @since 1.0.0
- * @param object $obj A WP_Post or WP_Term object
- * @return string HTML for the page title
- **/
-function online_get_header_content_default( $obj ) {
-	$title      = ucfwp_get_header_title( $obj );
-	$title_elem = ( is_home() || is_front_page() ) ? 'h2' : 'h1';
-
-	ob_start();
-
-	if ( $title ):
-		$form_markup = online_get_header_form_markup( $obj );
-?>
-	<div class="header-content-inner align-self-start pt-4 pt-md-5">
-		<div class="container">
-			<div class="row">
-				<div class="<?php echo ( $form_markup ) ? 'col-8 offset-4 col-md-6 offset-md-6 col-xl-4 offset-xl-4' : 'col-12'; ?> mb-5 mb-sm-4 mb-md-5 mb-xl-0 mt-xl-4">
-					<<?php echo $title_elem; ?> class="header-title mb-0 d-inline-block"><?php echo $title; ?></<?php echo $title_elem; ?>>
-				</div>
-
-				<?php if ( $form_markup ): ?>
-				<div class="col-sm-8 offset-sm-4 col-md-6 offset-md-6 col-xl-4 offset-xl-0 mt-lg-0">
-					<?php echo $form_markup; ?>
-				</div>
-				<?php endif; ?>
-			</div>
-		</div>
-	</div>
-<?php
-	endif;
-
-	return ob_get_clean();
-}
-
-
-/**
  * Returns markup for a header form.
+ *
+ * TODO move to template part
  *
  * @since 1.0.0
  * @author Jo Dickson
