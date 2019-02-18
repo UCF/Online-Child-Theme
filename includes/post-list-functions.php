@@ -21,7 +21,7 @@ add_filter( 'ucf_post_list_get_layouts', 'online_post_list_layouts' );
 
 
 /**
- * Adds custom attributes for the UCF Post List plugin.
+ * Adds custom attributes per layout for the UCF Post List plugin.
  *
  * @author Cadie Brown
  * @since 1.1.0
@@ -32,6 +32,7 @@ function online_post_list_sc_atts( $atts, $layout ) {
 	} elseif ( $layout === 'select' ) {
 		$atts['select_layout__label_text']  = 'Select an Option';
 		$atts['select_layout__option_text'] = 'Select an Option';
+		$atts['select_layout__button_text'] = 'Go';
 	}
 	return $atts;
 }
@@ -177,7 +178,7 @@ function online_post_list_display_link( $content, $posts, $atts ) {
 	if ( $posts && ! is_array( $posts ) ) { $posts = array( $posts ); }
 	ob_start();
 ?>
-	<?php if ( $posts ): ?>
+	<?php if ( $posts ) : ?>
 		<div class="row ucf-post-list-items">
 
 		<?php
@@ -193,7 +194,7 @@ function online_post_list_display_link( $content, $posts, $atts ) {
 
 		</div>
 
-	<?php else: ?>
+	<?php else : ?>
 		<div class="ucf-post-list-error">No results found.</div>
 	<?php endif;
 
@@ -204,7 +205,7 @@ add_filter( 'ucf_post_list_display_link', 'online_post_list_display_link', 10, 3
 
 
 /**
- * Defines a new "select" layout for the [ucf-post-list] shortcode
+ * Defines a new "select" layout for the [ucf-post-list] shortcode.
  *
  * @since 1.1.0
  * @author Cadie Brown
@@ -231,14 +232,14 @@ function online_post_list_display_select( $content, $posts, $atts ) {
 				<label class="d-block" for="ucf-post-list-select-<?php echo $atts['list_id']; ?>"><?php echo $atts['select_layout__label_text']; ?></label>
 				<select class="ucf-post-list-select custom-select form-control" id="ucf-post-list-select-<?php echo $atts['list_id']; ?>" onchange="javascript:getElementById('ucf-post-list-select-form-<?php echo $atts['list_id']; ?>').action = this.value;">
 					<option value="" selected disabled><?php echo $atts['select_layout__option_text']; ?></option>
-					<?php foreach ( $posts as $item ): ?>
+					<?php foreach ( $posts as $item ) : ?>
 					<option value="<?php echo get_permalink( $item->ID ); ?>" class="ucf-post-list-item">
 						<?php echo $item->post_title; ?>
 					</option>
 					<?php endforeach; ?>
 				</select>
 			</div>
-			<button type="submit" class="btn btn-primary">Go</button>
+			<button type="submit" class="btn btn-primary"><?php echo $atts['select_layout__button_text']; ?></button>
 		</form>
 	<?php else : ?>
 		<div class="ucf-post-list-error">No results found.</div>
