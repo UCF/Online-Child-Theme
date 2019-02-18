@@ -230,7 +230,7 @@ function online_post_list_display_select( $content, $posts, $atts ) {
 		<form action="#" id="ucf-post-list-select-form-<?php echo $atts['list_id']; ?>" class="d-flex align-items-end">
 			<div class="mr-2">
 				<label for="ucf-post-list-select-<?php echo $atts['list_id']; ?>"><?php echo $atts['select_layout__label_text']; ?></label>
-				<select class="ucf-post-list-select custom-select form-control" id="ucf-post-list-select-<?php echo $atts['list_id']; ?>" onchange="javascript:getElementById('ucf-post-list-select-form-<?php echo $atts['list_id']; ?>').action = this.value;">
+				<select class="ucf-post-list-select custom-select form-control" id="ucf-post-list-select-<?php echo $atts['list_id']; ?>">
 					<option value="" selected disabled><?php echo $atts['select_layout__option_text']; ?></option>
 					<?php foreach ( $posts as $item ) : ?>
 					<option value="<?php echo get_permalink( $item->ID ); ?>" class="ucf-post-list-item">
