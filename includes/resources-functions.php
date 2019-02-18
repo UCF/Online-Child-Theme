@@ -44,7 +44,7 @@ function online_resources_cat_rewrite_rule() {
 
 	if ( $resources ) {
 		foreach ( $resources as $resources ) {
-			add_rewrite_rule( 'student-resources/([^/]+)/?$', 'index.php?post_type=post&name=$matches[1]', 'bottom' );
+			add_rewrite_rule( 'student-resources/([^/]+)/?$', 'index.php?post_type=post&name=$matches[1]', 'top' );
 		}
 	}
 }
