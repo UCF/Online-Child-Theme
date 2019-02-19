@@ -31,6 +31,7 @@ function online_post_list_sc_atts( $atts, $layout ) {
 		$atts['link_layout__link_classes']  = 'mb-3 mb-lg-4';
 	} elseif ( $layout === 'select' ) {
 		$atts['select_layout__label_text']  = 'Select an Option';
+		$atts['select_layout__label_classes']  = '';
 		$atts['select_layout__option_text'] = 'Select an Option';
 		$atts['select_layout__button_text'] = 'Go';
 	}
@@ -229,7 +230,7 @@ function online_post_list_display_select( $content, $posts, $atts ) {
 	<?php if ( $posts ) : ?>
 		<form action="#" id="ucf-post-list-select-form-<?php echo $atts['list_id']; ?>" class="d-flex align-items-end" data-post-list-form>
 			<div class="mr-2">
-				<label for="ucf-post-list-select-<?php echo $atts['list_id']; ?>"><?php echo $atts['select_layout__label_text']; ?></label>
+				<label class="<?php echo $atts['select_layout__label_classes']; ?>" for="ucf-post-list-select-<?php echo $atts['list_id']; ?>"><?php echo $atts['select_layout__label_text']; ?></label>
 				<select class="ucf-post-list-select custom-select form-control" id="ucf-post-list-select-<?php echo $atts['list_id']; ?>" data-post-list-select>
 					<option value="" selected disabled><?php echo $atts['select_layout__option_text']; ?></option>
 					<?php foreach ( $posts as $item ) : ?>
