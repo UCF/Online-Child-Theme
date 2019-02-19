@@ -57,13 +57,24 @@
       .nav-link.active,
       .nav-link:active {
         background-color: $brand-secondary;
-      }
-
-      .show > .nav-link {
         color: $brand-secondary-color;
 
-        .dropdown-toggle::after {
-          border-top-color: $brand-secondary-color;
+        &.dropdown-toggle::after {
+          border-top-color: $brand-default;
+        }
+      }
+
+      .show > .nav-link,
+      .open > .nav-link,
+      .active > .nav-link {
+        @include hover-focus-active {
+          &.dropdown-toggle::after {
+            border-top-color: $brand-secondary-color;
+          }
+        }
+
+        &.dropdown-toggle::after {
+          border-top-color: $brand-default;
         }
       }
     }

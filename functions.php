@@ -10,6 +10,7 @@ include_once 'includes/footer-functions.php';
 
 include_once 'includes/degree-functions.php';
 include_once 'includes/vertical-functions.php';
+include_once 'includes/resources-functions.php';
 
 
 // Plugin extras/overrides
