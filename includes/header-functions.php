@@ -37,26 +37,11 @@ function ucfwp_get_header_h1_option( $obj ) {
 
 
 /**
- * Overrides the UCF WordPress Theme function for returning a site nav to
- * display nothing.  We do this to more easily implement a custom navbar
- * in this theme, positioned outside of the .site-header elem.
- *
- * @author Jo Dickson
- * @since 1.0.0
- * @param bool $image Whether or not a media background is present in the page header (unused)
- * @return string Nav HTML
- */
-function ucfwp_get_nav_markup( $image=true ) {
-	return '';
-}
-
-
-/**
  * Modifies how the UCF WordPress theme determines the header type to
  * use for the given object's page header.
  *
  * @author Jo Dickson
- * @since TODO
+ * @since 1.2.0
  * @param string $header_type The determined header type slug (corresponds to a "header-" template part slug)
  * @param mixed $obj A queried object (e.g. WP_Post, WP_Term), or null
  * @return string The determined header type slug
@@ -74,7 +59,7 @@ add_filter( 'ucfwp_get_header_type', 'online_get_header_type', 10, 2 );
  * type to use for the given object's page header.
  *
  * @author Jo Dickson
- * @since TODO
+ * @since 1.2.0
  * @param string $content_type The determined header content type slug (corresponds to a "header_content-" template part slug)
  * @param mixed $obj A queried object (e.g. WP_Post, WP_Term), or null
  * @return string The determined header content type slug
@@ -89,72 +74,12 @@ function online_get_header_content_type( $content_type, $obj ) {
 		$content_type = 'title_form';
 	}
 
+	// TODO add modifications for landing pages
+
 	return $content_type;
 }
 
 add_filter( 'ucfwp_get_header_content_type', 'online_get_header_content_type', 10, 2 );
-
-
-/**
- * Displays the primary site navigation for UCF Online.
- *
- * TODO move to template part
- *
- * NOTE: This function intentionally echoes its output, rather than
- * returning a string, because we register this function as an action on the
- * `after_body_open` hook.
- *
- * @author Jo Dickson
- * @since 1.0.0
- * @return void
- **/
-function online_nav_markup() {
-	global $post;
-
-	if ( $post && $post->post_type === 'landing' ) {
-		return;
-	}
-
-	$title_elem      = ( is_home() || is_front_page() ) ? 'h1' : 'span';
-	$vertical_subnav = ( $post ) ? online_get_vertical_subnav( $post ) : '';
-	$sticky_class    = ( $vertical_subnav ) ? '' : 'sticky-top';
-
-	ob_start();
-?>
-	<nav class="site-nav navbar navbar-toggleable-md navbar-custom navbar-light bg-primary <?php echo $sticky_class; ?>" role="navigation" aria-label="Site navigation">
-		<div class="container d-flex flex-row flex-nowrap justify-content-between">
-			<<?php echo $title_elem; ?> class="mb-0">
-				<a class="navbar-brand font-weight-black text-uppercase letter-spacing-1 mr-lg-4" href="<?php echo get_home_url(); ?>"><?php echo bloginfo( 'name' ); ?></a>
-			</<?php echo $title_elem; ?>>
-			<button class="navbar-toggler ml-auto align-self-start collapsed" type="button" data-toggle="collapse" data-target="#header-menu" aria-controls="header-menu" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-text">Menu</span>
-				<span class="navbar-toggler-icon"></span>
-			</button>
-			<div class="collapse navbar-collapse align-self-lg-stretch" id="header-menu">
-				<?php
-				if ( has_nav_menu( 'header-menu' ) ) {
-					wp_nav_menu( array(
-						'container'       => '',
-						'depth'           => 2,
-						'fallback_cb'     => 'bs4Navwalker::fallback',
-						'menu_class'      => 'nav navbar-nav ml-md-auto',
-						'theme_location'  => 'header-menu',
-						'walker'          => new bs4Navwalker()
-					) );
-				}
-				?>
-			</div>
-		</div>
-	</nav>
-<?php
-	// If this is a standard Vertical or Vertical Child,
-	// display its subnav:
-	if ( $vertical_subnav ) { echo $vertical_subnav; }
-
-	echo ob_get_clean();
-}
-
-add_action( 'after_body_open', 'online_nav_markup', 10, 0 );
 
 
 /**

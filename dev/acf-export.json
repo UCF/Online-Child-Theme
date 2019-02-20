@@ -1,5 +1,347 @@
 [
     {
+        "key": "group_5c62eabfa8a34",
+        "title": "Clone Group - Landing Page Highlights",
+        "fields": [
+            {
+                "key": "field_5c61b5d193bad",
+                "label": "Highlights",
+                "name": "landing_highlights",
+                "type": "repeater",
+                "instructions": "Define highlighted bullet points, with optional icons, that are displayed under the landing page header area.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "collapsed": "",
+                "min": 0,
+                "max": 0,
+                "layout": "block",
+                "button_label": "Add Highlight",
+                "sub_fields": [
+                    {
+                        "key": "field_5c61b70e93baf",
+                        "label": "Icon Type",
+                        "name": "landing_highlight_icon_type",
+                        "type": "radio",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "choices": {
+                            "image": "Image",
+                            "fonticon": "Font Icon"
+                        },
+                        "allow_null": 0,
+                        "other_choice": 0,
+                        "save_other_choice": 0,
+                        "default_value": "",
+                        "layout": "horizontal",
+                        "return_format": "value"
+                    },
+                    {
+                        "key": "field_5c61b67293bae",
+                        "label": "Icon Image",
+                        "name": "landing_highlight_icon_image",
+                        "type": "image",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": [
+                            [
+                                {
+                                    "field": "field_5c61b70e93baf",
+                                    "operator": "==",
+                                    "value": "image"
+                                }
+                            ]
+                        ],
+                        "wrapper": {
+                            "width": "40",
+                            "class": "",
+                            "id": ""
+                        },
+                        "return_format": "array",
+                        "preview_size": "thumbnail",
+                        "library": "all",
+                        "min_width": "",
+                        "min_height": "",
+                        "min_size": "",
+                        "max_width": "",
+                        "max_height": "",
+                        "max_size": "",
+                        "mime_types": ""
+                    },
+                    {
+                        "key": "field_5c61b7b693bb0",
+                        "label": "Font Icon Classes",
+                        "name": "landing_highlight_icon_font_classes",
+                        "type": "text",
+                        "instructions": "Add classes, separated by a single space, for a supported font icon (e.g. <a href=\"https:\/\/fontawesome.com\/v4.7.0\/icons\/\" target=\"_blank\">Font Awesome<\/a>) to display.",
+                        "required": 0,
+                        "conditional_logic": [
+                            [
+                                {
+                                    "field": "field_5c61b70e93baf",
+                                    "operator": "==",
+                                    "value": "fonticon"
+                                }
+                            ]
+                        ],
+                        "wrapper": {
+                            "width": "40",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": "fa fa-star-o",
+                        "prepend": "",
+                        "append": "",
+                        "maxlength": ""
+                    },
+                    {
+                        "key": "field_5c61caf064c2d",
+                        "label": "Content",
+                        "name": "landing_highlight_content",
+                        "type": "group",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "60",
+                            "class": "",
+                            "id": ""
+                        },
+                        "layout": "block",
+                        "sub_fields": [
+                            {
+                                "key": "field_5c61c5da93bb1",
+                                "label": "Highlight Text",
+                                "name": "text",
+                                "type": "text",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "default_value": "",
+                                "placeholder": "",
+                                "prepend": "",
+                                "append": "",
+                                "maxlength": ""
+                            },
+                            {
+                                "key": "field_5c61c5fe93bb2",
+                                "label": "Supplementary Text",
+                                "name": "sub_text",
+                                "type": "text",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "default_value": "",
+                                "placeholder": "",
+                                "prepend": "",
+                                "append": "",
+                                "maxlength": ""
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "post"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": 0,
+        "description": ""
+    },
+    {
+        "key": "group_5c62e7f22a4b1",
+        "title": "Clone Group - Page Header Image and Video Fields",
+        "fields": [
+            {
+                "key": "field_590ca625f6657",
+                "label": "Header Images",
+                "name": "",
+                "type": "tab",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "placement": "top",
+                "endpoint": 0
+            },
+            {
+                "key": "field_58f7a778185ef",
+                "label": "Header Image (-sm+)",
+                "name": "page_header_image",
+                "type": "image",
+                "instructions": "Header image to display at the -sm breakpoint and up.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "return_format": "id",
+                "preview_size": "header-img-sm",
+                "library": "all",
+                "min_width": 1200,
+                "min_height": "",
+                "min_size": "",
+                "max_width": "",
+                "max_height": "",
+                "max_size": "",
+                "mime_types": "png,jpg,jpeg"
+            },
+            {
+                "key": "field_58f7a7b8185f0",
+                "label": "Header Image (-xs)",
+                "name": "page_header_image_xs",
+                "type": "image",
+                "instructions": "Header image to display at the -xs breakpoint.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "return_format": "id",
+                "preview_size": "header-img",
+                "library": "all",
+                "min_width": 575,
+                "min_height": 575,
+                "min_size": "",
+                "max_width": "",
+                "max_height": "",
+                "max_size": "",
+                "mime_types": "png,jpg,jpeg"
+            },
+            {
+                "key": "field_590ca64ef6659",
+                "label": "Header Video",
+                "name": "",
+                "type": "tab",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "placement": "top",
+                "endpoint": 0
+            },
+            {
+                "key": "field_58fe08bf28bc9",
+                "label": "Header Video (MP4)",
+                "name": "page_header_mp4",
+                "type": "file",
+                "instructions": "If a MP4 video is defined, video will be used instead of an image in the header at the -sm breakpoint and higher.  Note that videos will never be displayed at the -xs breakpoint, so a fallback header image should always be provided when using video.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "return_format": "url",
+                "library": "all",
+                "min_size": "",
+                "max_size": "",
+                "mime_types": "mp4"
+            },
+            {
+                "key": "field_58fe08ff28bca",
+                "label": "Header Video (WebM)",
+                "name": "page_header_webm",
+                "type": "file",
+                "instructions": "Supplemental video format used by supported browsers for optimized performance.  Note that a MP4 must at least be provided for video to be displayed in the header.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "return_format": "url",
+                "library": "all",
+                "min_size": "",
+                "max_size": "",
+                "mime_types": "webm"
+            },
+            {
+                "key": "field_590c84c7a1360",
+                "label": "Header Video Loop",
+                "name": "page_header_video_loop",
+                "type": "true_false",
+                "instructions": "If checked, and a header video is available, the header video will loop indefinitely.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "message": "Loop video indefinitely",
+                "default_value": 0,
+                "ui": 0,
+                "ui_on_text": "",
+                "ui_off_text": ""
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "post"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": 0,
+        "description": ""
+    },
+    {
         "key": "group_58ff540088983",
         "title": "College Fields",
         "fields": [
@@ -31,6 +373,472 @@
         ],
         "menu_order": 0,
         "position": "acf_after_title",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": 1,
+        "description": ""
+    },
+    {
+        "key": "group_5c61ef111ebd8",
+        "title": "Landing Page Fields - Concept 1",
+        "fields": [
+            {
+                "key": "field_5c62ee7d8440a",
+                "label": "Header Content",
+                "name": "",
+                "type": "tab",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "placement": "top",
+                "endpoint": 0
+            },
+            {
+                "key": "field_5c62ee938440b",
+                "label": "Content Before Form",
+                "name": "landing_header_content_custom",
+                "type": "wysiwyg",
+                "instructions": "Content displayed immediately before the header form (or its call-to-action button).  <strong>You should include a h1 somewhere at the beginning of this content.<\/strong>",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "tabs": "all",
+                "toolbar": "full",
+                "media_upload": 0,
+                "delay": 0
+            },
+            {
+                "key": "field_5c62f3028440f",
+                "label": "Content After Form",
+                "name": "landing_header_content_after",
+                "type": "wysiwyg",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "tabs": "all",
+                "toolbar": "full",
+                "media_upload": 0,
+                "delay": 0
+            },
+            {
+                "key": "field_5c62f2d88440e",
+                "label": "Header Form",
+                "name": "",
+                "type": "tab",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "placement": "top",
+                "endpoint": 0
+            },
+            {
+                "key": "field_5c62f11e8440c",
+                "label": "Header Form",
+                "name": "page_header_form_custom",
+                "type": "forms",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "return_format": "id",
+                "allow_null": 0,
+                "multiple": 0
+            },
+            {
+                "key": "field_5c62f1608440d",
+                "label": "How should the form be displayed?",
+                "name": "landing_header_form_type",
+                "type": "select",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {
+                    "togglemodal": "Toggle button + display form in modal",
+                    "toggleinline": "Toggle button + display form inline",
+                    "inline": "Display form inline (no toggle button)"
+                },
+                "default_value": [
+                    "togglemodal"
+                ],
+                "allow_null": 0,
+                "multiple": 0,
+                "ui": 0,
+                "ajax": 0,
+                "return_format": "value",
+                "placeholder": ""
+            },
+            {
+                "key": "field_5c62f91505587",
+                "label": "Toggle Button Text",
+                "name": "landing_form_cta_text",
+                "type": "text",
+                "instructions": "Text used in the call-to-action button that toggles the header form visibility.  Accepts shortcodes (e.g. for insertion of icons).",
+                "required": 0,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_5c62f1608440d",
+                            "operator": "==",
+                            "value": "togglemodal"
+                        }
+                    ],
+                    [
+                        {
+                            "field": "field_5c62f1608440d",
+                            "operator": "==",
+                            "value": "toggleinline"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "Get Started",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_5c62fd5c05589",
+                "label": "What content should be displayed in the modal?",
+                "name": "landing_header_modal_content_type",
+                "type": "select",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_5c62f1608440d",
+                            "operator": "==",
+                            "value": "togglemodal"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {
+                    "formdata": "Form title and description",
+                    "custom": "Custom content"
+                },
+                "default_value": [
+                    "formdata"
+                ],
+                "allow_null": 0,
+                "multiple": 0,
+                "ui": 0,
+                "ajax": 0,
+                "return_format": "value",
+                "placeholder": ""
+            },
+            {
+                "key": "field_5c62fe0a0558a",
+                "label": "Modal Custom Content - Before Form",
+                "name": "landing_header_modal_content_custom",
+                "type": "wysiwyg",
+                "instructions": "Custom content to display immediately above the form in the modal, in lieu of the form's title + description.",
+                "required": 0,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_5c62f1608440d",
+                            "operator": "==",
+                            "value": "togglemodal"
+                        },
+                        {
+                            "field": "field_5c62fd5c05589",
+                            "operator": "==",
+                            "value": "custom"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "tabs": "all",
+                "toolbar": "full",
+                "media_upload": 0,
+                "delay": 0
+            },
+            {
+                "key": "field_5c62ff810558b",
+                "label": "Modal Custom Content - After Form",
+                "name": "landing_header_modal_content_after",
+                "type": "wysiwyg",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_5c62f1608440d",
+                            "operator": "==",
+                            "value": "togglemodal"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "tabs": "all",
+                "toolbar": "full",
+                "media_upload": 0,
+                "delay": 0
+            },
+            {
+                "key": "field_5c6300f425960",
+                "label": "Form Instruction Text",
+                "name": "landing_header_form_instructions",
+                "type": "wysiwyg",
+                "instructions": "Custom content to display above the form, after the user has clicked the toggle button and enabled the form.",
+                "required": 0,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_5c62f1608440d",
+                            "operator": "==",
+                            "value": "toggleinline"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "<p class=\"lead\">Thanks for your interest! Please add more information so we can better assist you.<\/p>",
+                "tabs": "all",
+                "toolbar": "full",
+                "media_upload": 0,
+                "delay": 0
+            },
+            {
+                "key": "field_5c62f34e84410",
+                "label": "Subheader Content",
+                "name": "",
+                "type": "tab",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "placement": "top",
+                "endpoint": 0
+            },
+            {
+                "key": "field_5c62f64584413",
+                "label": "Subheader Lead Text",
+                "name": "landing_subheader_content",
+                "type": "wysiwyg",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "45",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "tabs": "all",
+                "toolbar": "inline_text",
+                "media_upload": 0,
+                "delay": 0
+            },
+            {
+                "key": "field_5c62f7230fe49",
+                "label": "Subheader Media",
+                "name": "landing_subheader_media",
+                "type": "group",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "55",
+                    "class": "",
+                    "id": ""
+                },
+                "layout": "block",
+                "sub_fields": [
+                    {
+                        "key": "field_5c62f3ee84411",
+                        "label": "Subheader Image",
+                        "name": "image",
+                        "type": "image",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "return_format": "id",
+                        "preview_size": "medium",
+                        "library": "all",
+                        "min_width": "",
+                        "min_height": "",
+                        "min_size": "",
+                        "max_width": 700,
+                        "max_height": 700,
+                        "max_size": "",
+                        "mime_types": "jpg,jpeg,png"
+                    },
+                    {
+                        "key": "field_5c62f59184412",
+                        "label": "Subheader Image Position (-lg+)",
+                        "name": "position",
+                        "type": "radio",
+                        "instructions": "Position of the subheader image at the -lg breakpoint and up.  (This image will always be centered and stacked horizontally under the -lg breakpoint.)",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "choices": {
+                            "left": "Left",
+                            "right": "Right"
+                        },
+                        "allow_null": 0,
+                        "other_choice": 0,
+                        "save_other_choice": 0,
+                        "default_value": "left",
+                        "layout": "horizontal",
+                        "return_format": "value"
+                    }
+                ]
+            },
+            {
+                "key": "field_5c62f6bf84414",
+                "label": "Highlights",
+                "name": "landing_highlights_fields",
+                "type": "clone",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "clone": [
+                    "group_5c62eabfa8a34"
+                ],
+                "display": "seamless",
+                "layout": "block",
+                "prefix_label": 0,
+                "prefix_name": 0
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "landing"
+                },
+                {
+                    "param": "post_template",
+                    "operator": "==",
+                    "value": "default"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": 1,
+        "description": ""
+    },
+    {
+        "key": "group_5c6d5cecd4d32",
+        "title": "Landing Page Nav Fields",
+        "fields": [
+            {
+                "key": "field_5c6d5d020bf76",
+                "label": "Title Text",
+                "name": "landing_nav_title",
+                "type": "text",
+                "instructions": "Text to display within the simplified navbar at the top of this landing page.  Is not displayed at the -xs breakpoint.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "landing"
+                },
+                {
+                    "param": "post_template",
+                    "operator": "==",
+                    "value": "template-landing-2.php"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
         "style": "default",
         "label_placement": "top",
         "instruction_placement": "label",
@@ -262,10 +1070,10 @@
                 "return_format": "value"
             },
             {
-                "key": "field_590ca625f6657",
-                "label": "Header Images",
-                "name": "",
-                "type": "tab",
+                "key": "field_5c62e85dcc666",
+                "label": "Header Images and Video",
+                "name": "page_header_images_video_fields",
+                "type": "clone",
                 "instructions": "",
                 "required": 0,
                 "conditional_logic": 0,
@@ -274,129 +1082,13 @@
                     "class": "",
                     "id": ""
                 },
-                "placement": "top",
-                "endpoint": 0
-            },
-            {
-                "key": "field_58f7a778185ef",
-                "label": "Header Image (-sm+)",
-                "name": "page_header_image",
-                "type": "image",
-                "instructions": "Header image to display at the -sm breakpoint and up.",
-                "required": 0,
-                "conditional_logic": 0,
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "return_format": "id",
-                "preview_size": "header-img-sm",
-                "library": "all",
-                "min_width": 1200,
-                "min_height": "",
-                "min_size": "",
-                "max_width": "",
-                "max_height": "",
-                "max_size": "",
-                "mime_types": "png,jpg,jpeg"
-            },
-            {
-                "key": "field_58f7a7b8185f0",
-                "label": "Header Image (-xs)",
-                "name": "page_header_image_xs",
-                "type": "image",
-                "instructions": "Header image to display at the -xs breakpoint.",
-                "required": 0,
-                "conditional_logic": 0,
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "return_format": "id",
-                "preview_size": "header-img",
-                "library": "all",
-                "min_width": 575,
-                "min_height": 575,
-                "min_size": "",
-                "max_width": "",
-                "max_height": "",
-                "max_size": "",
-                "mime_types": "png,jpg,jpeg"
-            },
-            {
-                "key": "field_590ca64ef6659",
-                "label": "Header Video",
-                "name": "",
-                "type": "tab",
-                "instructions": "",
-                "required": 0,
-                "conditional_logic": 0,
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "placement": "top",
-                "endpoint": 0
-            },
-            {
-                "key": "field_58fe08bf28bc9",
-                "label": "Header Video (MP4)",
-                "name": "page_header_mp4",
-                "type": "file",
-                "instructions": "If a MP4 video is defined, video will be used instead of an image in the header at the -sm breakpoint and higher.  Note that videos will never be displayed at the -xs breakpoint, so a fallback header image should always be provided when using video.",
-                "required": 0,
-                "conditional_logic": 0,
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "return_format": "url",
-                "library": "all",
-                "min_size": "",
-                "max_size": "",
-                "mime_types": "mp4"
-            },
-            {
-                "key": "field_58fe08ff28bca",
-                "label": "Header Video (WebM)",
-                "name": "page_header_webm",
-                "type": "file",
-                "instructions": "Supplemental video format used by supported browsers for optimized performance.  Note that a MP4 must at least be provided for video to be displayed in the header.",
-                "required": 0,
-                "conditional_logic": 0,
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "return_format": "url",
-                "library": "all",
-                "min_size": "",
-                "max_size": "",
-                "mime_types": "webm"
-            },
-            {
-                "key": "field_590c84c7a1360",
-                "label": "Header Video Loop",
-                "name": "page_header_video_loop",
-                "type": "true_false",
-                "instructions": "If checked, and a header video is available, the header video will loop indefinitely.",
-                "required": 0,
-                "conditional_logic": 0,
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "message": "Loop video indefinitely",
-                "default_value": 0,
-                "ui": 0,
-                "ui_on_text": "",
-                "ui_off_text": ""
+                "clone": [
+                    "group_5c62e7f22a4b1"
+                ],
+                "display": "seamless",
+                "layout": "block",
+                "prefix_label": 0,
+                "prefix_name": 0
             },
             {
                 "key": "field_5a564fecfb51d",
@@ -485,13 +1177,6 @@
                     "param": "post_type",
                     "operator": "==",
                     "value": "degree"
-                }
-            ],
-            [
-                {
-                    "param": "post_type",
-                    "operator": "==",
-                    "value": "landing"
                 }
             ]
         ],
@@ -1820,6 +2505,224 @@
         "hide_on_screen": [
             "custom_fields"
         ],
+        "active": 1,
+        "description": ""
+    },
+    {
+        "key": "group_5c61cfbcc2ff6",
+        "title": "Landing Page Fields - Concepts 2 & 3",
+        "fields": [
+            {
+                "key": "field_5c61d016d3636",
+                "label": "Header Content",
+                "name": "",
+                "type": "tab",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "placement": "top",
+                "endpoint": 0
+            },
+            {
+                "key": "field_5c61d0b4d3638",
+                "label": "What type of content should be displayed before the header form?",
+                "name": "landing_header_content_type",
+                "type": "select",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {
+                    "formdata": "Form title and description",
+                    "custom": "Custom content"
+                },
+                "default_value": [],
+                "allow_null": 0,
+                "multiple": 0,
+                "ui": 0,
+                "ajax": 0,
+                "return_format": "value",
+                "placeholder": ""
+            },
+            {
+                "key": "field_5c61d13ad3639",
+                "label": "Custom Header Content (Before Form)",
+                "name": "landing_header_content_custom",
+                "type": "wysiwyg",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_5c61d0b4d3638",
+                            "operator": "==",
+                            "value": "custom"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "tabs": "all",
+                "toolbar": "full",
+                "media_upload": 0,
+                "delay": 0
+            },
+            {
+                "key": "field_5c61e36ed363b",
+                "label": "Content After Form",
+                "name": "landing_header_content_after",
+                "type": "wysiwyg",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "tabs": "all",
+                "toolbar": "full",
+                "media_upload": 0,
+                "delay": 0
+            },
+            {
+                "key": "field_5c62f1fd60a67",
+                "label": "Header Form",
+                "name": "",
+                "type": "tab",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "placement": "top",
+                "endpoint": 0
+            },
+            {
+                "key": "field_5c61e271d363a",
+                "label": "Header Form",
+                "name": "page_header_form_custom",
+                "type": "forms",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "return_format": "id",
+                "allow_null": 0,
+                "multiple": 0
+            },
+            {
+                "key": "field_5c62e93b457fb",
+                "label": "Header Images and Video",
+                "name": "page_header_images_video_fields",
+                "type": "clone",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "clone": [
+                    "group_5c62e7f22a4b1"
+                ],
+                "display": "seamless",
+                "layout": "block",
+                "prefix_label": 0,
+                "prefix_name": 0
+            },
+            {
+                "key": "field_5c62eb34d47d2",
+                "label": "Highlights",
+                "name": "",
+                "type": "tab",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "placement": "top",
+                "endpoint": 0
+            },
+            {
+                "key": "field_5c62eb58d47d3",
+                "label": "Highlights",
+                "name": "landing_highlights_fields",
+                "type": "clone",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "clone": [
+                    "group_5c62eabfa8a34"
+                ],
+                "display": "seamless",
+                "layout": "block",
+                "prefix_label": 0,
+                "prefix_name": 0
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "landing"
+                },
+                {
+                    "param": "post_template",
+                    "operator": "==",
+                    "value": "template-landing-2.php"
+                }
+            ],
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "landing"
+                },
+                {
+                    "param": "post_template",
+                    "operator": "==",
+                    "value": "template-landing-3.php"
+                }
+            ]
+        ],
+        "menu_order": 1,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
         "active": 1,
         "description": ""
     }
