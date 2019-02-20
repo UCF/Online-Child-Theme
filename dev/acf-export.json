@@ -808,7 +808,7 @@
                 "label": "Title Text",
                 "name": "landing_nav_title",
                 "type": "text",
-                "instructions": "Text to display within the simplified navbar at the top of this landing page.  Is not displayed at the -xs breakpoint.",
+                "instructions": "Text to display within the simplified navbar at the top of this landing page.  Is not displayed at the -sm breakpoint and down.",
                 "required": 0,
                 "conditional_logic": 0,
                 "wrapper": {

@@ -47,7 +47,22 @@ function ucfwp_get_header_h1_option( $obj ) {
  * @return string The determined header type slug
  */
 function online_get_header_type( $header_type, $obj ) {
-	// TODO modify for landing pages
+	if ( $obj instanceof WP_Post && $obj->post_type === 'landing' ) {
+		$header_type = 'landing';
+
+		switch ( get_post_meta( $obj->ID, '_wp_page_template', true ) ) {
+			case 'template-landing-2.php':
+				$header_type .= '_2';
+				break;
+			case 'template-landing-3.php':
+				$header_type .= '_3';
+				break;
+			case 'default':
+			default:
+				break;
+		}
+	}
+
 	return $header_type;
 }
 
@@ -74,7 +89,22 @@ function online_get_header_content_type( $content_type, $obj ) {
 		$content_type = 'title_form';
 	}
 
-	// TODO add modifications for landing pages
+	// Modifications for landing pages
+	if ( substr( $header_type, 0, 7 ) === 'landing' ) {
+		$content_type = 'landing';
+
+		switch ( get_post_meta( $obj->ID, '_wp_page_template', true ) ) {
+			case 'template-landing-2.php':
+				$content_type .= '_2';
+				break;
+			case 'template-landing-3.php':
+				$content_type .= '_3';
+				break;
+			case 'default':
+			default:
+				break;
+		}
+	}
 
 	return $content_type;
 }
@@ -86,6 +116,7 @@ add_filter( 'ucfwp_get_header_content_type', 'online_get_header_content_type', 1
  * Returns markup for a header form.
  *
  * TODO move to template part
+ * TODO move form array fetch to separate function
  *
  * @since 1.0.0
  * @author Jo Dickson

@@ -1,3 +1,11 @@
+// Custom class for Online to support media headers with no
+// minimum height requirement at -xs breakpoint:
+.header-media-fluid {
+  @include media-breakpoint-down(xs) {
+    min-height: 0;
+  }
+}
+
 // Styles for Online's site-specific nav.  Overrides UCF WP Theme styles.
 // Selector depth required to match Bootstrap/Athena selectors
 // sass-lint:disable nesting-depth
