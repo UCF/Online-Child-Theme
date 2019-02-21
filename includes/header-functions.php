@@ -113,27 +113,29 @@ add_filter( 'ucfwp_get_header_content_type', 'online_get_header_content_type', 1
 
 
 /**
- * Returns markup for a header form.
+ * Returns the header form assigned for a given object.
  *
- * TODO move to template part
- * TODO move form array fetch to separate function
- *
- * @since 1.0.0
+ * @since 1.1.0
  * @author Jo Dickson
- * @param object $obj A WP_Post or WP_Term object
- * @return string HTML for the header form
+ * @param mixed $obj A queried object (e.g. WP_Post, WP_Term), or null
+ * @return mixed An array representing a single GravityForm's data, or null
  */
-function online_get_header_form_markup( $obj ) {
-	$field_id            = ucfwp_get_object_field_id( $obj );
+function online_get_header_form( $obj ) {
+	$obj_custom_form_val = get_field( 'page_header_form_option', $obj );
 	$form_id             = null;
-	$obj_custom_form_val = get_field( 'page_header_form_option', $field_id );
 	$form                = null;
+
+	// Landing pages don't have the `page_header_form_option` field;
+	// set $obj_custom_form_val manually here to accommodate
+	if ( $obj instanceof WP_Post && $obj->post_type === 'landing' ) {
+		$obj_custom_form_val = 'custom';
+	}
 
 	// Determine which form to retrieve
 	if ( $obj_custom_form_val !== 'none' ) {
 		// Retrieve a custom form ID first
 		if ( $obj_custom_form_val === 'custom' ) {
-			$form_id = get_field( 'page_header_form_custom', $field_id );
+			$form_id = get_field( 'page_header_form_custom', $obj );
 		}
 
 		// If we can't retrieve a custom form ID, or if
@@ -153,49 +155,5 @@ function online_get_header_form_markup( $obj ) {
 		$form = GFAPI::get_form( $form_id );
 	}
 
-	// Stop now if we can't retrieve the actual form object
-	if ( ! $form ) { return ''; }
-
-	$form_title = $form['title'];
-	$form_desc  = $form['description'];
-	$show_title = true;
-	$show_desc  = true;
-
-	// Modify how the form title and description are displayed
-	// for specific types of content
-	if ( $obj instanceof WP_Post ) {
-		// Single degrees
-		if ( $obj->post_type === 'degree' ) {
-			$form_title = 'Get More Information';
-			$form_desc  = "Fill out the form below, and we'll send you more information about the <strong>{$obj->post_title}</strong> program.";
-		}
-		// Vertical Children
-		else if ( get_field( 'post_vertical', $obj->ID ) ) {
-			$form_title = 'Request Info <span class="fa fa-envelope ml-2" aria-hidden="true"></span>';
-		}
-		// Standard Vertical
-		else if ( get_post_meta( $obj->ID, '_wp_page_template', true ) === 'template-vertical.php' ) {
-			$show_title = false;
-		}
-	}
-
-	ob_start();
-?>
-	<div class="header-form bg-inverse-t-4 mb-4 mb-lg-5 p-3 p-md-4">
-		<?php if ( $show_title ): ?>
-		<h2 class="h5 text-center">
-			<?php echo $form_title; ?>
-		</h2>
-		<?php endif; ?>
-
-		<?php if ( $show_desc ): ?>
-		<div class="">
-			<?php echo wptexturize( $form_desc ); ?>
-		</div>
-		<?php endif; ?>
-
-		<?php echo do_shortcode( '[gravityform id="' . $form_id . '" title="false" description="false" ajax="true"]' ); ?>
-	</div>
-<?php
-	return ob_get_clean();
+	return $form;
 }
