@@ -275,7 +275,7 @@ add_filter( 'acf/fields/post_object/query/name=post_vertical', 'online_related_v
  */
 
 function online_vertical_person_replace_link( $url, $post ) {
-	if ( $post && $post->post_type === 'person' ) {
+	if ( $post && $post->post_type === 'person' && $post->post_status === 'publish' ) {
 		$vertical_id = online_get_post_vertical_id( $post );
 		if ( !$vertical_id ) { return $url; }
 
@@ -308,7 +308,7 @@ add_filter( 'post_type_link', 'online_vertical_person_replace_link', 1, 2 );
  */
 
 function online_vertical_post_replace_link( $url, $post ) {
-	if ( $post && $post->post_type === 'post' ) {
+	if ( $post && $post->post_type === 'post' && $post->post_status === 'publish' ) {
 		$vertical_id = online_get_post_vertical_id( $post );
 		if ( !$vertical_id ) { return $url; }
 
@@ -350,11 +350,13 @@ function online_verticals_rewrite_rule() {
 
 	if ( $verticals ) {
 		foreach ( $verticals as $vertical ) {
-			// People
-			add_rewrite_rule( $vertical->post_name . '/person/([^/]+)/?$', 'index.php?post_type=person&name=$matches[1]', 'bottom' );
+			if ( $vertical->post_status === 'publish' ) {
+				// People
+				add_rewrite_rule( $vertical->post_name . '/person/([^/]+)/?$', 'index.php?post_type=person&name=$matches[1]', 'bottom' );
 
-			// Posts (news)
-			add_rewrite_rule( $vertical->post_name . '/news/([^/]+)/?$', 'index.php?post_type=post&name=$matches[1]', 'bottom' );
+				// Posts (news)
+				add_rewrite_rule( $vertical->post_name . '/news/([^/]+)/?$', 'index.php?post_type=post&name=$matches[1]', 'bottom' );
+			}
 		}
 	}
 }
