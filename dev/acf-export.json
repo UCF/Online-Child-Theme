@@ -485,9 +485,7 @@
                     "id": ""
                 },
                 "choices": {
-                    "togglemodal": "Toggle button + display form in modal",
-                    "toggleinline": "Toggle button + display form inline",
-                    "inline": "Display form inline (no toggle button)"
+                    "togglemodal": "Toggle button + display form in modal"
                 },
                 "default_value": [
                     "togglemodal"

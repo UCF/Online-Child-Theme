@@ -17,8 +17,8 @@ if ( $title ):
 				<div class="col-sm-8 offset-sm-4 col-md-6 offset-md-6 col-xl-4 offset-xl-0 mt-lg-0">
 					<?php
 					$form_id    = $form['id'];
-					$form_title = $form['title'];
-					$form_desc  = $form['description'];
+					$form_title = wptexturize( $form['title'] );
+					$form_desc  = wptexturize( $form['description'] );
 					$show_title = true;
 					$show_desc  = true;
 
@@ -28,7 +28,7 @@ if ( $title ):
 						// Single degrees
 						if ( $obj->post_type === 'degree' ) {
 							$form_title = 'Get More Information';
-							$form_desc  = "Fill out the form below, and we'll send you more information about the <strong>{$obj->post_title}</strong> program.";
+							$form_desc  = "Fill out the form below, and we&rsquo;ll send you more information about the <strong>{$obj->post_title}</strong> program.";
 						}
 						// Vertical Children
 						else if ( get_field( 'post_vertical', $obj->ID ) ) {
@@ -49,7 +49,7 @@ if ( $title ):
 
 						<?php if ( $show_desc ): ?>
 						<div class="">
-							<?php echo wptexturize( $form_desc ); ?>
+							<?php echo $form_desc; ?>
 						</div>
 						<?php endif; ?>
 

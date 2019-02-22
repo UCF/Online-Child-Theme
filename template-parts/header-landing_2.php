@@ -7,10 +7,8 @@ $obj        = ucfwp_get_queried_object();
 $videos     = ucfwp_get_header_videos( $obj );
 $images     = ucfwp_get_header_images( $obj );
 $video_loop = get_field( 'page_header_video_loop', $obj );
-$header_content_type = ucfwp_get_header_content_type( $obj );
-$header_height       = 'header-media-default';
 ?>
-<div class="header-media header-media-fluid bg-faded mb-0 d-flex flex-column">
+<div class="header-media header-media-fluid bg-faded mb-3 mb-md-5 d-flex flex-column">
 	<div class="header-media-background-wrap hidden-sm-down">
 		<div class="header-media-background media-background-container">
 			<?php
@@ -20,7 +18,7 @@ $header_height       = 'header-media-default';
 				echo ucfwp_get_media_background_video( $videos, $video_loop );
 			}
 			if ( $images ) {
-				$bg_image_srcs = ucfwp_get_header_media_picture_srcs( $header_height, $images );
+				$bg_image_srcs = ucfwp_get_header_media_picture_srcs( 'header-media-default', $images );
 				echo ucfwp_get_media_background_picture( $bg_image_srcs );
 			}
 			?>

@@ -3,16 +3,16 @@
  * Inner header contents for Landing Page Concept 2
  */
 
-$obj                 = ucfwp_get_queried_object();
-$form                = online_get_header_form( $obj );
-$content_before      = '';
-$content_after       = get_field( 'landing_header_content_after', $obj );
-$form_markup         = '';
+$obj            = ucfwp_get_queried_object();
+$form           = online_get_header_form( $obj );
+$content_before = '';
+$content_after  = get_field( 'landing_header_content_after', $obj );
+$form_markup    = '';
 
 if ( $form ):
 	$form_id     = $form['id'];
-	$form_title  = $form['title'];
-	$form_desc   = $form['description'];
+	$form_title  = wptexturize( $form['title'] );
+	$form_desc   = wptexturize( $form['description'] );
 	$form_markup = do_shortcode( '[gravityform id="' . $form_id . '" title="false" description="false" ajax="true"]' );
 
 	// Use custom pre-form content if chosen

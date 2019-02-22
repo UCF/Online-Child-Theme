@@ -13,12 +13,17 @@ $form_markup         = '';
 
 if ( $form ) {
 	$form_id     = $form['id'];
-	$form_title  = $form['title'];
-	$form_desc   = $form['description'];
+	$form_title  = wptexturize( $form['title'] );
+	$form_desc   = wptexturize( $form['description'] );
 	$form_markup = do_shortcode( '[gravityform id="' . $form_id . '" title="false" description="false" ajax="true"]' );
 	$form_type   = get_field( 'landing_header_form_type', $obj );
 
-	// Get inner pre-form content, depending on the form type:
+	// Get inner pre-form content, depending on the form type.
+	//
+	// NOTE: as of v1.2.0, the only available option is 'togglemodal'.
+	// In future sprint(s), other types will be added that toggle an
+	// inline form with a toggle button ('toggleinline') and just display
+	// an inline form ('inline').
 	if ( $form_type === 'togglemodal' ) {
 		// Use form title+subtitle
 		if ( get_field( 'landing_header_modal_content_type', $obj ) === 'formdata' ) {
@@ -33,10 +38,6 @@ if ( $form ) {
 		else {
 			$form_content_before = get_field( 'landing_header_modal_content_custom', $obj );
 		}
-	}
-	else if ( $form_type === 'toggleinline' ) {
-		// Use form instruction text
-		$form_content_before = get_field( 'landing_header_form_instructions', $obj );
 	}
 
 	$form_content_before = trim( $form_content_before );
