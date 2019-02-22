@@ -17,8 +17,8 @@ if ( $subhead_img ) {
 	$subhead_content_col = 'col-lg-4';
 
 	if ( $subhead_media_pos === 'left' ) {
-		$subhead_media_col .= ' push-lg-4';
-		$subhead_content_col .= ' pull-lg-8';
+		$subhead_media_col .= ' pull-lg-4';
+		$subhead_content_col .= ' push-lg-8';
 	}
 	elseif ( ! $subhead_lead && ! $highlights ) {
 		$subhead_media_col .= ' offset-lg-2';
