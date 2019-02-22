@@ -1,4 +1,8 @@
 <?php
+/**
+ * Standard header for most content with a header image/video set
+ */
+
 $obj        = ucfwp_get_queried_object();
 $videos     = ucfwp_get_header_videos( $obj );
 $images     = ucfwp_get_header_images( $obj );

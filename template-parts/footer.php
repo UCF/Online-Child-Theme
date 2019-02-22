@@ -1,4 +1,8 @@
 <?php
+/**
+ * Standard site footer markup
+ */
+
 // Display subfooter section on pages unless 'page_subfooter_section_option'
 // is not set or set to false
 $subfooter_section                   = online_get_theme_mod_or_default( 'subfooter_section' );

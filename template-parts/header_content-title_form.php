@@ -1,4 +1,10 @@
 <?php
+/**
+ * Inner header contents for headers that:
+ * - have a background image/video
+ * - use the "Default" type of content (not "Custom content")
+ */
+
 $obj        = ucfwp_get_queried_object();
 $title      = ucfwp_get_header_title( $obj );
 $title_elem = ( is_home() || is_front_page() ) ? 'h2' : 'h1';

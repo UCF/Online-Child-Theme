@@ -1,4 +1,8 @@
 <?php
+/**
+ * The standard site navigation
+ */
+
 global $post;
 
 $title_elem      = ( is_home() || is_front_page() ) ? 'h1' : 'span';
