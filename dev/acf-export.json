@@ -721,8 +721,8 @@
                         "min_width": "",
                         "min_height": "",
                         "min_size": "",
-                        "max_width": 700,
-                        "max_height": 700,
+                        "max_width": 800,
+                        "max_height": 800,
                         "max_size": "",
                         "mime_types": "jpg,jpeg,png"
                     },
