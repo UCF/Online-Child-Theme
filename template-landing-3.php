@@ -10,11 +10,11 @@
 <?php
 $images        = ucfwp_get_header_images( $post );
 $bg_image_srcs = ( $images ) ? ucfwp_get_header_media_picture_srcs( 'header-media-default', $images ) : array();
-$highlights    = online_get_landing_highlights( $obj );
+$highlights    = online_get_landing_highlights( $post );
 ?>
 
 <?php if ( $highlights ): ?>
-<div class="landing-3-subhead mb-3 mb-md-4">
+<div class="landing-3-subhead my-3 my-md-4">
 	<div class="container">
 		<?php echo $highlights; ?>
 	</div>
@@ -22,12 +22,8 @@ $highlights    = online_get_landing_highlights( $obj );
 <?php endif; ?>
 
 <?php if ( $images ): ?>
-<div class="header-media header-media-default mb-3 hidden-md-up">
-	<div class="header-media-background-wrap">
-		<div class="header-media-background media-background-container">
-			<?php echo ucfwp_get_media_background_picture( $bg_image_srcs ); ?>
-		</div>
-	</div>
+<div class="container text-center mt-3 mt-sm-4 hidden-md-up">
+	<img class="img-fluid" src="<?php echo $bg_image_srcs['xs']; ?>" alt="">
 </div>
 <?php endif; ?>
 

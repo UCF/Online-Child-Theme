@@ -1,16 +1,15 @@
 <?php get_header(); the_post(); ?>
 
 <?php
-$obj               = ucfwp_get_queried_object();
 $subhead_img       = wp_get_attachment_image(
-	get_field( 'landing_subheader_media_image', $obj ),
+	get_field( 'landing_subheader_media_image', $post ),
 	'medium_large',
 	false,
 	array( 'class' => 'img-thumbnail border-0 rounded-0 img-fluid' )
 );
-$subhead_media_pos = get_field( 'landing_subheader_media_position', $obj );
-$subhead_lead      = get_field( 'landing_subheader_content', $obj );
-$highlights        = online_get_landing_highlights( $obj );
+$subhead_media_pos = get_field( 'landing_subheader_media_position', $post );
+$subhead_lead      = get_field( 'landing_subheader_content', $post );
+$highlights        = online_get_landing_highlights( $post );
 
 $subhead_media_col   = 'text-center col-lg-8';
 $subhead_content_col = 'col-12';

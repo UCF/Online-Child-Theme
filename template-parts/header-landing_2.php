@@ -8,7 +8,7 @@ $videos     = ucfwp_get_header_videos( $obj );
 $images     = ucfwp_get_header_images( $obj );
 $video_loop = get_field( 'page_header_video_loop', $obj );
 ?>
-<div class="header-media header-media-fluid bg-faded mb-3 mb-md-5 d-flex flex-column">
+<div class="header-media header-media-fluid bg-faded mb-0 d-flex flex-column">
 	<div class="header-media-background-wrap hidden-sm-down">
 		<div class="header-media-background media-background-container">
 			<?php
