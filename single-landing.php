@@ -13,13 +13,17 @@ $subhead_lead      = get_field( 'landing_subheader_content', $obj );
 $highlights        = online_get_landing_highlights( $obj );
 
 $subhead_media_col   = 'text-center col-lg-8';
-$subhead_content_col = 'col-lg-4';
-if ( $subhead_img && $subhead_media_pos === 'left' ) {
-	$subhead_media_col .= ' push-lg-4';
-	$subhead_content_col .= ' pull-lg-8';
-}
-elseif ( $subhead_img && ! ( $subhead_lead || $highlights ) ) {
-	$subhead_media_col .= ' offset-lg-2';
+$subhead_content_col = 'col-12';
+if ( $subhead_img ) {
+	$subhead_content_col = 'col-lg-4';
+
+	if ( $subhead_media_pos === 'left' ) {
+		$subhead_media_col .= ' push-lg-4';
+		$subhead_content_col .= ' pull-lg-8';
+	}
+	elseif ( ! $subhead_lead && ! $highlights ) {
+		$subhead_media_col .= ' offset-lg-2';
+	}
 }
 ?>
 
