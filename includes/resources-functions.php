@@ -12,7 +12,7 @@
  */
 
 function online_resources_cat_post_replace_link( $url, $post ) {
-	if ( $post && $post->post_type === 'post' ) {
+	if ( $post && $post->post_type === 'post' && $post->post_status === 'publish' ) {
 		if ( has_category( 'resources', $post ) ) {
 			return home_url( 'student-resources/' . $post->post_name );
 		} else {
@@ -43,8 +43,10 @@ function online_resources_cat_rewrite_rule() {
 	) );
 
 	if ( $resources ) {
-		foreach ( $resources as $resources ) {
-			add_rewrite_rule( 'student-resources/([^/]+)/?$', 'index.php?post_type=post&name=$matches[1]', 'top' );
+		foreach ( $resources as $resource ) {
+			if ( $resource->post_status === 'publish' ) {
+				add_rewrite_rule( 'student-resources/([^/]+)/?$', 'index.php?post_type=post&name=$matches[1]', 'top' );
+			}
 		}
 	}
 }
