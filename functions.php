@@ -5,6 +5,7 @@ include_once 'includes/utilities.php';
 include_once 'includes/config.php';
 include_once 'includes/meta.php';
 include_once 'includes/media-backgrounds.php';
+include_once 'includes/nav-functions.php';
 include_once 'includes/header-functions.php';
 include_once 'includes/footer-functions.php';
 
@@ -29,4 +30,8 @@ if ( class_exists( 'UCF_People_PostType' ) ) {
 
 if ( class_exists( 'UCF_News_Common' ) ) {
 	include_once 'includes/news-functions.php';
+}
+
+if ( class_exists( 'UCF_Landing_Page_PostType' ) ) {
+	include_once 'includes/landing-functions.php';
 }
