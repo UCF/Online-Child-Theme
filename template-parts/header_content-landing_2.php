@@ -26,7 +26,7 @@ if ( $form ):
 			$content_before .= '<h1 class="h3">' . $form_title . '</h1>';
 		}
 		if ( $form_desc ) {
-			$content_before .= '<div>' . $form_desc . '</div>';
+			$content_before .= '<div class="mb-3">' . $form_desc . '</div>';
 		}
 	}
 	$content_before = trim( $content_before );

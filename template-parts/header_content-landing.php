@@ -70,7 +70,7 @@ if ( $form ) {
 					$form_content_before .= '<h2 class="h3">' . $form_title . '</h2>';
 				}
 				if ( $form_desc ) {
-					$form_content_before .= '<div>' . $form_desc . '</div>';
+					$form_content_before .= '<div class="mb-3">' . $form_desc . '</div>';
 				}
 			}
 			else {
@@ -86,7 +86,7 @@ if ( $form ) {
 			break;
 	}
 
-	$cta_markup          = ( $cta_text ) ? '<button type="button" class="landing-cta btn btn-lg btn-primary my-3 my-lg-4">' . $cta_text . '</button>' : '';
+	$cta_markup          = ( $cta_text ) ? '<button type="button" class="landing-cta btn btn-lg btn-primary mb-3 mt-sm-2 mt-md-3 mb-lg-4">' . $cta_text . '</button>' : '';
 	$form_content_before = trim( $form_content_before );
 	$form_content_after  = trim( $form_content_after );
 }
