@@ -31,11 +31,11 @@ if ( $form ):
 	}
 	$content_before = trim( $content_before );
 ?>
-<div class="header-content-inner align-self-start pt-4 pt-lg-5">
+<div class="header-content-inner align-self-start pt-4 pt-lg-5" id="landing-dialog">
 	<div class="container">
 		<div class="row">
 			<div class="col-md-6 offset-md-6 col-xl-5 offset-xl-7">
-				<div class="header-form bg-secondary mb-4 mb-lg-5 p-3 p-md-4">
+				<div class="header-form header-form-landing bg-secondary mb-4 mb-lg-5 p-3 p-md-4">
 					<?php echo $content_before; ?>
 					<?php echo $form_markup; ?>
 					<?php echo $content_after; ?>
