@@ -1,28 +1,99 @@
 // Styles for forms included in page headers
-// sass-lint:disable class-name-format
-.header-form {
-  // Most header forms will have .bg-inverse applied to them; landing
-  // pages will use a gold form and require specific color overrides:
-  &.bg-primary {
-    .gform_wrapper {
-      .gform_button {
-        // Use brand-complementary color against gold bgs
-        @include button-variant($btn-complementary-color, $btn-complementary-bg, $btn-complementary-border);
-        @include button-variant-overrides($btn-complementary-color, $btn-complementary-bg, $btn-complementary-border);
-      }
+// sass-lint:disable class-name-format nesting-depth no-qualifying-elements
 
-      // Make danger text accessible against gold bg
+@mixin validation-message-inline-reset {
+  background-color: transparent;
+  border-radius: 0;
+  color: $brand-danger;
+  display: flex;
+  flex: 1 0 75%;
+  font-size: $font-size-xs;
+  line-height: 1.65;
+  margin-bottom: .5rem;
+  margin-left: 25%;
+  margin-top: .25rem;
+  max-width: 75%;
+  padding: 0;
+  position: static;
+}
+
+.header-form {
+  // For header forms on landing pages (full width form at -sm breakpoint)
+  &.header-form-landing {
+    .gform_wrapper {
+      .gfield_error {
+        .validation_message {
+          @include media-breakpoint-only(sm) {
+            @include validation-message-inline-reset();
+          }
+
+          &::after {
+            @include media-breakpoint-only(sm) {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // For header forms embedded in modals
+  &.header-form-modal {
+    .gform_wrapper {
+      .gfield_error {
+        .validation_message {
+          @include media-breakpoint-only(md) {
+            @include validation-message-inline-reset();
+          }
+
+          &::after {
+            @include media-breakpoint-only(md) {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // For header forms with a white bg (assume default of .bg-inverse-*)
+  &.bg-secondary {
+    .gform_wrapper {
       .gfield_error {
         .gfield_label,
         .ginput_container_name label,
         .ginput_container_address label,
         .clear-multi label {
-          color: $brand-danger-against-gold;
+          color: $brand-danger-aw; // use darker text against white
         }
 
         .validation_message {
           @include media-breakpoint-only(xs) {
-            color: $brand-danger-against-gold;
+            color: $brand-danger-aw; // use darker text against white
+          }
+        }
+      }
+    }
+
+    &.header-form-landing {
+      .gform_wrapper {
+        .gfield_error {
+          .validation_message {
+            @include media-breakpoint-only(sm) {
+              color: $brand-danger-aw; // use darker text against white
+            }
+          }
+        }
+      }
+    }
+
+    &.header-form-modal {
+      .gform_wrapper {
+        .gfield_error {
+          .validation_message {
+            @include media-breakpoint-between(sm, md) {
+              color: $brand-danger-aw; // use darker text against white
+            }
           }
         }
       }
@@ -111,43 +182,26 @@
 
       .validation_message {
         @include media-breakpoint-only(xs) {
-          color: $brand-danger;
-          display: flex;
-          font-size: $font-size-xs;
-          flex: 1 0 75%;
-          margin-left: 25%;
-          max-width: 75%;
+          @include validation-message-inline-reset();
         }
 
         @include media-breakpoint-up(sm) {
-          background: transparentize($brand-danger, .25);
+          background: $brand-danger;
           border-radius: $border-radius $border-radius 0 $border-radius;
           bottom: 0;
           color: $brand-danger-color;
           font-size: .7rem;
-          left: calc(-50% - 1rem);
           line-height: 1.2;
           margin: 0;
-          max-width: 140px;
           padding: .5rem;
           position: absolute;
-        }
-
-        @include media-breakpoint-up(md) {
-          left: calc(-58% - 1rem);
-        }
-
-        @include media-breakpoint-up(lg) {
-          left: calc(-40% - 1rem);
-        }
-
-        @include media-breakpoint-up(xl) {
-          left: calc(-54% - 1rem);
+          right: calc(100% + 2.25rem);
+          width: 140px;
         }
 
         &::after {
           @include media-breakpoint-up(sm) {
-            border-color: transparent transparent transparent transparentize($brand-danger, .25);
+            border-color: transparent transparent transparent $brand-danger;
             border-style: solid;
             border-width: 8px 0 0 8px;
             bottom: 0;
