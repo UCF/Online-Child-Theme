@@ -86,7 +86,7 @@ if ( $form ) {
 			break;
 	}
 
-	$cta_markup          = ( $cta_text ) ? '<button type="button" class="landing-cta btn btn-primary my-3 my-lg-4">' . $cta_text . '</button>' : '';
+	$cta_markup          = ( $cta_text ) ? '<button type="button" class="landing-cta btn btn-lg btn-primary my-3 my-lg-4">' . $cta_text . '</button>' : '';
 	$form_content_before = trim( $form_content_before );
 	$form_content_after  = trim( $form_content_after );
 }
