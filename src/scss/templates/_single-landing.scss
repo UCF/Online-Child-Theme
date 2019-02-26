@@ -1,0 +1,5 @@
+.landing-1-subhead-pullup {
+  @include media-breakpoint-up(lg) {
+    background: linear-gradient(to bottom, $brand-secondary 0%, $brand-secondary 1.25rem, transparent 1.25rem, transparent 100%);
+  }
+}

@@ -7,18 +7,23 @@ $subhead_img       = wp_get_attachment_image(
 	false,
 	array( 'class' => 'img-thumbnail border-0 rounded-0 img-fluid' )
 );
-$subhead_media_pos = get_field( 'landing_subheader_media_position', $post );
+$subhead_media_pos = get_field( 'landing_subheader_media_position', $post ) ?: 'left';
 $subhead_lead      = get_field( 'landing_subheader_content', $post );
 $highlights        = online_get_landing_highlights( $post );
 
-$subhead_media_col   = 'text-center col-lg-8';
+$subhead_class       = 'landing-1-subhead';
+$subhead_media_col   = 'text-center col-lg-7';
 $subhead_content_col = 'col-12';
 if ( $subhead_img ) {
-	$subhead_content_col = 'col-lg-4';
+	$subhead_class .= ' landing-1-subhead-pullup';
+	$subhead_content_col = 'col-lg-5 pt-4 pt-lg-5';
 
 	if ( $subhead_media_pos === 'left' ) {
-		$subhead_media_col .= ' pull-lg-4';
-		$subhead_content_col .= ' push-lg-8';
+		$subhead_media_col .= ' pull-lg-5';
+		$subhead_content_col .= ' push-lg-7 pl-lg-4';
+	}
+	elseif ( $subhead_media_pos === 'right' ) {
+		$subhead_content_col .= ' pr-lg-4';
 	}
 	elseif ( ! $subhead_lead && ! $highlights ) {
 		$subhead_media_col .= ' offset-lg-2';
@@ -26,7 +31,7 @@ if ( $subhead_img ) {
 }
 ?>
 
-<div class="landing-1-subhead">
+<div class="<?php echo $subhead_class; ?>">
 	<div class="container">
 		<div class="row">
 			<?php if ( $subhead_lead || $highlights ): ?>

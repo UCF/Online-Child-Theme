@@ -4,6 +4,6 @@
  */
 ?>
 
-<div class="bg-inverse mb-0 d-flex flex-column">
+<div class="bg-inverse mb-0 pb-2 d-flex flex-column">
 	<?php echo ucfwp_get_header_content_markup(); ?>
 </div>
