@@ -67,7 +67,7 @@ if ( $form ) {
 			if ( get_field( 'landing_header_modal_content_type', $obj ) === 'formdata' ) {
 				// Use form title+subtitle
 				if ( $form_title ) {
-					$form_content_before .= '<h2 class="h5 text-center">' . $form_title . '</h2>';
+					$form_content_before .= '<h2 class="h5">' . $form_title . '</h2>';
 				}
 				if ( $form_desc ) {
 					$form_content_before .= '<div>' . $form_desc . '</div>';
