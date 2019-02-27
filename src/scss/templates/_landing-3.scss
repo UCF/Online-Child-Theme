@@ -1,0 +1,10 @@
+.landing-3-subhead {
+  border-top: 1px solid #e0e0e0;
+  padding-top: 30px;
+
+  @include media-breakpoint-up(md) {
+    background-color: #fafafa;
+    border-bottom: 1px solid #e0e0e0;
+    padding: 40px 0;
+  }
+}

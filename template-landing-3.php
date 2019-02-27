@@ -14,7 +14,7 @@ $highlights    = online_get_landing_highlights( $post );
 ?>
 
 <?php if ( $highlights ): ?>
-<div class="landing-3-subhead my-3 my-md-4">
+<div class="landing-3-subhead">
 	<div class="container">
 		<?php echo $highlights; ?>
 	</div>
