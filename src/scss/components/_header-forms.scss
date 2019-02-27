@@ -58,7 +58,18 @@
 
   // For header forms with a white bg (assume default of .bg-inverse-*)
   &.bg-secondary {
+    .gf_progressbar {
+      background-color: $progress-bg;
+    }
+
     .gform_wrapper {
+      .clear-multi label,
+      .ginput_container_address label,
+      .ginput_container_name label,
+      .gfield_description {
+        color: $sublabel-color-aw;
+      }
+
       .gfield_error {
         .gfield_label,
         .ginput_container_name label,
@@ -100,6 +111,11 @@
     }
   }
 
+  //
+  // Styles for baseline header forms begin here:
+  //
+
+  // Form titles
   .gform_title {
     font-size: $font-size-h5;
 
@@ -108,18 +124,34 @@
     }
   }
 
+  // Heading above a multipage form's progress bar
+  .gf_progressbar_title {
+    font-weight: normal;
+    text-transform: none;
+  }
+
+  // Wrapper for a multipage form's progress bar
+  .gf_progressbar {
+    background-color: $progress-inverse-bg;
+  }
+
+  // Base form labels
   .gfield_label {
     font-size: $font-size-xs;
     font-weight: 500;
     text-transform: uppercase;
   }
 
+  // Contains the entire <form>
   .gform_wrapper {
+    // Wrapper element surrounding all form fields + submit btn
     .gform_body {
       margin-bottom: 1.25rem;
       margin-top: 1.25rem;
     }
 
+    // Wrapper element that surrounds a single field
+    // or a field group (e.g. name, address)
     .ginput_container {
       .instruction {
         font-size: .75rem;
@@ -127,33 +159,74 @@
       }
     }
 
-    .gfield {
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      margin-bottom: .75rem;
+    // <ul> that contains all form fields. Additional classes on this element
+    // control label, sublabel, and description alignment for the form fields
+    .gform_fields {
+      &.top_label {
+        .gfield {
+          flex-direction: column;
+          margin-bottom: 1.25rem;
+        }
 
-      .gfield_label {
-        flex: 0 0 25%;
-        margin-bottom: 0;
-        max-width: 25%;
-        padding-right: .5rem;
-        padding-top: 1rem;
+        .gfield_label {
+          margin-bottom: .25rem;
+        }
       }
 
-      .ginput_container {
-        flex: 0 0 75%;
-        max-width: 75%;
+      &.left_label {
+        .gfield {
+          align-items: center;
+          flex-direction: row;
+          margin-bottom: .75rem;
+        }
+
+        .gfield_label {
+          flex: 0 0 25%;
+          margin-bottom: 0;
+          max-width: 25%;
+          padding-right: .5rem;
+        }
+
+        .ginput_container {
+          flex: 0 0 75%;
+          max-width: 75%;
+        }
       }
+
+      // NOTE: right-aligned labels are not supported
     }
 
-    .gform_footer {
+    // <li> that contains a single form input or group,
+    // its label, and its description
+    .gfield {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    // A field's description text
+    .gfield_description {
+      color: $sublabel-color;
+      font-size: $font-size-xs;
+    }
+
+    // Inner field group labels
+    .clear-multi label,
+    .ginput_container_address label,
+    .ginput_container_name label {
+      color: $sublabel-color;
+      letter-spacing: 0;
+    }
+
+    // Wrapper element for a submit btn, or prev/next btns on multipage forms
+    .gform_footer,
+    .gform_page_footer {
       margin-top: 1.25rem;
     }
 
+    // A form submit button. (Excludes multipage prev/next btns)
     .gform_button {
       @include button-variant($btn-primary-color, $btn-primary-bg, $btn-primary-border);
-      @include button-variant-overrides($btn-primary-color, $btn-primary-bg, $btn-primary-border, $white);
+      @include button-variant-overrides($btn-primary-color, $btn-primary-bg, $btn-primary-border);
       display: block;
       width: 100%;
 
