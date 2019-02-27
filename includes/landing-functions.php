@@ -13,10 +13,11 @@
  **/
 function online_highlight_classes( $post ) {
 	$landing_template = get_page_template_slug( $post );
+
 	if ( ! empty( $landing_template ) ) {
-		$highlight_col_classes = 'col-12 col-md-4';
+		$highlight_col_classes = 'col-12 col-md-4 mb-3 mb-md-0';
 	} else {
-		$highlight_col_classes = 'col-12';
+		$highlight_col_classes = 'col-12 mb-3 mb-md-4';
 	}
 
 	return $highlight_col_classes;
@@ -46,7 +47,7 @@ function online_get_landing_highlights( $post ) {
 			$highlight_content_text = $highlight_content['text'];
 			$highlight_content_supplementary_text = $highlight_content['sub_text'];
 			?>
-			<div class="<?php echo $col_classes; ?> d-flex mb-3 mb-md-4">
+			<div class="<?php echo $col_classes; ?> d-flex">
 				<div class="mr-3">
 				<?php
 				if ( $icon_type === 'image' ) : ?>
