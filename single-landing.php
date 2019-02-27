@@ -7,26 +7,42 @@ $subhead_img       = wp_get_attachment_image(
 	false,
 	array( 'class' => 'img-thumbnail border-0 rounded-0 img-fluid' )
 );
-$subhead_media_pos = get_field( 'landing_subheader_media_position', $post );
+$subhead_media_pos = get_field( 'landing_subheader_media_position', $post ) ?: 'left';
 $subhead_lead      = get_field( 'landing_subheader_content', $post );
 $highlights        = online_get_landing_highlights( $post );
+$has_subhead       = ( $subhead_img || $subhead_lead || $highlights );
 
-$subhead_media_col   = 'text-center col-lg-8';
+$subhead_class       = '';
+$subhead_media_col   = 'text-center';
 $subhead_content_col = 'col-12';
-if ( $subhead_img ) {
-	$subhead_content_col = 'col-lg-4';
 
-	if ( $subhead_media_pos === 'left' ) {
-		$subhead_media_col .= ' pull-lg-4';
-		$subhead_content_col .= ' push-lg-8';
+if ( $subhead_img ) {
+	$subhead_content_col = 'col-lg-5 pt-4 pt-md-5';
+
+	// Add column classes based on whether or not lead + highlight
+	// text will be adjacent to the subheader media:
+	if ( $subhead_lead || $highlights ) {
+		$subhead_class .= ' landing-1-subhead-pullup-lg';
+		$subhead_media_col .= ' col-lg-7';
+
+		// Add alignment classes that position subheader media left or right:
+		if ( $subhead_media_pos === 'left' ) {
+			$subhead_media_col .= ' pull-lg-5';
+			$subhead_content_col .= ' push-lg-7 pl-lg-4';
+		}
+		elseif ( $subhead_media_pos === 'right' ) {
+			$subhead_content_col .= ' pr-lg-4';
+		}
 	}
-	elseif ( ! $subhead_lead && ! $highlights ) {
-		$subhead_media_col .= ' offset-lg-2';
+	else {
+		$subhead_class .= ' landing-1-subhead-pullup';
+		$subhead_media_col .= ' col-lg-8 offset-lg-2';
 	}
 }
 ?>
 
-<div class="landing-1-subhead">
+<?php if ( $has_subhead ): ?>
+<div class="<?php echo $subhead_class; ?>">
 	<div class="container">
 		<div class="row">
 			<?php if ( $subhead_lead || $highlights ): ?>
@@ -53,6 +69,7 @@ if ( $subhead_img ) {
 		</div>
 	</div>
 </div>
+<?php endif; ?>
 
 <article class="<?php echo $post->post_status; ?> post-list-item">
 	<div class="container mt-4 mt-sm-5 mb-5 pb-sm-4">

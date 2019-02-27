@@ -6,7 +6,7 @@
 $obj            = ucfwp_get_queried_object();
 $form           = online_get_header_form( $obj );
 $content_before = '';
-$content_after  = get_field( 'landing_header_content_after', $obj );
+$content_after  = trim( get_field( 'landing_header_content_after', $obj ) );
 $form_markup    = '';
 
 if ( $form ):
@@ -17,7 +17,7 @@ if ( $form ):
 
 	// Use custom pre-form content if chosen
 	if ( get_field( 'landing_header_content_type', $obj ) === 'custom' ) {
-		$content_before = get_field( 'landing_header_content_custom', $obj );
+		$content_before = trim( get_field( 'landing_header_content_custom', $obj ) );
 	}
 	// Otherwise, generate before-form markup based on
 	// the form title and description
@@ -29,7 +29,11 @@ if ( $form ):
 			$content_before .= '<div class="mb-3">' . $form_desc . '</div>';
 		}
 	}
-	$content_before = trim( $content_before );
+
+	// Get post-form markup
+	if ( $content_after ) {
+		$content_after = '<div class="mt-4">' . $content_after . '</div>';
+	}
 ?>
 <div class="header-content-inner align-self-start" id="landing-dialog">
 	<div class="container">

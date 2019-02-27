@@ -75,20 +75,21 @@ if ( $form ) {
 			}
 			else {
 				// Use custom pre-form content
-				$form_content_before = get_field( 'landing_header_modal_content_custom', $obj );
+				$form_content_before = trim( get_field( 'landing_header_modal_content_custom', $obj ) );
 			}
 
 			// Determine the post-form content within the modal
-			$form_content_after = get_field( 'landing_header_modal_content_after', $obj );
+			$form_content_after = trim( get_field( 'landing_header_modal_content_after', $obj ) );
+			if ( $form_content_after ) {
+				$form_content_after = '<div class="mt-4">' . $form_content_after . '</div>';
+			}
 
 			break;
 		default:
 			break;
 	}
 
-	$cta_markup          = ( $cta_text ) ? '<button type="button" class="landing-cta btn btn-lg btn-primary mb-3 mt-sm-2 mt-md-3 mb-lg-4">' . $cta_text . '</button>' : '';
-	$form_content_before = trim( $form_content_before );
-	$form_content_after  = trim( $form_content_after );
+	$cta_markup = ( $cta_text ) ? '<button type="button" class="landing-cta btn btn-lg btn-primary mb-3 mt-sm-2 mt-md-3 mb-lg-4">' . $cta_text . '</button>' : '';
 }
 ?>
 <div class="container text-center">
