@@ -46,16 +46,20 @@ function online_get_landing_highlights( $post ) {
 			$highlight_content = get_sub_field( 'landing_highlight_content' );
 			$highlight_content_text = $highlight_content['text'];
 			$highlight_content_supplementary_text = $highlight_content['sub_text'];
-			?>
+	?>
 			<div class="<?php echo $col_classes; ?> d-flex">
 				<div class="mr-3">
 				<?php
-				if ( $icon_type === 'image' ) : ?>
-					<p>get_sub_field('landing_highlight_icon_image');</p>
+				if ( $icon_type === 'image' ) :
+				$image_icon_url = get_sub_field('landing_highlight_icon_image')['url'];
+				?>
+					<div class="landing-highlight-icon-image-wrapper">
+						<img class="landing-highlight-icon-image" src="<?php echo $image_icon_url; ?>" aria-hidden="true">
+					</div>
 				<?php elseif ( $icon_type === 'fonticon' ) :
 					$font_icon_options = get_sub_field( 'landing_highlight_icon_font_options' );
 				?>
-					<span class="<?php echo $font_icon_options['landing_highlight_icon_font_classes']; ?> fa-3x" aria-hidden="true" style="color: <?php echo $font_icon_options['landing_highlight_icon_font_color']; ?>"></span>
+					<span class="<?php echo $font_icon_options['landing_highlight_icon_font_classes']; ?> fa-3x fa-fw" aria-hidden="true" aria-hidden="true" style="color: <?php echo $font_icon_options['landing_highlight_icon_font_color']; ?>"></span>
 				<?php endif; ?>
 				</div>
 				<div class="text">
