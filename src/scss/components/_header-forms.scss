@@ -5,14 +5,10 @@
   background-color: transparent;
   border-radius: 0;
   color: $brand-danger;
-  display: flex;
-  flex: 1 0 75%;
   font-size: $font-size-xs;
   line-height: 1.65;
   margin-bottom: .5rem;
-  margin-left: 25%;
-  margin-top: .25rem;
-  max-width: 75%;
+  margin-top: .5rem;
   padding: 0;
   position: static;
 }
@@ -40,6 +36,24 @@
   // For header forms embedded in modals
   &.header-form-modal {
     .gform_wrapper {
+      .gform_fields {
+        &.left_label {
+          .gfield_description {
+            @include media-breakpoint-only(md) {
+              margin-left: 25%;
+            }
+          }
+
+          .gfield_error {
+            .validation_message {
+              @include media-breakpoint-only(md) {
+                margin-left: 25%;
+              }
+            }
+          }
+        }
+      }
+
       .gfield_error {
         .validation_message {
           @include media-breakpoint-only(md) {
@@ -188,9 +202,14 @@
           padding-right: .5rem;
         }
 
-        .ginput_container {
-          flex: 0 0 75%;
+        .ginput_container,
+        .gfield_description {
+          flex: 1 0 75%;
           max-width: 75%;
+        }
+
+        .gfield_description {
+          margin-left: 25%;
         }
       }
 
@@ -205,7 +224,7 @@
 
       // Override to support top-aligned field descriptions
       &.field_description_above {
-        .gfield_description {
+        .gfield_description:not(.validation_message) {
           margin-bottom: .75rem;
           margin-top: -.25rem;
         }
@@ -215,6 +234,7 @@
     // A field's description text
     .gfield_description {
       color: $sublabel-color;
+      display: flex;
       font-size: $font-size-xs;
     }
 
@@ -271,7 +291,6 @@
         @include media-breakpoint-up(sm) {
           background: $brand-danger;
           border-radius: $border-radius $border-radius 0 $border-radius;
-          bottom: 0;
           color: $brand-danger-color;
           font-size: .7rem;
           line-height: 1.2;
@@ -279,6 +298,7 @@
           padding: .5rem;
           position: absolute;
           right: calc(100% + 2.25rem);
+          top: calc(50% - 1.75rem);
           width: 140px;
         }
 
