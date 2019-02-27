@@ -66,6 +66,7 @@
       .clear-multi label,
       .ginput_container_address label,
       .ginput_container_name label,
+      .gfield_list_container th,
       .gfield_description {
         color: $sublabel-color-aw;
       }
@@ -138,7 +139,7 @@
   // Base form labels
   .gfield_label {
     font-size: $font-size-xs;
-    font-weight: 500;
+    font-weight: 600;
     text-transform: uppercase;
   }
 
@@ -169,7 +170,7 @@
         }
 
         .gfield_label {
-          margin-bottom: .25rem;
+          margin-bottom: .5rem;
         }
       }
 
@@ -201,6 +202,14 @@
     .gfield {
       display: flex;
       flex-wrap: wrap;
+
+      // Override to support top-aligned field descriptions
+      &.field_description_above {
+        .gfield_description {
+          margin-bottom: .75rem;
+          margin-top: -.25rem;
+        }
+      }
     }
 
     // A field's description text
@@ -212,7 +221,8 @@
     // Inner field group labels
     .clear-multi label,
     .ginput_container_address label,
-    .ginput_container_name label {
+    .ginput_container_name label,
+    .gfield_list_container th {
       color: $sublabel-color;
       letter-spacing: 0;
     }
