@@ -16,8 +16,8 @@ $highlights    = online_get_landing_highlights( $post );
 <?php if ( $highlights ): ?>
 <div class="container my-3 my-sm-4 my-md-5">
 	<?php echo $highlights; ?>
-	<div class="row">
-		<div class="col-md-8 offset-md-2 col-lg-6 offset-lg-3 hidden-sm-down">
+	<div class="row hidden-sm-down">
+		<div class="col-md-8 offset-md-2 col-lg-6 offset-lg-3">
 			<hr class="hr-3">
 		</div>
 	</div>
