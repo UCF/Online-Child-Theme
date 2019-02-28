@@ -14,14 +14,14 @@ $highlights    = online_get_landing_highlights( $post );
 ?>
 
 <?php if ( $highlights ): ?>
-<div class="landing-3-subhead my-3 my-md-4">
+<div class="landing-3-subhead">
 	<div class="container">
 		<?php echo $highlights; ?>
 	</div>
 </div>
 <?php endif; ?>
 
-<?php if ( $images ): ?>
+<?php if ( isset( $images['header_image_xs'] ) ) : ?>
 <div class="container text-center mt-3 mt-sm-4 hidden-md-up">
 	<img class="img-fluid" src="<?php echo $bg_image_srcs['xs']; ?>" alt="">
 </div>
