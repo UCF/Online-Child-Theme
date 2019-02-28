@@ -34,5 +34,5 @@ if ( class_exists( 'UCF_News_Common' ) ) {
 
 if ( class_exists( 'UCF_Landing_Page_PostType' ) ) {
 	include_once 'includes/landing-functions.php';
-	include_once 'template-parts/functions/class-header-content.php';
+	include_once 'includes/class-landing-header-content.php';
 }
