@@ -70,8 +70,14 @@ function online_get_landing_highlights( $post ) {
 				<?php endif; ?>
 				</div>
 				<div class="landing-highlight-content">
+				<?php if ( ! empty( $content_text ) ) : ?>
 					<span class="landing-highlight-content-text d-block text-uppercase font-weight-bold"><?php echo $content_text; ?></span>
+				<?php
+				endif;
+				if ( ! empty( $content_sup_text ) ) :
+				?>
 					<span class="landing-highlight-content-sup-text"><?php echo $content_sup_text; ?></span>
+				<?php endif; ?>
 				</div>
 			</div>
 	<?php endwhile; ?>
