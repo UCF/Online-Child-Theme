@@ -17,6 +17,21 @@
   // For header forms on landing pages (full width form at -sm breakpoint)
   &.header-form-landing {
     .gform_wrapper {
+      .gform_fields {
+        // Form field size overrides
+        &.top_label,
+        &.left_label {
+          .datepicker {
+            @include media-breakpoint-only(sm) {
+              // NOTE !important necessary to override
+              // !important rule in Athena GF plugin
+              width: 50% !important; // sass-lint:disable-line no-important
+            }
+          }
+        }
+      }
+
+      // Validation message overrides
       .gfield_error {
         .validation_message {
           @include media-breakpoint-only(sm) {
@@ -37,6 +52,32 @@
   &.header-form-modal {
     .gform_wrapper {
       .gform_fields {
+        // Form field size overrides
+        &.top_label,
+        &.left_label {
+          .gfield_date_day,
+          .gfield_date_dropdown_day,
+          .gfield_date_dropdown_month,
+          .gfield_date_month,
+          .gfield_time_ampm,
+          .gfield_time_hour,
+          .gfield_time_minute {
+            @include media-breakpoint-up(sm) {
+              flex: 0 0 30%;
+              max-width: 30%;
+            }
+          }
+
+          .gfield_date_dropdown_year,
+          .gfield_date_year {
+            @include media-breakpoint-up(sm) {
+              flex: 0 0 40%;
+              margin-top: 0;
+              max-width: 40%;
+            }
+          }
+        }
+
         &.left_label {
           .gfield_description {
             @include media-breakpoint-only(md) {
@@ -196,20 +237,77 @@
         }
 
         .gfield_label {
-          flex: 0 0 25%;
+          flex: 1 0 25%;
           margin-bottom: 0;
           max-width: 25%;
           padding-right: .5rem;
         }
 
         .ginput_container,
-        .gfield_description {
+        .gfield_description,
+        .clear-multi {
           flex: 1 0 75%;
-          max-width: 75%;
         }
 
         .gfield_description {
           margin-left: 25%;
+        }
+
+        // Field size overrides
+        input:not([type='button']):not([type='submit']):not([type='radio']):not([type='checkbox']):not([type='file']),
+        select,
+        textarea {
+          &.small {
+            @include media-breakpoint-up(sm) {
+              width: 60%;
+            }
+          }
+
+          &.medium {
+            @include media-breakpoint-up(sm) {
+              width: 80%;
+            }
+          }
+        }
+
+        .ginput_left,
+        .ginput_right {
+          @include media-breakpoint-up(sm) {
+            flex: 1 0 100%;
+            max-width: 100%;
+          }
+        }
+
+        .name_prefix,
+        .name_suffix,
+        .address_zip {
+          flex: 1 0 75%;
+          max-width: 75%;
+        }
+
+        .gfield_date_day,
+        .gfield_date_dropdown_day,
+        .gfield_date_dropdown_month,
+        .gfield_date_month {
+          flex: 1 0 50%;
+          max-width: 50%;
+        }
+
+        .gfield_time_hour,
+        .gfield_time_minute {
+          flex: 1 0 50%;
+          max-width: 50%;
+        }
+
+        .gfield_time_ampm {
+          flex: 1 0 100%;
+          max-width: 100%;
+        }
+
+        .ginput_container_fileupload {
+          flex: 1 0 75%;
+          font-size: $font-size-xs;
+          max-width: 75%;
         }
       }
 
@@ -229,6 +327,79 @@
           margin-top: -.25rem;
         }
       }
+    }
+
+    // Basic text and select inputs
+    input:not([type='button']):not([type='submit']):not([type='radio']):not([type='checkbox']):not([type='file']),
+    select,
+    textarea {
+      &.small {
+        @include media-breakpoint-up(sm) {
+          width: 40%;
+        }
+      }
+
+      &.medium {
+        @include media-breakpoint-up(sm) {
+          width: 70%;
+        }
+      }
+    }
+
+    // Unique fields + field groups
+    .gfield_time_hour,
+    .gfield_time_minute {
+      flex: 0 0 30%;
+      max-width: 30%;
+    }
+
+    .gfield_time_ampm {
+      @include media-breakpoint-up(sm) {
+        flex: 0 0 40%;
+        max-width: 40%;
+      }
+    }
+
+    .gfield_date_day,
+    .gfield_date_dropdown_day,
+    .gfield_date_dropdown_month,
+    .gfield_date_month {
+      @include media-breakpoint-up(sm) {
+        flex: 0 0 50%;
+        max-width: 50%;
+      }
+    }
+
+    .gfield_date_dropdown_year,
+    .gfield_date_year {
+      @include media-breakpoint-up(sm) {
+        flex: 0 0 100%;
+        margin-top: .5rem;
+        max-width: 100%;
+      }
+    }
+
+    .name_prefix,
+    .name_suffix {
+      @include media-breakpoint-up(sm) {
+        flex: 0 0 40%;
+        max-width: 40%;
+      }
+    }
+
+    .datepicker {
+      @include media-breakpoint-up(sm) {
+        // NOTE !important necessary to override
+        // !important rule in Athena GF plugin
+        width: 60% !important; // sass-lint:disable-line no-important
+      }
+    }
+
+    .name_first,
+    .name_last,
+    .name_middle {
+      flex: 0 0 100%;
+      max-width: 100%;
     }
 
     // A field's description text
@@ -353,4 +524,18 @@
     color: inherit;
     text-decoration: underline;
   }
+}
+
+// This selector is a hot mess because we have to be more specific than
+// the selector that Gravityforms spits out inline:
+body .header-form .ginput_container_list table.gfield_list tbody tr td.gfield_list_icons img.add_list_item,
+body .header-form .ginput_container_list table.gfield_list tbody tr td.gfield_list_icons img.delete_list_item {
+  background-color: $white !important; // sass-lint:disable-line no-important
+  border-radius: 50%;
+}
+
+body .header-form.bg-secondary .ginput_container_list table.gfield_list tbody tr td.gfield_list_icons img.add_list_item,
+body .header-form.bg-secondary .ginput_container_list table.gfield_list tbody tr td.gfield_list_icons img.delete_list_item {
+  background-color: transparent !important; // sass-lint:disable-line no-important
+  border-radius: 0;
 }
