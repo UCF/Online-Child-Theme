@@ -4,7 +4,7 @@
  */
 
 $obj  = ucfwp_get_queried_object();
-$meta = new OCTHeaderContent( $obj, array(
+$meta = new OCTLandingHeaderContent( $obj, array(
 	'use_modal'  => true,
 	'form_class' => 'header-form header-form-landing text-left'
 ) );

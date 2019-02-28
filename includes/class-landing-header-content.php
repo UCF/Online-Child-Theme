@@ -3,8 +3,8 @@
  * Class that defines fields and functions
  * for handling header template part logic
  */
-if ( ! class_exists( 'OCTHeaderContent' ) ) {
-	class OCTHeaderContent {
+if ( ! class_exists( 'OCTLandingHeaderContent' ) ) {
+	class OCTLandingHeaderContent {
 		protected
 			$obj,        // The WordPress object
 			$cta_text,   // Text within the call-to-action btn

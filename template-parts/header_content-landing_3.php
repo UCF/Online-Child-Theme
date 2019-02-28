@@ -4,7 +4,7 @@
  */
 
 $obj  = ucfwp_get_queried_object();
-$meta = new OCTHeaderContent( $obj );
+$meta = new OCTLandingHeaderContent( $obj );
 
 if ( $meta->form ):
 ?>

@@ -4,7 +4,7 @@
  */
 
 $obj  = ucfwp_get_queried_object();
-$meta = new OCTHeaderContent( $obj );
+$meta = new OCTLandingHeaderContent( $obj );
 if ( $meta->form ) :
 ?>
 <div class="header-content-inner align-self-start pt-4 pt-lg-5" id="landing-dialog">
