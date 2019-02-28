@@ -24,7 +24,7 @@ $highlights    = online_get_landing_highlights( $post );
 </div>
 <?php endif; ?>
 
-<?php if ( $images['header_image_xs'] ) : ?>
+<?php if ( isset( $images['header_image_xs'] ) ) : ?>
 <div class="container text-center mt-3 mt-sm-4 hidden-md-up">
 	<img class="img-fluid" src="<?php echo $bg_image_srcs['xs']; ?>" alt="">
 </div>
