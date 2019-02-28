@@ -5,14 +5,10 @@
   background-color: transparent;
   border-radius: 0;
   color: $brand-danger;
-  display: flex;
-  flex: 1 0 75%;
   font-size: $font-size-xs;
   line-height: 1.65;
   margin-bottom: .5rem;
-  margin-left: 25%;
-  margin-top: .25rem;
-  max-width: 75%;
+  margin-top: .5rem;
   padding: 0;
   position: static;
 }
@@ -40,6 +36,24 @@
   // For header forms embedded in modals
   &.header-form-modal {
     .gform_wrapper {
+      .gform_fields {
+        &.left_label {
+          .gfield_description {
+            @include media-breakpoint-only(md) {
+              margin-left: 25%;
+            }
+          }
+
+          .gfield_error {
+            .validation_message {
+              @include media-breakpoint-only(md) {
+                margin-left: 25%;
+              }
+            }
+          }
+        }
+      }
+
       .gfield_error {
         .validation_message {
           @include media-breakpoint-only(md) {
@@ -58,7 +72,19 @@
 
   // For header forms with a white bg (assume default of .bg-inverse-*)
   &.bg-secondary {
+    .gf_progressbar {
+      background-color: $progress-bg;
+    }
+
     .gform_wrapper {
+      .clear-multi label,
+      .ginput_container_address label,
+      .ginput_container_name label,
+      .gfield_list_container th,
+      .gfield_description {
+        color: $sublabel-color-aw;
+      }
+
       .gfield_error {
         .gfield_label,
         .ginput_container_name label,
@@ -100,6 +126,11 @@
     }
   }
 
+  //
+  // Styles for baseline header forms begin here:
+  //
+
+  // Form titles
   .gform_title {
     font-size: $font-size-h5;
 
@@ -108,18 +139,34 @@
     }
   }
 
+  // Heading above a multipage form's progress bar
+  .gf_progressbar_title {
+    font-weight: normal;
+    text-transform: none;
+  }
+
+  // Wrapper for a multipage form's progress bar
+  .gf_progressbar {
+    background-color: $progress-inverse-bg;
+  }
+
+  // Base form labels
   .gfield_label {
     font-size: $font-size-xs;
-    font-weight: 500;
+    font-weight: 600;
     text-transform: uppercase;
   }
 
+  // Contains the entire <form>
   .gform_wrapper {
+    // Wrapper element surrounding all form fields + submit btn
     .gform_body {
       margin-bottom: 1.25rem;
       margin-top: 1.25rem;
     }
 
+    // Wrapper element that surrounds a single field
+    // or a field group (e.g. name, address)
     .ginput_container {
       .instruction {
         font-size: .75rem;
@@ -127,33 +174,89 @@
       }
     }
 
-    .gfield {
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      margin-bottom: .75rem;
+    // <ul> that contains all form fields. Additional classes on this element
+    // control label, sublabel, and description alignment for the form fields
+    .gform_fields {
+      &.top_label {
+        .gfield {
+          flex-direction: column;
+          margin-bottom: 1.25rem;
+        }
 
-      .gfield_label {
-        flex: 0 0 25%;
-        margin-bottom: 0;
-        max-width: 25%;
-        padding-right: .5rem;
-        padding-top: 1rem;
+        .gfield_label {
+          margin-bottom: .5rem;
+        }
       }
 
-      .ginput_container {
-        flex: 0 0 75%;
-        max-width: 75%;
+      &.left_label {
+        .gfield {
+          align-items: center;
+          flex-direction: row;
+          margin-bottom: .75rem;
+        }
+
+        .gfield_label {
+          flex: 0 0 25%;
+          margin-bottom: 0;
+          max-width: 25%;
+          padding-right: .5rem;
+        }
+
+        .ginput_container,
+        .gfield_description {
+          flex: 1 0 75%;
+          max-width: 75%;
+        }
+
+        .gfield_description {
+          margin-left: 25%;
+        }
+      }
+
+      // NOTE: right-aligned labels are not supported
+    }
+
+    // <li> that contains a single form input or group,
+    // its label, and its description
+    .gfield {
+      display: flex;
+      flex-wrap: wrap;
+
+      // Override to support top-aligned field descriptions
+      &.field_description_above {
+        .gfield_description:not(.validation_message) {
+          margin-bottom: .75rem;
+          margin-top: -.25rem;
+        }
       }
     }
 
-    .gform_footer {
+    // A field's description text
+    .gfield_description {
+      color: $sublabel-color;
+      display: flex;
+      font-size: $font-size-xs;
+    }
+
+    // Inner field group labels
+    .clear-multi label,
+    .ginput_container_address label,
+    .ginput_container_name label,
+    .gfield_list_container th {
+      color: $sublabel-color;
+      letter-spacing: 0;
+    }
+
+    // Wrapper element for a submit btn, or prev/next btns on multipage forms
+    .gform_footer,
+    .gform_page_footer {
       margin-top: 1.25rem;
     }
 
+    // A form submit button. (Excludes multipage prev/next btns)
     .gform_button {
       @include button-variant($btn-primary-color, $btn-primary-bg, $btn-primary-border);
-      @include button-variant-overrides($btn-primary-color, $btn-primary-bg, $btn-primary-border, $white);
+      @include button-variant-overrides($btn-primary-color, $btn-primary-bg, $btn-primary-border);
       display: block;
       width: 100%;
 
@@ -188,7 +291,6 @@
         @include media-breakpoint-up(sm) {
           background: $brand-danger;
           border-radius: $border-radius $border-radius 0 $border-radius;
-          bottom: 0;
           color: $brand-danger-color;
           font-size: .7rem;
           line-height: 1.2;
@@ -196,6 +298,7 @@
           padding: .5rem;
           position: absolute;
           right: calc(100% + 2.25rem);
+          top: calc(50% - 1.75rem);
           width: 140px;
         }
 
