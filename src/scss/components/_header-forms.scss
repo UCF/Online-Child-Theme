@@ -17,23 +17,7 @@
   // For header forms on landing pages (full width form at -sm breakpoint)
   &.header-form-landing {
     .gform_wrapper {
-      // Input width overrides to better accommodate landing page header forms
-      input:not([type="button"]):not([type="submit"]):not([type="radio"]):not([type="checkbox"]):not([type="file"]),
-      select,
-      textarea {
-        &.small {
-          @include media-breakpoint-only(sm) {
-            width: 40%;
-          }
-        }
-
-        &.medium {
-          @include media-breakpoint-only(sm) {
-            width: 70%;
-          }
-        }
-      }
-
+      // Form field size overrides
       .gfield_date_day,
       .gfield_date_dropdown_day,
       .gfield_date_dropdown_month,
@@ -41,19 +25,24 @@
       .gfield_time_ampm,
       .gfield_time_hour,
       .gfield_time_minute {
-        @include media-breakpoint-only(sm) {
+        @include media-breakpoint-up(sm) {
           flex: 0 0 30%;
           max-width: 30%;
         }
       }
 
       .gfield_date_dropdown_year,
-      .gfield_date_year,
-      .name_prefix,
-      .name_suffix {
-        @include media-breakpoint-only(sm) {
+      .gfield_date_year {
+        @include media-breakpoint-up(sm) {
           flex: 0 0 40%;
           max-width: 40%;
+        }
+      }
+
+      .gfield_date_dropdown_year,
+      .gfield_date_year {
+        @include media-breakpoint-up(sm) {
+          margin-top: 0;
         }
       }
 
@@ -281,51 +270,68 @@
     }
 
     // Basic text and select inputs
-    input:not([type="button"]):not([type="submit"]):not([type="radio"]):not([type="checkbox"]):not([type="file"]),
+    input:not([type='button']):not([type='submit']):not([type='radio']):not([type='checkbox']):not([type='file']),
     select,
     textarea {
       &.small {
-        @include media-breakpoint-up(md) {
+        @include media-breakpoint-up(sm) {
           width: 40%;
         }
       }
 
       &.medium {
-        @include media-breakpoint-up(md) {
+        @include media-breakpoint-up(sm) {
           width: 70%;
         }
       }
     }
 
     // Unique fields + field groups
+    .gfield_time_hour,
+    .gfield_time_minute {
+      flex: 0 0 30%;
+      max-width: 30%;
+    }
+
+    .gfield_time_ampm {
+      @include media-breakpoint-up(sm) {
+        flex: 0 0 40%;
+        max-width: 40%;
+      }
+    }
+
     .gfield_date_day,
     .gfield_date_dropdown_day,
     .gfield_date_dropdown_month,
-    .gfield_date_month,
-    .gfield_time_ampm,
-    .gfield_time_hour,
-    .gfield_time_minute {
-      @include media-breakpoint-up(md) {
-        flex: 0 0 30%;
-        max-width: 30%;
+    .gfield_date_month {
+      @include media-breakpoint-up(sm) {
+        flex: 0 0 50%;
+        max-width: 50%;
       }
     }
 
     .gfield_date_dropdown_year,
-    .gfield_date_year,
+    .gfield_date_year {
+      @include media-breakpoint-up(sm) {
+        flex: 0 0 100%;
+        margin-top: .5rem;
+        max-width: 100%;
+      }
+    }
+
     .name_prefix,
     .name_suffix {
-      @include media-breakpoint-up(md) {
+      @include media-breakpoint-up(sm) {
         flex: 0 0 40%;
         max-width: 40%;
       }
     }
 
     .datepicker {
-      @include media-breakpoint-up(md) {
+      @include media-breakpoint-up(sm) {
         // NOTE !important necessary to override
         // !important rule in Athena GF plugin
-        width: 50% !important; // sass-lint:disable-line no-important
+        width: 60% !important; // sass-lint:disable-line no-important
       }
     }
 
@@ -473,4 +479,3 @@ body .header-form.bg-secondary .ginput_container_list table.gfield_list tbody tr
   background-color: transparent !important; // sass-lint:disable-line no-important
   border-radius: 0;
 }
-
