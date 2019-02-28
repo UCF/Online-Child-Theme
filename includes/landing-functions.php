@@ -82,6 +82,7 @@ function online_get_landing_highlights( $post ) {
 	return ob_get_clean();
 }
 
+
 /**
  * Customizes the color picker default palette for
  * the highlight color picker ACF field.
