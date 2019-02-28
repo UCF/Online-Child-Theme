@@ -4,7 +4,10 @@
  */
 
 $obj  = ucfwp_get_queried_object();
-$meta = new OCTHeaderContentConcept1( $obj );
+$meta = new OCTHeaderContent( $obj, array(
+	'use_modal'  => true,
+	'form_class' => 'header-form header-form-landing text-left'
+) );
 ?>
 <div class="container text-center">
 	<div class="row mb-3 mb-lg-4">
