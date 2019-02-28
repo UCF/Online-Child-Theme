@@ -22,13 +22,13 @@
       select,
       textarea {
         &.small {
-          @include media-breakpoint-up(sm) {
+          @include media-breakpoint-only(sm) {
             width: 40%;
           }
         }
 
         &.medium {
-          @include media-breakpoint-up(sm) {
+          @include media-breakpoint-only(sm) {
             width: 70%;
           }
         }
@@ -41,7 +41,7 @@
       .gfield_time_ampm,
       .gfield_time_hour,
       .gfield_time_minute {
-        @include media-breakpoint-up(sm) {
+        @include media-breakpoint-only(sm) {
           flex: 0 0 30%;
           max-width: 30%;
         }
@@ -51,25 +51,18 @@
       .gfield_date_year,
       .name_prefix,
       .name_suffix {
-        @include media-breakpoint-up(sm) {
+        @include media-breakpoint-only(sm) {
           flex: 0 0 40%;
           max-width: 40%;
         }
       }
 
       .datepicker {
-        @include media-breakpoint-up(sm) {
+        @include media-breakpoint-only(sm) {
           // NOTE !important necessary to override
           // !important rule in Athena GF plugin
           width: 50% !important; // sass-lint:disable-line no-important
         }
-      }
-
-      .name_first,
-      .name_last,
-      .name_middle {
-        flex: 0 0 100%;
-        max-width: 100%;
       }
 
       // Validation message overrides
@@ -287,6 +280,62 @@
       }
     }
 
+    // Basic text and select inputs
+    input:not([type="button"]):not([type="submit"]):not([type="radio"]):not([type="checkbox"]):not([type="file"]),
+    select,
+    textarea {
+      &.small {
+        @include media-breakpoint-up(md) {
+          width: 40%;
+        }
+      }
+
+      &.medium {
+        @include media-breakpoint-up(md) {
+          width: 70%;
+        }
+      }
+    }
+
+    // Unique fields + field groups
+    .gfield_date_day,
+    .gfield_date_dropdown_day,
+    .gfield_date_dropdown_month,
+    .gfield_date_month,
+    .gfield_time_ampm,
+    .gfield_time_hour,
+    .gfield_time_minute {
+      @include media-breakpoint-up(md) {
+        flex: 0 0 30%;
+        max-width: 30%;
+      }
+    }
+
+    .gfield_date_dropdown_year,
+    .gfield_date_year,
+    .name_prefix,
+    .name_suffix {
+      @include media-breakpoint-up(md) {
+        flex: 0 0 40%;
+        max-width: 40%;
+      }
+    }
+
+    .datepicker {
+      @include media-breakpoint-up(md) {
+        // NOTE !important necessary to override
+        // !important rule in Athena GF plugin
+        width: 50% !important; // sass-lint:disable-line no-important
+      }
+    }
+
+    .name_first,
+    .name_last,
+    .name_middle {
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+
     // A field's description text
     .gfield_description {
       color: $sublabel-color;
@@ -410,3 +459,18 @@
     text-decoration: underline;
   }
 }
+
+// This selector is a hot mess because we have to be more specific than
+// the selector that Gravityforms spits out inline:
+body .header-form .ginput_container_list table.gfield_list tbody tr td.gfield_list_icons img.add_list_item,
+body .header-form .ginput_container_list table.gfield_list tbody tr td.gfield_list_icons img.delete_list_item {
+  background-color: $white !important; // sass-lint:disable-line no-important
+  border-radius: 50%;
+}
+
+body .header-form.bg-secondary .ginput_container_list table.gfield_list tbody tr td.gfield_list_icons img.add_list_item,
+body .header-form.bg-secondary .ginput_container_list table.gfield_list tbody tr td.gfield_list_icons img.delete_list_item {
+  background-color: transparent !important; // sass-lint:disable-line no-important
+  border-radius: 0;
+}
+
