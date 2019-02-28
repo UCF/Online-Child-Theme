@@ -20,7 +20,7 @@ function online_get_highlight_classes( $post ) {
 	// page templates except for the default template (which returns
 	// an empty string for get_page_template_slug()).
 	if ( ! empty( $landing_template ) ) {
-		$col_classes = 'col-12 col-md-4 mb-3 mb-md-0';
+		$col_classes = 'col-12 col-lg-4 mb-3 mb-md-4 mb-lg-0';
 	} else {
 		$col_classes = 'col-12 mb-3 mb-md-4';
 	}
@@ -70,8 +70,14 @@ function online_get_landing_highlights( $post ) {
 				<?php endif; ?>
 				</div>
 				<div class="landing-highlight-content">
+				<?php if ( ! empty( $content_text ) ) : ?>
 					<span class="landing-highlight-content-text d-block text-uppercase font-weight-bold"><?php echo $content_text; ?></span>
+				<?php
+				endif;
+				if ( ! empty( $content_sup_text ) ) :
+				?>
 					<span class="landing-highlight-content-sup-text"><?php echo $content_sup_text; ?></span>
+				<?php endif; ?>
 				</div>
 			</div>
 	<?php endwhile; ?>
