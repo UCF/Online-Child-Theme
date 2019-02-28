@@ -79,11 +79,11 @@
                         "mime_types": ""
                     },
                     {
-                        "key": "field_5c61b7b693bb0",
-                        "label": "Font Icon Classes",
-                        "name": "landing_highlight_icon_font_classes",
-                        "type": "text",
-                        "instructions": "Add classes, separated by a single space, for a supported font icon (e.g. <a href=\"https:\/\/fontawesome.com\/v4.7.0\/icons\/\" target=\"_blank\">Font Awesome<\/a>) to display.",
+                        "key": "field_5c76aaaab5d8a",
+                        "label": "Font Icon Options",
+                        "name": "landing_highlight_icon_font_options",
+                        "type": "group",
+                        "instructions": "",
                         "required": 0,
                         "conditional_logic": [
                             [
@@ -99,11 +99,59 @@
                             "class": "",
                             "id": ""
                         },
-                        "default_value": "",
-                        "placeholder": "fa fa-star-o",
-                        "prepend": "",
-                        "append": "",
-                        "maxlength": ""
+                        "layout": "block",
+                        "sub_fields": [
+                            {
+                                "key": "field_5c61b7b693bb0",
+                                "label": "Font Icon Classes",
+                                "name": "landing_highlight_icon_font_classes",
+                                "type": "text",
+                                "instructions": "Add classes, separated by a single space, for a supported font icon (e.g. <a href=\"https:\/\/fontawesome.com\/v4.7.0\/icons\/\" target=\"_blank\">Font Awesome<\/a>) to display.",
+                                "required": 0,
+                                "conditional_logic": [
+                                    [
+                                        {
+                                            "field": "field_5c61b70e93baf",
+                                            "operator": "==",
+                                            "value": "fonticon"
+                                        }
+                                    ]
+                                ],
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "default_value": "",
+                                "placeholder": "fa fa-star-o",
+                                "prepend": "",
+                                "append": "",
+                                "maxlength": ""
+                            },
+                            {
+                                "key": "field_5c76a7ef673cf",
+                                "label": "Font Icon Color",
+                                "name": "landing_highlight_icon_font_color",
+                                "type": "color_picker",
+                                "instructions": "Select the color for the font icon.",
+                                "required": 0,
+                                "conditional_logic": [
+                                    [
+                                        {
+                                            "field": "field_5c61b70e93baf",
+                                            "operator": "==",
+                                            "value": "fonticon"
+                                        }
+                                    ]
+                                ],
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "default_value": "#FFCC00"
+                            }
+                        ]
                     },
                     {
                         "key": "field_5c61caf064c2d",
@@ -142,7 +190,7 @@
                             {
                                 "key": "field_5c61c5fe93bb2",
                                 "label": "Supplementary Text",
-                                "name": "sub_text",
+                                "name": "sup_text",
                                 "type": "text",
                                 "instructions": "",
                                 "required": 0,
