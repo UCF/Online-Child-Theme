@@ -17,6 +17,62 @@
   // For header forms on landing pages (full width form at -sm breakpoint)
   &.header-form-landing {
     .gform_wrapper {
+      // Input width overrides to better accommodate landing page header forms
+      input:not([type="button"]):not([type="submit"]):not([type="radio"]):not([type="checkbox"]):not([type="file"]),
+      select,
+      textarea {
+        &.small {
+          @include media-breakpoint-up(sm) {
+            width: 40%;
+          }
+        }
+
+        &.medium {
+          @include media-breakpoint-up(sm) {
+            width: 70%;
+          }
+        }
+      }
+
+      .gfield_date_day,
+      .gfield_date_dropdown_day,
+      .gfield_date_dropdown_month,
+      .gfield_date_month,
+      .gfield_time_ampm,
+      .gfield_time_hour,
+      .gfield_time_minute {
+        @include media-breakpoint-up(sm) {
+          flex: 0 0 30%;
+          max-width: 30%;
+        }
+      }
+
+      .gfield_date_dropdown_year,
+      .gfield_date_year,
+      .name_prefix,
+      .name_suffix {
+        @include media-breakpoint-up(sm) {
+          flex: 0 0 40%;
+          max-width: 40%;
+        }
+      }
+
+      .datepicker {
+        @include media-breakpoint-up(sm) {
+          // NOTE !important necessary to override
+          // !important rule in Athena GF plugin
+          width: 50% !important; // sass-lint:disable-line no-important
+        }
+      }
+
+      .name_first,
+      .name_last,
+      .name_middle {
+        flex: 0 0 100%;
+        max-width: 100%;
+      }
+
+      // Validation message overrides
       .gfield_error {
         .validation_message {
           @include media-breakpoint-only(sm) {
