@@ -443,10 +443,44 @@
 
     .gform_previous_button {
       margin-right: $grid-gutter-width-base / 2;
+      overflow-x: hidden;
+      position: relative;
+      text-indent: 2rem;
+      width: 2rem;
+
+      &::after {
+        // sass-lint:disable-block no-vendor-prefixes
+        -moz-osx-font-smoothing: grayscale;
+        -webkit-font-smoothing: antialiased;
+        content: '\f053';
+        display: inline-block;
+        font: normal normal normal 14px/1 FontAwesome;
+        font-size: inherit;
+        left: 0;
+        line-height: 0;
+        position: absolute;
+        right: 0;
+        text-align: center;
+        text-indent: 0;
+        text-rendering: auto;
+        top: calc(50%);
+      }
     }
 
     .gform_next_button {
       margin-left: auto;
+
+      &::after {
+        // sass-lint:disable-block no-vendor-prefixes
+        -moz-osx-font-smoothing: grayscale;
+        -webkit-font-smoothing: antialiased;
+        content: '\f054';
+        display: inline-block;
+        font: normal normal normal 14px/1 FontAwesome;
+        margin-left: .5rem;
+        text-rendering: auto;
+        vertical-align: middle;
+      }
     }
 
     .gform_ajax_spinner {
