@@ -10,8 +10,7 @@ if ( ! class_exists( 'OCTLandingHeaderContent' ) ) {
 			$cta_text,   // Text within the call-to-action btn
 			$form_title, // The form title
 			$form_desc,  // The form description
-			$form_type,  // The type of form being used
-			$use_modal; // If the form is wrapped in a modal
+			$form_type;  // The type of form being used
 
 		public
 			$form, // The form object
@@ -35,12 +34,10 @@ if ( ! class_exists( 'OCTLandingHeaderContent' ) ) {
 			$this->obj = $obj;
 
 			$args = shortcode_atts( array(
-				'use_modal'         => false,
 				'form_class'        => ''
 			), $args );
 
 			$this->form       = online_get_header_form( $this->obj );
-			$this->use_modal  = $args['use_modal'];
 			$this->form_class = $args['form_class'];
 			$this->set_values();
 		}
@@ -102,7 +99,7 @@ if ( ! class_exists( 'OCTLandingHeaderContent' ) ) {
 		protected function generate_content_before() {
 			$retval = '';
 
-			if ( get_field( 'landing_header_content_type', $obj ) === 'custom' || $this->use_modal ) {
+			if ( in_array( get_field( 'landing_header_content_type', $obj ), array( 'custom', null ) ) ) {
 				$retval = trim( get_field( 'landing_header_content_custom', $obj ) );
 			} else {
 				if ( $this->form_title ) {
@@ -125,7 +122,7 @@ if ( ! class_exists( 'OCTLandingHeaderContent' ) ) {
 		protected function generate_content_after() {
 			$retval = '';
 
-			if ( $this->use_modal ) {
+			if ( $this->form_type === 'togglemodal' ) {
 				return get_field( 'landing_header_content_after', $obj );
 			}
 
