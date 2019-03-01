@@ -437,17 +437,25 @@
     .gform_page_footer {
       display: flex;
       flex-direction: row;
-      flex-wrap: wrap;
+      flex-wrap: nowrap;
       justify-content: space-between;
+    }
+
+    .gform_previous_button {
+      margin-right: $grid-gutter-width-base / 2;
+    }
+
+    .gform_next_button {
+      margin-left: auto;
     }
 
     .gform_ajax_spinner {
       background-color: rgba(0, 0, 0, .5);
-      display: block !important;
+      display: block;
       left: calc(50% - (#{$form-spinner-w}/ 2) - 1.5rem);
-      overflow: hidden !important;
+      overflow: hidden;
       padding: 1.5rem;
-      position: absolute !important;
+      position: absolute;
       top: calc(50% - (#{$form-spinner-h} / 2) - 1.5rem);
       z-index: 999;
     }
