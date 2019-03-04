@@ -126,13 +126,6 @@
         color: $sublabel-color-aw;
       }
 
-      .gform_ajax_spinner {
-        background-color: rgba(255, 255, 255, .5);
-        left: 0;
-        padding: calc(50% - (#{$form-spinner-w} / 2)) calc(50% - (#{$form-spinner-h} / 2));
-        top: 0;
-      }
-
       .gfield_error {
         .gfield_label,
         .ginput_container_name label,
@@ -484,11 +477,13 @@
     }
 
     .gform_ajax_spinner {
-      background-color: rgba(0, 0, 0, .5);
+      background-color: rgba(255, 255, 255, .5);
+      border-radius: 50%;
+      box-shadow: 0 0 1rem rgba(0, 0, 0, .2);
       display: block;
       left: calc(50% - (#{$form-spinner-w}/ 2) - 1.5rem);
       overflow: hidden;
-      padding: 1.5rem;
+      padding: 1.25rem;
       position: absolute;
       top: calc(50% - (#{$form-spinner-h} / 2) - 1.5rem);
       z-index: 999;
