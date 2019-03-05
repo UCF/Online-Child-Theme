@@ -52,7 +52,7 @@ if ( ! class_exists( 'OCTLandingHeaderContent' ) ) {
 
 			$this->content_before      = $this->generate_content_before();
 			$this->content_after       = $this->generate_content_after();
-			$this->form_type           = get_field( 'landing_header_form_type', $obj );
+			$this->form_type           = get_field( 'landing_header_form_type', $this->obj );
 			$this->form_before         = $this->generate_form_before();
 			$this->form_after          = $this->generate_form_after();
 			$this->form_content_before = $this->generate_form_content_before();
@@ -99,8 +99,8 @@ if ( ! class_exists( 'OCTLandingHeaderContent' ) ) {
 		protected function generate_content_before() {
 			$retval = '';
 
-			if ( in_array( get_field( 'landing_header_content_type', $obj ), array( 'custom', null ) ) ) {
-				$retval = trim( get_field( 'landing_header_content_custom', $obj ) );
+			if ( in_array( get_field( 'landing_header_content_type', $this->obj ), array( 'custom', null ) ) ) {
+				$retval = trim( get_field( 'landing_header_content_custom', $this->obj ) );
 			} else {
 				if ( $this->form_title ) {
 					$retval .= "<h1 class=\"h3\">" . $this->form_title . "</h1>";
@@ -123,10 +123,10 @@ if ( ! class_exists( 'OCTLandingHeaderContent' ) ) {
 			$retval = '';
 
 			if ( $this->form_type === 'togglemodal' ) {
-				return get_field( 'landing_header_content_after', $obj );
+				return get_field( 'landing_header_content_after', $this->obj );
 			}
 
-			$content_after  = trim( get_field( 'landing_header_content_after', $obj ) );
+			$content_after  = trim( get_field( 'landing_header_content_after', $this->obj ) );
 
 			if ( $content_after ) {
 				$retval = "<div class=\"mt-4\">$content_after</div>";
