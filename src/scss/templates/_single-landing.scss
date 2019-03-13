@@ -1,0 +1,13 @@
+@mixin landing-1-pullup() {
+  background: linear-gradient(to bottom, $brand-secondary 0%, $brand-secondary 1.25rem, transparent 1.25rem, transparent 100%);
+}
+
+.landing-1-subhead-pullup {
+  @include landing-1-pullup();
+}
+
+.landing-1-subhead-pullup-lg {
+  @include media-breakpoint-up(lg) {
+    @include landing-1-pullup();
+  }
+}

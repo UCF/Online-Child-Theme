@@ -1,34 +1,177 @@
 // Styles for forms included in page headers
-// sass-lint:disable class-name-format
+// sass-lint:disable class-name-format nesting-depth no-qualifying-elements
+
+@mixin validation-message-inline-reset {
+  background-color: transparent;
+  border-radius: 0;
+  color: $brand-danger;
+  font-size: $font-size-xs;
+  line-height: 1.65;
+  margin-bottom: .5rem;
+  margin-top: .5rem;
+  padding: 0;
+  position: static;
+}
+
 .header-form {
-  // Most header forms will have .bg-inverse applied to them; landing
-  // pages will use a gold form and require specific color overrides:
-  &.bg-primary {
+  // For header forms on landing pages (full width form at -sm breakpoint)
+  &.header-form-landing {
     .gform_wrapper {
-      .gform_button {
-        // Use brand-complementary color against gold bgs
-        @include button-variant($btn-complementary-color, $btn-complementary-bg, $btn-complementary-border);
-        @include button-variant-overrides($btn-complementary-color, $btn-complementary-bg, $btn-complementary-border);
+      .gform_fields {
+        // Form field size overrides
+        &.top_label,
+        &.left_label {
+          .datepicker {
+            @include media-breakpoint-only(sm) {
+              // NOTE !important necessary to override
+              // !important rule in Athena GF plugin
+              width: 50% !important; // sass-lint:disable-line no-important
+            }
+          }
+        }
       }
 
-      // Make danger text accessible against gold bg
+      // Validation message overrides
       .gfield_error {
-        .gfield_label,
-        .ginput_container_name label,
-        .ginput_container_address label,
-        .clear-multi label {
-          color: $brand-danger-against-gold;
-        }
-
         .validation_message {
-          @include media-breakpoint-only(xs) {
-            color: $brand-danger-against-gold;
+          @include media-breakpoint-only(sm) {
+            @include validation-message-inline-reset();
+          }
+
+          &::after {
+            @include media-breakpoint-only(sm) {
+              display: none;
+            }
           }
         }
       }
     }
   }
 
+  // For header forms embedded in modals
+  &.header-form-modal {
+    .gform_wrapper {
+      .gform_fields {
+        // Form field size overrides
+        &.top_label,
+        &.left_label {
+          .gfield_date_day,
+          .gfield_date_dropdown_day,
+          .gfield_date_dropdown_month,
+          .gfield_date_month,
+          .gfield_time_ampm,
+          .gfield_time_hour,
+          .gfield_time_minute {
+            @include media-breakpoint-up(sm) {
+              flex: 0 0 30%;
+              max-width: 30%;
+            }
+          }
+
+          .gfield_date_dropdown_year,
+          .gfield_date_year {
+            @include media-breakpoint-up(sm) {
+              flex: 0 0 40%;
+              margin-top: 0;
+              max-width: 40%;
+            }
+          }
+        }
+
+        &.left_label {
+          .gfield_description {
+            @include media-breakpoint-only(md) {
+              margin-left: 25%;
+            }
+          }
+
+          .gfield_error {
+            .validation_message {
+              @include media-breakpoint-only(md) {
+                margin-left: 25%;
+              }
+            }
+          }
+        }
+      }
+
+      .gfield_error {
+        .validation_message {
+          @include media-breakpoint-only(md) {
+            @include validation-message-inline-reset();
+          }
+
+          &::after {
+            @include media-breakpoint-only(md) {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // For header forms with a white bg (assume default of .bg-inverse-*)
+  &.bg-secondary {
+    .gf_progressbar {
+      background-color: $progress-bg;
+    }
+
+    .gform_wrapper {
+      .clear-multi label,
+      .ginput_container_address label,
+      .ginput_container_name label,
+      .gfield_list_container th,
+      .gfield_description {
+        color: $sublabel-color-aw;
+      }
+
+      .gfield_error {
+        .gfield_label,
+        .ginput_container_name label,
+        .ginput_container_address label,
+        .clear-multi label {
+          color: $brand-danger-aw; // use darker text against white
+        }
+
+        .validation_message {
+          @include media-breakpoint-only(xs) {
+            color: $brand-danger-aw; // use darker text against white
+          }
+        }
+      }
+    }
+
+    &.header-form-landing {
+      .gform_wrapper {
+        .gfield_error {
+          .validation_message {
+            @include media-breakpoint-only(sm) {
+              color: $brand-danger-aw; // use darker text against white
+            }
+          }
+        }
+      }
+    }
+
+    &.header-form-modal {
+      .gform_wrapper {
+        .gfield_error {
+          .validation_message {
+            @include media-breakpoint-between(sm, md) {
+              color: $brand-danger-aw; // use darker text against white
+            }
+          }
+        }
+      }
+    }
+  }
+
+  //
+  // Styles for baseline header forms begin here:
+  //
+
+  // Form titles
   .gform_title {
     font-size: $font-size-h5;
 
@@ -37,18 +180,36 @@
     }
   }
 
+  // Heading above a multipage form's progress bar
+  .gf_progressbar_title {
+    font-weight: normal;
+    text-transform: none;
+  }
+
+  // Wrapper for a multipage form's progress bar
+  .gf_progressbar {
+    background-color: $progress-inverse-bg;
+  }
+
+  // Base form labels
   .gfield_label {
     font-size: $font-size-xs;
-    font-weight: 500;
+    font-weight: 600;
     text-transform: uppercase;
   }
 
+  // Contains the entire <form>
   .gform_wrapper {
+    position: relative;
+
+    // Wrapper element surrounding all form fields + submit btn
     .gform_body {
       margin-bottom: 1.25rem;
       margin-top: 1.25rem;
     }
 
+    // Wrapper element that surrounds a single field
+    // or a field group (e.g. name, address)
     .ginput_container {
       .instruction {
         font-size: .75rem;
@@ -56,33 +217,283 @@
       }
     }
 
-    .gfield {
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      margin-bottom: .75rem;
+    // <ul> that contains all form fields. Additional classes on this element
+    // control label, sublabel, and description alignment for the form fields
+    .gform_fields {
+      &.top_label {
+        .gfield {
+          flex-direction: column;
+          margin-bottom: 1.25rem;
+        }
 
-      .gfield_label {
-        flex: 0 0 25%;
-        margin-bottom: 0;
-        max-width: 25%;
-        padding-right: .5rem;
-        padding-top: 1rem;
+        .gfield_label {
+          margin-bottom: .5rem;
+        }
       }
 
-      .ginput_container {
-        flex: 0 0 75%;
-        max-width: 75%;
+      &.left_label {
+        .gfield {
+          align-items: center;
+          flex-direction: row;
+          margin-bottom: .75rem;
+        }
+
+        .gfield_label {
+          flex: 1 0 25%;
+          margin-bottom: 0;
+          max-width: 25%;
+          padding-right: .5rem;
+        }
+
+        .ginput_container,
+        .gfield_description,
+        .clear-multi {
+          flex: 1 0 75%;
+        }
+
+        .gfield_description {
+          margin-left: 25%;
+        }
+
+        // Field size overrides
+        input:not([type='button']):not([type='submit']):not([type='radio']):not([type='checkbox']):not([type='file']),
+        select,
+        textarea {
+          &.small {
+            @include media-breakpoint-up(sm) {
+              width: 60%;
+            }
+          }
+
+          &.medium {
+            @include media-breakpoint-up(sm) {
+              width: 80%;
+            }
+          }
+        }
+
+        .ginput_left,
+        .ginput_right {
+          @include media-breakpoint-up(sm) {
+            flex: 1 0 100%;
+            max-width: 100%;
+          }
+        }
+
+        .name_prefix,
+        .name_suffix,
+        .address_zip {
+          flex: 1 0 75%;
+          max-width: 75%;
+        }
+
+        .gfield_date_day,
+        .gfield_date_dropdown_day,
+        .gfield_date_dropdown_month,
+        .gfield_date_month {
+          flex: 1 0 50%;
+          max-width: 50%;
+        }
+
+        .gfield_time_hour,
+        .gfield_time_minute {
+          flex: 1 0 50%;
+          max-width: 50%;
+        }
+
+        .gfield_time_ampm {
+          flex: 1 0 100%;
+          max-width: 100%;
+        }
+
+        .ginput_container_fileupload {
+          flex: 1 0 75%;
+          font-size: $font-size-xs;
+          max-width: 75%;
+        }
+      }
+
+      // NOTE: right-aligned labels are not supported
+    }
+
+    // <li> that contains a single form input or group,
+    // its label, and its description
+    .gfield {
+      display: flex;
+      flex-wrap: wrap;
+
+      // Override to support top-aligned field descriptions
+      &.field_description_above {
+        .gfield_description:not(.validation_message) {
+          margin-bottom: .75rem;
+          margin-top: -.25rem;
+        }
       }
     }
 
-    .gform_footer {
+    // Basic text and select inputs
+    input:not([type='button']):not([type='submit']):not([type='radio']):not([type='checkbox']):not([type='file']),
+    select,
+    textarea {
+      &.small {
+        @include media-breakpoint-up(sm) {
+          width: 40%;
+        }
+      }
+
+      &.medium {
+        @include media-breakpoint-up(sm) {
+          width: 70%;
+        }
+      }
+    }
+
+    // Unique fields + field groups
+    .gfield_time_hour,
+    .gfield_time_minute {
+      flex: 0 0 30%;
+      max-width: 30%;
+    }
+
+    .gfield_time_ampm {
+      @include media-breakpoint-up(sm) {
+        flex: 0 0 40%;
+        max-width: 40%;
+      }
+    }
+
+    .gfield_date_day,
+    .gfield_date_dropdown_day,
+    .gfield_date_dropdown_month,
+    .gfield_date_month {
+      @include media-breakpoint-up(sm) {
+        flex: 0 0 50%;
+        max-width: 50%;
+      }
+    }
+
+    .gfield_date_dropdown_year,
+    .gfield_date_year {
+      @include media-breakpoint-up(sm) {
+        flex: 0 0 100%;
+        margin-top: .5rem;
+        max-width: 100%;
+      }
+    }
+
+    .name_prefix,
+    .name_suffix {
+      @include media-breakpoint-up(sm) {
+        flex: 0 0 40%;
+        max-width: 40%;
+      }
+    }
+
+    .datepicker {
+      @include media-breakpoint-up(sm) {
+        // NOTE !important necessary to override
+        // !important rule in Athena GF plugin
+        width: 60% !important; // sass-lint:disable-line no-important
+      }
+    }
+
+    .name_first,
+    .name_last,
+    .name_middle {
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+
+    // A field's description text
+    .gfield_description {
+      color: $sublabel-color;
+      display: flex;
+      font-size: $font-size-xs;
+    }
+
+    // Inner field group labels
+    .clear-multi label,
+    .ginput_container_address label,
+    .ginput_container_name label,
+    .gfield_list_container th {
+      color: $sublabel-color;
+      letter-spacing: 0;
+    }
+
+    // Wrapper element for a submit btn, or prev/next btns on multipage forms
+    .gform_footer,
+    .gform_page_footer {
       margin-top: 1.25rem;
     }
 
+    // Wrapper element for prev/next btns on multipage forms
+    .gform_page_footer {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+    }
+
+    .gform_previous_button {
+      margin-right: $grid-gutter-width-base / 2;
+      overflow-x: hidden;
+      position: relative;
+      text-indent: 2rem;
+      white-space: nowrap;
+      width: 2rem;
+
+      &::after {
+        // sass-lint:disable-block no-vendor-prefixes
+        -moz-osx-font-smoothing: grayscale;
+        -webkit-font-smoothing: antialiased;
+        content: '\f053';
+        display: inline-block;
+        font: normal normal normal 14px/1 FontAwesome;
+        font-size: inherit;
+        left: 0;
+        line-height: 0;
+        position: absolute;
+        right: 0;
+        text-align: center;
+        text-indent: 0;
+        text-rendering: auto;
+        top: calc(50%);
+      }
+    }
+
+    .gform_next_button {
+      margin-left: auto;
+
+      &::after {
+        // sass-lint:disable-block no-vendor-prefixes
+        -moz-osx-font-smoothing: grayscale;
+        -webkit-font-smoothing: antialiased;
+        content: '\f054';
+        display: inline-block;
+        font: normal normal normal 14px/1 FontAwesome;
+        margin-left: .5rem;
+        text-rendering: auto;
+        vertical-align: middle;
+      }
+    }
+
+    .gform_ajax_spinner {
+      background-color: rgba(255, 255, 255, .5);
+      border-radius: 50%;
+      box-shadow: 0 0 1rem rgba(0, 0, 0, .2);
+      display: block;
+      left: calc(50% - (#{$form-spinner-w}/ 2) - 1.5rem);
+      overflow: hidden;
+      padding: 1.25rem;
+      position: absolute;
+      top: calc(50% - (#{$form-spinner-h} / 2) - 1.5rem);
+      z-index: 999;
+    }
+
+    // A form submit button. (Excludes multipage prev/next btns)
     .gform_button {
       @include button-variant($btn-primary-color, $btn-primary-bg, $btn-primary-border);
-      @include button-variant-overrides($btn-primary-color, $btn-primary-bg, $btn-primary-border, $white);
+      @include button-variant-overrides($btn-primary-color, $btn-primary-bg, $btn-primary-border);
       display: block;
       width: 100%;
 
@@ -111,43 +522,26 @@
 
       .validation_message {
         @include media-breakpoint-only(xs) {
-          color: $brand-danger;
-          display: flex;
-          font-size: $font-size-xs;
-          flex: 1 0 75%;
-          margin-left: 25%;
-          max-width: 75%;
+          @include validation-message-inline-reset();
         }
 
         @include media-breakpoint-up(sm) {
-          background: transparentize($brand-danger, .25);
+          background: $brand-danger;
           border-radius: $border-radius $border-radius 0 $border-radius;
-          bottom: 0;
           color: $brand-danger-color;
           font-size: .7rem;
-          left: calc(-50% - 1rem);
           line-height: 1.2;
           margin: 0;
-          max-width: 140px;
           padding: .5rem;
           position: absolute;
-        }
-
-        @include media-breakpoint-up(md) {
-          left: calc(-58% - 1rem);
-        }
-
-        @include media-breakpoint-up(lg) {
-          left: calc(-40% - 1rem);
-        }
-
-        @include media-breakpoint-up(xl) {
-          left: calc(-54% - 1rem);
+          right: calc(100% + 2.25rem);
+          top: calc(50% - 1.75rem);
+          width: 140px;
         }
 
         &::after {
           @include media-breakpoint-up(sm) {
-            border-color: transparent transparent transparent transparentize($brand-danger, .25);
+            border-color: transparent transparent transparent $brand-danger;
             border-style: solid;
             border-width: 8px 0 0 8px;
             bottom: 0;
@@ -196,4 +590,18 @@
     color: inherit;
     text-decoration: underline;
   }
+}
+
+// This selector is a hot mess because we have to be more specific than
+// the selector that Gravityforms spits out inline:
+body .header-form .ginput_container_list table.gfield_list tbody tr td.gfield_list_icons img.add_list_item,
+body .header-form .ginput_container_list table.gfield_list tbody tr td.gfield_list_icons img.delete_list_item {
+  background-color: $white !important; // sass-lint:disable-line no-important
+  border-radius: 50%;
+}
+
+body .header-form.bg-secondary .ginput_container_list table.gfield_list tbody tr td.gfield_list_icons img.add_list_item,
+body .header-form.bg-secondary .ginput_container_list table.gfield_list tbody tr td.gfield_list_icons img.delete_list_item {
+  background-color: transparent !important; // sass-lint:disable-line no-important
+  border-radius: 0;
 }
