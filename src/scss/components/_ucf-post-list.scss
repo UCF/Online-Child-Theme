@@ -64,7 +64,7 @@
   &:active,
   &:focus {
     .ucf-post-list-thumbnail-title {
-      background-color: darken($btn-primary-bg, 10%);
+      background-color: darken($btn-primary-bg, 6%);
       color: $black;
     }
   }
