@@ -57,7 +57,7 @@
   @include media-breakpoint-up(md) {
     background-color: $gray-lighter;
     flex: 1 1 $ucf-post-list-thumbnail-min-height;
-    min-height: $ucf-post-list-thumbnail-min-height;
+    height: $ucf-post-list-thumbnail-min-height;
   }
 
   &:hover,
