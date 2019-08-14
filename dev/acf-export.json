@@ -2361,7 +2361,7 @@
                 "label": "Degree Spotlight",
                 "name": "degree_spotlight",
                 "type": "wysiwyg",
-                "instructions": "The content displayed under the video on degrees.",
+                "instructions": "Enter spotlight content that will be displayed under the video for this degree.",
                 "required": 0,
                 "conditional_logic": 0,
                 "wrapper": {
