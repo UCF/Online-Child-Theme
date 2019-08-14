@@ -327,12 +327,12 @@ function online_get_degree_video_caption_markup( $degree ) {
 }
 
 /**
- * Returns markup for a single degree's video caption.
+ * Returns markup for a single degree's spotlight.
  *
  * @since 1.2.3
  * @author RJ Bruneel
  * @param object $degree WP_Post object for a single degree
- * @return string HTML markup for a single degree's video caption
+ * @return string HTML markup for a single degree's spotlight
  */
 function online_get_degree_spotlight_markup( $degree ) {
 	$spotlight = get_field( 'degree_spotlight', $degree );
