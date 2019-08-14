@@ -2338,6 +2338,44 @@
                 "height": ""
             },
             {
+                "key": "field_5d543d9c27f4c",
+                "label": "Degree Video Caption",
+                "name": "degree_video_caption",
+                "type": "text",
+                "instructions": "Enter a caption that describes the chosen degree video.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_5d543dde69294",
+                "label": "Degree Spotlight",
+                "name": "degree_spotlight",
+                "type": "wysiwyg",
+                "instructions": "Enter spotlight content that will be displayed under the video for this degree.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "tabs": "all",
+                "toolbar": "full",
+                "media_upload": 1,
+                "delay": 0
+            },
+            {
                 "key": "field_5bdc56985ff10",
                 "label": "Badges and Awards",
                 "name": "degree_awards",
