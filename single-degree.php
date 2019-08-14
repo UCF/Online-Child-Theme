@@ -88,12 +88,9 @@ $has_sidebar     = ( $career_paths || $quotes || $video );
 				<?php if ( $video ): ?>
 				<section>
 					<?php echo $video; ?>
-				</section>
-				<?php endif; ?>
-
-				<?php if ( $video_caption ): ?>
-				<section>
-					<?php echo $video_caption; ?>
+					<?php if ( $video_caption ): ?>
+						<?php echo $video_caption; ?>
+					<?php endif; ?>
 				</section>
 				<?php endif; ?>
 
