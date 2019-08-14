@@ -313,14 +313,14 @@ function online_get_degree_video_markup( $degree ) {
  * @return string HTML markup for a single degree's video caption
  */
 function online_get_degree_video_caption_markup( $degree ) {
-	$video_caption = "Video Caption Here";
+	$video_caption = get_field( 'degree_video_caption', $degree );
 
 	ob_start();
 	if ( $video_caption ):
 ?>
-	<caption>
+	<p class="degree-video-caption">
 		<?php echo $video_caption; ?>
-	</caption>
+	</p>
 <?php
 	endif;
 	return ob_get_clean();
@@ -335,14 +335,14 @@ function online_get_degree_video_caption_markup( $degree ) {
  * @return string HTML markup for a single degree's video caption
  */
 function online_get_degree_spotlight_markup( $degree ) {
-	$spotlight = "Spotlight Here";
+	$spotlight = get_field( 'degree_spotlight', $degree );
 
 	ob_start();
 	if ( $spotlight ):
 ?>
-	<caption>
+	<div class="mt-5">
 		<?php echo $spotlight; ?>
-	</caption>
+	</div>
 <?php
 	endif;
 	return ob_get_clean();
