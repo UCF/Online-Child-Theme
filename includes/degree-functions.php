@@ -304,6 +304,49 @@ function online_get_degree_video_markup( $degree ) {
 	return ob_get_clean();
 }
 
+/**
+ * Returns markup for a single degree's video caption.
+ *
+ * @since 1.2.3
+ * @author RJ Bruneel
+ * @param object $degree WP_Post object for a single degree
+ * @return string HTML markup for a single degree's video caption
+ */
+function online_get_degree_video_caption_markup( $degree ) {
+	$video_caption = get_field( 'degree_video_caption', $degree );
+
+	ob_start();
+	if ( $video_caption ):
+?>
+	<p class="degree-video-caption">
+		<?php echo $video_caption; ?>
+	</p>
+<?php
+	endif;
+	return ob_get_clean();
+}
+
+/**
+ * Returns markup for a single degree's spotlight.
+ *
+ * @since 1.2.3
+ * @author RJ Bruneel
+ * @param object $degree WP_Post object for a single degree
+ * @return string HTML markup for a single degree's spotlight
+ */
+function online_get_degree_spotlight_markup( $degree ) {
+	$spotlight = get_field( 'degree_spotlight', $degree );
+
+	ob_start();
+	if ( $spotlight ):
+?>
+	<div class="mt-5">
+		<?php echo $spotlight; ?>
+	</div>
+<?php
+	endif;
+	return ob_get_clean();
+}
 
 /**
  * Modifies the sort order of grouped degree lists.
