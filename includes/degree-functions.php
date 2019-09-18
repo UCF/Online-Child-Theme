@@ -113,6 +113,7 @@ function online_get_degree_hours_markup( $degree ) {
 function online_get_degree_tuition_markup( $degree ) {
 	$resident_tuition    = online_format_tuition_value( $degree->degree_resident_tuition );
 	$nonresident_tuition = online_format_tuition_value( $degree->degree_nonresident_tuition );
+	$tuition_details     = get_field( 'degree_tuition_details', $degree );
 
 	ob_start();
 	if ( $resident_tuition || $nonresident_tuition ):
@@ -148,6 +149,17 @@ function online_get_degree_tuition_markup( $degree ) {
 			<div class="tab-pane fade <?php if ( ! $resident_tuition ){ ?>show active<?php } ?>" id="nonresident-tuition" role="tabpanel" aria-labelledby="nonresident-tuition-tab">
 				<?php echo $nonresident_tuition; ?>
 			</div>
+			<?php endif; ?>
+
+			<?php if ( ! empty( $tuition_details ) ) :
+				$tuition_details_link = $tuition_details['degree_tuition_details_link'];
+				$tuition_details_text = $tuition_details['degree_tuition_details_text'];
+
+				if ( $tuition_details_text && $tuition_details_link ): ?>
+				<a class="small mt-2 mt-md-3" href="<?php echo $tuition_details_link; ?>"><?php echo $tuition_details_text; ?></a>
+				<?php elseif ( $tuition_details_text ): ?>
+				<span class="small mt-2 mt-md-3"><?php echo $tuition_details_text; ?></span>
+				<?php endif; ?>
 			<?php endif; ?>
 		</div>
 	</div>
