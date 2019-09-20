@@ -87,7 +87,7 @@ function online_get_degree_duration_markup( $degree ) {
 	$credit_hours      = get_field( 'degree_hours', $degree );
 	$duration          = get_field( 'degree_duration', $degree );
 	$is_duration_set   = !empty( $duration['degree_duration_amount'] );
-	$font_icon_classes = ( $duration['degree_duration_font_icon_classes'] ?: 'fa fa-3x fa-desktop' );
+	$font_icon_classes = $duration['degree_duration_font_icon_classes'] ?: 'fa fa-3x fa-desktop';
 
 	ob_start();
 	if ( $credit_hours ):
@@ -97,8 +97,8 @@ function online_get_degree_duration_markup( $degree ) {
 			<span class="<?php echo $font_icon_classes; ?> text-primary mb-2" aria-hidden="true"></span>
 			<?php if ( $credit_hours && $is_duration_set ):
 				$duration_amount     = $duration['degree_duration_amount'];
-				$duration_descriptor = ( $duration['degree_duration_descriptor'] ?: 'Months' );
-				$duration_notice     = ( $duration['degree_duration_notice'] ?: 'Approx. program length' );
+				$duration_descriptor = $duration['degree_duration_descriptor'] ?: 'Months';
+				$duration_notice     = $duration['degree_duration_notice'] ?: 'Approx. program length';
 			?>
 			<strong class="d-block display-4"><?php echo $duration_amount; ?></strong>
 			<span class="d-block text-uppercase text-nowrap font-weight-bold"><?php echo $duration_descriptor; ?></span>
