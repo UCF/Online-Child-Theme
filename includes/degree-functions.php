@@ -103,7 +103,7 @@ function online_get_degree_duration_markup( $degree ) {
 			<strong class="d-block display-4"><?php echo $duration_amount; ?></strong>
 			<span class="d-block text-uppercase text-nowrap font-weight-bold"><?php echo $duration_descriptor; ?></span>
 			<span class="d-block small"><?php echo $duration_notice; ?></span>
-			<span class="d-block small mt-4"><?php echo $credit_hours; ?> Credit Hours</span>
+			<span class="d-block mt-4"><span class="font-weight-bold"><?php echo $credit_hours; ?></span> Credit Hours</span>
 			<?php else: ?>
 			<strong class="d-block display-4"><?php echo $credit_hours; ?></strong>
 			<span class="d-block small text-uppercase text-nowrap">Credit Hours</span>
