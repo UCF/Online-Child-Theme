@@ -5,7 +5,7 @@ $post = ucf_degree_append_meta( $post );
 
 // Degree data markup
 $details       = online_get_degree_details_markup( $post );
-$credit_hours  = online_get_degree_hours_markup( $post );
+$duration      = online_get_degree_duration_markup( $post );
 $tuition       = online_get_degree_tuition_markup( $post );
 $badges        = online_get_degree_badges_markup( $post );
 $career_paths  = online_get_degree_career_paths_markup( $post );
@@ -15,7 +15,7 @@ $video_caption = online_get_degree_video_caption_markup( $post );
 $spotlight     = online_get_degree_spotlight_markup( $post );
 
 // Helper variables
-$has_at_a_glance = ( $details || $credit_hours || $tuition || $badges );
+$has_at_a_glance = ( $details || $duration || $tuition || $badges );
 $has_sidebar     = ( $career_paths || $quotes || $video );
 ?>
 
@@ -34,9 +34,9 @@ $has_sidebar     = ( $career_paths || $quotes || $video );
 				</div>
 				<?php endif; ?>
 
-				<?php if ( $credit_hours ): ?>
+				<?php if ( $duration ): ?>
 				<div class="col-auto mb-4 mb-lg-0">
-					<?php echo $credit_hours; ?>
+					<?php echo $duration; ?>
 				</div>
 				<?php endif; ?>
 
