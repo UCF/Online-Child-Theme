@@ -76,15 +76,14 @@ function online_get_degree_details_markup( $degree ) {
 
 
 /**
- * Returns HTML markup for a single degree's credit hour info.
+ * Returns HTML markup for a single degree's duration and credit hour info.
  *
  * @since 1.0.0
  * @author Jo Dickson
  * @param object $degree WP_Post object for a single degree
- * @return string HTML markup for a single degree's credit hour info
+ * @return string HTML markup for a single degree's duration and credit hour info
  */
-function online_get_degree_hours_markup( $degree ) {
-	$credit_hours = get_field( 'degree_hours', $degree );
+function online_get_degree_duration_markup( $degree ) {
 
 	ob_start();
 	if ( $credit_hours ):
