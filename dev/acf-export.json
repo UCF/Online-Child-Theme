@@ -2211,6 +2211,115 @@
                 "maxlength": ""
             },
             {
+                "key": "field_5d828f8086c46",
+                "label": "Degree Duration",
+                "name": "degree_duration",
+                "type": "group",
+                "instructions": "This information will be displayed in the same block as the 'Credit Hours' information.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "layout": "block",
+                "sub_fields": [
+                    {
+                        "key": "field_5d829c93ab465",
+                        "label": "Font Icon Classes",
+                        "name": "degree_duration_font_icon_classes",
+                        "type": "text",
+                        "instructions": "The font icon to display above either the credit hours or duration amount. Defaults to: 'fa fa-3x fa-desktop'.\r\n\r\nAdd classes, separated by a single space, for a supported font icon (e.g. <a href=\"https:\/\/fontawesome.com\/v4.7.0\/icons\/\" target=\"_blank\">Font Awesome<\/a>) to display.",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "maxlength": ""
+                    },
+                    {
+                        "key": "field_5d828f9a86c47",
+                        "label": "Amount",
+                        "name": "degree_duration_amount",
+                        "type": "number",
+                        "instructions": "The numerical amount to display for this degree's duration. Must be a number.\r\n\r\nIf this value is entered, the amount, descriptor and notice will be displayed in place of the 'Credit Hours' information, and move the 'Credit Hours' line to a single line at the bottom of the card.",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "min": "",
+                        "max": "",
+                        "step": ""
+                    },
+                    {
+                        "key": "field_5d828fb986c48",
+                        "label": "Amount Descriptor",
+                        "name": "degree_duration_descriptor",
+                        "type": "text",
+                        "instructions": "The amount descriptor for the degree duration. Defaults to 'Months'.",
+                        "required": 1,
+                        "conditional_logic": [
+                            [
+                                {
+                                    "field": "field_5d828f9a86c47",
+                                    "operator": "!=empty"
+                                }
+                            ]
+                        ],
+                        "wrapper": {
+                            "width": "50",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "Months",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "maxlength": ""
+                    },
+                    {
+                        "key": "field_5d828fe886c49",
+                        "label": "Notice",
+                        "name": "degree_duration_notice",
+                        "type": "text",
+                        "instructions": "The notice that is showed below the amount descriptor. Defaults to 'Approx. program length'.",
+                        "required": 1,
+                        "conditional_logic": [
+                            [
+                                {
+                                    "field": "field_5d828f9a86c47",
+                                    "operator": "!=empty"
+                                }
+                            ]
+                        ],
+                        "wrapper": {
+                            "width": "50",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "Approx. program length",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "maxlength": ""
+                    }
+                ]
+            },
+            {
                 "key": "field_596e47d3ed1fc",
                 "label": "Resident Tuition",
                 "name": "degree_resident_tuition",
@@ -2266,6 +2375,58 @@
                 "prepend": "",
                 "append": "",
                 "maxlength": ""
+            },
+            {
+                "key": "field_5d810d55cefa1",
+                "label": "Tuition Details",
+                "name": "degree_tuition_details",
+                "type": "group",
+                "instructions": "Displayed below the tuition amount in both the 'In State' and 'Out of State' panels.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "layout": "block",
+                "sub_fields": [
+                    {
+                        "key": "field_5d810d95cefa2",
+                        "label": "Tuition Details Text",
+                        "name": "degree_tuition_details_text",
+                        "type": "text",
+                        "instructions": "The text to display under the tuition amount.",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "50",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "maxlength": ""
+                    },
+                    {
+                        "key": "field_5d810daecefa3",
+                        "label": "Tuition Details Link",
+                        "name": "degree_tuition_details_link",
+                        "type": "url",
+                        "instructions": "If this field is set, the 'Tuition Details Text' will be linked to this URL.",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "50",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": ""
+                    }
+                ]
             },
             {
                 "key": "field_5bdc5aa3cd682",
