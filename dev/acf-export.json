@@ -2377,6 +2377,58 @@
                 "maxlength": ""
             },
             {
+                "key": "field_5d810d55cefa1",
+                "label": "Tuition Details",
+                "name": "degree_tuition_details",
+                "type": "group",
+                "instructions": "Displayed below the tuition amount in both the 'In State' and 'Out of State' panels.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "layout": "block",
+                "sub_fields": [
+                    {
+                        "key": "field_5d810d95cefa2",
+                        "label": "Tuition Details Text",
+                        "name": "degree_tuition_details_text",
+                        "type": "text",
+                        "instructions": "The text to display under the tuition amount.",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "50",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "maxlength": ""
+                    },
+                    {
+                        "key": "field_5d810daecefa3",
+                        "label": "Tuition Details Link",
+                        "name": "degree_tuition_details_link",
+                        "type": "url",
+                        "instructions": "If this field is set, the 'Tuition Details Text' will be linked to this URL.",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "50",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": ""
+                    }
+                ]
+            },
+            {
                 "key": "field_5bdc5aa3cd682",
                 "label": "Documents, Media and More",
                 "name": "",
