@@ -57,6 +57,9 @@ function online_get_header_type( $header_type, $obj ) {
 			case 'template-landing-3.php':
 				$header_type .= '_3';
 				break;
+			case 'template-landing-custom.php':
+				$header_type .= '_custom';
+				break;
 			case 'default':
 			default:
 				break;
@@ -99,6 +102,9 @@ function online_get_header_content_type( $content_type, $obj ) {
 				break;
 			case 'template-landing-3.php':
 				$content_type .= '_3';
+				break;
+			case 'template-landing-custom.php':
+				$content_type .= '_custom';
 				break;
 			case 'default':
 			default:
