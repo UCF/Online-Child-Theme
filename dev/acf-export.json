@@ -846,6 +846,104 @@
         "description": ""
     },
     {
+        "key": "group_5d9215b4d46b6",
+        "title": "Landing Page Fields - Custom Template",
+        "fields": [
+            {
+                "key": "field_5d9215cce512c",
+                "label": "Header Content",
+                "name": "landing_custom_header_content",
+                "type": "wysiwyg",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "tabs": "all",
+                "toolbar": "full",
+                "media_upload": 1,
+                "delay": 0
+            },
+            {
+                "key": "field_5d939a38a2c74",
+                "label": "Footer Content - Type of Content",
+                "name": "landing_custom_footer_content_type",
+                "type": "radio",
+                "instructions": "Specify the type of content that should be displayed within the footer.  Choose \"Default\" to display UCF's Signature & Pegasus logo on top of a black bar, or choose \"Custom Content\" to add any arbitrary content inside of the <code>&lt;footer&gt;<\/code> tag.",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {
+                    "default": "Default",
+                    "custom": "Custom Content"
+                },
+                "allow_null": 0,
+                "other_choice": 0,
+                "default_value": "default",
+                "layout": "vertical",
+                "return_format": "value",
+                "save_other_choice": 0
+            },
+            {
+                "key": "field_5d93a301ef633",
+                "label": "Footer Custom Content",
+                "name": "landing_custom_footer_custom_content",
+                "type": "wysiwyg",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_5d939a38a2c74",
+                            "operator": "==",
+                            "value": "custom"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "tabs": "all",
+                "toolbar": "full",
+                "media_upload": 1,
+                "delay": 0
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "landing"
+                },
+                {
+                    "param": "post_template",
+                    "operator": "==",
+                    "value": "template-landing-custom.php"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": true,
+        "description": ""
+    },
+    {
         "key": "group_5c6d5cecd4d32",
         "title": "Landing Page Nav Fields",
         "fields": [
