@@ -48,7 +48,7 @@ function online_get_vertical_subnav( $post ) {
 
 	ob_start();
 ?>
-<nav class="navbar navbar-toggleable-md navbar-light bg-faded sticky-top navbar-subnav" id="secondary-nav" role="navigation" aria-labelledby="vertical-brand">
+<nav class="navbar navbar-toggleable-md navbar-light bg-faded sticky-top navbar-subnav" id="secondary-nav" aria-labelledby="vertical-brand">
 	<div class="container">
 		<a class="navbar-brand" href="<?php echo $brand_url; ?>" id="vertical-brand">
 			<?php echo wptexturize( $brand ); ?>
