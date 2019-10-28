@@ -416,16 +416,18 @@
 
     // First and last name field adjustments are very specific in order to
     // only be set when first and last name fields are next to each other in md+
-    @include media-breakpoint-up(md) {
-      .has_first_name.no_middle_name.has_last_name.gf_name_has_2 {
+    .has_first_name.no_middle_name.has_last_name.gf_name_has_2 {
+      @include media-breakpoint-up(md) {
         justify-content: space-between;
-        padding-right: 15px;
-        padding-left: 15px;
+        padding-right: $grid-gutter-width-base / 2;
+        padding-left: $grid-gutter-width-base / 2;
+      }
 
         .name_first,
         .name_last {
-          flex: 0 0 48%;
-          padding: 0;
+          @include media-breakpoint-up(md) {
+            flex: 0 0 48%;
+            padding: 0;
         }
       }
     }
