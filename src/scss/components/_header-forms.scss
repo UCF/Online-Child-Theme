@@ -16,10 +16,10 @@
 .header-form {
   // Overrides font-size in Athena GF Plugin in md+ in order
   // to account for the first and last name fields
-  @include media-breakpoint-up(md) {
-    input:not([type="button"]):not([type="submit"]):not([type="radio"]):not([type="checkbox"]):not([type="file"]),
-    select,
-    textarea {
+  input:not([type="button"]):not([type="submit"]):not([type="radio"]):not([type="checkbox"]):not([type="file"]),
+  select,
+  textarea {
+    @include media-breakpoint-up(md) {
       font-size: .85rem;
     }
   }
