@@ -404,6 +404,20 @@
       max-width: 100%;
     }
 
+    // First and last name field adjustments are very specific in order to
+    // only be set when first and last name fields are next to each other
+    .has_first_name.no_middle_name.has_last_name.gf_name_has_2 {
+      padding-right: 15px;
+      padding-left: 15px;
+      justify-content: space-between;
+
+      .name_first,
+      .name_last {
+        flex: 0 0 48%;
+        padding: 0;
+      }
+    }
+
     // A field's description text
     .gfield_description {
       color: $sublabel-color;
