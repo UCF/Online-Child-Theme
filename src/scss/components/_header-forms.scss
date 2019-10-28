@@ -14,12 +14,16 @@
 }
 
 .header-form {
-  // Overrides font-size in Athena GF Plugin
-  input:not([type="button"]):not([type="submit"]):not([type="radio"]):not([type="checkbox"]):not([type="file"]),
-  select,
-  textarea {
-    font-size: .85rem;
+  // Overrides font-size in Athena GF Plugin in md+ in order
+  // to account for the first and last name fields
+  @include media-breakpoint-up(md) {
+    input:not([type="button"]):not([type="submit"]):not([type="radio"]):not([type="checkbox"]):not([type="file"]),
+    select,
+    textarea {
+      font-size: .85rem;
+    }
   }
+
   // For header forms on landing pages (full width form at -sm breakpoint)
   &.header-form-landing {
     .gform_wrapper {
@@ -411,16 +415,18 @@
     }
 
     // First and last name field adjustments are very specific in order to
-    // only be set when first and last name fields are next to each other
-    .has_first_name.no_middle_name.has_last_name.gf_name_has_2 {
-      padding-right: 15px;
-      padding-left: 15px;
-      justify-content: space-between;
+    // only be set when first and last name fields are next to each other in md+
+    @include media-breakpoint-up(md) {
+      .has_first_name.no_middle_name.has_last_name.gf_name_has_2 {
+        padding-right: 15px;
+        padding-left: 15px;
+        justify-content: space-between;
 
-      .name_first,
-      .name_last {
-        flex: 0 0 48%;
-        padding: 0;
+        .name_first,
+        .name_last {
+          flex: 0 0 48%;
+          padding: 0;
+        }
       }
     }
 
