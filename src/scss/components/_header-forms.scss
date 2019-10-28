@@ -14,6 +14,12 @@
 }
 
 .header-form {
+  // Overrides font-size in Athena GF Plugin
+  input:not([type="button"]):not([type="submit"]):not([type="radio"]):not([type="checkbox"]):not([type="file"]),
+  select,
+  textarea {
+    font-size: .85rem;
+  }
   // For header forms on landing pages (full width form at -sm breakpoint)
   &.header-form-landing {
     .gform_wrapper {
