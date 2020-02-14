@@ -846,6 +846,104 @@
         "description": ""
     },
     {
+        "key": "group_5d9215b4d46b6",
+        "title": "Landing Page Fields - Custom Template",
+        "fields": [
+            {
+                "key": "field_5d9215cce512c",
+                "label": "Header Content",
+                "name": "landing_custom_header_content",
+                "type": "wysiwyg",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "tabs": "all",
+                "toolbar": "full",
+                "media_upload": 1,
+                "delay": 0
+            },
+            {
+                "key": "field_5d939a38a2c74",
+                "label": "Footer Content - Type of Content",
+                "name": "landing_custom_footer_content_type",
+                "type": "radio",
+                "instructions": "Specify the type of content that should be displayed within the footer.  Choose \"Default\" to display UCF's Signature & Pegasus logo on top of a black bar, or choose \"Custom Content\" to add any arbitrary content inside of the <code>&lt;footer&gt;<\/code> tag.",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {
+                    "default": "Default",
+                    "custom": "Custom Content"
+                },
+                "allow_null": 0,
+                "other_choice": 0,
+                "default_value": "default",
+                "layout": "vertical",
+                "return_format": "value",
+                "save_other_choice": 0
+            },
+            {
+                "key": "field_5d93a301ef633",
+                "label": "Footer Custom Content",
+                "name": "landing_custom_footer_custom_content",
+                "type": "wysiwyg",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_5d939a38a2c74",
+                            "operator": "==",
+                            "value": "custom"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "tabs": "all",
+                "toolbar": "full",
+                "media_upload": 1,
+                "delay": 0
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "landing"
+                },
+                {
+                    "param": "post_template",
+                    "operator": "==",
+                    "value": "template-landing-custom.php"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": true,
+        "description": ""
+    },
+    {
         "key": "group_5c6d5cecd4d32",
         "title": "Landing Page Nav Fields",
         "fields": [
@@ -2211,6 +2309,115 @@
                 "maxlength": ""
             },
             {
+                "key": "field_5d828f8086c46",
+                "label": "Degree Duration",
+                "name": "degree_duration",
+                "type": "group",
+                "instructions": "This information will be displayed in the same block as the 'Credit Hours' information.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "layout": "block",
+                "sub_fields": [
+                    {
+                        "key": "field_5d829c93ab465",
+                        "label": "Font Icon Classes",
+                        "name": "degree_duration_font_icon_classes",
+                        "type": "text",
+                        "instructions": "The font icon to display above either the credit hours or duration amount. Defaults to: 'fa fa-3x fa-desktop'.\r\n\r\nAdd classes, separated by a single space, for a supported font icon (e.g. <a href=\"https:\/\/fontawesome.com\/v4.7.0\/icons\/\" target=\"_blank\">Font Awesome<\/a>) to display.",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "maxlength": ""
+                    },
+                    {
+                        "key": "field_5d828f9a86c47",
+                        "label": "Amount",
+                        "name": "degree_duration_amount",
+                        "type": "number",
+                        "instructions": "The numerical amount to display for this degree's duration. Must be a number.\r\n\r\nIf this value is entered, the amount, descriptor and notice will be displayed in place of the 'Credit Hours' information, and move the 'Credit Hours' line to a single line at the bottom of the card.",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "min": "",
+                        "max": "",
+                        "step": ""
+                    },
+                    {
+                        "key": "field_5d828fb986c48",
+                        "label": "Amount Descriptor",
+                        "name": "degree_duration_descriptor",
+                        "type": "text",
+                        "instructions": "The amount descriptor for the degree duration. Defaults to 'Months'.",
+                        "required": 1,
+                        "conditional_logic": [
+                            [
+                                {
+                                    "field": "field_5d828f9a86c47",
+                                    "operator": "!=empty"
+                                }
+                            ]
+                        ],
+                        "wrapper": {
+                            "width": "50",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "Months",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "maxlength": ""
+                    },
+                    {
+                        "key": "field_5d828fe886c49",
+                        "label": "Notice",
+                        "name": "degree_duration_notice",
+                        "type": "text",
+                        "instructions": "The notice that is showed below the amount descriptor. Defaults to 'Approx. program length'.",
+                        "required": 1,
+                        "conditional_logic": [
+                            [
+                                {
+                                    "field": "field_5d828f9a86c47",
+                                    "operator": "!=empty"
+                                }
+                            ]
+                        ],
+                        "wrapper": {
+                            "width": "50",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "Approx. program length",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "maxlength": ""
+                    }
+                ]
+            },
+            {
                 "key": "field_596e47d3ed1fc",
                 "label": "Resident Tuition",
                 "name": "degree_resident_tuition",
@@ -2266,6 +2473,58 @@
                 "prepend": "",
                 "append": "",
                 "maxlength": ""
+            },
+            {
+                "key": "field_5d810d55cefa1",
+                "label": "Tuition Details",
+                "name": "degree_tuition_details",
+                "type": "group",
+                "instructions": "Displayed below the tuition amount in both the 'In State' and 'Out of State' panels.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "layout": "block",
+                "sub_fields": [
+                    {
+                        "key": "field_5d810d95cefa2",
+                        "label": "Tuition Details Text",
+                        "name": "degree_tuition_details_text",
+                        "type": "text",
+                        "instructions": "The text to display under the tuition amount.",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "50",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "maxlength": ""
+                    },
+                    {
+                        "key": "field_5d810daecefa3",
+                        "label": "Tuition Details Link",
+                        "name": "degree_tuition_details_link",
+                        "type": "url",
+                        "instructions": "If this field is set, the 'Tuition Details Text' will be linked to this URL.",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "50",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": ""
+                    }
+                ]
             },
             {
                 "key": "field_5bdc5aa3cd682",
@@ -2336,6 +2595,44 @@
                 },
                 "width": "",
                 "height": ""
+            },
+            {
+                "key": "field_5d543d9c27f4c",
+                "label": "Degree Video Caption",
+                "name": "degree_video_caption",
+                "type": "text",
+                "instructions": "Enter a caption that describes the chosen degree video.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_5d543dde69294",
+                "label": "Degree Spotlight",
+                "name": "degree_spotlight",
+                "type": "wysiwyg",
+                "instructions": "Enter spotlight content that will be displayed under the video for this degree.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "tabs": "all",
+                "toolbar": "full",
+                "media_upload": 1,
+                "delay": 0
             },
             {
                 "key": "field_5bdc56985ff10",

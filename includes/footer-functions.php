@@ -15,7 +15,14 @@
  */
 function online_get_footer_type( $footer_type, $obj ) {
 	if ( $obj instanceof WP_Post && $obj->post_type === 'landing' ) {
-		$footer_type = 'landing';
+		if (
+			get_post_meta( $obj->ID, '_wp_page_template', true ) === 'template-landing-custom.php'
+			&& get_field( 'landing_custom_footer_content_type', $obj ) === 'custom'
+		) {
+			$footer_type = 'landing_custom';
+		} else {
+			$footer_type = 'landing';
+		}
 	}
 
 	return $footer_type;

@@ -76,24 +76,38 @@ function online_get_degree_details_markup( $degree ) {
 
 
 /**
- * Returns HTML markup for a single degree's credit hour info.
+ * Returns HTML markup for a single degree's duration and credit hour info.
  *
  * @since 1.0.0
  * @author Jo Dickson
  * @param object $degree WP_Post object for a single degree
- * @return string HTML markup for a single degree's credit hour info
+ * @return string HTML markup for a single degree's duration and credit hour info
  */
-function online_get_degree_hours_markup( $degree ) {
-	$credit_hours = get_field( 'degree_hours', $degree );
+function online_get_degree_duration_markup( $degree ) {
+	$credit_hours      = get_field( 'degree_hours', $degree );
+	$duration          = get_field( 'degree_duration', $degree );
+	$is_duration_set   = !empty( $duration['degree_duration_amount'] );
+	$font_icon_classes = $duration['degree_duration_font_icon_classes'] ?: 'fa fa-3x fa-desktop';
 
 	ob_start();
 	if ( $credit_hours ):
 ?>
 	<div class="card h-100">
 		<div class="card-block text-center d-flex flex-column justify-content-center px-sm-4">
-			<span class="fa fa-3x fa-desktop text-primary mb-2" aria-hidden="true"></span>
+			<span class="<?php echo $font_icon_classes; ?> text-primary mb-2" aria-hidden="true"></span>
+			<?php if ( $credit_hours && $is_duration_set ):
+				$duration_amount     = $duration['degree_duration_amount'];
+				$duration_descriptor = $duration['degree_duration_descriptor'] ?: 'Months';
+				$duration_notice     = $duration['degree_duration_notice'] ?: 'Approx. program length';
+			?>
+			<strong class="d-block display-4"><?php echo $duration_amount; ?></strong>
+			<span class="d-block text-uppercase text-nowrap font-weight-bold"><?php echo $duration_descriptor; ?></span>
+			<span class="d-block small"><?php echo $duration_notice; ?></span>
+			<span class="d-block mt-4"><span class="font-weight-bold"><?php echo $credit_hours; ?></span> Credit Hours</span>
+			<?php else: ?>
 			<strong class="d-block display-4"><?php echo $credit_hours; ?></strong>
 			<span class="d-block small text-uppercase text-nowrap">Credit Hours</span>
+			<?php endif; ?>
 		</div>
 	</div>
 <?php
@@ -114,6 +128,10 @@ function online_get_degree_tuition_markup( $degree ) {
 	$resident_tuition    = online_format_tuition_value( $degree->degree_resident_tuition );
 	$nonresident_tuition = online_format_tuition_value( $degree->degree_nonresident_tuition );
 
+	$tuition_details      = get_field( 'degree_tuition_details', $degree );
+	$tuition_details_link = $tuition_details['degree_tuition_details_link'];
+	$tuition_details_text = $tuition_details['degree_tuition_details_text'];
+
 	ob_start();
 	if ( $resident_tuition || $nonresident_tuition ):
 ?>
@@ -130,7 +148,7 @@ function online_get_degree_tuition_markup( $degree ) {
 
 				<?php if ( $nonresident_tuition ): ?>
 				<li class="nav-item text-nowrap">
-					<a class="nav-link <?php if ( ! $resident_tuition ){ ?>active<?php } ?>" id="nonresident-tuition-tab" data-toggle="tab" href="#nonresident-tuition" role="tab" aria-controls="nonresident-tuition" aria-selected="<?php echo ( ! $resident_tuition ); ?>">
+					<a class="nav-link <?php if ( ! $resident_tuition ){ ?>active<?php } ?>" id="nonresident-tuition-tab" data-toggle="tab" href="#nonresident-tuition" role="tab" aria-controls="nonresident-tuition" aria-selected="<?php echo ( ! $resident_tuition ) ? 'true' : 'false'; ?>">
 						Out of State<span class="sr-only"> Tuition</span>
 					</a>
 				</li>
@@ -148,6 +166,12 @@ function online_get_degree_tuition_markup( $degree ) {
 			<div class="tab-pane fade <?php if ( ! $resident_tuition ){ ?>show active<?php } ?>" id="nonresident-tuition" role="tabpanel" aria-labelledby="nonresident-tuition-tab">
 				<?php echo $nonresident_tuition; ?>
 			</div>
+			<?php endif; ?>
+
+			<?php if ( $tuition_details_link && $tuition_details_text ) : ?>
+			<a class="small mt-2 mt-md-3" href="<?php echo $tuition_details_link; ?>"><?php echo $tuition_details_text; ?></a>
+			<?php elseif ( $tuition_details_text ): ?>
+			<span class="small mt-2 mt-md-3"><?php echo $tuition_details_text; ?></span>
 			<?php endif; ?>
 		</div>
 	</div>
@@ -304,6 +328,49 @@ function online_get_degree_video_markup( $degree ) {
 	return ob_get_clean();
 }
 
+/**
+ * Returns markup for a single degree's video caption.
+ *
+ * @since 1.2.3
+ * @author RJ Bruneel
+ * @param object $degree WP_Post object for a single degree
+ * @return string HTML markup for a single degree's video caption
+ */
+function online_get_degree_video_caption_markup( $degree ) {
+	$video_caption = get_field( 'degree_video_caption', $degree );
+
+	ob_start();
+	if ( $video_caption ):
+?>
+	<p class="degree-video-caption">
+		<?php echo $video_caption; ?>
+	</p>
+<?php
+	endif;
+	return ob_get_clean();
+}
+
+/**
+ * Returns markup for a single degree's spotlight.
+ *
+ * @since 1.2.3
+ * @author RJ Bruneel
+ * @param object $degree WP_Post object for a single degree
+ * @return string HTML markup for a single degree's spotlight
+ */
+function online_get_degree_spotlight_markup( $degree ) {
+	$spotlight = get_field( 'degree_spotlight', $degree );
+
+	ob_start();
+	if ( $spotlight ):
+?>
+	<div class="mt-5">
+		<?php echo $spotlight; ?>
+	</div>
+<?php
+	endif;
+	return ob_get_clean();
+}
 
 /**
  * Modifies the sort order of grouped degree lists.

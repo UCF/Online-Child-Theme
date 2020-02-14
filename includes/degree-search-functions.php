@@ -75,14 +75,30 @@ function online_degree_search_footer() {
 	$doctorates = get_page_by_path( 'doctorates' );
 	$certificates = get_page_by_path( 'certificates' );
 	ob_start();
+
+	if ( $bachelors || $masters || $doctorates || $certificates ):
 ?>
 	<div class="dropdown-divider"></div>
 	<p class="ucf-degree-search-suggestion ml-3 mt-3 mb-2 font-weight-bold">What kind of degree are you interested in?</p>
+
+	<?php if ( $bachelors ): ?>
 	<a href="<?php echo get_permalink( $bachelors->ID ); ?>" class="ucf-degree-search-suggestion tt-suggestion tt-selectable">Bachelor</a>
+	<?php endif; ?>
+
+	<?php if ( $masters ): ?>
 	<a href="<?php echo get_permalink( $masters->ID ); ?>" class="ucf-degree-search-suggestion tt-suggestion tt-selectable">Master</a>
+	<?php endif; ?>
+
+	<?php if ( $doctorates ): ?>
 	<a href="<?php echo get_permalink( $doctorates->ID ); ?>" class="ucf-degree-search-suggestion tt-suggestion tt-selectable">Doctorate</a>
+	<?php endif; ?>
+
+	<?php if ( $certificates ): ?>
 	<a href="<?php echo get_permalink( $certificates->ID ); ?>" class="ucf-degree-search-suggestion tt-suggestion tt-selectable">Certificate</a>
+	<?php endif; ?>
 <?php
+	endif;
+
 	return ob_get_clean();
 }
 
