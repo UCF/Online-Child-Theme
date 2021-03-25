@@ -20,9 +20,15 @@ if ( $label ) {
 
 if ( $degree ) {
 	$degree_name        	 = get_the_title( $degree );
-	$confirmation_video 	 = get_field( 'degree_confirmation_video', $degree->ID );
 	$brochure_document  	 = get_field( 'degree_brochure_document_file', $degree->ID );
 	$confirmation_next_steps = get_field( 'confirmation_next_steps', $post );
+
+	$confirmation_video = apply_filters( 'the_content', get_field( 'degree_confirmation_video', $degree->ID ) );
+	$confirmation_video = trim( $confirmation_video );
+	if ( substr( $confirmation_video, 0, 3 ) === 'http' ) {
+		// auto oembed-ification failed; ignore the bad value
+		$confirmation_video = null;
+	}
 }
 ?>
 
@@ -37,9 +43,7 @@ if ( $degree ) {
 
 					<?php if ( $confirmation_video ): ?>
 						<div class="embed-responsive embed-responsive-16by9 mb-4 mb-lg-5">
-							<iframe title="UCF Online Thank You" src="<?php echo $confirmation_video; ?>"
-								width="500" height="281" frameborder="0" allow="autoplay; fullscreen; picture-in-picture">
-							</iframe>
+							<?php echo $confirmation_video; ?>
 						</div>
 					<?php endif; ?>
 
