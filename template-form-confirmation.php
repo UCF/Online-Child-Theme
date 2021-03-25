@@ -6,21 +6,23 @@
 <?php get_header(); the_post(); ?>
 
 <?php
-$degree             = null;
-$degree_name        = 'UCF degree';
-$label              = filter_input( INPUT_GET, 'label', FILTER_SANITIZE_STRING );
-$catalog_thumb_url  = get_theme_mod( 'degree_catalog_thumbnail' ) ?: online_get_theme_mod_default( 'degree_catalog_thumbnail' ); // Always return a value, even if the customizer option is empty
-$confirmation_video = '';
-$brochure_document  = '';
+$degree                  = null;
+$degree_name             = 'UCF degree';
+$label                   = filter_input( INPUT_GET, 'label', FILTER_SANITIZE_STRING );
+$catalog_thumb_url       = get_theme_mod( 'degree_catalog_thumbnail' ) ?: online_get_theme_mod_default( 'degree_catalog_thumbnail' ); // Always return a value, even if the customizer option is empty
+$confirmation_video      = '';
+$brochure_document       = '';
+$confirmation_next_steps = '';
 
 if ( $label ) {
 	$degree = get_page_by_title( $label, OBJECT, 'degree' );
 }
 
 if ( $degree ) {
-	$degree_name        = get_the_title( $degree );
-	$confirmation_video = get_field( 'degree_confirmation_video', $degree->ID );
-	$brochure_document  = get_field( 'degree_brochure_document_file', $degree->ID );
+	$degree_name        	 = get_the_title( $degree );
+	$confirmation_video 	 = get_field( 'degree_confirmation_video', $degree->ID );
+	$brochure_document  	 = get_field( 'degree_brochure_document_file', $degree->ID );
+	$confirmation_next_steps = get_field( 'confirmation_next_steps', $post );
 }
 ?>
 
@@ -52,12 +54,18 @@ if ( $degree ) {
 					<?php endif; ?>
 
 				</div>
-				<div class="col-md-6 col-lg-6 offset-lg-1">
-					<?php the_content(); ?>
-				</div>
+
+				<?php if ( $confirmation_next_steps ): ?>
+					<div class="col-md-6 col-lg-6 offset-lg-1">
+						<?php echo $confirmation_next_steps; ?>
+					</div>
+				<?php endif; ?>
+
 			</div>
 		</div>
 	</div>
+
+	<?php the_content(); ?>
 
 	<?php if ( isset( $_GET['category'] ) && isset( $_GET['action'] ) && isset( $_GET['label'] ) ): ?>
 	<script>

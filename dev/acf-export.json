@@ -3082,5 +3082,47 @@
         "hide_on_screen": "",
         "active": true,
         "description": ""
+    },    
+    {
+        "key": "group_605ba78d9cd28",
+        "title": "Confirmation Page Fields",
+        "fields": [
+            {
+                "key": "field_605ba794b4e38",
+                "label": "Confirmation Next Steps",
+                "name": "confirmation_next_steps",
+                "type": "wysiwyg",
+                "instructions": "The content displayed to the right of the video and Brochure Document on the confirmation page.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "tabs": "all",
+                "toolbar": "full",
+                "media_upload": 1,
+                "delay": 0
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "page_template",
+                    "operator": "==",
+                    "value": "template-form-confirmation.php"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": true,
+        "description": ""
     }
 ]
