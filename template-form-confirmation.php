@@ -28,6 +28,8 @@ if ( $degree ) {
 
 <article id="form-confirmation">
 
+<?php if ( $confirmation_video || $brochure_document || $confirmation_next_steps ): ?>
+
 	<div class="jumbotron bg-faded mb-0">
 		<div class="container">
 			<div class="row">
@@ -64,6 +66,8 @@ if ( $degree ) {
 			</div>
 		</div>
 	</div>
+
+<?php endif; ?>
 
 	<?php the_content(); ?>
 
