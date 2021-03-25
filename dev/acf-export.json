@@ -429,6 +429,48 @@
         "description": ""
     },
     {
+        "key": "group_605ba78d9cd28",
+        "title": "Confirmation Page Fields",
+        "fields": [
+            {
+                "key": "field_605ba794b4e38",
+                "label": "Confirmation Next Steps",
+                "name": "confirmation_next_steps",
+                "type": "wysiwyg",
+                "instructions": "The content displayed to the right of the video and Brochure Document on the confirmation page.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "tabs": "all",
+                "toolbar": "full",
+                "media_upload": 1,
+                "delay": 0
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "page_template",
+                    "operator": "==",
+                    "value": "template-form-confirmation.php"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": true,
+        "description": ""
+    },
+    {
         "key": "group_5c61ef111ebd8",
         "title": "Landing Page Fields - Concept 1",
         "fields": [
@@ -2562,44 +2604,6 @@
                 "endpoint": 0
             },
             {
-                "key": "field_58408b3e07519",
-                "label": "Brochure Document",
-                "name": "degree_brochure_document",
-                "type": "text",
-                "instructions": "Enter a URL to the degree brochure document",
-                "required": 0,
-                "conditional_logic": 0,
-                "wrapper": {
-                    "width": "50",
-                    "class": "",
-                    "id": ""
-                },
-                "default_value": "",
-                "placeholder": "http:\/\/...",
-                "prepend": "",
-                "append": "",
-                "maxlength": ""
-            },
-            {
-                "key": "field_598cb0772a92d",
-                "label": "Catalog Document",
-                "name": "catalog_document",
-                "type": "file",
-                "instructions": "",
-                "required": 0,
-                "conditional_logic": 0,
-                "wrapper": {
-                    "width": "50",
-                    "class": "",
-                    "id": ""
-                },
-                "return_format": "array",
-                "library": "all",
-                "min_size": "",
-                "max_size": "",
-                "mime_types": "pdf"
-            },
-            {
                 "key": "field_5bdc5d1fcd683",
                 "label": "Degree Video",
                 "name": "degree_header_video",
@@ -2848,6 +2852,57 @@
                 "prepend": "",
                 "append": "",
                 "maxlength": ""
+            },
+            {
+                "key": "field_605cb6062500f",
+                "label": "Confirmation Page",
+                "name": "",
+                "type": "tab",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "placement": "top",
+                "endpoint": 0
+            },
+            {
+                "key": "field_58408b3e07519",
+                "label": "Confirmation Page Video URL",
+                "name": "degree_confirmation_video",
+                "type": "url",
+                "instructions": "Enter a URL to display a video on the degree request for information confirmation page.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "http:\/\/..."
+            },
+            {
+                "key": "field_598cb0772a92d",
+                "label": "Brochure Document",
+                "name": "degree_brochure_document_file",
+                "type": "file",
+                "instructions": "The PDF file to link to on the request for information degree confirmation page.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "return_format": "url",
+                "library": "all",
+                "min_size": "",
+                "max_size": "",
+                "mime_types": "pdf"
             }
         ],
         "location": [
