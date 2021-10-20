@@ -139,7 +139,7 @@ function online_get_degree_tuition_markup( $degree ) {
 		<div class="card-header">
 			<ul class="nav nav-tabs card-header-tabs" id="tuition-tabs" role="tablist">
 				<?php if ( $resident_tuition ): ?>
-				<li class="nav-item text-nowrap">
+				<li class="nav-item text-nowrap" role="presentation">
 					<a class="nav-link active" id="resident-tuition-tab" data-toggle="tab" href="#resident-tuition" role="tab" aria-controls="resident-tuition" aria-selected="true">
 						In State<span class="sr-only"> Tuition</span>
 					</a>
@@ -147,7 +147,7 @@ function online_get_degree_tuition_markup( $degree ) {
 				<?php endif; ?>
 
 				<?php if ( $nonresident_tuition ): ?>
-				<li class="nav-item text-nowrap">
+				<li class="nav-item text-nowrap" role="presentation">
 					<a class="nav-link <?php if ( ! $resident_tuition ){ ?>active<?php } ?>" id="nonresident-tuition-tab" data-toggle="tab" href="#nonresident-tuition" role="tab" aria-controls="nonresident-tuition" aria-selected="<?php echo ( ! $resident_tuition ) ? 'true' : 'false'; ?>">
 						Out of State<span class="sr-only"> Tuition</span>
 					</a>
