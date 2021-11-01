@@ -69,7 +69,7 @@ if (
 		?>
 
 		<div class="text-center text-uppercase mb-5">
-			<a class="text-primary" href="https://www.ucf.edu/">&copy; <?php echo date( 'Y' ); ?> University of Central Florida</a>
+			<a class="bg-inverse-link" href="https://www.ucf.edu/">&copy; <?php echo date( 'Y' ); ?> University of Central Florida</a>
 		</div>
 	</div>
 </footer>
