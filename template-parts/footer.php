@@ -30,27 +30,27 @@ if (
 		<div class="row">
 
 		<?php if ( is_active_sidebar( 'footer-col-2' ) ): ?>
-			<section class="col-12 col-lg-3">
+			<div class="col-12 col-lg-3">
 				<?php dynamic_sidebar( 'footer-col-2' ); ?>
-			</section>
+			</div>
 		<?php endif; ?>
 
 		<?php if ( is_active_sidebar( 'footer-col-3' ) ): ?>
-			<section class="col-12 col-lg-3">
+			<div class="col-12 col-lg-3">
 				<?php dynamic_sidebar( 'footer-col-3' ); ?>
-			</section>
+			</div>
 		<?php endif; ?>
 
 		<?php if ( is_active_sidebar( 'footer-col-4' ) ): ?>
-			<section class="col-12 col-lg-3">
+			<div class="col-12 col-lg-3">
 				<?php dynamic_sidebar( 'footer-col-4' ); ?>
-			</section>
+			</div>
 		<?php endif; ?>
 
 		<?php if ( is_active_sidebar( 'footer-col-1' ) ): ?>
-			<section class="col-12 col-lg-3 flex-lg-first">
+			<div class="col-12 col-lg-3 flex-lg-first">
 				<?php dynamic_sidebar( 'footer-col-1' ); ?>
-			</section>
+			</div>
 		<?php endif; ?>
 
 		</div>
