@@ -14,12 +14,12 @@
     return;
   }
 
-  let url = $iframe.attr('src').split('?')[0],
-    videoPlayed = false,
-    videoPaused = false,
-    videoResumed = false,
+  const url = $iframe.attr('src').split('?')[0];
+  let percentComplete = 0,
     videoCompleted = false,
-    percentComplete = 0;
+    videoPaused = false,
+    videoPlayed = false,
+    videoResumed = false;
 
   // Listen for messages from the player
   if (window.addEventListener) {
@@ -30,6 +30,7 @@
 
   // Send event to GA
   function sendEvent(action, nonInteractive) {
+    // eslint-disable-next-line no-unused-vars
     nonInteractive = typeof nonInteractive !== 'undefined' ? nonInteractive : 1;
     dataLayer.push({
       event: 'video',
@@ -46,6 +47,7 @@
 
     const data = JSON.parse(e.data);
 
+    // eslint-disable-next-line default-case
     switch (data.event) {
       case 'ready':
         onReady();
@@ -118,6 +120,7 @@
     }
   }
 
+  // eslint-disable-next-line no-unused-vars
   function onPageLeave(data) {
     if (!videoCompleted && videoPlayed) {
       if (percentComplete < 100) {

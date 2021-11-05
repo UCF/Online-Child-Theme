@@ -1,49 +1,63 @@
-/* global UCFDegreeSearch, Bloodhound */
-
-(function ($) {
-
+/* global UCFDegreeSearch, Bloodhound, Handlebars */
+const degreeSearchInit = ($) => {
   let degree;
 
   Handlebars.registerHelper('encodeString', (inputData) => {
     return new Handlebars.SafeString(inputData);
   });
 
-  if ($('.degree-search-typeahead')) {
-    let keywords = {
-        bachelor: ['bachelor\'s', 'bachelors', 'bs', 'ba', 'major', 'majors'],
-        master: ['masters', 'ms', 'ma'],
-        doctorate: ['phd']
-      },
-      currentQuery = [''];
+  if ($('.degree-search-typeahead').length) {
+    const $form = $('#degree-search');
 
-    // Returns a token string if true.
-    const keywordReplace = function (q) {
+    $form.on('submit', (e) => {
+      e.preventDefault();
+
+      const query = $('.tt-input').val(),
+        target = $(e.target).attr('action'),
+        url = `${target}#!/search/${query}`;
+
+      window.location = url;
+    });
+
+    const keywords = {
+      bachelor: ['bachelor\'s', 'bachelors', 'bs', 'ba', 'major', 'majors'],
+      minor: ['minor', 'minors'],
+      master: ['masters', 'ms', 'ma', 'mfa'],
+      doctorate: ['phd', 'md', 'dpt']
+    };
+
+    let currentQuery = [''];
+
+    const keywordReplace = (q) => {
       for (const x in q) {
-        const term = q[x].toLowerCase().replace(/\.\ \'/, '');
-        for (const y in keywords) {
-          if (keywords[y].indexOf(term) > -1) {
-            q[x] = y;
+        if (Object.prototype.hasOwnProperty.call(q, x)) {
+          const term = q[x].toLowerCase().replace(/\. '/, '');
+          for (const y in keywords) {
+            if (keywords[y].indexOf(term) > 1) {
+              q[x] = keywords[y];
+            }
           }
         }
       }
+
       return q;
     };
 
-    const prepare = function (query, settings) {
+    const customPrepare = (query, settings) => {
       const token = Bloodhound.tokenizers.whitespace(query);
       query = keywordReplace(token).join(' ');
       settings.url = settings.url.replace(/%q/, query);
       return settings;
     };
 
-    const queryTokenizer = function (q) {
+    const customQueryTokenizer = (q) => {
       let token = Bloodhound.tokenizers.whitespace(q);
       token = keywordReplace(token);
       currentQuery = token;
       return token;
     };
 
-    const scoreSorter = function (a, b) {
+    const scoreSorter = (a, b) => {
       if (a.score < b.score) {
         return 1;
       }
@@ -53,25 +67,25 @@
       return 0;
     };
 
-    const addMeta = function (data) {
-      const q = currentQuery.join(' '),
-        exactMatch = new RegExp(`\\b${q}\\b`, 'i'),
-        partialMatch = new RegExp(q, 'i');
+    const addMeta = (data) => {
+      const q = currentQuery.join(' ');
+      const exactMatch = new RegExp(`\\b${q}\\b`, 'i');
+      const partialMatch = new RegExp(q, 'i');
 
-      for (const d in data) {
-        let result = data[d],
-          score = 0,
-          matchString = '',
-          titleExactMatch = exactMatch.exec(result.title.rendered) !== null,
-          titlePartialMatch = partialMatch.exec(result.title.rendered) !== null;
+      data.forEach((d) => {
+        d.title.rendered = $(`<p>${d.title.rendered}</p>`).text();
+
+        let matchString = '',
+          score = 0;
+        const titleExactMatch = exactMatch.exec(d.title.rendered) !== null,
+          titlePartialMatch = partialMatch.exec(d.title.rendered) !== null;
 
         score += titleExactMatch ? 50 : 0;
         score += titlePartialMatch && !titleExactMatch ? 10 : 0;
 
-        for (const x in result.program_types) {
-          const pt = result.program_types[x],
-            ptWholeMatch = exactMatch.exec(pt.name) !== null,
-            ptPartialMatch = partialMatch.exec(pt.name) !== null;
+        d.program_types.forEach((pt) => {
+          const ptPartialMatch = partialMatch.exec(pt.name) !== null,
+            ptWholeMatch = exactMatch.exec(pt.name) !== null;
 
           score += ptWholeMatch ? 25 : 0;
           score += ptPartialMatch && !ptWholeMatch ? 10 : 0;
@@ -79,25 +93,24 @@
           if (ptWholeMatch || ptPartialMatch) {
             matchString = `(Program Type: ${pt.name})`;
           }
-        }
+        }, this);
 
-        for (const y in result.career_paths) {
-          const cp = result.career_paths[y],
-            cpWholeMatch = exactMatch.exec(cp.name) !== null,
-            cpPartialMatch = partialMatch.exec(cp.name) !== null;
+        d.career_paths.forEach((cp) => {
+          const cpWholeMatch = exactMatch.exec(cp.name) !== null;
+          const cpPartialMatch = partialMatch.exec(cp.name) !== null;
 
           if (cpWholeMatch || cpPartialMatch) {
             matchString = `(Career Opportunity: ${cp.name})`;
           }
-        }
+        }, this);
 
-        result.score = score;
-        result.matchString = matchString;
-      }
+        d.score = score;
+        d.matchString = matchString;
+      });
 
       data.sort(scoreSorter);
 
-      if (data.length == degree.limit) {
+      if (data.length === degree.limit) {
         data = data.slice(0, -1);
       }
 
@@ -106,9 +119,16 @@
 
     degree = new UCFDegreeSearch({
       transform: addMeta,
-      queryTokenizer: queryTokenizer,
-      prepare: prepare
+      queryTokenizer: customQueryTokenizer,
+      prepare: customPrepare
     });
   }
+};
 
-}(jQuery));
+if (typeof jQuery !== 'undefined') {
+  jQuery(document).ready(($) => {
+    if (typeof UCFDegreeSearch !== 'undefined') {
+      degreeSearchInit($);
+    }
+  });
+}
