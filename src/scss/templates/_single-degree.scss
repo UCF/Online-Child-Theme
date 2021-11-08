@@ -51,11 +51,14 @@
 
 .lavender {
   color: $lavender!important;
-  line-height: 1.5
 }
 
 // CSS for the fullscreen custom degree pages
 .degree-template-single-degree-fullscreen {
+
+  .lavender-heading {
+    line-height: 1.5
+  }
 
   // program at a glance section
 
