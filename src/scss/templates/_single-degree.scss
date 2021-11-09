@@ -132,10 +132,12 @@
   }
 
   .bg-arrow-down {
-    background-image: url(https://www.ucf.edu/online/files/2019/12/arrow-down-1.png);
-    background-size: cover;
-    background-repeat: round;
-  }
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 320 75' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpath d='m0 0h320v75h-320z' fill='%23464a4c'/%3E%3Cpath d='m160 0 160 75h-320z' fill='%23fc0' transform='matrix(-1 0 0 -1 320 75)'/%3E%3C/g%3E%3C/svg%3E");
+    background-position: bottom center;
+    background-repeat: no-repeat;
+    background-size: 100% 4rem;
+    padding-bottom: 4rem;
+}
 
   .bg-dark-grey {
     background-color: $dark-grey;
