@@ -63,9 +63,9 @@
   // program at a glance section
 
   .program-at-a-glance .display-5 {
-        font-size: 3rem;
-        font-weight: 600;
-        line-height: 1
+    font-size: 3rem;
+    font-weight: 600;
+    line-height: 1
   }
 
   .icon-calendar {
@@ -76,7 +76,7 @@
     width: 45px;
   }
 
-  @media screen and (min-width:992px) {
+  @include media-breakpoint-up(lg) {
 
     .icon-calendar {
       width: 50px;
@@ -100,7 +100,7 @@
     max-width: 6rem;
   }
 
-  @media screen and (max-width:991px) {
+  @include media-breakpoint-down(md) {
 
     .badges,
     .coach-icon,
