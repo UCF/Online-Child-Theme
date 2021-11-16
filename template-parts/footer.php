@@ -30,27 +30,27 @@ if (
 		<div class="row">
 
 		<?php if ( is_active_sidebar( 'footer-col-2' ) ): ?>
-			<section class="col-12 col-lg-3">
+			<div class="col-12 col-lg-3">
 				<?php dynamic_sidebar( 'footer-col-2' ); ?>
-			</section>
+			</div>
 		<?php endif; ?>
 
 		<?php if ( is_active_sidebar( 'footer-col-3' ) ): ?>
-			<section class="col-12 col-lg-3">
+			<div class="col-12 col-lg-3">
 				<?php dynamic_sidebar( 'footer-col-3' ); ?>
-			</section>
+			</div>
 		<?php endif; ?>
 
 		<?php if ( is_active_sidebar( 'footer-col-4' ) ): ?>
-			<section class="col-12 col-lg-3">
+			<div class="col-12 col-lg-3">
 				<?php dynamic_sidebar( 'footer-col-4' ); ?>
-			</section>
+			</div>
 		<?php endif; ?>
 
 		<?php if ( is_active_sidebar( 'footer-col-1' ) ): ?>
-			<section class="col-12 col-lg-3 flex-lg-first">
+			<div class="col-12 col-lg-3 flex-lg-first">
 				<?php dynamic_sidebar( 'footer-col-1' ); ?>
-			</section>
+			</div>
 		<?php endif; ?>
 
 		</div>
@@ -69,7 +69,7 @@ if (
 		?>
 
 		<div class="text-center text-uppercase mb-5">
-			<a class="text-primary" href="https://www.ucf.edu/">&copy; <?php echo date( 'Y' ); ?> University of Central Florida</a>
+			<a class="bg-inverse-link" href="https://www.ucf.edu/">&copy; <?php echo date( 'Y' ); ?> University of Central Florida</a>
 		</div>
 	</div>
 </footer>

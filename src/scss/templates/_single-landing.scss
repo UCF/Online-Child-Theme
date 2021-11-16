@@ -1,3 +1,9 @@
+.landing-template {
+  #ucfhb {
+    display: none!important;
+  }
+}
+
 @mixin landing-1-pullup() {
   background: linear-gradient(to bottom, $brand-secondary 0%, $brand-secondary 1.25rem, transparent 1.25rem, transparent 100%);
 }
