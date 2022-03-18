@@ -1,9 +1,9 @@
 .tt-cursor {
-  background-color: $gray-lighter !important;
+  background-color: $gray-lighter !important; // sass-lint:disable-line no-important
 }
 
 .tt-suggestion:hover {
-  background-color: $gray-lighter !important;
+  background-color: $gray-lighter !important; // sass-lint:disable-line no-important
 }
 
 .empty-message {
