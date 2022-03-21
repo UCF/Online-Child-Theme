@@ -49,6 +49,7 @@
   }
 
   a {
+    @include unset-link-underline();
     box-sizing: border-box;
     color: #3d3d3d;
     display: table;
@@ -66,7 +67,6 @@
     &:focus {
       background: $gray-lighter;
       color: $brand-secondary;
-      text-decoration: none;
     }
   }
 }
