@@ -50,12 +50,12 @@ function online_get_degree_details_markup( $degree ) {
 ?>
 	<dl>
 		<?php if ( $program_type ): ?>
-		<dt class="h6 text-uppercase text-default">Type</dt>
+		<dt class="h6 text-uppercase lavender">Type</dt>
 		<dd class="h5 mb-4"><?php echo $program_type->name; ?></dd>
 		<?php endif; ?>
 
 		<?php if ( $college ): ?>
-		<dt class="h6 text-uppercase text-default">College</dt>
+		<dt class="h6 text-uppercase lavender">College</dt>
 		<dd class="h5">
 			<?php if ( $college_url ): ?>
 			<a href="<?php echo $college_url; ?>" target="_blank">

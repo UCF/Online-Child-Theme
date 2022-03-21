@@ -49,13 +49,14 @@
   }
 
   a {
+    @include unset-link-underline();
     box-sizing: border-box;
     color: #3d3d3d;
     display: table;
     font-size: $font-size-base;
     margin-bottom: 0;
-    padding: $font-size-base;
     min-width: 100%;
+    padding: $font-size-base;
 
     @include media-breakpoint-up(md) {
       font-size: $font-size-base-md;
@@ -66,7 +67,6 @@
     &:focus {
       background: $gray-lighter;
       color: $brand-secondary;
-      text-decoration: none;
     }
   }
 }

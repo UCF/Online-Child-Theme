@@ -41,10 +41,119 @@
 }
 
 // Hide degree dropdown on single degree template forms:
-.single-degree .header-form .gform_wrapper .populate-degrees {
+.single-degree .header-form .gform_wrapper .populate-degrees { // sass-lint:disable-line class-name-format
   display: none;
 }
 
 .degree-video-caption {
   font-size: .8rem;
+}
+
+.lavender {
+  color: $lavender !important; // sass-lint:disable-line no-important
+}
+
+// CSS for the fullscreen custom degree pages
+.degree-template-single-degree-fullscreen {
+
+  .lavender-heading {
+    line-height: 1.5;
+  }
+
+  // program at a glance section
+
+  .program-at-a-glance .display-5 {
+    font-size: 3rem;
+    font-weight: 600;
+    line-height: 1;
+  }
+
+  .icon-calendar {
+    width: 40px;
+  }
+
+  .icon-clock {
+    width: 45px;
+  }
+
+  @include media-breakpoint-up(lg) {
+
+    .icon-calendar {
+      width: 50px;
+    }
+
+    .icon-clock {
+      width: 55px;
+    }
+  }
+
+  .icon-labels {
+    font-size: .9rem;
+    line-height: 1.3;
+  }
+
+  .icon-badge {
+    max-width: 4rem;
+  }
+
+  .icon-handshake {
+    max-width: 6rem;
+  }
+
+  @include media-breakpoint-down(md) {
+
+    .badges,
+    .coach-icon,
+    .director-img {
+      max-width: 200px;
+    }
+  }
+
+  // program director section
+
+  .program-director {
+
+    .program-director-name {
+      font-size: 1.2rem;
+    }
+
+    .quote {
+      font-size: 1.35rem;
+    }
+  }
+
+  // application deadline section
+
+  .triangle {
+    border-bottom: 80px solid $dark-grey;
+    border-left: 80px solid $ucf-gold;
+    border-top: 80px solid $dark-grey;
+    height: 0;
+    width: 100%;
+  }
+
+  .bg-arrow-down {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 320 75' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpath d='m0 0h320v75h-320z' fill='%23464a4c'/%3E%3Cpath d='m160 0 160 75h-320z' fill='%23fc0' transform='matrix(-1 0 0 -1 320 75)'/%3E%3C/g%3E%3C/svg%3E"); // sass-lint:disable-line quotes
+    background-position: bottom center;
+    background-repeat: no-repeat;
+    background-size: 100% 4rem;
+    padding-bottom: 4rem;
+}
+
+  .bg-dark-grey {
+    background-color: $dark-grey;
+  }
+
+  .application-deadline-hr {
+    max-width: 150px;
+  }
+
+  // accordian courses section
+
+  .accordion-courses {
+    border-bottom: 1px solid $ucf-gold;
+    margin: 1.25rem 0;
+    padding: 1.25rem 0;
+  }
+
 }

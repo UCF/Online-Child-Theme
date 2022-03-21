@@ -2,6 +2,7 @@
   /**
   * jQuery function for automatically updating
   * a form action based on a nested select value.
+  * @returns {void};
   **/
   $.fn.postListActionSelect = function () {
     /**
@@ -9,6 +10,7 @@
     * Called on 'change' of the select element.
     * @param {string} val The value of the select element
     * @param {object} $submit The jQuery object for the submit button
+    * @returns {void};
     **/
     const updateSubmit = function (val, $submit) {
       if (!val) {
