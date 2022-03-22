@@ -66,14 +66,14 @@ function online_post_list_display_default( $content, $posts, $atts ) {
 			}
 		?>
 			<article class="col-12 col-lg mb-4 mb-lg-5 ucf-post-list-item">
-				<a class="d-block text-secondary" href="<?php echo get_permalink( $item->ID ); ?>">
+				<a class="d-block text-secondary text-decoration-none hover-parent" href="<?php echo get_permalink( $item->ID ); ?>">
 					<?php if ( $item_img ) : ?>
-					<div class="ucf-post-list-thumbnail-block text-decoration-none media-background-container mb-4">
+					<div class="ucf-post-list-thumbnail-block media-background-container mb-4">
 						<img src="<?php echo $item_img; ?>" class="ucf-post-list-thumbnail-image media-background object-fit-cover" alt="">
 					</div>
 					<?php endif; ?>
 
-					<h3 class="h6 mb-3 text-uppercase ucf-post-list-item-title">
+					<h3 class="h6 mb-3 text-uppercase hover-child-text-underline ucf-post-list-item-title">
 						<?php echo $item->post_title; ?>
 					</h3>
 				</a>
