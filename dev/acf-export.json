@@ -471,6 +471,58 @@
         "description": ""
     },
     {
+        "key": "group_6245fdd111fd2",
+        "title": "Degree Form Behavior Fields",
+        "fields": [
+            {
+                "key": "field_6245fdeb66c2c",
+                "label": "Default Selected Degree",
+                "name": "default_selected_degree",
+                "type": "post_object",
+                "instructions": "Select the degree which will be selected by default in the degree dropdown of the page's gravity form.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "post_type": [
+                    "degree"
+                ],
+                "taxonomy": "",
+                "allow_null": 1,
+                "multiple": 0,
+                "return_format": "object",
+                "ui": 1
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "page"
+                }
+            ],
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "landing"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "side",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": true,
+        "description": ""
+    },
+    {
         "key": "group_5c61ef111ebd8",
         "title": "Landing Page Fields - Concept 1",
         "fields": [
@@ -577,9 +629,7 @@
                 "choices": {
                     "togglemodal": "Toggle button + display form in modal"
                 },
-                "default_value": [
-                    "togglemodal"
-                ],
+                "default_value": "togglemodal",
                 "allow_null": 0,
                 "multiple": 0,
                 "ui": 0,
@@ -646,9 +696,7 @@
                     "formdata": "Form title and description",
                     "custom": "Custom content"
                 },
-                "default_value": [
-                    "formdata"
-                ],
+                "default_value": "formdata",
                 "allow_null": 0,
                 "multiple": 0,
                 "ui": 0,
@@ -1069,9 +1117,7 @@
                     "black": "Black",
                     "white": "White"
                 },
-                "default_value": [
-                    "black"
-                ],
+                "default_value": "black",
                 "allow_null": 0,
                 "multiple": 0,
                 "ui": 0,
@@ -1729,7 +1775,7 @@
                     "bg-warning": "Orange (brand-warning)",
                     "bg-danger": "Red (brand-danger)"
                 },
-                "default_value": [],
+                "default_value": false,
                 "allow_null": 1,
                 "multiple": 0,
                 "ui": 1,
@@ -1803,7 +1849,7 @@
                     "text-warning-aw": "Orange AW (brand-warning, against-white accessible)",
                     "text-danger-aw": "Red AW (brand-danger, against-white accessible)"
                 },
-                "default_value": [],
+                "default_value": false,
                 "allow_null": 1,
                 "multiple": 0,
                 "ui": 1,
@@ -2960,7 +3006,7 @@
                     "formdata": "Form title and description",
                     "custom": "Custom content"
                 },
-                "default_value": [],
+                "default_value": false,
                 "allow_null": 0,
                 "multiple": 0,
                 "ui": 0,
