@@ -1765,7 +1765,7 @@
                 "label": "Filter By",
                 "name": "ou_rfi_filter_by",
                 "type": "radio",
-                "instructions": "Select the type of filter to use to customize the degree list",
+                "instructions": "Select the type of filter to use to customize the degree list:",
                 "required": 0,
                 "conditional_logic": [
                     [
@@ -1787,7 +1787,7 @@
                     "program_type": "Filter by program type",
                     "aoi": "Filter by Area of Interest",
                     "career": "Filter by career path",
-                    "custom": "Create a custom list"
+                    "custom": "Create a custom list or programs"
                 },
                 "allow_null": 0,
                 "other_choice": 0,
@@ -1801,7 +1801,7 @@
                 "label": "Tags",
                 "name": "ou_rfi_tag",
                 "type": "taxonomy",
-                "instructions": "Select the tag(s) to filter by",
+                "instructions": "Select the tag(s) to filter by:",
                 "required": 0,
                 "conditional_logic": [
                     [
@@ -1836,7 +1836,7 @@
                 "label": "Colleges",
                 "name": "ou_rfi_colleges",
                 "type": "taxonomy",
-                "instructions": "Select the college(s) to filter by",
+                "instructions": "Select the college(s) to filter by:",
                 "required": 0,
                 "conditional_logic": [
                     [
@@ -1871,7 +1871,7 @@
                 "label": "Program Types",
                 "name": "ou_rfi_program_types",
                 "type": "taxonomy",
-                "instructions": "Choose the program type(s) to filter by",
+                "instructions": "Choose the program type(s) to filter by:",
                 "required": 0,
                 "conditional_logic": [
                     [
@@ -1906,7 +1906,7 @@
                 "label": "Areas of Interest",
                 "name": "ou_rfi_areas_of_interest",
                 "type": "taxonomy",
-                "instructions": "Select the area(s) of interest to filter by",
+                "instructions": "Select the area(s) of interest to filter by:",
                 "required": 0,
                 "conditional_logic": [
                     [
@@ -1941,7 +1941,7 @@
                 "label": "Career Paths",
                 "name": "ou_rfi_career_paths",
                 "type": "taxonomy",
-                "instructions": "Select the career path(s) to filter by",
+                "instructions": "Select the career path(s) to filter by:",
                 "required": 0,
                 "conditional_logic": [
                     [
@@ -1976,7 +1976,7 @@
                 "label": "Programs",
                 "name": "ou_rfi_custom_programs",
                 "type": "post_object",
-                "instructions": "Select the programs to be included in the list",
+                "instructions": "Select the programs to be included in the list:",
                 "required": 0,
                 "conditional_logic": [
                     [
