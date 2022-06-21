@@ -1738,6 +1738,315 @@
         "description": ""
     },
     {
+        "key": "group_62b0cf808f1d4",
+        "title": "RFI Form Fields",
+        "fields": [
+            {
+                "key": "field_62b0cf8c4c217",
+                "label": "Customize Degree List",
+                "name": "ou_rfi_customize_degree_list",
+                "type": "true_false",
+                "instructions": "When enabled, the list of degrees available in the RFI form can be customized.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "message": "",
+                "default_value": 0,
+                "ui": 1,
+                "ui_on_text": "True",
+                "ui_off_text": "False"
+            },
+            {
+                "key": "field_62b0cfdd4c21c",
+                "label": "Filter By",
+                "name": "ou_rfi_filter_by",
+                "type": "radio",
+                "instructions": "Select the type of filter to use to customize the degree list:",
+                "required": 0,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_62b0cf8c4c217",
+                            "operator": "==",
+                            "value": "1"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {
+                    "tag": "Filter by tag",
+                    "college": "Filter by college",
+                    "program_type": "Filter by program type",
+                    "aoi": "Filter by area of interest",
+                    "career": "Filter by career path",
+                    "custom": "Create a custom list or programs"
+                },
+                "allow_null": 0,
+                "other_choice": 0,
+                "default_value": "",
+                "layout": "vertical",
+                "return_format": "value",
+                "save_other_choice": 0
+            },
+            {
+                "key": "field_62b0d07f4c21d",
+                "label": "Tags",
+                "name": "ou_rfi_tag",
+                "type": "taxonomy",
+                "instructions": "Select the tag(s) to filter by:",
+                "required": 0,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_62b0cf8c4c217",
+                            "operator": "==",
+                            "value": "1"
+                        },
+                        {
+                            "field": "field_62b0cfdd4c21c",
+                            "operator": "==",
+                            "value": "tag"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "taxonomy": "post_tag",
+                "field_type": "multi_select",
+                "allow_null": 0,
+                "add_term": 0,
+                "save_terms": 0,
+                "load_terms": 0,
+                "return_format": "id",
+                "multiple": 0
+            },
+            {
+                "key": "field_62b0d0b54c220",
+                "label": "Colleges",
+                "name": "ou_rfi_colleges",
+                "type": "taxonomy",
+                "instructions": "Select the college(s) to filter by:",
+                "required": 0,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_62b0cf8c4c217",
+                            "operator": "==",
+                            "value": "1"
+                        },
+                        {
+                            "field": "field_62b0cfdd4c21c",
+                            "operator": "==",
+                            "value": "college"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "taxonomy": "colleges",
+                "field_type": "multi_select",
+                "allow_null": 0,
+                "add_term": 0,
+                "save_terms": 0,
+                "load_terms": 0,
+                "return_format": "id",
+                "multiple": 0
+            },
+            {
+                "key": "field_62b0d0e84c222",
+                "label": "Program Types",
+                "name": "ou_rfi_program_types",
+                "type": "taxonomy",
+                "instructions": "Choose the program type(s) to filter by:",
+                "required": 0,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_62b0cf8c4c217",
+                            "operator": "==",
+                            "value": "1"
+                        },
+                        {
+                            "field": "field_62b0cfdd4c21c",
+                            "operator": "==",
+                            "value": "program_type"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "taxonomy": "program_types",
+                "field_type": "multi_select",
+                "allow_null": 0,
+                "add_term": 0,
+                "save_terms": 0,
+                "load_terms": 0,
+                "return_format": "id",
+                "multiple": 0
+            },
+            {
+                "key": "field_62b0d1424c224",
+                "label": "Areas of Interest",
+                "name": "ou_rfi_areas_of_interest",
+                "type": "taxonomy",
+                "instructions": "Select the area(s) of interest to filter by:",
+                "required": 0,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_62b0cf8c4c217",
+                            "operator": "==",
+                            "value": "1"
+                        },
+                        {
+                            "field": "field_62b0cfdd4c21c",
+                            "operator": "==",
+                            "value": "aoi"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "taxonomy": "interests",
+                "field_type": "multi_select",
+                "allow_null": 0,
+                "add_term": 0,
+                "save_terms": 0,
+                "load_terms": 0,
+                "return_format": "id",
+                "multiple": 0
+            },
+            {
+                "key": "field_62b0d16a4c226",
+                "label": "Career Paths",
+                "name": "ou_rfi_career_paths",
+                "type": "taxonomy",
+                "instructions": "Select the career path(s) to filter by:",
+                "required": 0,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_62b0cf8c4c217",
+                            "operator": "==",
+                            "value": "1"
+                        },
+                        {
+                            "field": "field_62b0cfdd4c21c",
+                            "operator": "==",
+                            "value": "career"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "taxonomy": "career_paths",
+                "field_type": "multi_select",
+                "allow_null": 0,
+                "add_term": 0,
+                "save_terms": 0,
+                "load_terms": 0,
+                "return_format": "id",
+                "multiple": 0
+            },
+            {
+                "key": "field_62b0d1944c228",
+                "label": "Programs",
+                "name": "ou_rfi_custom_programs",
+                "type": "post_object",
+                "instructions": "Select the programs to be included in the list:",
+                "required": 0,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_62b0cf8c4c217",
+                            "operator": "==",
+                            "value": "1"
+                        },
+                        {
+                            "field": "field_62b0cfdd4c21c",
+                            "operator": "==",
+                            "value": "custom"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "post_type": [
+                    "degree"
+                ],
+                "taxonomy": "",
+                "allow_null": 0,
+                "multiple": 1,
+                "return_format": "id",
+                "ui": 1
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "post"
+                }
+            ],
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "page"
+                }
+            ],
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "landing"
+                }
+            ],
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "degree"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": true,
+        "description": ""
+    },
+    {
         "key": "group_58f8d037a370f",
         "title": "Section Fields",
         "fields": [
