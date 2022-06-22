@@ -22,6 +22,33 @@ function get_degree_program_type( $degree ) {
 
 
 /**
+ * Splits a provided tuition string into two parts:
+ * the tuition value, and "per" string (e.g. per credit hour).
+ *
+ * @since 3.8.0
+ * @author Jo Dickson
+ * @param string $tuition_val
+ * @return array
+ */
+function get_degree_tuition_parts( $tuition ) {
+	if ( ! $tuition ) return array();
+
+	$tuition       = str_replace( '.00', '', $tuition );
+	$tuition_parts = array();
+
+	preg_match( '/^(\$[\d,.]+)/', $tuition, $tuition_parts );
+
+	$tuition_val = $tuition_parts[1] ?? '';
+	$tuition_per = trim( str_replace( $tuition_val, '', $tuition ) );
+
+	return array(
+		'value' => $tuition_val,
+		'per'   => $tuition_per
+	);
+}
+
+
+/**
  * Gets the "Apply Now" button markup for degree.
  *
  * @author Jim Barnes

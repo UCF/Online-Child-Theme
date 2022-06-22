@@ -14,19 +14,19 @@ if ( $post->post_type === 'degree' ) :
 	$has_duration          = ( $program_length_image && $program_length_number && $program_length_text );
 
 	$tuition_disclaimer  = get_theme_mod( 'tuition_disclaimer', null );
-	// TODO $tuition_resident    = isset( $post_meta['degree_resident_tuition'] ) ? get_degree_tuition_parts( $post_meta['degree_resident_tuition'] ) : null;
-	// TODO $tuition_nonresident = isset( $post_meta['degree_nonresident_tuition'] ) ? get_degree_tuition_parts( $post_meta['degree_nonresident_tuition'] ) : null;
-	$has_tuition = false;
-	// if (
-	// 	(
-	// 		isset( $post_meta['degree_tuition_skip'] )
-	// 		&& $post_meta['degree_tuition_skip'] === 'on'
-	// 	)
-	// 	|| ! $tuition_resident
-	// 	|| ! $tuition_nonresident
-	// ) {
-	// 	$has_tuition = false;
-	// }
+	$tuition_resident    = isset( $post_meta['degree_resident_tuition'] ) ? get_degree_tuition_parts( $post_meta['degree_resident_tuition'] ) : null;
+	$tuition_nonresident = isset( $post_meta['degree_nonresident_tuition'] ) ? get_degree_tuition_parts( $post_meta['degree_nonresident_tuition'] ) : null;
+	$has_tuition = true;
+	if (
+		(
+			isset( $post_meta['degree_tuition_skip'] )
+			&& $post_meta['degree_tuition_skip'] === 'on'
+		)
+		|| ! $tuition_resident
+		|| ! $tuition_nonresident
+	) {
+		$has_tuition = false;
+	}
 
 	$badges              = get_degree_badges( $post );
 	$badge_1             = $badges[0] ?? null;
