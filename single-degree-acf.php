@@ -20,6 +20,7 @@
 	get_template_part( 'template-parts/degree/news' );
 
 	get_template_part( 'template-parts/degree/catalog_modal' );
+	get_template_part( 'template-parts/degree/request_info_modal' );
 ?>
 
 <?php get_footer(); ?>
