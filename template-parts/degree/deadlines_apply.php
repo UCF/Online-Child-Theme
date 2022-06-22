@@ -152,7 +152,7 @@ if ( $post->post_type === 'degree' ) :
 
 							<!-- CTA lead text column -->
 							<div class="col-12 col-lg-auto align-self-lg-center pr-xl-3">
-								<h2 class="h5 text-uppercase font-condensed mb-4 mb-lg-3 <?php if ( $deadline_heading_show_inline ) { ?>mb-xl-0<?php } ?>">
+								<h2 class="h5 text-white text-uppercase font-condensed mb-4 mb-lg-3 <?php if ( $deadline_heading_show_inline ) { ?>mb-xl-0<?php } ?>">
 									<span class="d-inline-block <?php if ( $deadline_heading_show_inline ) { ?>d-xl-block<?php } ?>">
 										Ready to
 									</span>
@@ -162,16 +162,11 @@ if ( $post->post_type === 'degree' ) :
 								</h2>
 							</div>
 
-							<!-- Apply button column -->
+							<!-- Request Info button column -->
 							<div class="col-12 col-lg-auto align-self-lg-center">
-								<?php
-								echo get_degree_apply_button(
-									$post,
-									'btn btn-lg btn-primary rounded',
-									'',
-									'Apply Today'
-								);
-								?>
+								<a class="btn btn-md btn-primary rounded"  rel="noopener" data-toggle="modal" data-target="#formModal">
+									Request Info
+								</a>
 							</div>
 
 						</div>

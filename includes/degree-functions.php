@@ -49,50 +49,6 @@ function get_degree_tuition_parts( $tuition ) {
 
 
 /**
- * Gets the "Apply Now" button markup for degree.
- *
- * @author Jim Barnes
- * @since 3.0.0
- * @param object $degree | WP_Post object for the degree
- * @param string $btn_classes | CSS classes to apply to the button
- * @param string $icon_classes | CSS classes to apply to the inner icon in the button. Leave empty to omit icon
- * @param string $btn_text | Text to display within the button
- * @return string | The button markup.
- **/
-function get_degree_apply_button( $degree, $btn_classes='btn btn-lg btn-block btn-primary', $icon_classes='fa fa-pencil pr-2', $btn_text='Apply Today' ) {
-	$apply_url = '';
-
-	$type = get_degree_program_type( $degree );
-	if ( ! $type ) { return $apply_url; }
-	$type_parent = get_term( $type->parent, 'program_types' );
-	$type_parent = ( ! is_wp_error( $type_parent ) && !empty( $type_parent ) ) ? $type_parent : null;
-
-	if ( $type->name === 'Graduate Program' || ( $type_parent && $type_parent->name === 'Graduate Program' ) ) {
-		$apply_url = online_get_theme_mod_or_default( 'degrees_graduate_application' );
-	}
-	else if ( $type->name === 'Undergraduate Program' || ( $type_parent && $type_parent->name === 'Undergraduate Program' ) ) {
-		$apply_url = online_get_theme_mod_or_default( 'degrees_undergraduate_application' );
-	}
-
-	ob_start();
-
-	if ( ! empty( $apply_url ) ):
-?>
-	<a class="<?php echo $btn_classes; ?>" href="<?php echo $apply_url; ?>">
-		<?php if ( $icon_classes ): ?>
-		<span class="<?php echo $icon_classes; ?>" aria-hidden="true"></span>
-		<?php endif; ?>
-
-		<?php echo $btn_text; ?>
-	</a>
-<?php
-	endif;
-
-	return ob_get_clean();
-}
-
-
-/**
  * Formats degree meta
  * @author Jim Barnes
  * @since 3.4.0
