@@ -1783,6 +1783,333 @@
         "description": ""
     },
     {
+        "key": "group_62b316d7b5a83",
+        "title": "Imported Degree Data",
+        "fields": [
+            {
+                "key": "field_62b31caf9c5a8",
+                "label": "General Information",
+                "name": "",
+                "type": "tab",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "placement": "top",
+                "endpoint": 0
+            },
+            {
+                "key": "field_62b31f5100339",
+                "label": "Degree ID",
+                "name": "degree_id",
+                "type": "read_only",
+                "instructions": "The ID of the degree for import purposes.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "copy_to_clipboard": 0,
+                "display_type": "text"
+            },
+            {
+                "key": "field_62b31f790033a",
+                "label": "Degree API ID",
+                "name": "degree_api_id",
+                "type": "read_only",
+                "instructions": "The ID of the degree in the UCF Search Service.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "copy_to_clipboard": 0,
+                "display_type": "text"
+            },
+            {
+                "key": "field_62b31fd00033c",
+                "label": "Short Name",
+                "name": "degree_name_short",
+                "type": "read_only",
+                "instructions": "A shortened version of the degree name which is automatically created by the UCF Search Service.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "copy_to_clipboard": 1,
+                "display_type": "text"
+            },
+            {
+                "key": "field_62b31fab0033b",
+                "label": "Catalog URL",
+                "name": "degree_pdf",
+                "type": "read_only",
+                "instructions": "The URL of the degree in the UCF catalog.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "copy_to_clipboard": 1,
+                "display_type": "text"
+            },
+            {
+                "key": "field_62b3173e324f8",
+                "label": "Degree Description",
+                "name": "degree_description",
+                "type": "read_only",
+                "instructions": "The imported degree description from the UCF Catalog.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "copy_to_clipboard": 1,
+                "display_type": "text"
+            },
+            {
+                "key": "field_62b317f3324fb",
+                "label": "Outcomes (IKM)",
+                "name": "",
+                "type": "tab",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "placement": "top",
+                "endpoint": 0
+            },
+            {
+                "key": "field_62b31766324f9",
+                "label": "Average Annual Earnings",
+                "name": "degree_avg_annual_earnings",
+                "type": "read_only",
+                "instructions": "The average annual earnings for a graduate of this degree.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "copy_to_clipboard": 0,
+                "display_type": "text"
+            },
+            {
+                "key": "field_62b3181c324fc",
+                "label": "Full Time Employement Rate",
+                "name": "degree_employee_full_time",
+                "type": "read_only",
+                "instructions": "Percentage of students employed full time following graduation following the \"Outcome Academic Year\".",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "copy_to_clipboard": 0,
+                "display_type": "text"
+            },
+            {
+                "key": "field_62b319cc324fd",
+                "label": "Continuing Education Rate",
+                "name": "degree_continuing_education",
+                "type": "read_only",
+                "instructions": "The percentage of students continuing their education after graduation following the \"Outcome Academic Year\".",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "copy_to_clipboard": 0,
+                "display_type": "text"
+            },
+            {
+                "key": "field_62b31a35324fe",
+                "label": "Outcome Academic Year",
+                "name": "degree_outcome_academic_year",
+                "type": "read_only",
+                "instructions": "The academic year the outcome stats apply to.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "copy_to_clipboard": 0,
+                "display_type": "text"
+            },
+            {
+                "key": "field_62b31cd99c5a9",
+                "label": "Projections (BLS)",
+                "name": "",
+                "type": "tab",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "placement": "top",
+                "endpoint": 0
+            },
+            {
+                "key": "field_62b31ce59c5aa",
+                "label": "Begin Year",
+                "name": "degree_prj_begin_year",
+                "type": "read_only",
+                "instructions": "The beginning year period for the projections.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "copy_to_clipboard": 1,
+                "display_type": "text"
+            },
+            {
+                "key": "field_62b31d199c5ab",
+                "label": "End Year",
+                "name": "degree_prj_end_year",
+                "type": "read_only",
+                "instructions": "The final year of the projection year range.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "copy_to_clipboard": 1,
+                "display_type": "text"
+            },
+            {
+                "key": "field_62b31d574aedf",
+                "label": "Employment Start",
+                "name": "degree_prj_begin_employment",
+                "type": "read_only",
+                "instructions": "The number of positions related to this field at the beginning of the projection period.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "copy_to_clipboard": 1,
+                "display_type": "text"
+            },
+            {
+                "key": "field_62b31db14aee0",
+                "label": "Employment End",
+                "name": "degree_prj_end_employment",
+                "type": "read_only",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "copy_to_clipboard": 1,
+                "display_type": "text"
+            },
+            {
+                "key": "field_62b31de94aee1",
+                "label": "Employment Change Total",
+                "name": "degree_prj_change",
+                "type": "read_only",
+                "instructions": "The total number of new jobs projected to be created during this period in this field.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "copy_to_clipboard": 1,
+                "display_type": "text"
+            },
+            {
+                "key": "field_62b31e274aee2",
+                "label": "Employment Change Percentage",
+                "name": "degree_prj_change_percentage",
+                "type": "read_only",
+                "instructions": "The projected percentage of increase\/decrease of jobs in this field for the period.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "copy_to_clipboard": 1,
+                "display_type": "text"
+            },
+            {
+                "key": "field_62b31e8a64dff",
+                "label": "Employment Openings",
+                "name": "degree_prj_openings",
+                "type": "read_only",
+                "instructions": "The projected average number of openings for positions in this field per year.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "copy_to_clipboard": 1,
+                "display_type": "text"
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "degree"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": true,
+        "description": ""
+    },
+    {
         "key": "group_5c61ef111ebd8",
         "title": "Landing Page Fields - Concept 1",
         "fields": [
