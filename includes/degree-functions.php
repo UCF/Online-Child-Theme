@@ -51,7 +51,7 @@ function get_degree_tuition_parts( $tuition ) {
 /**
  * Formats degree meta
  * @author Jim Barnes
- * @since 3.4.0
+ * @since 1.5.0
  * @param array $post_meta The post_meta array
  * @return array
  */
@@ -59,7 +59,7 @@ function online_format_degree_data( $post_meta ) {
 	setlocale(LC_MONETARY, 'en_US');
 
 	if ( isset( $post_meta['degree_avg_annual_earnings'] ) && ! empty( $post_meta['degree_avg_annual_earnings'] ) ) {
-		$post_meta['degree_avg_annual_earnings'] = money_format( '%n', floatval( $post_meta['degree_avg_annual_earnings'] ) );
+		$post_meta['degree_avg_annual_earnings'] = sprintf( '%01.2f', floatval( $post_meta['degree_avg_annual_earnings'] ) );
 	}
 
 	if ( isset( $post_meta['degree_employed_full_time'] ) && ! empty( $post_meta['degree_employed_full_time'] ) ) {
@@ -93,44 +93,13 @@ function online_format_degree_data( $post_meta ) {
 	return $post_meta;
 }
 
-/**
- * Gets the "Request Info" button markup for degrees.
- *
- * @author RJ Bruneel
- * @since 3.4.0
- * @param object $degree | WP_Post object representing a degree
- * @param string $btn_classes | CSS classes to apply to the button
- * @param string $icon_classes | CSS classes to apply to the inner icon in the button. Leave empty to omit icon
- * @param string $btn_text | Text to display within the button
- * @return string | The button markup.
- **/
-function get_degree_request_info_button( $degree, $btn_classes='btn btn-primary', $icon_classes='', $btn_text='Request Information' ) {
-	$show_rfi = degree_show_rfi( $degree );
-
-	ob_start();
-
-	// Don't render button if RFIs can't be displayed for this degree:
-	if ( $show_rfi ) :
-?>
-	<button class="<?php echo $btn_classes; ?>" data-toggle="modal" data-target="#requestInfoModal">
-		<?php if ( $icon_classes ): ?>
-		<span class="<?php echo $icon_classes; ?>" aria-hidden="true"></span>
-		<?php endif; ?>
-
-		<?php echo $btn_text; ?>
-	</button>
-<?php
-	endif;
-	return trim( ob_get_clean() );
-}
-
 
 /**
  * Returns a complete URL for the graduate RFI form, with
  * optional params.
  *
  * @author Jo Dickson
- * @since 3.4.0
+ * @since 1.5.0
  * @param array $params Assoc. array of query params + values to append to the URL string
  * @return mixed URL string, or null if the URL base or form ID aren't set
  */
@@ -172,38 +141,6 @@ function is_supplementary_degree( $post ) {
 
 
 	return $is_supplementary;
-}
-
-
-/**
- * Returns whether or not a given degree $post can and
- * should display a RFI modal and calls-to-action.
- *
- * If/when we start supporting undergraduate RFIs, this
- * function will have to be adjusted.
- *
- * @since 3.8.0
- * @author Jo Dickson
- * @param object $post WP_Post object
- * @return boolean
- */
-function degree_show_rfi( $post ) {
-	$show_rfi = false;
-
-	if (
-		$post->post_type === 'degree'
-		&& is_graduate_degree( $post )
-		&& get_field( 'degree_custom_enable_rfi', $post ) === true
-	) {
-		$guid              = get_field( 'graduate_slate_id', $post );
-		$rfi_form_src_base = get_degree_request_info_url_graduate();
-
-		if ( $guid && $rfi_form_src_base ) {
-			$show_rfi = true;
-		}
-	}
-
-	return $show_rfi;
 }
 
 
@@ -392,7 +329,7 @@ function get_degree_badges( $post=null ) {
  * Results are limited to a fixed amount and are randomized.
  *
  * @author Jim Barnes
- * @since 3.4.0
+ * @since 1.5.0
  * @param object $post WP_Post object
  * @return array
  */

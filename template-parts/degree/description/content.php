@@ -11,14 +11,6 @@ if ( $post->post_type === 'degree' ) :
 			<?php echo $description; ?>
 		</div>
 
-		<?php
-		echo get_degree_request_info_button(
-			$post,
-			'btn btn-complementary mt-3',
-			'',
-			'Request Information'
-		);
-		?>
 	</div>
 <?php
 	endif;
