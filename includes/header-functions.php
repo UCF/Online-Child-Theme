@@ -1,5 +1,30 @@
 <?php
 
+
+/**
+ * Returns title text for use in the page header.
+ **/
+function get_header_title( $obj ) {
+	if ( is_404() ) return '';
+
+	$title = '';
+
+	if ( is_tax() || is_category() || is_tag() ) {
+		$title = $obj->name;
+	}
+	else if ( $obj instanceof WP_Post ) {
+		$title = $obj->post_title;
+	}
+
+	// Apply custom header title override, if available
+	if ( $custom_header_title = get_field( 'page_header_title', $obj ) ) {
+		$title = do_shortcode( $custom_header_title );
+	}
+
+	return wptexturize( $title );
+}
+
+
 /**
  * Overrides how term/post object h1 text is determined in the parent theme.
  *

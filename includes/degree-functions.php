@@ -1,6 +1,379 @@
 <?php
 
 /**
+ * Returns the child program_type assigned to the given degree.
+ *
+ * @since 1.5.0
+ * @author Jo Dickson
+ * @param object $degree  WP_Post object
+ * @return mixed  WP_Term object, or null on failure
+ */
+function get_degree_program_type( $degree ) {
+	$retval = null;
+	$args   = array( 'childless' => true );
+	$terms  = wp_get_post_terms( $degree->ID, 'program_types', $args );
+
+	if ( !empty( $terms ) && ! is_wp_error( $terms ) ) {
+		$retval = $terms[0];
+	}
+
+	return $retval;
+}
+
+
+/**
+ * Splits a provided tuition string into two parts:
+ * the tuition value, and "per" string (e.g. per credit hour).
+ *
+ * @since 1.5.0
+ * @author Jo Dickson
+ * @param string $tuition_val
+ * @return array
+ */
+function get_degree_tuition_parts( $tuition ) {
+	if ( ! $tuition ) return array();
+
+	$tuition       = str_replace( '.00', '', $tuition );
+	$tuition_parts = array();
+
+	preg_match( '/^(\$[\d,.]+)/', $tuition, $tuition_parts );
+
+	$tuition_val = $tuition_parts[1] ?? '';
+	$tuition_per = trim( str_replace( $tuition_val, '', $tuition ) );
+
+	return array(
+		'value' => $tuition_val,
+		'per'   => $tuition_per
+	);
+}
+
+
+/**
+ * Formats degree meta
+ * @author Jim Barnes
+ * @since 1.5.0
+ * @param array $post_meta The post_meta array
+ * @return array
+ */
+function online_format_degree_data( $post_meta ) {
+	setlocale(LC_MONETARY, 'en_US');
+
+	if ( isset( $post_meta['degree_avg_annual_earnings'] ) && ! empty( $post_meta['degree_avg_annual_earnings'] ) ) {
+		$post_meta['degree_avg_annual_earnings'] = sprintf( '%01.2f', floatval( $post_meta['degree_avg_annual_earnings'] ) );
+	}
+
+	if ( isset( $post_meta['degree_employed_full_time'] ) && ! empty( $post_meta['degree_employed_full_time'] ) ) {
+		$post_meta['degree_employed_full_time'] = number_format( floatval( $post_meta['degree_employed_full_time'] ) ) . '%';
+	}
+
+	if ( isset( $post_meta['degree_continuing_education'] ) && ! empty( $post_meta['degree_continuing_education'] ) ) {
+		$post_meta['degree_continuing_education'] = number_format( floatval( $post_meta['degree_continuing_education'] ) ) . '%';
+	}
+
+	if ( isset( $post_meta['degree_prj_begin_employment'] ) &&  ! empty( 'degree_prj_begin_employment' ) ) {
+		$post_meta['degree_prj_begin_employment'] = number_format( floatval( $post_meta['degree_prj_begin_employment'] ) );
+	}
+
+	if ( isset( $post_meta['degree_prj_end_employment'] ) &&  ! empty( $post_meta['degree_prj_end_employment'] ) ) {
+		$post_meta['degree_prj_end_employment'] = number_format( floatval( $post_meta['degree_prj_end_employment'] ) );
+	}
+
+	if ( isset( $post_meta['degree_prj_change'] ) &&  ! empty( $post_meta['degree_prj_change'] ) ) {
+		$post_meta['degree_prj_change'] = number_format( floatval( $post_meta['degree_prj_change'] ) );
+	}
+
+	if ( isset( $post_meta['degree_prj_change_percentage'] ) &&  ! empty( $post_meta['degree_prj_change_percentage'] ) ) {
+		$post_meta['degree_prj_change_percentage'] = number_format( floatval( $post_meta['degree_prj_change_percentage'] ), 2 ) . '%';
+	}
+
+	if ( isset( $post_meta['degree_prj_openings'] ) && ! empty( $post_meta['degree_prj_openings'] ) ) {
+		$post_meta['degree_prj_openings'] = number_format( floatval( $post_meta['degree_prj_openings'] ) );
+	}
+
+	return $post_meta;
+}
+
+
+/**
+ * Returns a complete URL for the graduate RFI form, with
+ * optional params.
+ *
+ * @author Jo Dickson
+ * @since 1.5.0
+ * @param array $params Assoc. array of query params + values to append to the URL string
+ * @return mixed URL string, or null if the URL base or form ID aren't set
+ */
+function get_degree_request_info_url_graduate( $params=array() ) {
+	$base = get_theme_mod_or_default( 'degrees_graduate_rfi_url_base' );
+	if ( ! $base ) return null;
+
+	$form_id = get_theme_mod_or_default( 'degrees_graduate_rfi_form_id' );
+	if ( ! $form_id ) return null;
+
+	$params['id'] = $form_id;
+	$separator = ( strpos( $base, '?' ) !== false ) ? '&' : '?';
+
+	$url = $base . $separator . http_build_query( $params );
+	return $url;
+}
+
+
+/**
+ * Returns true/false if the given degree $post represents
+ * a program that cannot be completed on its own (must be
+ * completed alongside a full program.)
+ *
+ * @since 1.5.0
+ * @author Jo Dickson
+ * @param object $post WP_Post object representing a degree post
+ * @return boolean
+ */
+function is_supplementary_degree( $post ) {
+	$is_supplementary = false;
+	$terms = wp_get_post_terms( $post->ID, 'program_types' );
+
+	foreach ( $terms as $term ) {
+		if ( in_array( $term->slug, array( 'minor', 'undergraduate-certificate' ) ) ) {
+			$is_supplementary = true;
+			break;
+		}
+	}
+
+
+	return $is_supplementary;
+}
+
+
+/**
+ * Returns true/false if the given degree $post is
+ * an undergraduate program.
+ *
+ * @since 1.5.0
+ * @author Jo Dickson
+ * @param object $post  WP_Post object
+ * @return boolean
+ */
+function is_undergraduate_degree( $post ) {
+	$is_undergraduate = false;
+	$terms = wp_get_post_terms( $post->ID, 'program_types' );
+
+	foreach ( $terms as $term ) {
+		if ( $term->slug === 'undergraduate-program' ) {
+			$is_undergraduate = true;
+			break;
+		}
+	}
+	return $is_undergraduate;
+}
+
+
+/**
+ * Returns an array of deadlines, grouped by deadline type
+ * (e.g. domestic/transfer/international).
+ *
+ * If custom application deadlines are defined, they are
+ * returned instead in an unnamed group.
+ *
+ * @since 1.5.0
+ * @author Jo Dickson
+ * @param object $post WP_Post object
+ * @return array
+ */
+function get_degree_application_deadlines( $post ) {
+	$deadlines = array();
+
+	if ( have_rows( 'application_deadlines', $post ) ) {
+		// Custom deadlines
+		$custom_deadlines = get_field( 'application_deadlines', $post );
+		foreach ( $custom_deadlines as $deadline ) {
+			$deadlines[''][] = array(
+				'term'     => $deadline['deadline_term'],
+				'deadline' => $deadline['deadline']
+			);
+		}
+	} else if ( have_rows( 'degree_application_deadlines', $post ) ) {
+		// If a deadline group order is defined, use it:
+		$group_order = array();
+		if ( is_undergraduate_degree( $post ) ) {
+			$group_order = array_filter( array_map( 'trim', explode( ',', get_theme_mod_or_default( 'degree_deadlines_undergraduate_deadline_order' ) ) ) );
+		} else if ( is_graduate_degree( $post ) ) {
+			$group_order = array_filter( array_map( 'trim', explode( ',', get_theme_mod_or_default( 'degree_deadlines_graduate_deadline_order' ) ) ) );
+		}
+
+		if ( $group_order ) {
+			$deadlines = array_fill_keys( $group_order, array() );
+		}
+
+		// Assign imported deadlines to groups:
+		$imported_deadlines = get_field( 'degree_application_deadlines', $post );
+		foreach ( $imported_deadlines as $deadline ) {
+			if (
+				isset( $deadline['deadline_type'] )
+				&& isset( $deadline['admission_term'] )
+				&& isset( $deadline['deadline'] )
+			) {
+				$deadlines[$deadline['deadline_type']][] = array(
+					'term'     => $deadline['admission_term'],
+					'deadline' => $deadline['deadline']
+				);
+			}
+		}
+
+		// If $group_order contains an invalid group name, make sure
+		// it doesn't generate an empty set of deadlines:
+		$deadlines = array_filter( $deadlines );
+	}
+
+	return $deadlines;
+}
+
+
+/**
+ * Returns true|false if program_type is a graduate program.
+ *
+ * @since 1.5.0
+ * @author RJ Bruneel
+ * @param object $post  WP_Post object
+ * @return boolean
+ */
+function is_graduate_degree( $post ) {
+	$is_graduate = false;
+	$terms = wp_get_post_terms( $post->ID, 'program_types' );
+
+	foreach ( $terms as $term ) {
+		if ( $term->slug === 'graduate-program' ) {
+			$is_graduate = true;
+			break;
+		}
+	}
+	return $is_graduate;
+}
+
+
+/**
+ * Returns an array of image URLs and alt text for
+ * badge graphics to display on degree profiles.
+ *
+ * @since 1.5.0
+ * @author Jo Dickson
+ * @param object $post WP_Post object
+ * @return array
+ */
+function get_degree_badges( $post=null ) {
+	$badges = array();
+
+	// Use post-specific badge, if available
+	if ( $post ) {
+		$post_badge_1     = get_field( 'promo', $post );
+		$post_badge_1_img = $post_badge_1['image'] ?? '';
+		$post_badge_1_alt = $post_badge_1['image_alt'] ?? '';
+
+		$post_badge_2     = get_field( 'promo_2', $post );
+		$post_badge_2_img = $post_badge_2['image'] ?? '';
+		$post_badge_2_alt = $post_badge_2['image_alt'] ?? '';
+
+		if ( $post_badge_1 && $post_badge_1_alt ) {
+			$badges[] = array(
+				'img'        => $post_badge_1_img,
+				'alt'        => $post_badge_1_alt,
+				'link_url'   => $post_badge_1['link_url'] ?? '',
+				'link_rel'   => $post_badge_1['link_rel'] ?? '',
+				'new_window' => $post_badge_1['link_new_window'] ?? false
+			);
+		}
+		if ( $post_badge_2 && $post_badge_2_alt ) {
+			$badges[] = array(
+				'img'        => $post_badge_2_img,
+				'alt'        => $post_badge_2_alt,
+				'link_url'   => $post_badge_2['link_url'] ?? '',
+				'link_rel'   => $post_badge_2['link_rel'] ?? '',
+				'new_window' => $post_badge_2['link_new_window'] ?? false
+			);
+		}
+	}
+
+	// Use fallback badge(s) if there were none available
+	// for the provided $post
+	if ( empty( $badges ) ) {
+		$fallback_badge_1_img = get_theme_mod( 'degrees_badge_1' );
+		$fallback_badge_1_alt = get_theme_mod( 'degrees_badge_1_alt' );
+		$fallback_badge_2_img = get_theme_mod( 'degrees_badge_2' );
+		$fallback_badge_2_alt = get_theme_mod( 'degrees_badge_2_alt' );
+
+		if ( $fallback_badge_1_img && $fallback_badge_1_alt ) {
+			$badges[] = array(
+				'img'        => $fallback_badge_1_img,
+				'alt'        => $fallback_badge_1_alt,
+				'link_url'   => get_theme_mod( 'degrees_badge_1_link_url', '' ),
+				'link_rel'   => get_theme_mod( 'degrees_badge_1_link_rel', '' ),
+				'new_window' => get_theme_mod( 'degrees_badge_1_link_new_window', false ),
+			);
+		}
+		if ( $fallback_badge_2_img && $fallback_badge_2_alt ) {
+			$badges[] = array(
+				'img'        => $fallback_badge_2_img,
+				'alt'        => $fallback_badge_2_alt,
+				'link_url'   => get_theme_mod( 'degrees_badge_2_link_url', '' ),
+				'link_rel'   => get_theme_mod( 'degrees_badge_2_link_rel', '' ),
+				'new_window' => get_theme_mod( 'degrees_badge_2_link_new_window', false ),
+			);
+		}
+	}
+
+	return $badges;
+}
+
+
+/**
+ * Returns an array of career paths assigned to a degree.
+ * Results are limited to a fixed amount and are randomized.
+ *
+ * @author Jim Barnes
+ * @since 1.5.0
+ * @param object $post WP_Post object
+ * @return array
+ */
+function online_get_degree_careers( $post, $limit=20 ) {
+	$careers = array();
+	$terms   = array();
+
+	if ( have_rows( 'degree_career_list', $post ) ) {
+		while ( have_rows( 'degree_career_list', $post ) ) : the_row();
+			$careers[] = trim( get_sub_field( 'degree_career_list_item' ) );
+		endwhile;
+
+		$careers = array_filter( $careers );
+	}
+
+	if ( ! $careers ) {
+		$terms = wp_get_post_terms(
+			$post->ID,
+			'career_paths',
+			array(
+				'fields' => 'id=>name'
+			)
+		);
+
+		if ( ! is_wp_error( $terms ) ) {
+			shuffle( $terms );
+
+			if ( $limit > 0 ) {
+				$terms = array_slice( $terms, 0, $limit );
+			}
+
+			usort( $terms, function( $a, $b ) {
+				return strcmp( $a, $b );
+			} );
+
+			$careers = $terms;
+		}
+	}
+
+	return $careers;
+}
+
+
+/**
  * Returns a HTML string of stylized tuition data,
  * given a resident or non-resident tuition rate.
  *
