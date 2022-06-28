@@ -3,7 +3,7 @@
 /**
  * Returns the child program_type assigned to the given degree.
  *
- * @since 3.1.0
+ * @since 1.5.0
  * @author Jo Dickson
  * @param object $degree  WP_Post object
  * @return mixed  WP_Term object, or null on failure
@@ -25,7 +25,7 @@ function get_degree_program_type( $degree ) {
  * Splits a provided tuition string into two parts:
  * the tuition value, and "per" string (e.g. per credit hour).
  *
- * @since 3.8.0
+ * @since 1.5.0
  * @author Jo Dickson
  * @param string $tuition_val
  * @return array
@@ -123,7 +123,7 @@ function get_degree_request_info_url_graduate( $params=array() ) {
  * a program that cannot be completed on its own (must be
  * completed alongside a full program.)
  *
- * @since 3.8.0
+ * @since 1.5.0
  * @author Jo Dickson
  * @param object $post WP_Post object representing a degree post
  * @return boolean
@@ -148,7 +148,7 @@ function is_supplementary_degree( $post ) {
  * Returns true/false if the given degree $post is
  * an undergraduate program.
  *
- * @since 3.8.0
+ * @since 1.5.0
  * @author Jo Dickson
  * @param object $post  WP_Post object
  * @return boolean
@@ -174,7 +174,7 @@ function is_undergraduate_degree( $post ) {
  * If custom application deadlines are defined, they are
  * returned instead in an unnamed group.
  *
- * @since 3.8.0
+ * @since 1.5.0
  * @author Jo Dickson
  * @param object $post WP_Post object
  * @return array
@@ -231,7 +231,7 @@ function get_degree_application_deadlines( $post ) {
 /**
  * Returns true|false if program_type is a graduate program.
  *
- * @since 3.3.8
+ * @since 1.5.0
  * @author RJ Bruneel
  * @param object $post  WP_Post object
  * @return boolean
@@ -247,80 +247,6 @@ function is_graduate_degree( $post ) {
 		}
 	}
 	return $is_graduate;
-}
-
-
-/**
- * Returns an array of image URLs and alt text for
- * badge graphics to display on degree profiles.
- *
- * @since 3.8.0
- * @author Jo Dickson
- * @param object $post WP_Post object
- * @return array
- */
-function get_degree_badges( $post=null ) {
-	$badges = array();
-
-	// Use post-specific badge, if available
-	if ( $post ) {
-		$post_badge_1     = get_field( 'promo', $post );
-		$post_badge_1_img = $post_badge_1['image'] ?? '';
-		$post_badge_1_alt = $post_badge_1['image_alt'] ?? '';
-
-		$post_badge_2     = get_field( 'promo_2', $post );
-		$post_badge_2_img = $post_badge_2['image'] ?? '';
-		$post_badge_2_alt = $post_badge_2['image_alt'] ?? '';
-
-		if ( $post_badge_1 && $post_badge_1_alt ) {
-			$badges[] = array(
-				'img'        => $post_badge_1_img,
-				'alt'        => $post_badge_1_alt,
-				'link_url'   => $post_badge_1['link_url'] ?? '',
-				'link_rel'   => $post_badge_1['link_rel'] ?? '',
-				'new_window' => $post_badge_1['link_new_window'] ?? false
-			);
-		}
-		if ( $post_badge_2 && $post_badge_2_alt ) {
-			$badges[] = array(
-				'img'        => $post_badge_2_img,
-				'alt'        => $post_badge_2_alt,
-				'link_url'   => $post_badge_2['link_url'] ?? '',
-				'link_rel'   => $post_badge_2['link_rel'] ?? '',
-				'new_window' => $post_badge_2['link_new_window'] ?? false
-			);
-		}
-	}
-
-	// Use fallback badge(s) if there were none available
-	// for the provided $post
-	if ( empty( $badges ) ) {
-		$fallback_badge_1_img = get_theme_mod( 'degrees_badge_1' );
-		$fallback_badge_1_alt = get_theme_mod( 'degrees_badge_1_alt' );
-		$fallback_badge_2_img = get_theme_mod( 'degrees_badge_2' );
-		$fallback_badge_2_alt = get_theme_mod( 'degrees_badge_2_alt' );
-
-		if ( $fallback_badge_1_img && $fallback_badge_1_alt ) {
-			$badges[] = array(
-				'img'        => $fallback_badge_1_img,
-				'alt'        => $fallback_badge_1_alt,
-				'link_url'   => get_theme_mod( 'degrees_badge_1_link_url', '' ),
-				'link_rel'   => get_theme_mod( 'degrees_badge_1_link_rel', '' ),
-				'new_window' => get_theme_mod( 'degrees_badge_1_link_new_window', false ),
-			);
-		}
-		if ( $fallback_badge_2_img && $fallback_badge_2_alt ) {
-			$badges[] = array(
-				'img'        => $fallback_badge_2_img,
-				'alt'        => $fallback_badge_2_alt,
-				'link_url'   => get_theme_mod( 'degrees_badge_2_link_url', '' ),
-				'link_rel'   => get_theme_mod( 'degrees_badge_2_link_rel', '' ),
-				'new_window' => get_theme_mod( 'degrees_badge_2_link_new_window', false ),
-			);
-		}
-	}
-
-	return $badges;
 }
 
 

@@ -28,9 +28,7 @@ if ( $post->post_type === 'degree' ) :
 		$has_tuition = false;
 	}
 
-	$badges              = get_degree_badges( $post );
-	$badge_1             = $badges[0] ?? null;
-	$badge_2             = $badges[1] ?? null;
+	$section = get_field( 'degree_program_section', $post );
 
 	$details_col_classes = 'pr-lg-4 pr-xl-5 mb-4 mb-lg-0 col';
 	if ( $has_tuition ) {
@@ -42,10 +40,6 @@ if ( $post->post_type === 'degree' ) :
 		if ( $has_duration ) {
 			// If program duration info is present, make even more room at -xl+
 			$details_col_classes .= ' col-xl-6';
-		} else if ( $badge_2 ) {
-			// If there's no program duration info, but there are two badges,
-			// shrink this column at -xl to allow badges to sit on one line
-			$details_col_classes .= ' col-xl-4';
 		}
 	}
 ?>
@@ -158,40 +152,10 @@ if ( $post->post_type === 'degree' ) :
 				</div>
 				<?php endif; ?>
 
-				<?php if ( $badges ): ?>
+				<?php if ( $section ): ?>
 				<div class="col-md d-flex flex-row mb-4 mb-lg-0 pl-lg-4">
-					<div class="degree-badges">
-						<?php if ( $badge_1 ) : ?>
-						<div class="degree-badge-col">
-
-							<?php if ( $badge_1['link_url'] ) : ?>
-							<a href="<?php echo $badge_1['link_url']; ?>"
-								<?php if ( $badge_1['link_rel'] ) { ?>rel="<?php echo $badge_1['link_rel']; ?>"<?php } ?>
-								<?php if ( $badge_1['new_window'] ) { ?>target="_blank"<?php } ?>>
-							<?php endif; ?>
-								<img src="<?php echo $badge_1['img']; ?>" alt="<?php echo $badge_1['alt']; ?>" class="degree-badge">
-							<?php if ( $badge_1['link_url'] ) : ?>
-							</a>
-							<?php endif; ?>
-
-						</div>
-						<?php endif; ?>
-
-						<?php if ( $badge_2 ) : ?>
-						<div class="degree-badge-col">
-
-							<?php if ( $badge_2['link_url'] ) : ?>
-							<a href="<?php echo $badge_2['link_url']; ?>"
-								<?php if ( $badge_2['link_rel'] ) { ?>rel="<?php echo $badge_2['link_rel']; ?>"<?php } ?>
-								<?php if ( $badge_2['new_window'] ) { ?>target="_blank"<?php } ?>>
-							<?php endif; ?>
-								<img src="<?php echo $badge_2['img']; ?>" alt="<?php echo $badge_2['alt']; ?>" class="degree-badge">
-							<?php if ( $badge_2['link_url'] ) : ?>
-							</a>
-							<?php endif; ?>
-
-						</div>
-						<?php endif; ?>
+					<div class="section">
+						<?php echo $section->post_content; ?>
 					</div>
 				</div>
 				<?php endif; ?>
