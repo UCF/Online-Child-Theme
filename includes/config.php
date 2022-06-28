@@ -185,10 +185,109 @@ function online_define_customizer_fields( $wp_customize ) {
 
 
 	// Degrees
+
+	// Degrees - Program at a Glance
+	$wp_customize->add_setting(
+		'tuition_disclaimer'
+	);
+
+	$wp_customize->add_control(
+		'tuition_disclaimer',
+		array(
+			'type'        => 'textarea',
+			'label'       => 'Tuition Disclaimer',
+			'description' => 'A message displayed below the tuition per credit hour on degree pages.',
+			'section'     => ONLINE_THEME_CUSTOMIZER_PREFIX . 'degrees'
+		)
+	);
+
 	$wp_customize->add_setting(
 		'degree_catalog_thumbnail',
 		array(
 			'default' => online_get_theme_mod_default( 'degree_catalog_thumbnail' )
+		)
+	);
+
+	// Degrees - Deadlines/Apply
+	$wp_customize->add_setting(
+		'degree_deadlines_undergraduate_deadline_order',
+		array(
+			'default' => online_get_theme_mod_default( 'degree_deadlines_undergraduate_deadline_order' )
+		)
+	);
+
+	$wp_customize->add_control(
+		'degree_deadlines_undergraduate_deadline_order',
+		array(
+			'type'        => 'text',
+			'label'       => 'Undergraduate Deadline Type Order',
+			'description' => 'A case-sensitive, comma-separated list designating the order by which deadlines should be grouped for undergraduate programs that display grouped deadlines.',
+			'section'     => ONLINE_THEME_CUSTOMIZER_PREFIX . 'degrees'
+		)
+	);
+
+	$wp_customize->add_setting(
+		'degree_deadlines_graduate_deadline_order',
+		array(
+			'default' => online_get_theme_mod_default( 'degree_deadlines_graduate_deadline_order' )
+		)
+	);
+
+	$wp_customize->add_control(
+		'degree_deadlines_graduate_deadline_order',
+		array(
+			'type'        => 'text',
+			'label'       => 'Graduate Deadline Type Order',
+			'description' => 'A case-sensitive, comma-separated list designating the order by which deadlines should be grouped for graduate programs that display grouped deadlines.',
+			'section'     => ONLINE_THEME_CUSTOMIZER_PREFIX . 'degrees'
+		)
+	);
+
+	$wp_customize->add_setting(
+		'degree_deadlines_undergraduate_fallback'
+	);
+
+	$wp_customize->add_control(
+		'degree_deadlines_undergraduate_fallback',
+		array(
+			'type'        => 'select',
+			'label'       => 'Undergraduate Degree Fallback Section',
+			'description' => 'An alternate Section post to display instead of the Application Deadlines section for undergraduate programs without deadlines.',
+			'section'     => ONLINE_THEME_CUSTOMIZER_PREFIX . 'degrees',
+			'choices'     => array( '' => '---' )
+		)
+	);
+
+	$wp_customize->add_setting(
+		'degree_deadlines_graduate_fallback'
+	);
+
+	$wp_customize->add_control(
+		'degree_deadlines_graduate_fallback',
+		array(
+			'type'        => 'select',
+			'label'       => 'Graduate Degree Fallback Section',
+			'description' => 'An alternate Section post to display instead of the Application Deadlines section for graduate programs without deadlines.',
+			'section'     => ONLINE_THEME_CUSTOMIZER_PREFIX . 'degrees',
+			'choices'     => array( '' => '---' )
+		)
+	);
+
+	// Degrees - Skills and Career Opportunities
+	$wp_customize->add_setting(
+		'degree_careers_intro',
+		array(
+			'default' => online_get_theme_mod_default( 'degree_careers_intro' )
+		)
+	);
+
+	$wp_customize->add_control(
+		'degree_careers_intro',
+		array(
+			'type'        => 'textarea',
+			'label'       => 'Degree Career Fallback Intro Text',
+			'description' => 'Text to display next to a program\'s careers when a list of learnable skills is not set.',
+			'section'     => ONLINE_THEME_CUSTOMIZER_PREFIX . 'degrees'
 		)
 	);
 
