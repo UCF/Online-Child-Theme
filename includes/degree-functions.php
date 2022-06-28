@@ -3,7 +3,7 @@
 /**
  * Returns the child program_type assigned to the given degree.
  *
- * @since 3.1.0
+ * @since 1.5.0
  * @author Jo Dickson
  * @param object $degree  WP_Post object
  * @return mixed  WP_Term object, or null on failure
@@ -25,7 +25,7 @@ function get_degree_program_type( $degree ) {
  * Splits a provided tuition string into two parts:
  * the tuition value, and "per" string (e.g. per credit hour).
  *
- * @since 3.8.0
+ * @since 1.5.0
  * @author Jo Dickson
  * @param string $tuition_val
  * @return array
@@ -123,7 +123,7 @@ function get_degree_request_info_url_graduate( $params=array() ) {
  * a program that cannot be completed on its own (must be
  * completed alongside a full program.)
  *
- * @since 3.8.0
+ * @since 1.5.0
  * @author Jo Dickson
  * @param object $post WP_Post object representing a degree post
  * @return boolean
@@ -148,7 +148,7 @@ function is_supplementary_degree( $post ) {
  * Returns true/false if the given degree $post is
  * an undergraduate program.
  *
- * @since 3.8.0
+ * @since 1.5.0
  * @author Jo Dickson
  * @param object $post  WP_Post object
  * @return boolean
@@ -174,7 +174,7 @@ function is_undergraduate_degree( $post ) {
  * If custom application deadlines are defined, they are
  * returned instead in an unnamed group.
  *
- * @since 3.8.0
+ * @since 1.5.0
  * @author Jo Dickson
  * @param object $post WP_Post object
  * @return array
@@ -231,7 +231,7 @@ function get_degree_application_deadlines( $post ) {
 /**
  * Returns true|false if program_type is a graduate program.
  *
- * @since 3.3.8
+ * @since 1.5.0
  * @author RJ Bruneel
  * @param object $post  WP_Post object
  * @return boolean
