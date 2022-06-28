@@ -153,7 +153,7 @@ if ( $post->post_type === 'degree' ) :
 				<?php endif; ?>
 
 				<?php if ( $section ): ?>
-				<div class="col-md d-flex flex-row mb-4 mb-lg-0 pl-lg-4">
+				<div class="col-md d-flex flex-row mb-4 mb-lg-0 pl-lg-4 justify-content-center">
 					<div class="section">
 						<?php echo $section->post_content; ?>
 					</div>
