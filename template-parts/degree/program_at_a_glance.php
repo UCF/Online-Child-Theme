@@ -28,7 +28,7 @@ if ( $post->post_type === 'degree' ) :
 		$has_tuition = false;
 	}
 
-	$section = get_field( 'degree_section', $post );
+	$section = get_field( 'degree_program_section', $post );
 
 	$details_col_classes = 'pr-lg-4 pr-xl-5 mb-4 mb-lg-0 col';
 	if ( $has_tuition ) {
