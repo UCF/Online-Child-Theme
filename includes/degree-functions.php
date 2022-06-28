@@ -3,7 +3,7 @@
 /**
  * Returns the child program_type assigned to the given degree.
  *
- * @since 3.1.0
+ * @since 1.5.0
  * @author Jo Dickson
  * @param object $degree  WP_Post object
  * @return mixed  WP_Term object, or null on failure
