@@ -33,9 +33,9 @@ if ( $post->post_type === 'degree' ) :
 						<?php endif; ?>
 						<?php
 							if( get_sub_field( 'degree_quote_image' ) ) {
-								$quote_col_class = "col-lg-9 col-xl-10 offset-xl-1";
+								$quote_col_class = "col-lg-9 col-xl-8 offset-xl-1 mt-4 mt-lg-0";
 							} else if( get_sub_field( 'degree_quote_video' ) ) {
-								$quote_col_class = "col-lg-6";
+								$quote_col_class = "col-lg-6 mt-4 mt-lg-0";
 							} else {
 								$quote_col_class = "col-12 col-xl-10 offset-xl-1";
 							}
