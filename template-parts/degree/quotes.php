@@ -27,11 +27,7 @@ if ( $post->post_type === 'degree' ) :
 						<?php if( get_sub_field( 'degree_quote_video' ) ) : ?>
 							<div class="col-lg-3 text-center text-lg-right align-self-center">
 								<div class="embed-responsive embed-responsive-16by9">
-								<?php
-									echo wp_video_shortcode( [
-										'src' => the_sub_field( 'degree_quote_video' )
-									] );
-								?>
+									<iframe class="embed-responsive-item" src="<?php echo trim( the_sub_field( 'degree_quote_video' ) ); ?>" allowfullscreen></iframe>
 								</div>
 							</div>
 						<?php endif; ?>
