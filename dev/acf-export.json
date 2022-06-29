@@ -538,6 +538,25 @@
                 ]
             },
             {
+                "key": "field_62bca8b5fd012",
+                "label": "Lock Deadlines",
+                "name": "degree_lock_deadlines",
+                "type": "true_false",
+                "instructions": "Prevents overwriting of these fields on import",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "message": "",
+                "default_value": 0,
+                "ui": 1,
+                "ui_on_text": "Locked",
+                "ui_off_text": "Unlocked"
+            },
+            {
                 "key": "field_5e9dfbc04b1b0",
                 "label": "Course Overview",
                 "name": "",
@@ -1074,7 +1093,7 @@
                 "required": 0,
                 "conditional_logic": 0,
                 "wrapper": {
-                    "width": "50",
+                    "width": "40",
                     "class": "",
                     "id": ""
                 },
@@ -1090,6 +1109,360 @@
                 "name": "degree_nonresident_tuition",
                 "type": "text",
                 "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "40",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_62bca1253f9d5",
+                "label": "Lock Tuition Values",
+                "name": "degree_lock_tuition",
+                "type": "true_false",
+                "instructions": "Prevent updates on import",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "20",
+                    "class": "",
+                    "id": ""
+                },
+                "message": "",
+                "default_value": 0,
+                "ui": 1,
+                "ui_on_text": "Locked",
+                "ui_off_text": "Unlocked"
+            },
+            {
+                "key": "field_62bca1fb26303",
+                "label": "Short Name",
+                "name": "degree_short_name",
+                "type": "text",
+                "instructions": "The shortened name of the degree",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "80",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_62bca21b26304",
+                "label": "Lock Short Name",
+                "name": "degree_lock_short_name",
+                "type": "true_false",
+                "instructions": "Prevent updates on import",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "20",
+                    "class": "",
+                    "id": ""
+                },
+                "message": "",
+                "default_value": 0,
+                "ui": 1,
+                "ui_on_text": "Locked",
+                "ui_off_text": "Unlocked"
+            },
+            {
+                "key": "field_62bca2713aa03",
+                "label": "Catalog URL",
+                "name": "degree_pdf",
+                "type": "url",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "80",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": ""
+            },
+            {
+                "key": "field_62bca2843aa04",
+                "label": "Lock Catalog URL",
+                "name": "degree_lock_pdf",
+                "type": "true_false",
+                "instructions": "Prevent updates on import",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "20",
+                    "class": "",
+                    "id": ""
+                },
+                "message": "",
+                "default_value": 0,
+                "ui": 1,
+                "ui_on_text": "Locked",
+                "ui_off_text": "Unlocked"
+            },
+            {
+                "key": "field_62bca6c15a77a",
+                "label": "Degree Outcomes",
+                "name": "",
+                "type": "message",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "message": "Fields relating to outcome data provided by IKM.\r\n<hr>",
+                "new_lines": "wpautop",
+                "esc_html": 0
+            },
+            {
+                "key": "field_62bca37e5d4ce",
+                "label": "Outcome Academic Year",
+                "name": "degree_outcome_academic_year",
+                "type": "text",
+                "instructions": "The academic year the outcome stats apply to.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_62bca3215d4cb",
+                "label": "Average Annual Earnings",
+                "name": "degree_avg_annual_earnings",
+                "type": "text",
+                "instructions": "The average annual earnings for a graduate of this degree.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_62bca34d5d4cc",
+                "label": "Full Time Employment Rate",
+                "name": "degree_employee_full_time",
+                "type": "text",
+                "instructions": "Percentage of students employed full time following graduation following the \"Outcome Academic Year\".",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_62bca3635d4cd",
+                "label": "Continuing Education Rate",
+                "name": "degree_continuing_education",
+                "type": "text",
+                "instructions": "The percentage of students continuing their education after graduation following the \"Outcome Academic Year\".",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_62bca39e5d4cf",
+                "label": "Lock Outcomes Stats",
+                "name": "degree_lock_outcomes",
+                "type": "true_false",
+                "instructions": "Prevents updates of outcome stats during import",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "message": "",
+                "default_value": 0,
+                "ui": 1,
+                "ui_on_text": "Locked",
+                "ui_off_text": "Unlocked"
+            },
+            {
+                "key": "field_62bca6e45a77b",
+                "label": "Degree Projections",
+                "name": "",
+                "type": "message",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "message": "Fields related to data collected from the Bureau of Labor Statistics\r\n<hr>",
+                "new_lines": "wpautop",
+                "esc_html": 0
+            },
+            {
+                "key": "field_62bca490b2c04",
+                "label": "Begin Year",
+                "name": "degree_prj_begin_year",
+                "type": "text",
+                "instructions": "The beginning year period for the projections.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_62bca4a7b2c05",
+                "label": "End Year",
+                "name": "degree_prj_end_year",
+                "type": "text",
+                "instructions": "The final year of the projection year range.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_62bca4c8b2c06",
+                "label": "Employment Start",
+                "name": "degree_prj_begin_employment",
+                "type": "text",
+                "instructions": "The number of positions related to this field at the beginning of the projection period.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_62bca4deb2c07",
+                "label": "Employment End",
+                "name": "degree_prj_end_employment",
+                "type": "text",
+                "instructions": "The number of positions related to this field at the end of the projection period.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_62bca511b2c08",
+                "label": "Employment Change Total",
+                "name": "degree_prj_change",
+                "type": "text",
+                "instructions": "The total number of new jobs projected to be created during this period in this field.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_62bca529b2c09",
+                "label": "Employment Change Percentage",
+                "name": "degree_prj_change_percentage",
+                "type": "text",
+                "instructions": "The projected percentage of increase\/decrease of jobs in this field for the period.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_62bca54ab2c0a",
+                "label": "Employment Openings",
+                "name": "degree_prj_openings",
+                "type": "text",
+                "instructions": "The projected average number of openings for positions in this field per year.",
                 "required": 0,
                 "conditional_logic": 0,
                 "wrapper": {
