@@ -7,7 +7,7 @@ if ( $post->post_type === 'degree' ) :
 	$career_expand = count( $careers ) > 10 ? true : false;
 ?>
 <div class="degree-careers <?php if ( $career_expand ) { ?>degree-careers-expandable<?php } ?>" id="career-opportunities-list">
-	<ul class="degree-career-list">
+	<ul class="degree-career-list text-capitalize">
 		<?php foreach ( $careers as $career ) : ?>
 		<li class="degree-career-list-item">
 			<?php echo $career; ?>
