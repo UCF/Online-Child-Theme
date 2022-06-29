@@ -3,7 +3,7 @@ $post = isset( $post ) ? $post : get_queried_object();
 
 if ( $post->post_type === 'degree' ) :
 	$catalog_desc_full = trim( get_field( 'degree_description_full', $post ) );
-	$catalog_cta_intro = get_theme_mod_or_default( 'catalog_desc_cta_intro' );
+	$catalog_cta_intro = online_get_theme_mod_or_default( 'catalog_desc_cta_intro' );
 	$subplans          = get_children( array(
 		'post_parent' => $post->ID,
 		'post_type'   => 'degree',

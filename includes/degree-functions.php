@@ -168,6 +168,47 @@ function is_undergraduate_degree( $post ) {
 
 
 /**
+ * Returns details for a promotional graphic to display
+ * alongside degree catalog descriptions.
+ *
+ * @since 1.5.0
+ * @author Jo Dickson
+ * @param object $post WP_Post object
+ * @return array
+ */
+function get_degree_promo( $post ) {
+	$promo               = array();
+	$disable_promo       = get_field( 'degree_disable_sidebar_promo', $post ) ?: false;
+	$theme_mod_name_base = '';
+	$promo_img           = null;
+
+	if ( ! $disable_promo ) {
+		if ( is_graduate_degree( $post ) ) {
+			$theme_mod_name_base = 'degrees_sidebar_promo_graduate';
+		} else if ( is_undergraduate_degree( $post ) ) {
+			$theme_mod_name_base = 'degrees_sidebar_promo_undergraduate';
+		}
+	}
+
+	if ( $theme_mod_name_base ) {
+		$promo_img = get_theme_mod( $theme_mod_name_base );
+	}
+
+	if ( $promo_img ) {
+		$promo = array(
+			'img'        => $promo_img,
+			'alt'        => get_theme_mod( $theme_mod_name_base . '_alt', '' ),
+			'link_url'   => get_theme_mod( $theme_mod_name_base . '_link_url', '' ),
+			'link_rel'   => get_theme_mod( $theme_mod_name_base . '_link_rel', '' ),
+			'new_window' => get_theme_mod( $theme_mod_name_base . '_link_new_window', false ),
+		);
+	}
+
+	return $promo;
+}
+
+
+/**
  * Returns an array of deadlines, grouped by deadline type
  * (e.g. domestic/transfer/international).
  *
