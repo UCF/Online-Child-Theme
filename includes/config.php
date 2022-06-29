@@ -10,7 +10,8 @@ define( 'ONLINE_THEME_JS_URL', ONLINE_THEME_STATIC_URL . '/js' );
 define( 'ONLINE_THEME_IMG_URL', ONLINE_THEME_STATIC_URL . '/img' );
 define( 'ONLINE_THEME_CUSTOMIZER_PREFIX', 'online_' );
 define( 'ONLINE_THEME_CUSTOMIZER_DEFAULTS', serialize( array(
-	'degree_catalog_thumbnail' => ONLINE_THEME_IMG_URL . '/degree-catalog-thumb.jpg'
+	'degree_catalog_thumbnail' => ONLINE_THEME_IMG_URL . '/degree-catalog-thumb.jpg',
+	'catalog_desc_cta_intro'   => '',
 ) ) );
 define( 'ONLINE_DEGREE_PROGRAM_ORDER', serialize( array(
 	'online-major',
@@ -205,6 +206,23 @@ function online_define_customizer_fields( $wp_customize ) {
 		'degree_catalog_thumbnail',
 		array(
 			'default' => online_get_theme_mod_default( 'degree_catalog_thumbnail' )
+		)
+	);
+
+	$wp_customize->add_setting(
+		'catalog_desc_cta_intro',
+		array(
+			'default' => online_get_theme_mod_default( 'catalog_desc_cta_intro' )
+		)
+	);
+
+	$wp_customize->add_control(
+		'catalog_desc_cta_intro',
+		array(
+			'type'        => 'textarea',
+			'label'       => 'Catalog CTA Intro Text',
+			'description' => 'Text to display above the "View in Catalog" button on programs that display a catalog description.',
+			'section'     => ONLINE_THEME_CUSTOMIZER_PREFIX . 'degrees-description'
 		)
 	);
 
