@@ -20,7 +20,7 @@ if ( $post->post_type === 'degree' ) :
 					<div class="row">
 						<?php if( get_sub_field( 'degree_quote_image' ) ) : ?>
 							<div class="col-lg-3">
-								<img src="<?php the_sub_field( 'degree_quote_image' ); ?>" class="img-fluid"
+								<img src="<?php the_sub_field( 'degree_quote_image' ); ?>" class="img-fluid rounded-circle"
 									alt="<?php the_sub_field( 'degree_quote_image_alt' ); ?>">
 							</div>
 						<?php endif; ?>
