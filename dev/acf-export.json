@@ -1477,6 +1477,25 @@
                 "maxlength": ""
             },
             {
+                "key": "field_62bda4f3d6e50",
+                "label": "Lock Projections",
+                "name": "degree_lock_projections",
+                "type": "true_false",
+                "instructions": "Prevents updates during import process for projections",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "message": "",
+                "default_value": 0,
+                "ui": 1,
+                "ui_on_text": "Locked",
+                "ui_off_text": "Unlocked"
+            },
+            {
                 "key": "field_62bb65872a884",
                 "label": "Confirmation Page",
                 "name": "",
