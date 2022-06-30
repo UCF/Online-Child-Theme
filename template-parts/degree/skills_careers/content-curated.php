@@ -11,13 +11,16 @@ if ( $post->post_type === 'degree' ) :
 	$degree_prj_begin_year        = get_field( 'degree_prj_begin_year' );
 	$degree_prj_end_year          = get_field( 'degree_prj_end_year' );
 
+	$projection_disclaimer  = get_theme_mod( 'projection_disclaimer', null );
+
 ?>
 <h2 class="font-condensed text-primary text-uppercase mb-4">
 	<?php echo $degree_skills_heading; ?>
 </h2>
 <div class="row">
 
-	<?php if ( have_rows( 'degree_skills_list', $post ) ) : ?>
+<?php if ( have_rows( 'degree_skills_list', $post ) ) : ?>
+
 	<div class="col-lg-7 py-lg-3">
 		<ul class="pl-4 mb-0">
 		<?php while ( have_rows( 'degree_skills_list', $post ) ) : the_row(); ?>
@@ -29,6 +32,8 @@ if ( $post->post_type === 'degree' ) :
 		<?php endwhile; ?>
 		</ul>
 
+	<?php if( $degree_projection_heading ) : ?>
+
 		<hr class="hr-primary pb-3">
 
 		<h2 class="font-condensed text-primary text-uppercase mb-4">
@@ -36,20 +41,37 @@ if ( $post->post_type === 'degree' ) :
 		</h2>
 
 		<div class="row">
+
+		<?php if( $degree_prj_openings ) : ?>
+
 			<div class="col-auto">
 				<div class="h1 text-uppercase text-center"><?php echo $degree_prj_openings; ?></div>
 				<p class="text-center d-block">Annual Job<br>Oppenings</p>
 			</div>
+
+		<?php endif; ?>
+
+		<?php if( $degree_prj_change_percentage && $degree_prj_begin_year && $degree_prj_end_year ) : ?>
+
 			<div class="col-auto">
 				<div class="h1 text-uppercase text-center"><?php echo $degree_prj_change_percentage; ?>%</div>
-				<p class="text-center d-block">Job Growth<br>Between<br><?php echo $degree_prj_begin_year; ?> - <?php echo $degree_prj_end_year; ?></p>
+				<p class="text-center d-block">
+					Job Growth<br>Between<br>
+					<?php echo $degree_prj_begin_year; ?> - <?php echo $degree_prj_end_year; ?>
+				</p>
 			</div>
+
+		<?php endif; ?>
+
 		</div>
 
-		<p>Source: Emsi Burning Glass - economicmodeling.com</p>
+		<p><?php echo $projection_disclaimer; ?></p>
+
+	<?php endif; ?>
 
 	</div>
-	<?php endif; ?>
+
+<?php endif; ?>
 
 	<div class="col-lg-4 offset-lg-1 mt-4 mt-lg-0">
 		<h2 class="font-condensed h5 text-uppercase mb-4 pt-3">
