@@ -38,7 +38,7 @@ if ( $post->post_type === 'degree' ) :
 		<div class="row">
 			<div class="col-auto">
 				<div class="h1 text-uppercase text-center"><?php echo $degree_prj_openings; ?></div>
-				<p class="text-center d-block">Annual Job<br>Oppenings</p>
+				<p class="text-center d-block">Annual Job<br>Openings</p>
 			</div>
 			<div class="col-auto">
 				<div class="h1 text-uppercase text-center"><?php echo $degree_prj_change_percentage; ?>%</div>
