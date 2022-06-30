@@ -293,6 +293,20 @@ function online_define_customizer_fields( $wp_customize ) {
 
 	// Degrees - Skills and Career Opportunities
 	$wp_customize->add_setting(
+		'projection_disclaimer'
+	);
+
+	$wp_customize->add_control(
+		'projection_disclaimer',
+		array(
+			'type'        => 'textarea',
+			'label'       => 'Projection Disclaimer',
+			'description' => 'A message displayed below the projection section on degree pages.',
+			'section'     => ONLINE_THEME_CUSTOMIZER_PREFIX . 'degrees'
+		)
+	);
+
+	$wp_customize->add_setting(
 		'degree_careers_intro',
 		array(
 			'default' => online_get_theme_mod_default( 'degree_careers_intro' )
