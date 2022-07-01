@@ -12,7 +12,7 @@ if ( $post->post_type === 'degree' ) :
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12" class="faq-container">
-					<?php echo do_shortcode( '[ucf-faq-list topic="' . $degree_faq_topic . '" title="Frequently Asked Questions" topic_class="invisible" tags="' . $degree_faq_tags . '"]' ); ?>
+					<?php echo do_shortcode( sprintf( '[ucf-faq-list topic="%s" title="Frequently Asked Questions" topic_class="invisible" tags="%s"]', $degree_faq_topic, $degree_faq_tags ) ); ?>
 				</div>
 			</div>
 		</div>
