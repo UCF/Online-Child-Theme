@@ -8,11 +8,11 @@ if ( $post->post_type === 'degree' ) :
 
 	if( $degree_faq_topic && $degree_faq_tags ) :
 ?>
-	<section id="faq" aria-label="FAQ">
+	<section id="faq" aria-label="FAQ" class="bg-faded py-5">
 		<div class="container">
-			<div class="row my-5 py-3">
+			<div class="row">
 				<div class="col-md-12" class="faq-container">
-					<?php do_shortcode( '[ucf-faq-list topic="' . $degree_faq_topic . '" title="Frequently Asked Questions" topic_class="invisible" tags="' . $degree_faq_tags . '"]' ); ?>
+					<?php echo do_shortcode( '[ucf-faq-list topic="' . $degree_faq_topic . '" title="Frequently Asked Questions" topic_class="invisible" tags="' . $degree_faq_tags . '"]' ); ?>
 				</div>
 			</div>
 		</div>
