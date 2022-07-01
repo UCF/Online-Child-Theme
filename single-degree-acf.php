@@ -17,6 +17,8 @@
 	get_template_part( 'template-parts/degree/course_overview' );
 	get_template_part( 'template-parts/degree/quotes' );
 	get_template_part( 'template-parts/degree/skills_careers' );
+	get_template_part( 'template-parts/degree/faq' );
+	get_template_part( 'template-parts/degree/related-programs' );
 	get_template_part( 'template-parts/degree/news' );
 
 	get_template_part( 'template-parts/degree/catalog_modal' );
