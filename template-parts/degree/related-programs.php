@@ -8,12 +8,12 @@ if ( $post->post_type === 'degree' ) :
 
 	if( $degree_related_programs_layout && $degree_related_programs_tag ) :
 ?>
-	<section id="related-programs" aria-label="Related Online Programs">
+	<section id="related-programs" aria-label="Related Online Programs" class="py-5">
 		<div class="container">
-			<div class="row my-5 py-3">
+			<div class="row">
 				<div class="col-md-12">
 					<h2 class="h3 mb-4">Related Online Programs</h2>
-					<?php do_shortcode( '[ucf-post-list post_type="degree" posts_per_page="3" posts_per_row="3" layout="' . $degree_related_programs_layout . '" tag="' . $degree_related_programs_tag . '"]' ); ?>
+					<?php echo do_shortcode( '[ucf-post-list post_type="degree" posts_per_page="3" posts_per_row="3" layout="' . $degree_related_programs_layout . '" tag="' . $degree_related_programs_tag . '"]' ); ?>
 				</div>
 			</div>
 		</div>
