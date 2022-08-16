@@ -497,13 +497,13 @@ function online_get_degree_tuition_markup( $degree ) {
 		</div>
 		<div class="card-block d-flex flex-column justify-content-center px-sm-4 px-md-2 px-xl-3 pt-4 py-md-5 pt-lg-4 pb-lg-3 tab-content" id="tuition-panes">
 			<?php if ( $resident_tuition ): ?>
-			<div class="tab-pane fade show active" id="resident-tuition" role="tabpanel" aria-labelledby="resident-tuition-tab">
+			<div class="tab-pane fade show active" id="resident-tuition" aria-labelledby="resident-tuition-tab">
 				<?php echo $resident_tuition; ?>
 			</div>
 			<?php endif; ?>
 
 			<?php if ( $nonresident_tuition ): ?>
-			<div class="tab-pane fade <?php if ( ! $resident_tuition ){ ?>show active<?php } ?>" id="nonresident-tuition" role="tabpanel" aria-labelledby="nonresident-tuition-tab">
+			<div class="tab-pane fade <?php if ( ! $resident_tuition ){ ?>show active<?php } ?>" id="nonresident-tuition" aria-labelledby="nonresident-tuition-tab">
 				<?php echo $nonresident_tuition; ?>
 			</div>
 			<?php endif; ?>
