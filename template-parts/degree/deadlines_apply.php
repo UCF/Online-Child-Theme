@@ -162,7 +162,7 @@ if ( $post->post_type === 'degree' ) :
 
 							<!-- Request Info button column -->
 							<div class="col-12 col-lg-auto align-self-lg-center">
-								<a class="btn btn-md btn-primary rounded"  rel="noopener" data-toggle="modal" data-target="#formModal">
+								<a class="btn btn-md btn-primary rounded landing-cta" rel="noopener" href="#landing-dialog">
 									Request Info
 								</a>
 							</div>
