@@ -13,13 +13,13 @@ if ( $post->post_type === 'degree' ) :
 			<div class="row my-lg-3">
 				<div class="col-12">
 					<h2 id="course-overview-heading" class="font-condensed text-uppercase mb-4">Course Overview</h2>
-					<div class="accordion" role="tablist" id="courses">
+					<div class="accordion" id="courses">
 
 						<?php while ( have_rows( 'course_overview', $post ) ) : the_row(); ?>
 						<div class="accordion-courses mt-0 pt-0 pt-lg-3">
-							<a class="accordion-course-title text-decoration-none <?php if ( get_row_index() !== 1 ) echo ' collapsed'; ?>"
+							<a role="button" class="accordion-course-title text-decoration-none <?php if ( get_row_index() !== 1 ) echo ' collapsed'; ?>"
 								data-toggle="collapse" data-target="#course-<?php echo get_row_index(); ?>"
-								aria-controls="course-<?php echo get_row_index(); ?>" role="tab" tabindex="0" aria-expanded="true">
+								aria-controls="course-<?php echo get_row_index(); ?>" tabindex="0" aria-expanded="true">
 								<h3 class="mb-0">
 									<span class="font-condensed h6 letter-spacing-2 mb-3 text-uppercase">
 										<?php the_sub_field( 'course_title' ); ?>
@@ -28,7 +28,7 @@ if ( $post->post_type === 'degree' ) :
 								</h3>
 							</a>
 							<div class="collapse<?php if ( get_row_index() === 1 ) echo " show"; ?>"
-								id="course-<?php echo get_row_index(); ?>" data-parent="#courses" role="tabpanel">
+								id="course-<?php echo get_row_index(); ?>" data-parent="#courses">
 								<p class="mt-3 mb-0">
 									<?php the_sub_field( 'course_description' ); ?>
 								</p>

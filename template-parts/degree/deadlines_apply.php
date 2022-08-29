@@ -75,8 +75,8 @@ if ( $post->post_type === 'degree' ) :
 
 									<!-- Deadline group tabs column, if applicable -->
 									<?php if ( $deadline_group_names && count( $deadline_group_names ) > 1 ) : ?>
-									<div class="col-lg-auto d-flex mb-3 mb-lg-0 pr-lg-4">
-										<ul class="nav nav-pills degree-deadline-tab-nav flex-lg-column" id="degree-deadline-tabs" role="tablist">
+									<div class="col-lg-auto d-flex mb-3 mb-lg-0 pr-lg-4" role="navigation">
+										<ul class="nav nav-pills degree-deadline-tab-nav flex-lg-column" id="degree-deadline-tabs">
 											<?php
 											foreach ( $deadline_group_names as $i => $group_name ) :
 												$nav_link_class = 'nav-link';
@@ -89,7 +89,6 @@ if ( $post->post_type === 'degree' ) :
 													id="tab-<?php echo $nav_link_slug; ?>"
 													data-toggle="pill"
 													href="#<?php echo $nav_link_slug; ?>"
-													role="tab"
 													aria-controls="<?php echo $nav_link_slug; ?>"
 													aria-selected="true">
 													<?php echo $group_name; ?>
@@ -120,7 +119,6 @@ if ( $post->post_type === 'degree' ) :
 											?>
 											<div class="<?php echo $tab_pane_class; ?>"
 												id="<?php echo $tab_pane_slug; ?>"
-												role="tabpanel"
 												aria-labelledby="tab-<?php echo $tab_pane_slug; ?>">
 											<?php endif; ?>
 
@@ -164,7 +162,7 @@ if ( $post->post_type === 'degree' ) :
 
 							<!-- Request Info button column -->
 							<div class="col-12 col-lg-auto align-self-lg-center">
-								<a class="btn btn-md btn-primary rounded"  rel="noopener" data-toggle="modal" data-target="#formModal">
+								<a class="btn btn-md btn-primary rounded landing-cta" rel="noopener" href="#landing-dialog">
 									Request Info
 								</a>
 							</div>
