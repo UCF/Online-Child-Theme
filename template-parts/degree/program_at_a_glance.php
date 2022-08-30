@@ -64,22 +64,11 @@ if ( $post->post_type === 'degree' ) :
 								<?php if ( $colleges ) : ?>
 								<dt class="h6 text-uppercase text-inverse-aw">College(s)</dt>
 								<dd class="h5 mb-4">
-									<?php
-									foreach ( $colleges as $college ) :
-										$college_url = get_term_link( $college->term_id );
-										if ( $college_url ) :
-									?>
-										<a href="<?php echo $college_url; ?>" class="d-block">
-											<?php echo $college->name; ?>
-										</a>
-									<?php else : ?>
+									<?php foreach ( $colleges as $college ) : ?>
 										<span class="d-block">
 											<?php echo $college->name; ?>
 										</span>
-									<?php
-										endif;
-									endforeach;
-									?>
+									<?php endforeach; ?>
 								</dd>
 								<?php endif; ?>
 							</dl>
