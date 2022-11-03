@@ -11,7 +11,7 @@ function online_enqueue_frontend_assets() {
 	$theme_version = $theme->get( 'Version' );
 
 	wp_enqueue_style( 'style-child', ONLINE_THEME_CSS_URL . '/style.min.css', array( 'style' ), $theme_version );
-	wp_enqueue_script( 'script-child', ONLINE_THEME_JS_URL . '/script.min.js', array( 'jquery', 'script', 'ucf-degree-search-js' ), $theme_version, true );
+	wp_enqueue_script( 'script-child', ONLINE_THEME_JS_URL . '/script.min.js', array( 'jquery', 'script', 'ucf-degree-search-js', 'ucf-degree-picker-js' ), $theme_version, true );
 
 	global $post;
 
