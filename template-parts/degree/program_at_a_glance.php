@@ -93,10 +93,10 @@ if ( $post->post_type === 'degree' ) :
 				<div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
 					<div class="card h-100 text-center">
 
-						<div class="card-header" role="navigation">
+						<div class="card-header" role="tablist">
 							<ul class="nav nav-tabs card-header-tabs" id="tuition-tabs">
 								<?php if ( $tuition_resident ): ?>
-								<li class="nav-item text-nowrap" role="presentation">
+								<li class="nav-item text-nowrap" role="tab">
 									<a class="nav-link active" id="resident-tuition-tab" data-toggle="tab" href="#resident-tuition" aria-controls="resident-tuition" aria-selected="true">
 										In State<span class="sr-only"> Tuition</span>
 									</a>
@@ -104,7 +104,7 @@ if ( $post->post_type === 'degree' ) :
 								<?php endif; ?>
 
 								<?php if ( $tuition_nonresident ): ?>
-								<li class="nav-item text-nowrap" role="presentation">
+								<li class="nav-item text-nowrap" role="tab">
 									<a class="nav-link" id="nonresident-tuition-tab" data-toggle="tab" href="#nonresident-tuition" aria-controls="nonresident-tuition" aria-selected="false">
 										Out of State<span class="sr-only"> Tuition</span>
 									</a>
@@ -115,7 +115,7 @@ if ( $post->post_type === 'degree' ) :
 
 						<div class="card-block d-flex flex-column justify-content-center px-sm-4 px-md-2 px-xl-3 pt-4 py-md-5 pt-lg-4 pb-lg-3 tab-content" id="tuition-panes">
 							<?php if ( $tuition_resident ): ?>
-							<div class="tab-pane fade show active" id="resident-tuition" aria-labelledby="resident-tuition-tab">
+							<div class="tab-pane fade show active" id="resident-tuition" aria-labelledby="resident-tuition-tab" rol="tabpanel">
 								<span class="tuition-amount">
 									<?php echo $tuition_resident['value']; ?>
 								</span>
@@ -124,7 +124,7 @@ if ( $post->post_type === 'degree' ) :
 							<?php endif; ?>
 
 							<?php if ( $tuition_nonresident ): ?>
-							<div class="tab-pane fade <?php if ( ! $tuition_resident ) { ?>show active<?php } ?>" id="nonresident-tuition" aria-labelledby="nonresident-tuition-tab">
+							<div class="tab-pane fade <?php if ( ! $tuition_resident ) { ?>show active<?php } ?>" id="nonresident-tuition" aria-labelledby="nonresident-tuition-tab" role="tabpanel">
 								<span class="tuition-amount">
 									<?php echo $tuition_nonresident['value']; ?>
 								</span>
