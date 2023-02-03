@@ -93,8 +93,8 @@ if ( $post->post_type === 'degree' ) :
 				<div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
 					<div class="card h-100 text-center">
 
-						<div class="card-header" role="tablist">
-							<ul class="nav nav-tabs card-header-tabs" id="tuition-tabs">
+						<div class="card-header">
+							<ul class="nav nav-tabs card-header-tabs" id="tuition-tabs" role="tablist">
 								<?php if ( $tuition_resident ): ?>
 								<li class="nav-item text-nowrap" role="tab">
 									<a class="nav-link active" id="resident-tuition-tab" data-toggle="tab" href="#resident-tuition" aria-controls="resident-tuition" aria-selected="true">
