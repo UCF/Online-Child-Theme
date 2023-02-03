@@ -476,8 +476,8 @@ function online_get_degree_tuition_markup( $degree ) {
 	if ( $resident_tuition || $nonresident_tuition ):
 ?>
 	<div class="card h-100 text-center">
-		<div class="card-header" role="tablist">
-			<ul class="nav nav-tabs card-header-tabs" id="tuition-tabs">
+		<div class="card-header">
+			<ul class="nav nav-tabs card-header-tabs" id="tuition-tabs" role="tablist">
 				<?php if ( $resident_tuition ): ?>
 				<li class="nav-item text-nowrap" role="tab">
 					<a class="nav-link active" id="resident-tuition-tab" data-toggle="tab" href="#resident-tuition" aria-controls="resident-tuition" aria-selected="true">
