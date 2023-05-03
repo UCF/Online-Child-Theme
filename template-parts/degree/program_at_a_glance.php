@@ -96,16 +96,16 @@ if ( $post->post_type === 'degree' ) :
 						<div class="card-header">
 							<ul class="nav nav-tabs card-header-tabs" id="tuition-tabs" role="tablist">
 								<?php if ( $tuition_resident ): ?>
-								<li class="nav-item text-nowrap" role="tab">
-									<a class="nav-link active" id="resident-tuition-tab" data-toggle="tab" href="#resident-tuition" aria-controls="resident-tuition" aria-selected="true">
+								<li class="nav-item text-nowrap">
+									<a class="nav-link active" id="resident-tuition-tab" data-toggle="tab" href="#resident-tuition" aria-controls="resident-tuition" aria-selected="true" role="tab">
 										In State<span class="sr-only"> Tuition</span>
 									</a>
 								</li>
 								<?php endif; ?>
 
 								<?php if ( $tuition_nonresident ): ?>
-								<li class="nav-item text-nowrap" role="tab">
-									<a class="nav-link" id="nonresident-tuition-tab" data-toggle="tab" href="#nonresident-tuition" aria-controls="nonresident-tuition" aria-selected="false">
+								<li class="nav-item text-nowrap">
+									<a class="nav-link" id="nonresident-tuition-tab" data-toggle="tab" href="#nonresident-tuition" aria-controls="nonresident-tuition" aria-selected="false" role="tab">
 										Out of State<span class="sr-only"> Tuition</span>
 									</a>
 								</li>
