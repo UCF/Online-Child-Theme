@@ -7,6 +7,7 @@
                 "key": "field_5e99fb2dbcede",
                 "label": "Program at a Glance",
                 "name": "",
+                "aria-label": "",
                 "type": "tab",
                 "instructions": "",
                 "required": 0,
@@ -23,6 +24,7 @@
                 "key": "field_5f9adda85c2cc",
                 "label": "Program Length",
                 "name": "program_length",
+                "aria-label": "",
                 "type": "group",
                 "instructions": "",
                 "required": 0,
@@ -38,6 +40,7 @@
                         "key": "field_5f9addc95c2cd",
                         "label": "Image",
                         "name": "image",
+                        "aria-label": "",
                         "type": "image",
                         "instructions": "An icon to supplement the program's duration.",
                         "required": 0,
@@ -62,6 +65,7 @@
                         "key": "field_5f9addf15c2ce",
                         "label": "Number",
                         "name": "number",
+                        "aria-label": "",
                         "type": "text",
                         "instructions": "The actual program length value, e.g. \"30\", \"12-24\"",
                         "required": 0,
@@ -81,6 +85,7 @@
                         "key": "field_5f9ade145c2cf",
                         "label": "Text",
                         "name": "text",
+                        "aria-label": "",
                         "type": "text",
                         "instructions": "Units of measure, and\/or supplementary info about the program length.",
                         "required": 0,
@@ -102,6 +107,7 @@
                 "key": "field_62ba10ef53233",
                 "label": "Program Section",
                 "name": "degree_program_section",
+                "aria-label": "",
                 "type": "post_object",
                 "instructions": "Section to display in the right most column.",
                 "required": 0,
@@ -118,12 +124,14 @@
                 "allow_null": 1,
                 "multiple": 0,
                 "return_format": "object",
-                "ui": 1
+                "ui": 1,
+                "bidirectional_target": []
             },
             {
                 "key": "field_5faeb8ce5d327",
                 "label": "Catalog Description",
                 "name": "",
+                "aria-label": "",
                 "type": "tab",
                 "instructions": "",
                 "required": 0,
@@ -140,6 +148,7 @@
                 "key": "field_5faebbbb92089",
                 "label": "",
                 "name": "",
+                "aria-label": "",
                 "type": "message",
                 "instructions": "",
                 "required": 0,
@@ -157,6 +166,7 @@
                 "key": "field_5faeb73f9e0c7",
                 "label": "Disable Sidebar Promo",
                 "name": "degree_disable_sidebar_promo",
+                "aria-label": "",
                 "type": "true_false",
                 "instructions": "If checked, the promo graphic set in the Customizer for this type of degree will <em>not<\/em> be displayed on this degree's profile.  Only applicable when this degree displays a catalog description (and not a custom description).",
                 "required": 0,
@@ -176,6 +186,7 @@
                 "key": "field_5e99f80012a12",
                 "label": "Degree Description & Highlights",
                 "name": "",
+                "aria-label": "",
                 "type": "tab",
                 "instructions": "",
                 "required": 0,
@@ -192,6 +203,7 @@
                 "key": "field_5fa1b13bea6b7",
                 "label": "",
                 "name": "",
+                "aria-label": "",
                 "type": "message",
                 "instructions": "",
                 "required": 0,
@@ -209,6 +221,7 @@
                 "key": "field_5e961c9a35232",
                 "label": "Description Heading",
                 "name": "modern_description_heading",
+                "aria-label": "",
                 "type": "text",
                 "instructions": "Optional heading text to display above the degree description.",
                 "required": 0,
@@ -228,6 +241,7 @@
                 "key": "field_5e99d7308626b",
                 "label": "Degree Description",
                 "name": "modern_description_copy",
+                "aria-label": "",
                 "type": "wysiwyg",
                 "instructions": "A unique description for this degree.  Replaces the degree's catalog description on this degree's profile.",
                 "required": 0,
@@ -247,6 +261,7 @@
                 "key": "field_5fa30c20b2db6",
                 "label": "Show Subplan List",
                 "name": "show_subplan_list",
+                "aria-label": "",
                 "type": "true_false",
                 "instructions": "When checked, a list of program tracks\/options and their excerpts will be displayed underneath this program's unique degree description if this program has at least one subplan.  Not applicable when the Degree Description is empty.",
                 "required": 0,
@@ -266,6 +281,7 @@
                 "key": "field_5e99d8d7130db",
                 "label": "Description Image",
                 "name": "modern_description_image",
+                "aria-label": "",
                 "type": "image",
                 "instructions": "An optional graphic to display alongside this degree's description.",
                 "required": 0,
@@ -290,6 +306,7 @@
                 "key": "field_5e99d98c3902e",
                 "label": "Description Image Alt Text",
                 "name": "modern_description_image_alt",
+                "aria-label": "",
                 "type": "text",
                 "instructions": "Alt text for the Description Image above.  Not required, but should be set if the Description Image is not purely decorative or contains text.",
                 "required": 0,
@@ -309,6 +326,7 @@
                 "key": "field_5e99e5b773cc6",
                 "label": "Highlights",
                 "name": "highlights",
+                "aria-label": "",
                 "type": "repeater",
                 "instructions": "A list of selling points\/highlighted information about this program.",
                 "required": 0,
@@ -323,11 +341,13 @@
                 "max": 0,
                 "layout": "block",
                 "button_label": "Add Highlight",
+                "rows_per_page": 20,
                 "sub_fields": [
                     {
                         "key": "field_5fa1adbb0c966",
                         "label": "Highlight Image",
                         "name": "highlight",
+                        "aria-label": "",
                         "type": "group",
                         "instructions": "",
                         "required": 0,
@@ -343,6 +363,7 @@
                                 "key": "field_5e99e5fd73cc7",
                                 "label": "Image",
                                 "name": "image",
+                                "aria-label": "",
                                 "type": "image",
                                 "instructions": "",
                                 "required": 0,
@@ -367,6 +388,7 @@
                                 "key": "field_5fa1acf442552",
                                 "label": "Alt Text",
                                 "name": "image_alt_text",
+                                "aria-label": "",
                                 "type": "text",
                                 "instructions": "",
                                 "required": 0,
@@ -382,12 +404,14 @@
                                 "append": "",
                                 "maxlength": ""
                             }
-                        ]
+                        ],
+                        "parent_repeater": "field_5e99e5b773cc6"
                     },
                     {
                         "key": "field_5e99e61c73cc8",
                         "label": "Highlight Copy",
                         "name": "highlight_copy",
+                        "aria-label": "",
                         "type": "textarea",
                         "instructions": "",
                         "required": 0,
@@ -401,7 +425,8 @@
                         "placeholder": "",
                         "maxlength": "",
                         "rows": 6,
-                        "new_lines": ""
+                        "new_lines": "",
+                        "parent_repeater": "field_5e99e5b773cc6"
                     }
                 ]
             },
@@ -409,6 +434,7 @@
                 "key": "field_5e99f82f12a13",
                 "label": "Application Deadlines",
                 "name": "",
+                "aria-label": "",
                 "type": "tab",
                 "instructions": "",
                 "required": 0,
@@ -425,6 +451,7 @@
                 "key": "field_6127ec2c61df1",
                 "label": "Disable Deadlines",
                 "name": "disable_deadlines",
+                "aria-label": "",
                 "type": "true_false",
                 "instructions": "If checked, application deadlines will <em>not<\/em> be displayed on this degree's profile.",
                 "required": 0,
@@ -444,6 +471,7 @@
                 "key": "field_5fa41b8492d13",
                 "label": "Alternate Section",
                 "name": "alternate_deadlines_section",
+                "aria-label": "",
                 "type": "post_object",
                 "instructions": "Specify an alternate Section post to display in lieu of the standard Application Deadlines section on this degree's profile.  This value takes precedence over the Undergraduate\/Graduate Fallback Section values in the Customizer.",
                 "required": 0,
@@ -468,12 +496,14 @@
                 "allow_null": 1,
                 "multiple": 0,
                 "return_format": "id",
-                "ui": 1
+                "ui": 1,
+                "bidirectional_target": []
             },
             {
                 "key": "field_5e9f44774068c",
                 "label": "Deadlines",
                 "name": "application_deadlines",
+                "aria-label": "",
                 "type": "repeater",
                 "instructions": "Specify a list of application deadlines to display on this degree's profile.  If provided, this list replaces the list of imported deadlines assigned to this degree.",
                 "required": 0,
@@ -496,11 +526,13 @@
                 "max": 3,
                 "layout": "block",
                 "button_label": "Add Deadline",
+                "rows_per_page": 20,
                 "sub_fields": [
                     {
                         "key": "field_5e9f44ae4068d",
                         "label": "Deadline Term",
                         "name": "deadline_term",
+                        "aria-label": "",
                         "type": "text",
                         "instructions": "e.g. \"Fall\", \"Spring\", \"Summer\"",
                         "required": 0,
@@ -514,12 +546,14 @@
                         "placeholder": "",
                         "prepend": "",
                         "append": "",
-                        "maxlength": ""
+                        "maxlength": "",
+                        "parent_repeater": "field_5e9f44774068c"
                     },
                     {
                         "key": "field_5e9f45084068e",
                         "label": "Deadline",
                         "name": "deadline",
+                        "aria-label": "",
                         "type": "text",
                         "instructions": "e.g. \"Dec 1, 2020\"",
                         "required": 0,
@@ -533,7 +567,8 @@
                         "placeholder": "",
                         "prepend": "",
                         "append": "",
-                        "maxlength": ""
+                        "maxlength": "",
+                        "parent_repeater": "field_5e9f44774068c"
                     }
                 ]
             },
@@ -541,6 +576,7 @@
                 "key": "field_62bca8b5fd012",
                 "label": "Lock Deadlines",
                 "name": "degree_lock_deadlines",
+                "aria-label": "",
                 "type": "true_false",
                 "instructions": "Prevents overwriting of these fields on import",
                 "required": 0,
@@ -560,6 +596,7 @@
                 "key": "field_5e9dfbc04b1b0",
                 "label": "Course Overview",
                 "name": "",
+                "aria-label": "",
                 "type": "tab",
                 "instructions": "",
                 "required": 0,
@@ -576,6 +613,7 @@
                 "key": "field_5e961a02e3191",
                 "label": "Course Overview",
                 "name": "course_overview",
+                "aria-label": "",
                 "type": "repeater",
                 "instructions": "Enter content to be added to the Course Overview Section.",
                 "required": 0,
@@ -589,12 +627,14 @@
                 "min": 0,
                 "max": 0,
                 "layout": "row",
-                "button_label": "",
+                "button_label": "Add Row",
+                "rows_per_page": 20,
                 "sub_fields": [
                     {
                         "key": "field_5e9dbd9801581",
                         "label": "Course Title",
                         "name": "course_title",
+                        "aria-label": "",
                         "type": "text",
                         "instructions": "Enter the course title",
                         "required": 0,
@@ -608,12 +648,14 @@
                         "placeholder": "",
                         "prepend": "",
                         "append": "",
-                        "maxlength": ""
+                        "maxlength": "",
+                        "parent_repeater": "field_5e961a02e3191"
                     },
                     {
                         "key": "field_5e9dbdc801582",
                         "label": "Course Description",
                         "name": "course_description",
+                        "aria-label": "",
                         "type": "textarea",
                         "instructions": "Enter the course description",
                         "required": 0,
@@ -627,7 +669,8 @@
                         "placeholder": "",
                         "maxlength": "",
                         "rows": "",
-                        "new_lines": ""
+                        "new_lines": "",
+                        "parent_repeater": "field_5e961a02e3191"
                     }
                 ]
             },
@@ -635,6 +678,7 @@
                 "key": "field_5ea1e9de29bab",
                 "label": "Catalog Link Text",
                 "name": "course_catalog_link_text",
+                "aria-label": "",
                 "type": "text",
                 "instructions": "Enter the text to be used for the link below the course list in the Course Overview section. If left blank the following text will be used \"View all [Degree Name] Courses\".",
                 "required": 0,
@@ -654,6 +698,7 @@
                 "key": "field_5e99f84712a14",
                 "label": "Degree Quotes",
                 "name": "",
+                "aria-label": "",
                 "type": "tab",
                 "instructions": "",
                 "required": 0,
@@ -670,6 +715,7 @@
                 "key": "field_5e9dfbdf4b1b1",
                 "label": "Degree Quotes",
                 "name": "degree_quotes",
+                "aria-label": "",
                 "type": "repeater",
                 "instructions": "Add quotes to be displayed on the degree page.",
                 "required": 0,
@@ -683,12 +729,14 @@
                 "min": 0,
                 "max": 0,
                 "layout": "row",
-                "button_label": "",
+                "button_label": "Add Row",
+                "rows_per_page": 20,
                 "sub_fields": [
                     {
                         "key": "field_62ba1376ef0f5",
                         "label": "Heading",
                         "name": "degree_quote_heading",
+                        "aria-label": "",
                         "type": "text",
                         "instructions": "Optional heading displayed above the quote.",
                         "required": 0,
@@ -702,12 +750,14 @@
                         "placeholder": "",
                         "prepend": "",
                         "append": "",
-                        "maxlength": ""
+                        "maxlength": "",
+                        "parent_repeater": "field_5e9dfbdf4b1b1"
                     },
                     {
                         "key": "field_5e9dfc2e4b1b3",
                         "label": "Image",
                         "name": "degree_quote_image",
+                        "aria-label": "",
                         "type": "image",
                         "instructions": "Optional image of the person quoted.",
                         "required": 0,
@@ -726,12 +776,14 @@
                         "max_width": "",
                         "max_height": "",
                         "max_size": "",
-                        "mime_types": ""
+                        "mime_types": "",
+                        "parent_repeater": "field_5e9dfbdf4b1b1"
                     },
                     {
                         "key": "field_5e9f0ddea2389",
                         "label": "Image Alt Text",
                         "name": "degree_quote_image_alt",
+                        "aria-label": "",
                         "type": "text",
                         "instructions": "Enter text to be used for the image alt attribute.",
                         "required": 0,
@@ -745,12 +797,14 @@
                         "placeholder": "",
                         "prepend": "",
                         "append": "",
-                        "maxlength": ""
+                        "maxlength": "",
+                        "parent_repeater": "field_5e9dfbdf4b1b1"
                     },
                     {
                         "key": "field_62ba11e5dabe0",
                         "label": "Video",
                         "name": "degree_quote_video",
+                        "aria-label": "",
                         "type": "url",
                         "instructions": "Video URL of the video to display next to the quote.",
                         "required": 0,
@@ -761,12 +815,14 @@
                             "id": ""
                         },
                         "default_value": "",
-                        "placeholder": ""
+                        "placeholder": "",
+                        "parent_repeater": "field_5e9dfbdf4b1b1"
                     },
                     {
                         "key": "field_62b31ad24edfb",
                         "label": "Quote",
                         "name": "degree_quote",
+                        "aria-label": "",
                         "type": "text",
                         "instructions": "Quote to be displayed",
                         "required": 0,
@@ -780,12 +836,14 @@
                         "placeholder": "",
                         "prepend": "",
                         "append": "",
-                        "maxlength": ""
+                        "maxlength": "",
+                        "parent_repeater": "field_5e9dfbdf4b1b1"
                     },
                     {
                         "key": "field_5e9dfd994b1b4",
                         "label": "Footer",
                         "name": "degree_quote_footer",
+                        "aria-label": "",
                         "type": "text",
                         "instructions": "The footer should contain the name, title (with cite tag) and company of the person quoted.",
                         "required": 0,
@@ -799,7 +857,8 @@
                         "placeholder": "",
                         "prepend": "",
                         "append": "",
-                        "maxlength": ""
+                        "maxlength": "",
+                        "parent_repeater": "field_5e9dfbdf4b1b1"
                     }
                 ]
             },
@@ -807,6 +866,7 @@
                 "key": "field_5e99f86912a15",
                 "label": "Skills & Opportunities",
                 "name": "",
+                "aria-label": "",
                 "type": "tab",
                 "instructions": "",
                 "required": 0,
@@ -823,6 +883,7 @@
                 "key": "field_5fa1cfcf9b6ac",
                 "label": "",
                 "name": "",
+                "aria-label": "",
                 "type": "message",
                 "instructions": "",
                 "required": 0,
@@ -840,6 +901,7 @@
                 "key": "field_5e97183304f1e",
                 "label": "Skills Heading",
                 "name": "degree_skills_heading",
+                "aria-label": "",
                 "type": "text",
                 "instructions": "Heading text to display above the degree's list of learnable skills.  If a value for this field isn't provided and skills are set below, this heading's text will be \"Skills You'll Learn\".",
                 "required": 0,
@@ -859,6 +921,7 @@
                 "key": "field_5e9618f641b44",
                 "label": "Skills List",
                 "name": "degree_skills_list",
+                "aria-label": "",
                 "type": "repeater",
                 "instructions": "A list of learnable skills provided by this degree.",
                 "required": 0,
@@ -873,11 +936,13 @@
                 "max": 0,
                 "layout": "row",
                 "button_label": "Add Skill",
+                "rows_per_page": 20,
                 "sub_fields": [
                     {
                         "key": "field_5e9f4a7f42439",
                         "label": "Skill List Item",
                         "name": "degree_skills_list_item",
+                        "aria-label": "",
                         "type": "text",
                         "instructions": "",
                         "required": 0,
@@ -891,7 +956,8 @@
                         "placeholder": "",
                         "prepend": "",
                         "append": "",
-                        "maxlength": ""
+                        "maxlength": "",
+                        "parent_repeater": "field_5e9618f641b44"
                     }
                 ]
             },
@@ -899,6 +965,7 @@
                 "key": "field_5e97185304f1f",
                 "label": "Career Opportunites Heading",
                 "name": "degree_careers_heading",
+                "aria-label": "",
                 "type": "text",
                 "instructions": "Heading text to display alongside the degree's list of potential careers.  If a value for this field isn't provided, this heading's text will be \"Career Opportunities\".",
                 "required": 0,
@@ -918,6 +985,7 @@
                 "key": "field_5e97180504f1d",
                 "label": "Career Opportunities",
                 "name": "degree_career_list",
+                "aria-label": "",
                 "type": "repeater",
                 "instructions": "Specify a list of career opportunities to display on this degree's profile.  If provided, this list replaces the list of Career Path terms assigned to this degree.",
                 "required": 0,
@@ -932,11 +1000,13 @@
                 "max": 0,
                 "layout": "row",
                 "button_label": "Add Career Path",
+                "rows_per_page": 20,
                 "sub_fields": [
                     {
                         "key": "field_5e9f4ec46e344",
                         "label": "Career Path",
                         "name": "degree_career_list_item",
+                        "aria-label": "",
                         "type": "text",
                         "instructions": "",
                         "required": 0,
@@ -950,7 +1020,8 @@
                         "placeholder": "",
                         "prepend": "",
                         "append": "",
-                        "maxlength": ""
+                        "maxlength": "",
+                        "parent_repeater": "field_5e97180504f1d"
                     }
                 ]
             },
@@ -958,6 +1029,7 @@
                 "key": "field_5e9f3a2ed038e",
                 "label": "News and Spotlight",
                 "name": "",
+                "aria-label": "",
                 "type": "tab",
                 "instructions": "",
                 "required": 0,
@@ -974,6 +1046,7 @@
                 "key": "field_5ea856c7532c5",
                 "label": "News Title",
                 "name": "degree_news_title",
+                "aria-label": "",
                 "type": "text",
                 "instructions": "Enter header to be added to the News Section",
                 "required": 0,
@@ -993,6 +1066,7 @@
                 "key": "field_5ea1bc67bf52d",
                 "label": "News Tag",
                 "name": "degree_news_tag",
+                "aria-label": "",
                 "type": "text",
                 "instructions": "Specify the tag <strong>slug<\/strong> to pull UCF Today stories from for this program.",
                 "required": 0,
@@ -1012,6 +1086,7 @@
                 "key": "field_5e9f3a8cd0390",
                 "label": "Spotlight",
                 "name": "degree_spotlight",
+                "aria-label": "",
                 "type": "post_object",
                 "instructions": "Select the spotlight to use for this degree.",
                 "required": 0,
@@ -1028,12 +1103,14 @@
                 "allow_null": 1,
                 "multiple": 0,
                 "return_format": "object",
-                "ui": 1
+                "ui": 1,
+                "bidirectional_target": []
             },
             {
                 "key": "field_62be0089a0c11",
                 "label": "FAQ & Related Programs",
                 "name": "",
+                "aria-label": "",
                 "type": "tab",
                 "instructions": "",
                 "required": 0,
@@ -1050,6 +1127,7 @@
                 "key": "field_62be00ada0c12",
                 "label": "FAQ Topic",
                 "name": "degree_faq_topic",
+                "aria-label": "",
                 "type": "text",
                 "instructions": "Enter the FAQ shortcode topic attribute",
                 "required": 0,
@@ -1069,6 +1147,7 @@
                 "key": "field_62be073edea7d",
                 "label": "FAQ Tags",
                 "name": "degree_faq_tags",
+                "aria-label": "",
                 "type": "text",
                 "instructions": "Enter the FAQ shortcode tags attribute",
                 "required": 0,
@@ -1088,6 +1167,7 @@
                 "key": "field_62be0759dea7e",
                 "label": "Related Programs Layout",
                 "name": "degree_related_programs_layout",
+                "aria-label": "",
                 "type": "select",
                 "instructions": "Enter the Related Programs shortcode layout attribute",
                 "required": 0,
@@ -1101,7 +1181,7 @@
                     "thumbnail": "Thumbnail",
                     "list": "List"
                 },
-                "default_value": [],
+                "default_value": false,
                 "allow_null": 1,
                 "multiple": 0,
                 "ui": 0,
@@ -1113,6 +1193,7 @@
                 "key": "field_62be07dedea7f",
                 "label": "Related Programs Tag",
                 "name": "degree_related_programs_tag",
+                "aria-label": "",
                 "type": "text",
                 "instructions": "Enter the Related Programs shortcode tag attribute",
                 "required": 0,
@@ -1132,6 +1213,7 @@
                 "key": "field_62bb641b5f2b8",
                 "label": "Degree Data",
                 "name": "",
+                "aria-label": "",
                 "type": "tab",
                 "instructions": "",
                 "required": 0,
@@ -1148,6 +1230,7 @@
                 "key": "field_62bb64425f2b9",
                 "label": "Degree Plan Code",
                 "name": "degree_code",
+                "aria-label": "",
                 "type": "text",
                 "instructions": "The plan code of the degree.",
                 "required": 0,
@@ -1167,6 +1250,7 @@
                 "key": "field_62bb64d283708",
                 "label": "Degree SubPlan Code",
                 "name": "degree_subplan_code",
+                "aria-label": "",
                 "type": "text",
                 "instructions": "The subplan code of the degree.",
                 "required": 0,
@@ -1186,6 +1270,7 @@
                 "key": "field_62bb651783709",
                 "label": "Resident Tuition",
                 "name": "degree_resident_tuition",
+                "aria-label": "",
                 "type": "text",
                 "instructions": "",
                 "required": 0,
@@ -1205,6 +1290,7 @@
                 "key": "field_62bb65368370a",
                 "label": "Nonresident Tuition",
                 "name": "degree_nonresident_tuition",
+                "aria-label": "",
                 "type": "text",
                 "instructions": "",
                 "required": 0,
@@ -1224,6 +1310,7 @@
                 "key": "field_62bca1253f9d5",
                 "label": "Lock Tuition Values",
                 "name": "degree_lock_tuition",
+                "aria-label": "",
                 "type": "true_false",
                 "instructions": "Prevent updates on import",
                 "required": 0,
@@ -1243,6 +1330,7 @@
                 "key": "field_62bca1fb26303",
                 "label": "Short Name",
                 "name": "degree_short_name",
+                "aria-label": "",
                 "type": "text",
                 "instructions": "The shortened name of the degree",
                 "required": 0,
@@ -1262,6 +1350,7 @@
                 "key": "field_62bca21b26304",
                 "label": "Lock Short Name",
                 "name": "degree_lock_short_name",
+                "aria-label": "",
                 "type": "true_false",
                 "instructions": "Prevent updates on import",
                 "required": 0,
@@ -1281,6 +1370,7 @@
                 "key": "field_62bca2713aa03",
                 "label": "Catalog URL",
                 "name": "degree_pdf",
+                "aria-label": "",
                 "type": "url",
                 "instructions": "",
                 "required": 0,
@@ -1297,6 +1387,7 @@
                 "key": "field_62bca2843aa04",
                 "label": "Lock Catalog URL",
                 "name": "degree_lock_pdf",
+                "aria-label": "",
                 "type": "true_false",
                 "instructions": "Prevent updates on import",
                 "required": 0,
@@ -1316,6 +1407,7 @@
                 "key": "field_62bca6c15a77a",
                 "label": "Degree Outcomes",
                 "name": "",
+                "aria-label": "",
                 "type": "message",
                 "instructions": "",
                 "required": 0,
@@ -1333,6 +1425,7 @@
                 "key": "field_62bca37e5d4ce",
                 "label": "Outcome Academic Year",
                 "name": "degree_outcome_academic_year",
+                "aria-label": "",
                 "type": "text",
                 "instructions": "The academic year the outcome stats apply to.",
                 "required": 0,
@@ -1352,6 +1445,7 @@
                 "key": "field_62bca3215d4cb",
                 "label": "Average Annual Earnings",
                 "name": "degree_avg_annual_earnings",
+                "aria-label": "",
                 "type": "text",
                 "instructions": "The average annual earnings for a graduate of this degree.",
                 "required": 0,
@@ -1371,6 +1465,7 @@
                 "key": "field_62bca34d5d4cc",
                 "label": "Full Time Employment Rate",
                 "name": "degree_employee_full_time",
+                "aria-label": "",
                 "type": "text",
                 "instructions": "Percentage of students employed full time following graduation following the \"Outcome Academic Year\".",
                 "required": 0,
@@ -1390,6 +1485,7 @@
                 "key": "field_62bca3635d4cd",
                 "label": "Continuing Education Rate",
                 "name": "degree_continuing_education",
+                "aria-label": "",
                 "type": "text",
                 "instructions": "The percentage of students continuing their education after graduation following the \"Outcome Academic Year\".",
                 "required": 0,
@@ -1409,6 +1505,7 @@
                 "key": "field_62bca39e5d4cf",
                 "label": "Lock Outcomes Stats",
                 "name": "degree_lock_outcomes",
+                "aria-label": "",
                 "type": "true_false",
                 "instructions": "Prevents updates of outcome stats during import",
                 "required": 0,
@@ -1428,6 +1525,7 @@
                 "key": "field_62bca6e45a77b",
                 "label": "Degree Projections",
                 "name": "",
+                "aria-label": "",
                 "type": "message",
                 "instructions": "",
                 "required": 0,
@@ -1445,6 +1543,7 @@
                 "key": "field_62bca490b2c04",
                 "label": "Begin Year",
                 "name": "degree_prj_begin_year",
+                "aria-label": "",
                 "type": "text",
                 "instructions": "The beginning year period for the projections.",
                 "required": 0,
@@ -1464,6 +1563,7 @@
                 "key": "field_62bca4a7b2c05",
                 "label": "End Year",
                 "name": "degree_prj_end_year",
+                "aria-label": "",
                 "type": "text",
                 "instructions": "The final year of the projection year range.",
                 "required": 0,
@@ -1483,6 +1583,7 @@
                 "key": "field_62bca4c8b2c06",
                 "label": "Employment Start",
                 "name": "degree_prj_begin_employment",
+                "aria-label": "",
                 "type": "text",
                 "instructions": "The number of positions related to this field at the beginning of the projection period.",
                 "required": 0,
@@ -1502,6 +1603,7 @@
                 "key": "field_62bca4deb2c07",
                 "label": "Employment End",
                 "name": "degree_prj_end_employment",
+                "aria-label": "",
                 "type": "text",
                 "instructions": "The number of positions related to this field at the end of the projection period.",
                 "required": 0,
@@ -1521,6 +1623,7 @@
                 "key": "field_62bca511b2c08",
                 "label": "Employment Change Total",
                 "name": "degree_prj_change",
+                "aria-label": "",
                 "type": "text",
                 "instructions": "The total number of new jobs projected to be created during this period in this field.",
                 "required": 0,
@@ -1540,6 +1643,7 @@
                 "key": "field_62bca529b2c09",
                 "label": "Employment Change Percentage",
                 "name": "degree_prj_change_percentage",
+                "aria-label": "",
                 "type": "text",
                 "instructions": "The projected percentage of increase\/decrease of jobs in this field for the period.",
                 "required": 0,
@@ -1559,6 +1663,7 @@
                 "key": "field_62bca54ab2c0a",
                 "label": "Employment Openings",
                 "name": "degree_prj_openings",
+                "aria-label": "",
                 "type": "text",
                 "instructions": "The projected average number of openings for positions in this field per year.",
                 "required": 0,
@@ -1578,6 +1683,7 @@
                 "key": "field_62bda4f3d6e50",
                 "label": "Lock Projections",
                 "name": "degree_lock_projections",
+                "aria-label": "",
                 "type": "true_false",
                 "instructions": "Prevents updates during import process for projections",
                 "required": 0,
@@ -1597,6 +1703,7 @@
                 "key": "field_62bb65872a884",
                 "label": "Confirmation Page",
                 "name": "",
+                "aria-label": "",
                 "type": "tab",
                 "instructions": "",
                 "required": 0,
@@ -1613,6 +1720,7 @@
                 "key": "field_62bb65952a885",
                 "label": "Confirmation Page Video URL",
                 "name": "degree_confirmation_video",
+                "aria-label": "",
                 "type": "url",
                 "instructions": "Enter a URL to display a video on the degree request for information confirmation page.",
                 "required": 0,
@@ -1629,6 +1737,7 @@
                 "key": "field_62bb65e62a886",
                 "label": "Brochure Document",
                 "name": "degree_brochure_document_file",
+                "aria-label": "",
                 "type": "file",
                 "instructions": "The PDF file to link to on the request for information degree confirmation page.",
                 "required": 0,
@@ -1668,7 +1777,8 @@
             "the_content"
         ],
         "active": true,
-        "description": ""
+        "description": "",
+        "show_in_rest": false
     },
     {
         "key": "group_5c62eabfa8a34",
@@ -1678,6 +1788,7 @@
                 "key": "field_5c61b5d193bad",
                 "label": "Highlights",
                 "name": "landing_highlights",
+                "aria-label": "",
                 "type": "repeater",
                 "instructions": "Define highlighted bullet points, with optional icons, that are displayed under the landing page header area.",
                 "required": 0,
@@ -1692,11 +1803,13 @@
                 "max": 0,
                 "layout": "block",
                 "button_label": "Add Highlight",
+                "rows_per_page": 20,
                 "sub_fields": [
                     {
                         "key": "field_5c61b70e93baf",
                         "label": "Icon Type",
                         "name": "landing_highlight_icon_type",
+                        "aria-label": "",
                         "type": "radio",
                         "instructions": "",
                         "required": 0,
@@ -1715,12 +1828,14 @@
                         "save_other_choice": 0,
                         "default_value": "",
                         "layout": "horizontal",
-                        "return_format": "value"
+                        "return_format": "value",
+                        "parent_repeater": "field_5c61b5d193bad"
                     },
                     {
                         "key": "field_5c61b67293bae",
                         "label": "Icon Image",
                         "name": "landing_highlight_icon_image",
+                        "aria-label": "",
                         "type": "image",
                         "instructions": "",
                         "required": 0,
@@ -1747,12 +1862,14 @@
                         "max_width": "",
                         "max_height": "",
                         "max_size": "",
-                        "mime_types": ""
+                        "mime_types": "",
+                        "parent_repeater": "field_5c61b5d193bad"
                     },
                     {
                         "key": "field_5c76aaaab5d8a",
                         "label": "Font Icon Options",
                         "name": "landing_highlight_icon_font_options",
+                        "aria-label": "",
                         "type": "group",
                         "instructions": "",
                         "required": 0,
@@ -1776,6 +1893,7 @@
                                 "key": "field_5c61b7b693bb0",
                                 "label": "Font Icon Classes",
                                 "name": "landing_highlight_icon_font_classes",
+                                "aria-label": "",
                                 "type": "text",
                                 "instructions": "Add classes, separated by a single space, for a supported font icon (e.g. <a href=\"https:\/\/fontawesome.com\/v4.7.0\/icons\/\" target=\"_blank\">Font Awesome<\/a>) to display.",
                                 "required": 0,
@@ -1803,6 +1921,7 @@
                                 "key": "field_5c76a7ef673cf",
                                 "label": "Font Icon Color",
                                 "name": "landing_highlight_icon_font_color",
+                                "aria-label": "",
                                 "type": "color_picker",
                                 "instructions": "Select the color for the font icon.",
                                 "required": 0,
@@ -1820,14 +1939,18 @@
                                     "class": "",
                                     "id": ""
                                 },
-                                "default_value": "#FFCC00"
+                                "default_value": "#FFCC00",
+                                "enable_opacity": false,
+                                "return_format": "string"
                             }
-                        ]
+                        ],
+                        "parent_repeater": "field_5c61b5d193bad"
                     },
                     {
                         "key": "field_5c61caf064c2d",
                         "label": "Content",
                         "name": "landing_highlight_content",
+                        "aria-label": "",
                         "type": "group",
                         "instructions": "",
                         "required": 0,
@@ -1843,6 +1966,7 @@
                                 "key": "field_5c61c5da93bb1",
                                 "label": "Highlight Text",
                                 "name": "text",
+                                "aria-label": "",
                                 "type": "text",
                                 "instructions": "",
                                 "required": 0,
@@ -1862,6 +1986,7 @@
                                 "key": "field_5c61c5fe93bb2",
                                 "label": "Supplementary Text",
                                 "name": "sup_text",
+                                "aria-label": "",
                                 "type": "text",
                                 "instructions": "",
                                 "required": 0,
@@ -1877,7 +2002,8 @@
                                 "append": "",
                                 "maxlength": ""
                             }
-                        ]
+                        ],
+                        "parent_repeater": "field_5c61b5d193bad"
                     }
                 ]
             }
@@ -1898,7 +2024,8 @@
         "instruction_placement": "label",
         "hide_on_screen": "",
         "active": false,
-        "description": ""
+        "description": "",
+        "show_in_rest": false
     },
     {
         "key": "group_5c62e7f22a4b1",
@@ -1908,6 +2035,7 @@
                 "key": "field_590ca625f6657",
                 "label": "Header Images",
                 "name": "",
+                "aria-label": "",
                 "type": "tab",
                 "instructions": "",
                 "required": 0,
@@ -1924,6 +2052,7 @@
                 "key": "field_58f7a778185ef",
                 "label": "Header Image (-sm+)",
                 "name": "page_header_image",
+                "aria-label": "",
                 "type": "image",
                 "instructions": "Header image to display at the -sm breakpoint and up.",
                 "required": 0,
@@ -1948,6 +2077,7 @@
                 "key": "field_58f7a7b8185f0",
                 "label": "Header Image (-xs)",
                 "name": "page_header_image_xs",
+                "aria-label": "",
                 "type": "image",
                 "instructions": "Header image to display at the -xs breakpoint.",
                 "required": 0,
@@ -1972,6 +2102,7 @@
                 "key": "field_590ca64ef6659",
                 "label": "Header Video",
                 "name": "",
+                "aria-label": "",
                 "type": "tab",
                 "instructions": "",
                 "required": 0,
@@ -1988,6 +2119,7 @@
                 "key": "field_58fe08bf28bc9",
                 "label": "Header Video (MP4)",
                 "name": "page_header_mp4",
+                "aria-label": "",
                 "type": "file",
                 "instructions": "If a MP4 video is defined, video will be used instead of an image in the header at the -sm breakpoint and higher.  Note that videos will never be displayed at the -xs breakpoint, so a fallback header image should always be provided when using video.",
                 "required": 0,
@@ -2007,6 +2139,7 @@
                 "key": "field_58fe08ff28bca",
                 "label": "Header Video (WebM)",
                 "name": "page_header_webm",
+                "aria-label": "",
                 "type": "file",
                 "instructions": "Supplemental video format used by supported browsers for optimized performance.  Note that a MP4 must at least be provided for video to be displayed in the header.",
                 "required": 0,
@@ -2026,6 +2159,7 @@
                 "key": "field_590c84c7a1360",
                 "label": "Header Video Loop",
                 "name": "page_header_video_loop",
+                "aria-label": "",
                 "type": "true_false",
                 "instructions": "If checked, and a header video is available, the header video will loop indefinitely.",
                 "required": 0,
@@ -2058,7 +2192,8 @@
         "instruction_placement": "label",
         "hide_on_screen": "",
         "active": false,
-        "description": ""
+        "description": "",
+        "show_in_rest": false
     },
     {
         "key": "group_58ff540088983",
@@ -2068,6 +2203,7 @@
                 "key": "field_58ff547f2d1ef",
                 "label": "URL",
                 "name": "colleges_url",
+                "aria-label": "",
                 "type": "url",
                 "instructions": "",
                 "required": 0,
@@ -2097,7 +2233,8 @@
         "instruction_placement": "label",
         "hide_on_screen": "",
         "active": true,
-        "description": ""
+        "description": "",
+        "show_in_rest": false
     },
     {
         "key": "group_605ba78d9cd28",
@@ -2107,6 +2244,7 @@
                 "key": "field_605ba794b4e38",
                 "label": "Confirmation Next Steps",
                 "name": "confirmation_next_steps",
+                "aria-label": "",
                 "type": "wysiwyg",
                 "instructions": "The content displayed to the right of the video and Brochure Document on the confirmation page.",
                 "required": 0,
@@ -2139,7 +2277,8 @@
         "instruction_placement": "label",
         "hide_on_screen": "",
         "active": true,
-        "description": ""
+        "description": "",
+        "show_in_rest": false
     },
     {
         "key": "group_6245fdd111fd2",
@@ -2149,6 +2288,7 @@
                 "key": "field_6245fdeb66c2c",
                 "label": "Default Selected Degree",
                 "name": "default_selected_degree",
+                "aria-label": "",
                 "type": "post_object",
                 "instructions": "Select the degree which will be selected by default in the degree dropdown of the page's gravity form.",
                 "required": 0,
@@ -2165,7 +2305,8 @@
                 "allow_null": 1,
                 "multiple": 0,
                 "return_format": "object",
-                "ui": 1
+                "ui": 1,
+                "bidirectional_target": []
             }
         ],
         "location": [
@@ -2191,7 +2332,8 @@
         "instruction_placement": "label",
         "hide_on_screen": "",
         "active": true,
-        "description": ""
+        "description": "",
+        "show_in_rest": false
     },
     {
         "key": "group_5c61ef111ebd8",
@@ -2201,6 +2343,7 @@
                 "key": "field_5c62ee7d8440a",
                 "label": "Header Content",
                 "name": "",
+                "aria-label": "",
                 "type": "tab",
                 "instructions": "",
                 "required": 0,
@@ -2217,6 +2360,7 @@
                 "key": "field_5c62ee938440b",
                 "label": "Content Before Form",
                 "name": "landing_header_content_custom",
+                "aria-label": "",
                 "type": "wysiwyg",
                 "instructions": "Content displayed immediately before the header form (or its call-to-action button).  <strong>You should include a h1 somewhere at the beginning of this content.<\/strong>",
                 "required": 0,
@@ -2236,6 +2380,7 @@
                 "key": "field_5c62f3028440f",
                 "label": "Content After Form",
                 "name": "landing_header_content_after",
+                "aria-label": "",
                 "type": "wysiwyg",
                 "instructions": "",
                 "required": 0,
@@ -2255,6 +2400,7 @@
                 "key": "field_5c62f2d88440e",
                 "label": "Header Form",
                 "name": "",
+                "aria-label": "",
                 "type": "tab",
                 "instructions": "",
                 "required": 0,
@@ -2271,6 +2417,7 @@
                 "key": "field_5c62f11e8440c",
                 "label": "Header Form",
                 "name": "page_header_form_custom",
+                "aria-label": "",
                 "type": "forms",
                 "instructions": "",
                 "required": 1,
@@ -2288,6 +2435,7 @@
                 "key": "field_5c62f1608440d",
                 "label": "How should the form be displayed?",
                 "name": "landing_header_form_type",
+                "aria-label": "",
                 "type": "select",
                 "instructions": "",
                 "required": 1,
@@ -2312,6 +2460,7 @@
                 "key": "field_5c62f91505587",
                 "label": "Toggle Button Text",
                 "name": "landing_form_cta_text",
+                "aria-label": "",
                 "type": "text",
                 "instructions": "Text used in the call-to-action button that toggles the header form visibility.  Accepts shortcodes (e.g. for insertion of icons).",
                 "required": 0,
@@ -2346,6 +2495,7 @@
                 "key": "field_5c62fd5c05589",
                 "label": "What content should be displayed in the modal?",
                 "name": "landing_header_modal_content_type",
+                "aria-label": "",
                 "type": "select",
                 "instructions": "",
                 "required": 0,
@@ -2379,6 +2529,7 @@
                 "key": "field_5c62fe0a0558a",
                 "label": "Modal Custom Content - Before Form",
                 "name": "landing_header_modal_content_custom",
+                "aria-label": "",
                 "type": "wysiwyg",
                 "instructions": "Custom content to display immediately above the form in the modal, in lieu of the form's title + description.",
                 "required": 0,
@@ -2411,6 +2562,7 @@
                 "key": "field_5c62ff810558b",
                 "label": "Modal Custom Content - After Form",
                 "name": "landing_header_modal_content_after",
+                "aria-label": "",
                 "type": "wysiwyg",
                 "instructions": "",
                 "required": 0,
@@ -2438,6 +2590,7 @@
                 "key": "field_5c6300f425960",
                 "label": "Form Instruction Text",
                 "name": "landing_header_form_instructions",
+                "aria-label": "",
                 "type": "wysiwyg",
                 "instructions": "Custom content to display above the form, after the user has clicked the toggle button and enabled the form.",
                 "required": 0,
@@ -2465,6 +2618,7 @@
                 "key": "field_5c62f34e84410",
                 "label": "Subheader Content",
                 "name": "",
+                "aria-label": "",
                 "type": "tab",
                 "instructions": "",
                 "required": 0,
@@ -2481,6 +2635,7 @@
                 "key": "field_5c62f64584413",
                 "label": "Subheader Lead Text",
                 "name": "landing_subheader_content",
+                "aria-label": "",
                 "type": "wysiwyg",
                 "instructions": "",
                 "required": 0,
@@ -2500,6 +2655,7 @@
                 "key": "field_5c62f7230fe49",
                 "label": "Subheader Media",
                 "name": "landing_subheader_media",
+                "aria-label": "",
                 "type": "group",
                 "instructions": "",
                 "required": 0,
@@ -2515,6 +2671,7 @@
                         "key": "field_5c62f3ee84411",
                         "label": "Subheader Image",
                         "name": "image",
+                        "aria-label": "",
                         "type": "image",
                         "instructions": "",
                         "required": 0,
@@ -2539,6 +2696,7 @@
                         "key": "field_5c62f59184412",
                         "label": "Subheader Image Position (-lg+)",
                         "name": "position",
+                        "aria-label": "",
                         "type": "radio",
                         "instructions": "Position of the subheader image at the -lg breakpoint and up.  (This image will always be centered and stacked horizontally under the -lg breakpoint.)",
                         "required": 0,
@@ -2565,6 +2723,7 @@
                 "key": "field_5c62f6bf84414",
                 "label": "Highlights",
                 "name": "landing_highlights_fields",
+                "aria-label": "",
                 "type": "clone",
                 "instructions": "",
                 "required": 0,
@@ -2604,7 +2763,8 @@
         "instruction_placement": "label",
         "hide_on_screen": "",
         "active": true,
-        "description": ""
+        "description": "",
+        "show_in_rest": false
     },
     {
         "key": "group_5d9215b4d46b6",
@@ -2614,6 +2774,7 @@
                 "key": "field_5d9215cce512c",
                 "label": "Header Content",
                 "name": "landing_custom_header_content",
+                "aria-label": "",
                 "type": "wysiwyg",
                 "instructions": "",
                 "required": 0,
@@ -2633,6 +2794,7 @@
                 "key": "field_5d939a38a2c74",
                 "label": "Footer Content - Type of Content",
                 "name": "landing_custom_footer_content_type",
+                "aria-label": "",
                 "type": "radio",
                 "instructions": "Specify the type of content that should be displayed within the footer.  Choose \"Default\" to display UCF's Signature & Pegasus logo on top of a black bar, or choose \"Custom Content\" to add any arbitrary content inside of the <code>&lt;footer&gt;<\/code> tag.",
                 "required": 1,
@@ -2657,6 +2819,7 @@
                 "key": "field_5d93a301ef633",
                 "label": "Footer Custom Content",
                 "name": "landing_custom_footer_custom_content",
+                "aria-label": "",
                 "type": "wysiwyg",
                 "instructions": "",
                 "required": 0,
@@ -2702,7 +2865,8 @@
         "instruction_placement": "label",
         "hide_on_screen": "",
         "active": true,
-        "description": ""
+        "description": "",
+        "show_in_rest": false
     },
     {
         "key": "group_5c6d5cecd4d32",
@@ -2712,6 +2876,7 @@
                 "key": "field_5c6d5d020bf76",
                 "label": "Title Text",
                 "name": "landing_nav_title",
+                "aria-label": "",
                 "type": "text",
                 "instructions": "Text to display within the simplified navbar at the top of this landing page.  Is not displayed at the -sm breakpoint and down.",
                 "required": 0,
@@ -2749,7 +2914,81 @@
         "instruction_placement": "label",
         "hide_on_screen": "",
         "active": true,
-        "description": ""
+        "description": "",
+        "show_in_rest": false
+    },
+    {
+        "key": "group_65f1adb277c0c",
+        "title": "Optimizely Fields",
+        "fields": [
+            {
+                "key": "field_65f1adb2618ce",
+                "label": "Optimizely Code",
+                "name": "optimizely_code",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "Paste in the Project ID code from Optimizely to enable experiments on this page.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "relevanssi_exclude": 1,
+                "default_value": "",
+                "maxlength": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "post"
+                }
+            ],
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "page"
+                }
+            ],
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "landing"
+                }
+            ],
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "degree"
+                }
+            ],
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "faq"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": true,
+        "description": "",
+        "show_in_rest": 0
     },
     {
         "key": "group_58f7a73f5fecc",
@@ -2759,6 +2998,7 @@
                 "key": "field_590ca423f6654",
                 "label": "Header Content",
                 "name": "",
+                "aria-label": "",
                 "type": "tab",
                 "instructions": "",
                 "required": 0,
@@ -2775,6 +3015,7 @@
                 "key": "field_5bdc9f5b77dda",
                 "label": "Header Text Color",
                 "name": "page_header_text_color",
+                "aria-label": "",
                 "type": "select",
                 "instructions": "Modify the color of the text within the page header.  Please keep in mind <a href=\"https:\/\/webaim.org\/resources\/contrastchecker\/\" target=\"_blank\">accessible color contrast requirements<\/a> when selecting a color to use.  If no header image\/video are provided, the header text will always be black, regardless of this option's value.",
                 "required": 1,
@@ -2800,6 +3041,7 @@
                 "key": "field_59aed971c187c",
                 "label": "Header Content - Type of Content",
                 "name": "page_header_content_type",
+                "aria-label": "",
                 "type": "radio",
                 "instructions": "Specify the type of content that should be displayed within the header.  Choose \"Default\" to display a styled page title and optional form, or choose \"Custom content\" to add any arbitrary content.  If \"Custom content\" is selected, a page title (h1) and form are NOT included by default and must be added manually.",
                 "required": 1,
@@ -2824,6 +3066,7 @@
                 "key": "field_5c5b31bf100c8",
                 "label": "Header Title Text",
                 "name": "page_header_title",
+                "aria-label": "",
                 "type": "text",
                 "instructions": "(Optional) Title text to display in the header.  The page title will be used if left blank.",
                 "required": 0,
@@ -2851,6 +3094,7 @@
                 "key": "field_5bdc82cbdd438",
                 "label": "Header Form",
                 "name": "page_header_form_option",
+                "aria-label": "",
                 "type": "radio",
                 "instructions": "Select what form, if any, should be displayed in the header.",
                 "required": 1,
@@ -2884,6 +3128,7 @@
                 "key": "field_5bdc831fdd439",
                 "label": "Custom Header Form",
                 "name": "page_header_form_custom",
+                "aria-label": "",
                 "type": "forms",
                 "instructions": "Select a custom form to display in the header.",
                 "required": 1,
@@ -2909,6 +3154,7 @@
                 "key": "field_59aed93dc187b",
                 "label": "Header Custom Contents",
                 "name": "page_header_content",
+                "aria-label": "",
                 "type": "wysiwyg",
                 "instructions": "",
                 "required": 0,
@@ -2936,6 +3182,7 @@
                 "key": "field_590ca453f6655",
                 "label": "Header Size",
                 "name": "",
+                "aria-label": "",
                 "type": "tab",
                 "instructions": "",
                 "required": 0,
@@ -2952,6 +3199,7 @@
                 "key": "field_590ca47bf6656",
                 "label": "Header Height (sm+)",
                 "name": "page_header_height",
+                "aria-label": "",
                 "type": "radio",
                 "instructions": "Minimum height of the page header at the -sm breakpoint and above.",
                 "required": 1,
@@ -2976,6 +3224,7 @@
                 "key": "field_5c62e85dcc666",
                 "label": "Header Images and Video",
                 "name": "page_header_images_video_fields",
+                "aria-label": "",
                 "type": "clone",
                 "instructions": "",
                 "required": 0,
@@ -2997,6 +3246,7 @@
                 "key": "field_5a564fecfb51d",
                 "label": "Navigation",
                 "name": "",
+                "aria-label": "",
                 "type": "tab",
                 "instructions": "",
                 "required": 0,
@@ -3013,6 +3263,7 @@
                 "key": "field_5a0dead0cd525",
                 "label": "Exclude Primary Site Navigation",
                 "name": "page_header_exclude_nav",
+                "aria-label": "",
                 "type": "true_false",
                 "instructions": "Controls whether or not the primary site navigation should be displayed at the top of the page.",
                 "required": 0,
@@ -3032,6 +3283,7 @@
                 "key": "field_5a56501afb51e",
                 "label": "Include Subnavigation",
                 "name": "page_header_include_subnav",
+                "aria-label": "",
                 "type": "true_false",
                 "instructions": "Enable this setting to display an affixed subnavigation bar below the page header.  Requires the Automatic Sections Menu plugin to be activated, and for at least one section within the page's content to be configured to appear in the navbar.",
                 "required": 0,
@@ -3090,7 +3342,8 @@
         "instruction_placement": "label",
         "hide_on_screen": "",
         "active": true,
-        "description": ""
+        "description": "",
+        "show_in_rest": false
     },
     {
         "key": "group_5bfea9fa38aa6",
@@ -3100,6 +3353,7 @@
                 "key": "field_5bfeaa012f87c",
                 "label": "Subfooter Section",
                 "name": "page_subfooter_section_option",
+                "aria-label": "",
                 "type": "true_false",
                 "instructions": "Whether or not to display the Subfooter Section right above the footer on this page. Defaults to true.",
                 "required": 0,
@@ -3132,7 +3386,8 @@
         "instruction_placement": "label",
         "hide_on_screen": "",
         "active": true,
-        "description": ""
+        "description": "",
+        "show_in_rest": false
     },
     {
         "key": "group_5953a81f683a8",
@@ -3142,6 +3397,7 @@
                 "key": "field_5a01bcdcfb1a1",
                 "label": "Name\/Title",
                 "name": "",
+                "aria-label": "",
                 "type": "tab",
                 "instructions": "",
                 "required": 0,
@@ -3158,6 +3414,7 @@
                 "key": "field_5953a8f425c12",
                 "label": "Title Prefix",
                 "name": "person_title_prefix",
+                "aria-label": "",
                 "type": "text",
                 "instructions": "A prefix to be applied to this person's name when displayed formally, e.g. \"Mr.\", \"Mrs.\", \"Dr.\".",
                 "required": 0,
@@ -3177,6 +3434,7 @@
                 "key": "field_5953a9ca25c13",
                 "label": "Title Suffix",
                 "name": "person_title_suffix",
+                "aria-label": "",
                 "type": "text",
                 "instructions": "A suffix to be applied to this person's name when displayed formally, e.g. \"Jr.\", \"III\".\r\nInclude a preceding comma and space when denoting a person's earned academic degree, e.g. \", Ph.D.\"",
                 "required": 0,
@@ -3196,6 +3454,7 @@
                 "key": "field_5953aa3d25c14",
                 "label": "Academic\/Professional Title",
                 "name": "person_jobtitle",
+                "aria-label": "",
                 "type": "text",
                 "instructions": "A title that describes this person, academic or professional; e.g. \"Student\" or \"Professor of Economics\"",
                 "required": 0,
@@ -3215,6 +3474,7 @@
                 "key": "field_59669002f433d",
                 "label": "Order By Name",
                 "name": "person_orderby_name",
+                "aria-label": "",
                 "type": "text",
                 "instructions": "Name by which this person should be sorted when people are displayed in alphabetical lists.",
                 "required": 0,
@@ -3234,6 +3494,7 @@
                 "key": "field_5a0318c69f25c",
                 "label": "Degrees",
                 "name": "",
+                "aria-label": "",
                 "type": "tab",
                 "instructions": "",
                 "required": 0,
@@ -3250,6 +3511,7 @@
                 "key": "field_5a009f2a0246f",
                 "label": "Related Degree(s)",
                 "name": "person_degrees",
+                "aria-label": "",
                 "type": "post_object",
                 "instructions": "For students, list one or more degrees that this person is earning\/has earned.  For faculty\/staff, list any degrees that this person provides courses or advising for.",
                 "required": 0,
@@ -3266,7 +3528,8 @@
                 "allow_null": 0,
                 "multiple": 1,
                 "return_format": "object",
-                "ui": 1
+                "ui": 1,
+                "bidirectional_target": []
             }
         ],
         "location": [
@@ -3285,7 +3548,8 @@
         "instruction_placement": "label",
         "hide_on_screen": "",
         "active": true,
-        "description": ""
+        "description": "",
+        "show_in_rest": false
     },
     {
         "key": "group_5a009e57ac55f",
@@ -3295,6 +3559,7 @@
                 "key": "field_5953aa7625c15",
                 "label": "Phone Numbers",
                 "name": "person_phone_numbers",
+                "aria-label": "",
                 "type": "repeater",
                 "instructions": "One or more phone numbers at which the person can be contacted.",
                 "required": 0,
@@ -3309,11 +3574,13 @@
                 "max": 0,
                 "layout": "row",
                 "button_label": "Add Phone Number",
+                "rows_per_page": 20,
                 "sub_fields": [
                     {
                         "key": "field_5953aaca25c16",
                         "label": "Phone Number",
                         "name": "number",
+                        "aria-label": "",
                         "type": "text",
                         "instructions": "",
                         "required": 0,
@@ -3327,7 +3594,8 @@
                         "placeholder": "",
                         "prepend": "",
                         "append": "",
-                        "maxlength": ""
+                        "maxlength": "",
+                        "parent_repeater": "field_5953aa7625c15"
                     }
                 ]
             },
@@ -3335,6 +3603,7 @@
                 "key": "field_5953ac93b95b5",
                 "label": "Email",
                 "name": "person_email",
+                "aria-label": "",
                 "type": "email",
                 "instructions": "",
                 "required": 0,
@@ -3353,6 +3622,7 @@
                 "key": "field_5953acb0b95b6",
                 "label": "Office Location",
                 "name": "person_room",
+                "aria-label": "",
                 "type": "text",
                 "instructions": "",
                 "required": 0,
@@ -3372,6 +3642,7 @@
                 "key": "field_5953ad16b95b7",
                 "label": "Office Map URL",
                 "name": "person_room_url",
+                "aria-label": "",
                 "type": "url",
                 "instructions": "URL that displays the Office Location on a map; e.g. http:\/\/map.ucf.edu\/?show=45",
                 "required": 0,
@@ -3406,7 +3677,8 @@
         "instruction_placement": "label",
         "hide_on_screen": "",
         "active": true,
-        "description": ""
+        "description": "",
+        "show_in_rest": false
     },
     {
         "key": "group_62b0cf808f1d4",
@@ -3416,6 +3688,7 @@
                 "key": "field_62b0cf8c4c217",
                 "label": "Customize Degree List",
                 "name": "ou_rfi_customize_degree_list",
+                "aria-label": "",
                 "type": "true_false",
                 "instructions": "When enabled, the list of degrees available in the RFI form can be customized.",
                 "required": 0,
@@ -3435,6 +3708,7 @@
                 "key": "field_62b0cfdd4c21c",
                 "label": "Filter By",
                 "name": "ou_rfi_filter_by",
+                "aria-label": "",
                 "type": "radio",
                 "instructions": "Select the type of filter to use to customize the degree list:",
                 "required": 0,
@@ -3471,6 +3745,7 @@
                 "key": "field_62b0d07f4c21d",
                 "label": "Tags",
                 "name": "ou_rfi_tag",
+                "aria-label": "",
                 "type": "taxonomy",
                 "instructions": "Select the tag(s) to filter by:",
                 "required": 0,
@@ -3500,12 +3775,14 @@
                 "save_terms": 0,
                 "load_terms": 0,
                 "return_format": "id",
-                "multiple": 0
+                "multiple": 0,
+                "bidirectional_target": []
             },
             {
                 "key": "field_62b0d0b54c220",
                 "label": "Colleges",
                 "name": "ou_rfi_colleges",
+                "aria-label": "",
                 "type": "taxonomy",
                 "instructions": "Select the college(s) to filter by:",
                 "required": 0,
@@ -3535,12 +3812,14 @@
                 "save_terms": 0,
                 "load_terms": 0,
                 "return_format": "id",
-                "multiple": 0
+                "multiple": 0,
+                "bidirectional_target": []
             },
             {
                 "key": "field_62b0d0e84c222",
                 "label": "Program Types",
                 "name": "ou_rfi_program_types",
+                "aria-label": "",
                 "type": "taxonomy",
                 "instructions": "Choose the program type(s) to filter by:",
                 "required": 0,
@@ -3570,12 +3849,14 @@
                 "save_terms": 0,
                 "load_terms": 0,
                 "return_format": "id",
-                "multiple": 0
+                "multiple": 0,
+                "bidirectional_target": []
             },
             {
                 "key": "field_62b0d1424c224",
                 "label": "Areas of Interest",
                 "name": "ou_rfi_areas_of_interest",
+                "aria-label": "",
                 "type": "taxonomy",
                 "instructions": "Select the area(s) of interest to filter by:",
                 "required": 0,
@@ -3605,12 +3886,14 @@
                 "save_terms": 0,
                 "load_terms": 0,
                 "return_format": "id",
-                "multiple": 0
+                "multiple": 0,
+                "bidirectional_target": []
             },
             {
                 "key": "field_62b0d16a4c226",
                 "label": "Career Paths",
                 "name": "ou_rfi_career_paths",
+                "aria-label": "",
                 "type": "taxonomy",
                 "instructions": "Select the career path(s) to filter by:",
                 "required": 0,
@@ -3640,12 +3923,14 @@
                 "save_terms": 0,
                 "load_terms": 0,
                 "return_format": "id",
-                "multiple": 0
+                "multiple": 0,
+                "bidirectional_target": []
             },
             {
                 "key": "field_62b0d1944c228",
                 "label": "Programs",
                 "name": "ou_rfi_custom_programs",
+                "aria-label": "",
                 "type": "post_object",
                 "instructions": "Select the programs to be included in the list:",
                 "required": 0,
@@ -3675,7 +3960,8 @@
                 "allow_null": 0,
                 "multiple": 1,
                 "return_format": "id",
-                "ui": 1
+                "ui": 1,
+                "bidirectional_target": []
             }
         ],
         "location": [
@@ -3715,7 +4001,8 @@
         "instruction_placement": "label",
         "hide_on_screen": "",
         "active": true,
-        "description": ""
+        "description": "",
+        "show_in_rest": false
     },
     {
         "key": "group_58f8d037a370f",
@@ -3725,6 +4012,7 @@
                 "key": "field_58f8d03d1abb3",
                 "label": "Background Color",
                 "name": "section_background_color",
+                "aria-label": "",
                 "type": "select",
                 "instructions": "Select the background color of the section.",
                 "required": 0,
@@ -3767,6 +4055,7 @@
                 "key": "field_59088a54aa936",
                 "label": "Custom Background Color",
                 "name": "section_background_color_custom",
+                "aria-label": "",
                 "type": "color_picker",
                 "instructions": "",
                 "required": 0,
@@ -3784,12 +4073,15 @@
                     "class": "",
                     "id": ""
                 },
-                "default_value": ""
+                "default_value": "",
+                "enable_opacity": false,
+                "return_format": "string"
             },
             {
                 "key": "field_59089420aa937",
                 "label": "Text Color",
                 "name": "section_text_color",
+                "aria-label": "",
                 "type": "select",
                 "instructions": "Override the default text color within the section.\r\n\r\nNote that if you picked a predefined color in the Background Color field, an accessible text color will already be applied.",
                 "required": 0,
@@ -3841,6 +4133,7 @@
                 "key": "field_59089624aa938",
                 "label": "Custom Text Color",
                 "name": "section_text_color_custom",
+                "aria-label": "",
                 "type": "color_picker",
                 "instructions": "",
                 "required": 0,
@@ -3858,12 +4151,15 @@
                     "class": "",
                     "id": ""
                 },
-                "default_value": ""
+                "default_value": "",
+                "enable_opacity": false,
+                "return_format": "string"
             },
             {
                 "key": "field_58f8d0611abb4",
                 "label": "Background Image (-sm+)",
                 "name": "section_background_image",
+                "aria-label": "",
                 "type": "image",
                 "instructions": "The background image to display behind the section at the -sm breakpoint and up (576px+ wide).",
                 "required": 0,
@@ -3888,6 +4184,7 @@
                 "key": "field_58f8d08b1abb5",
                 "label": "Background Image (-xs)",
                 "name": "section_background_image_xs",
+                "aria-label": "",
                 "type": "image",
                 "instructions": "The background image to display behind the section at the -xs breakpoint (<=575px wide).  This image is only displayed when a -sm background image has also been selected.",
                 "required": 0,
@@ -3925,7 +4222,8 @@
         "instruction_placement": "label",
         "hide_on_screen": "",
         "active": true,
-        "description": ""
+        "description": "",
+        "show_in_rest": false
     },
     {
         "key": "group_59f8daf22abe2",
@@ -3935,6 +4233,7 @@
                 "key": "field_59f8db00be9a2",
                 "label": "Vertical Submenu",
                 "name": "vertical_submenu",
+                "aria-label": "",
                 "type": "nav_menu",
                 "instructions": "Menu to use for subnavigation on this page and other pages\/posts associated with this vertical.",
                 "required": 0,
@@ -3952,6 +4251,7 @@
                 "key": "field_5a02284dcaefe",
                 "label": "Vertical Submenu Brand",
                 "name": "vertical_submenu_brand",
+                "aria-label": "",
                 "type": "text",
                 "instructions": "Text to use as the \"brand\" (title) of the submenu.  Will always link back to this vertical.  If a value isn't provided, the vertical's post title will be used.",
                 "required": 0,
@@ -3989,7 +4289,8 @@
         "instruction_placement": "label",
         "hide_on_screen": "",
         "active": true,
-        "description": ""
+        "description": "",
+        "show_in_rest": false
     },
     {
         "key": "group_59f8dc1b9d863",
@@ -3999,6 +4300,7 @@
                 "key": "field_59f8dc2430782",
                 "label": "Related Vertical",
                 "name": "post_vertical",
+                "aria-label": "",
                 "type": "post_object",
                 "instructions": "A vertical (page with the \"Vertical\" template) to associate this post with.",
                 "required": 0,
@@ -4015,7 +4317,8 @@
                 "allow_null": 0,
                 "multiple": 0,
                 "return_format": "id",
-                "ui": 1
+                "ui": 1,
+                "bidirectional_target": []
             }
         ],
         "location": [
@@ -4053,7 +4356,8 @@
         "instruction_placement": "label",
         "hide_on_screen": "",
         "active": true,
-        "description": ""
+        "description": "",
+        "show_in_rest": false
     },
     {
         "key": "group_5beae367b5809",
@@ -4063,6 +4367,7 @@
                 "key": "field_5beae3e312753",
                 "label": "College Filter",
                 "name": "vertical_college_filter",
+                "aria-label": "",
                 "type": "taxonomy",
                 "instructions": "Choose the college to use for filtering degree search and popular program results. Leave blank if this is not a college vertical page.",
                 "required": 0,
@@ -4079,12 +4384,14 @@
                 "save_terms": 0,
                 "load_terms": 0,
                 "return_format": "object",
-                "multiple": 0
+                "multiple": 0,
+                "bidirectional_target": []
             },
             {
                 "key": "field_5beae43a12754",
                 "label": "Program Type Filter",
                 "name": "vertical_program_type_filter",
+                "aria-label": "",
                 "type": "taxonomy",
                 "instructions": "Choose the program type to use for filtering degree search and popular program results. Leave blank if this is not a program type vertical page.",
                 "required": 0,
@@ -4101,12 +4408,14 @@
                 "save_terms": 0,
                 "load_terms": 0,
                 "return_format": "object",
-                "multiple": 0
+                "multiple": 0,
+                "bidirectional_target": []
             },
             {
                 "key": "field_5beae47912755",
                 "label": "Interest Filter",
                 "name": "vertical_interest_filter",
+                "aria-label": "",
                 "type": "taxonomy",
                 "instructions": "Choose the interest to use for filtering degree search and popular program results. Leave blank if this is not a interest vertical page.",
                 "required": 0,
@@ -4123,12 +4432,14 @@
                 "save_terms": 0,
                 "load_terms": 0,
                 "return_format": "object",
-                "multiple": 0
+                "multiple": 0,
+                "bidirectional_target": []
             },
             {
                 "key": "field_59fa1250393f5",
                 "label": "Tag Filter",
                 "name": "vertical_degrees_tag",
+                "aria-label": "",
                 "type": "taxonomy",
                 "instructions": "Choose the post tag to use for filtering degree search and popular program results. Leave blank if this is not a tag-based vertical page.",
                 "required": 0,
@@ -4145,12 +4456,14 @@
                 "save_terms": 0,
                 "load_terms": 0,
                 "return_format": "object",
-                "multiple": 0
+                "multiple": 0,
+                "bidirectional_target": []
             },
             {
                 "key": "field_5beaf737c87d5",
                 "label": "Degree Search Placeholder Text",
                 "name": "degree_search_placeholder",
+                "aria-label": "",
                 "type": "text",
                 "instructions": "The placeholder text to use in the degree search.",
                 "required": 0,
@@ -4170,6 +4483,7 @@
                 "key": "field_5bec7855b4dab",
                 "label": "Popular Programs Text",
                 "name": "popular_programs_text",
+                "aria-label": "",
                 "type": "text",
                 "instructions": "The text that will be used for the \"Popular Programs\" heading.",
                 "required": 0,
@@ -4189,6 +4503,7 @@
                 "key": "field_5c018664dd0d5",
                 "label": "Popular Program Configuration",
                 "name": "popular_programs_config",
+                "aria-label": "",
                 "type": "radio",
                 "instructions": "Choose how you would like to filter the popular programs displayed on this page.",
                 "required": 0,
@@ -4214,6 +4529,7 @@
                 "key": "field_5c018719dd0d6",
                 "label": "Popular Programs Tag Override",
                 "name": "popular_programs_tag_override",
+                "aria-label": "",
                 "type": "taxonomy",
                 "instructions": "Choose the tag to use to display programs.",
                 "required": 0,
@@ -4238,12 +4554,14 @@
                 "save_terms": 0,
                 "load_terms": 0,
                 "return_format": "object",
-                "multiple": 0
+                "multiple": 0,
+                "bidirectional_target": []
             },
             {
                 "key": "field_5c018783dd0d7",
                 "label": "Select Popular Programs",
                 "name": "popular_programs_programs",
+                "aria-label": "",
                 "type": "relationship",
                 "instructions": "Select the programs to be displayed.",
                 "required": 0,
@@ -4271,7 +4589,8 @@
                 "elements": "",
                 "min": 1,
                 "max": 3,
-                "return_format": "id"
+                "return_format": "id",
+                "bidirectional_target": []
             }
         ],
         "location": [
@@ -4297,7 +4616,8 @@
         "instruction_placement": "label",
         "hide_on_screen": "",
         "active": true,
-        "description": ""
+        "description": "",
+        "show_in_rest": false
     },
     {
         "key": "group_594170b492ded",
@@ -4307,6 +4627,7 @@
                 "key": "field_585429c3b33bd",
                 "label": "Degree Data",
                 "name": "",
+                "aria-label": "",
                 "type": "tab",
                 "instructions": "",
                 "required": 0,
@@ -4323,6 +4644,7 @@
                 "key": "field_5970d3291ed62",
                 "label": "Degree Plan Code",
                 "name": "degree_code",
+                "aria-label": "",
                 "type": "text",
                 "instructions": "The plan code of the degree.",
                 "required": 0,
@@ -4342,6 +4664,7 @@
                 "key": "field_5989d40f66709",
                 "label": "Degree SubPlan Code",
                 "name": "degree_subplan_code",
+                "aria-label": "",
                 "type": "text",
                 "instructions": "The subplan code of the degree.",
                 "required": 0,
@@ -4361,6 +4684,7 @@
                 "key": "field_5f57bc99ae301",
                 "label": "Salesforce Record ID",
                 "name": "salesforce_record_id",
+                "aria-label": "",
                 "type": "text",
                 "instructions": "The salesforce record Id code of the degree.",
                 "required": 0,
@@ -4380,6 +4704,7 @@
                 "key": "field_5bdb4a95089e3",
                 "label": "Credit Hours",
                 "name": "degree_hours",
+                "aria-label": "",
                 "type": "text",
                 "instructions": "",
                 "required": 0,
@@ -4399,6 +4724,7 @@
                 "key": "field_5d828f8086c46",
                 "label": "Degree Duration",
                 "name": "degree_duration",
+                "aria-label": "",
                 "type": "group",
                 "instructions": "This information will be displayed in the same block as the 'Credit Hours' information.",
                 "required": 0,
@@ -4414,6 +4740,7 @@
                         "key": "field_5d829c93ab465",
                         "label": "Font Icon Classes",
                         "name": "degree_duration_font_icon_classes",
+                        "aria-label": "",
                         "type": "text",
                         "instructions": "The font icon to display above either the credit hours or duration amount. Defaults to: 'fa fa-3x fa-desktop'.\r\n\r\nAdd classes, separated by a single space, for a supported font icon (e.g. <a href=\"https:\/\/fontawesome.com\/v4.7.0\/icons\/\" target=\"_blank\">Font Awesome<\/a>) to display.",
                         "required": 0,
@@ -4433,6 +4760,7 @@
                         "key": "field_5d828f9a86c47",
                         "label": "Amount",
                         "name": "degree_duration_amount",
+                        "aria-label": "",
                         "type": "number",
                         "instructions": "The numerical amount to display for this degree's duration. Must be a number.\r\n\r\nIf this value is entered, the amount, descriptor and notice will be displayed in place of the 'Credit Hours' information, and move the 'Credit Hours' line to a single line at the bottom of the card.",
                         "required": 0,
@@ -4454,6 +4782,7 @@
                         "key": "field_5d828fb986c48",
                         "label": "Amount Descriptor",
                         "name": "degree_duration_descriptor",
+                        "aria-label": "",
                         "type": "text",
                         "instructions": "The amount descriptor for the degree duration. Defaults to 'Months'.",
                         "required": 1,
@@ -4480,6 +4809,7 @@
                         "key": "field_5d828fe886c49",
                         "label": "Notice",
                         "name": "degree_duration_notice",
+                        "aria-label": "",
                         "type": "text",
                         "instructions": "The notice that is showed below the amount descriptor. Defaults to 'Approx. program length'.",
                         "required": 1,
@@ -4508,6 +4838,7 @@
                 "key": "field_596e47d3ed1fc",
                 "label": "Resident Tuition",
                 "name": "degree_resident_tuition",
+                "aria-label": "",
                 "type": "text",
                 "instructions": "",
                 "required": 0,
@@ -4527,6 +4858,7 @@
                 "key": "field_596e47e6ed1fd",
                 "label": "Nonresident Tuition",
                 "name": "degree_nonresident_tuition",
+                "aria-label": "",
                 "type": "text",
                 "instructions": "",
                 "required": 0,
@@ -4546,6 +4878,7 @@
                 "key": "field_596f740d354f1",
                 "label": "Tuition Override",
                 "name": "degree_tuition_code",
+                "aria-label": "",
                 "type": "text",
                 "instructions": "When retrieving tuition information, use this specific code to retrieve the fee schedule.",
                 "required": 0,
@@ -4565,6 +4898,7 @@
                 "key": "field_5d810d55cefa1",
                 "label": "Tuition Details",
                 "name": "degree_tuition_details",
+                "aria-label": "",
                 "type": "group",
                 "instructions": "Displayed below the tuition amount in both the 'In State' and 'Out of State' panels.",
                 "required": 0,
@@ -4580,6 +4914,7 @@
                         "key": "field_5d810d95cefa2",
                         "label": "Tuition Details Text",
                         "name": "degree_tuition_details_text",
+                        "aria-label": "",
                         "type": "text",
                         "instructions": "The text to display under the tuition amount.",
                         "required": 0,
@@ -4599,6 +4934,7 @@
                         "key": "field_5d810daecefa3",
                         "label": "Tuition Details Link",
                         "name": "degree_tuition_details_link",
+                        "aria-label": "",
                         "type": "url",
                         "instructions": "If this field is set, the 'Tuition Details Text' will be linked to this URL.",
                         "required": 0,
@@ -4617,6 +4953,7 @@
                 "key": "field_5bdc5aa3cd682",
                 "label": "Documents, Media and More",
                 "name": "",
+                "aria-label": "",
                 "type": "tab",
                 "instructions": "",
                 "required": 0,
@@ -4633,6 +4970,7 @@
                 "key": "field_5bdc5d1fcd683",
                 "label": "Degree Video",
                 "name": "degree_header_video",
+                "aria-label": "",
                 "type": "oembed",
                 "instructions": "URL to a video that describes this degree.",
                 "required": 0,
@@ -4649,6 +4987,7 @@
                 "key": "field_5d543d9c27f4c",
                 "label": "Degree Video Caption",
                 "name": "degree_video_caption",
+                "aria-label": "",
                 "type": "text",
                 "instructions": "Enter a caption that describes the chosen degree video.",
                 "required": 0,
@@ -4668,6 +5007,7 @@
                 "key": "field_5d543dde69294",
                 "label": "Degree Spotlight",
                 "name": "degree_spotlight",
+                "aria-label": "",
                 "type": "wysiwyg",
                 "instructions": "Enter spotlight content that will be displayed under the video for this degree.",
                 "required": 0,
@@ -4687,6 +5027,7 @@
                 "key": "field_5bdc56985ff10",
                 "label": "Badges and Awards",
                 "name": "degree_awards",
+                "aria-label": "",
                 "type": "repeater",
                 "instructions": "Upload one or more unique badges or awards pertaining to this program.",
                 "required": 0,
@@ -4701,11 +5042,13 @@
                 "max": 2,
                 "layout": "block",
                 "button_label": "Add Badge",
+                "rows_per_page": 20,
                 "sub_fields": [
                     {
                         "key": "field_5bdc572b5ff11",
                         "label": "Badge\/Award Graphic",
                         "name": "degree_award_graphic",
+                        "aria-label": "",
                         "type": "image",
                         "instructions": "",
                         "required": 1,
@@ -4724,12 +5067,14 @@
                         "max_width": "",
                         "max_height": "",
                         "max_size": "",
-                        "mime_types": ""
+                        "mime_types": "",
+                        "parent_repeater": "field_5bdc56985ff10"
                     },
                     {
                         "key": "field_5bdc58295ff12",
                         "label": "Award Details",
                         "name": "degree_award_details",
+                        "aria-label": "",
                         "type": "textarea",
                         "instructions": "A brief description of this award.  Will be used as alt text for the award graphic.  The image's caption, description, or alt text from the Media Library will be used as a fallback if no description is provided (prioritized in that order).\r\n\r\nIf the graphic contains text, this description should contain that text for accessibility.",
                         "required": 0,
@@ -4743,7 +5088,8 @@
                         "placeholder": "",
                         "maxlength": 125,
                         "rows": 5,
-                        "new_lines": ""
+                        "new_lines": "",
+                        "parent_repeater": "field_5bdc56985ff10"
                     }
                 ]
             },
@@ -4751,6 +5097,7 @@
                 "key": "field_5bdc5ddecd684",
                 "label": "Quotes",
                 "name": "degree_quotes",
+                "aria-label": "",
                 "type": "repeater",
                 "instructions": "Add one or more quotes about this degree or related subject matter.",
                 "required": 0,
@@ -4765,11 +5112,13 @@
                 "max": 0,
                 "layout": "block",
                 "button_label": "Add Quote",
+                "rows_per_page": 20,
                 "sub_fields": [
                     {
                         "key": "field_5bdc5df9cd685",
                         "label": "Quote",
                         "name": "degree_quote",
+                        "aria-label": "",
                         "type": "wysiwyg",
                         "instructions": "The blockquote content.  Do <em>not<\/em> include surrounding quotation marks.",
                         "required": 0,
@@ -4783,12 +5132,14 @@
                         "tabs": "all",
                         "toolbar": "inline_text",
                         "media_upload": 0,
-                        "delay": 0
+                        "delay": 0,
+                        "parent_repeater": "field_5bdc5ddecd684"
                     },
                     {
                         "key": "field_5bdc5e8ecd686",
                         "label": "Source - title",
                         "name": "degree_quote_source_title",
+                        "aria-label": "",
                         "type": "text",
                         "instructions": "Who said the quote? (e.g. a person's name or publication title)",
                         "required": 0,
@@ -4802,12 +5153,14 @@
                         "placeholder": "",
                         "prepend": "",
                         "append": "",
-                        "maxlength": ""
+                        "maxlength": "",
+                        "parent_repeater": "field_5bdc5ddecd684"
                     },
                     {
                         "key": "field_5bdc5efdcd687",
                         "label": "Source - subtitle",
                         "name": "degree_quote_source_subtitle",
+                        "aria-label": "",
                         "type": "text",
                         "instructions": "Specify a subtitle for the source of this quote (e.g. a student's major + graduating year.)",
                         "required": 0,
@@ -4821,12 +5174,14 @@
                         "placeholder": "",
                         "prepend": "",
                         "append": "",
-                        "maxlength": ""
+                        "maxlength": "",
+                        "parent_repeater": "field_5bdc5ddecd684"
                     },
                     {
                         "key": "field_5bdc5f39cd688",
                         "label": "Is this quote sourced from an existing publication?",
                         "name": "degree_quote_source_has_cite",
+                        "aria-label": "",
                         "type": "true_false",
                         "instructions": "If this quote originates from an existing publication, magazine, etc, check this box.  Leave unchecked if it is a direct quote from a student, faculty member, etc.",
                         "required": 0,
@@ -4840,7 +5195,8 @@
                         "default_value": 0,
                         "ui": 1,
                         "ui_on_text": "",
-                        "ui_off_text": ""
+                        "ui_off_text": "",
+                        "parent_repeater": "field_5bdc5ddecd684"
                     }
                 ]
             },
@@ -4848,6 +5204,7 @@
                 "key": "field_599454a5f93c3",
                 "label": "Header Form Settings",
                 "name": "",
+                "aria-label": "",
                 "type": "tab",
                 "instructions": "",
                 "required": 0,
@@ -4864,6 +5221,7 @@
                 "key": "field_584ec2eec963b",
                 "label": "Contact Email",
                 "name": "degree_contact_email",
+                "aria-label": "",
                 "type": "text",
                 "instructions": "(Optional) The email address that header form submission confirmations should be sent to. Leave blank to send to the form's default email address.",
                 "required": 0,
@@ -4883,6 +5241,7 @@
                 "key": "field_605cb6062500f",
                 "label": "Confirmation Page",
                 "name": "",
+                "aria-label": "",
                 "type": "tab",
                 "instructions": "",
                 "required": 0,
@@ -4899,6 +5258,7 @@
                 "key": "field_58408b3e07519",
                 "label": "Confirmation Page Video URL",
                 "name": "degree_confirmation_video",
+                "aria-label": "",
                 "type": "url",
                 "instructions": "Enter a URL to display a video on the degree request for information confirmation page.",
                 "required": 0,
@@ -4915,6 +5275,7 @@
                 "key": "field_598cb0772a92d",
                 "label": "Brochure Document",
                 "name": "degree_brochure_document_file",
+                "aria-label": "",
                 "type": "file",
                 "instructions": "The PDF file to link to on the request for information degree confirmation page.",
                 "required": 0,
@@ -4952,7 +5313,8 @@
         "instruction_placement": "label",
         "hide_on_screen": "",
         "active": true,
-        "description": ""
+        "description": "",
+        "show_in_rest": false
     },
     {
         "key": "group_5c61cfbcc2ff6",
@@ -4962,6 +5324,7 @@
                 "key": "field_5c61d016d3636",
                 "label": "Header Content",
                 "name": "",
+                "aria-label": "",
                 "type": "tab",
                 "instructions": "",
                 "required": 0,
@@ -4978,6 +5341,7 @@
                 "key": "field_5c61d0b4d3638",
                 "label": "What type of content should be displayed before the header form?",
                 "name": "landing_header_content_type",
+                "aria-label": "",
                 "type": "select",
                 "instructions": "",
                 "required": 1,
@@ -5003,6 +5367,7 @@
                 "key": "field_5c61d13ad3639",
                 "label": "Custom Header Content (Before Form)",
                 "name": "landing_header_content_custom",
+                "aria-label": "",
                 "type": "wysiwyg",
                 "instructions": "",
                 "required": 0,
@@ -5030,6 +5395,7 @@
                 "key": "field_5c61e36ed363b",
                 "label": "Content After Form",
                 "name": "landing_header_content_after",
+                "aria-label": "",
                 "type": "wysiwyg",
                 "instructions": "",
                 "required": 0,
@@ -5049,6 +5415,7 @@
                 "key": "field_5c62f1fd60a67",
                 "label": "Header Form",
                 "name": "",
+                "aria-label": "",
                 "type": "tab",
                 "instructions": "",
                 "required": 0,
@@ -5065,6 +5432,7 @@
                 "key": "field_5c61e271d363a",
                 "label": "Header Form",
                 "name": "page_header_form_custom",
+                "aria-label": "",
                 "type": "forms",
                 "instructions": "",
                 "required": 1,
@@ -5082,6 +5450,7 @@
                 "key": "field_5c62e93b457fb",
                 "label": "Header Images and Video",
                 "name": "page_header_images_video_fields",
+                "aria-label": "",
                 "type": "clone",
                 "instructions": "",
                 "required": 0,
@@ -5103,6 +5472,7 @@
                 "key": "field_5c62eb34d47d2",
                 "label": "Highlights",
                 "name": "",
+                "aria-label": "",
                 "type": "tab",
                 "instructions": "",
                 "required": 0,
@@ -5119,6 +5489,7 @@
                 "key": "field_5c62eb58d47d3",
                 "label": "Highlights",
                 "name": "landing_highlights_fields",
+                "aria-label": "",
                 "type": "clone",
                 "instructions": "",
                 "required": 0,
@@ -5170,6 +5541,7 @@
         "instruction_placement": "label",
         "hide_on_screen": "",
         "active": true,
-        "description": ""
+        "description": "",
+        "show_in_rest": false
     }
 ]
