@@ -43,7 +43,7 @@ if ( $post->post_type === 'degree' ) :
 		}
 	}
 ?>
-<section id="program-at-a-glance" aria-labelledby="program-at-a-glance-heading">
+<section id="program-at-a-glance" aria-labelledby="program-at-a-glance-heading" role="region">
 	<div class="jumbotron jumbotron-fluid bg-faded pb-4 pb-md-5 mb-0">
 		<div class="container">
 			<div class="row">
