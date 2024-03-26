@@ -115,7 +115,7 @@ if ( $post->post_type === 'degree' ) :
 
 						<div class="card-block d-flex flex-column justify-content-center px-sm-4 px-md-2 px-xl-3 pt-4 py-md-5 pt-lg-4 pb-lg-3 tab-content" id="tuition-panes">
 							<?php if ( $tuition_resident ): ?>
-							<div class="tab-pane fade show active" id="resident-tuition" aria-labelledby="resident-tuition-tab" rol="tabpanel">
+							<div class="tab-pane fade show active" id="resident-tuition" aria-labelledby="resident-tuition-tab" role="tabpanel">
 								<span class="tuition-amount">
 									<?php echo $tuition_resident['value']; ?>
 								</span>
