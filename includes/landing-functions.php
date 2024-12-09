@@ -102,6 +102,8 @@ function online_highlight_acf_custom_color_palette() {
 
         acf.add_filter('color_picker_args', function( args, $field ){
 
+			if ( $field === undefined ) return args;
+
 			if ($field.context.dataset.name === 'landing_highlight_icon_font_color') {
 				args.palettes = ['#fc0', '#bbb', '#767676', '#000']
 			}
