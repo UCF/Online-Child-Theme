@@ -13,8 +13,6 @@ $header_height       = get_field( 'page_header_height', $obj ) ?: 'header-media-
 $image_alt           = '';
 
 // We are capturing the image alt text from the first image in the header images array.
-// If no alt text is found, we will use a fallback value.
-
 if ( ! empty( $images ) ) { // Ensure $images is not empty
     foreach ( $images as $image_id ) {
         $image_alt = get_post_meta( $image_id, '_wp_attachment_image_alt', true );
