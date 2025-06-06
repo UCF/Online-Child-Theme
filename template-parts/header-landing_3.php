@@ -7,6 +7,7 @@ $obj        = ucfwp_get_queried_object();
 $videos     = ucfwp_get_header_videos( $obj );
 $images     = ucfwp_get_header_images( $obj );
 $video_loop = get_field( 'page_header_video_loop', $obj );
+$image_alt = ''; // Default value assigned here
 
 // We capture the image alt text from the first image in the header images array.
 if ( ! empty( $images ) ) { // Ensure $images is not empty
