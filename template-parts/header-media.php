@@ -12,7 +12,7 @@ $header_content_type = ucfwp_get_header_content_type( $obj );
 $header_height       = get_field( 'page_header_height', $obj ) ?: 'header-media-default'; // for imported, unmodified pages
 $image_alt           = '';
 
-// We are capturing the image alt text from the first image in the header images array.
+// We capture the image alt text from the first image in the header images array.
 if ( ! empty( $images ) ) { // Ensure $images is not empty
     foreach ( $images as $image_id ) {
         $image_alt = get_post_meta( $image_id, '_wp_attachment_image_alt', true );
@@ -21,7 +21,6 @@ if ( ! empty( $images ) ) { // Ensure $images is not empty
         }
     }
 }
-
 
 // We modify the header's text color using bg utilities to make sure we
 // still meet color contrast req's when bg imgs/videos fail to load
