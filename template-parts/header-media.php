@@ -24,11 +24,6 @@ if ( ! empty( $images ) ) { // Ensure $images is not empty
     }
 }
 
-// If no alt text is found, use the fallback value
-if ( empty( $image_alt ) && ! empty( $images ) ) {
-    $image_alt = 'header background image';
-}
-
 
 // We modify the header's text color using bg utilities to make sure we
 // still meet color contrast req's when bg imgs/videos fail to load
