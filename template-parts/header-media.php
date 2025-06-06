@@ -10,6 +10,17 @@ $video_loop = get_field( 'page_header_video_loop', $obj );
 $header_text_color   = get_field( 'page_header_text_color', $obj );
 $header_content_type = ucfwp_get_header_content_type( $obj );
 $header_height       = get_field( 'page_header_height', $obj ) ?: 'header-media-default'; // for imported, unmodified pages
+$image_alt           = '';
+
+// We capture the image alt text from the first image in the header images array.
+if ( ! empty( $images ) ) { // Ensure $images is not empty
+    foreach ( $images as $image_id ) {
+        $image_alt = get_post_meta( $image_id, '_wp_attachment_image_alt', true );
+        if ( ! empty( $image_alt ) ) {
+            break; // Exit the loop if a non-empty alt text is found
+        }
+    }
+}
 
 // We modify the header's text color using bg utilities to make sure we
 // still meet color contrast req's when bg imgs/videos fail to load
@@ -33,7 +44,7 @@ switch ( $header_text_color ) {
 			}
 			if ( $images ) {
 				$bg_image_srcs = ucfwp_get_header_media_picture_srcs( $header_height, $images );
-				echo ucfwp_get_media_background_picture( $bg_image_srcs );
+				echo ucfwp_get_media_background_picture( $bg_image_srcs, $image_alt );
 			}
 			?>
 		</div>
