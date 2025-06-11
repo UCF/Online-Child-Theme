@@ -43,7 +43,7 @@ if ( $post->post_type === 'degree' ) :
 		}
 	}
 ?>
-<section id="program-at-a-glance" aria-labelledby="program-at-a-glance-heading">
+<section id="program-at-a-glance" aria-labelledby="program-at-a-glance-heading" role="region">
 	<div class="jumbotron jumbotron-fluid bg-faded pb-4 pb-md-5 mb-0">
 		<div class="container">
 			<div class="row">
@@ -80,7 +80,7 @@ if ( $post->post_type === 'degree' ) :
 								<img class="program-length-image img-fluid" src="<?php echo $program_length_image; ?>" alt="">
 							</div>
 							<div class="h1 mb-0 text-center"><?php echo $program_length_number; ?></div>
-							<div class="h6 text-default text-uppercase text-center"><?php echo $program_length_text; ?></div>
+							<div class="h6 text-secondary text-uppercase text-center"><?php echo $program_length_text; ?></div>
 						</div>
 						<?php endif; ?>
 
@@ -96,16 +96,16 @@ if ( $post->post_type === 'degree' ) :
 						<div class="card-header">
 							<ul class="nav nav-tabs card-header-tabs" id="tuition-tabs" role="tablist">
 								<?php if ( $tuition_resident ): ?>
-								<li class="nav-item text-nowrap" role="tab">
-									<a class="nav-link active" id="resident-tuition-tab" data-toggle="tab" href="#resident-tuition" aria-controls="resident-tuition" aria-selected="true">
+								<li class="nav-item text-nowrap">
+									<a class="nav-link active" id="resident-tuition-tab" data-toggle="tab" href="#resident-tuition" aria-controls="resident-tuition" aria-selected="true" role="tab">
 										In State<span class="sr-only"> Tuition</span>
 									</a>
 								</li>
 								<?php endif; ?>
 
 								<?php if ( $tuition_nonresident ): ?>
-								<li class="nav-item text-nowrap" role="tab">
-									<a class="nav-link" id="nonresident-tuition-tab" data-toggle="tab" href="#nonresident-tuition" aria-controls="nonresident-tuition" aria-selected="false">
+								<li class="nav-item text-nowrap">
+									<a class="nav-link" id="nonresident-tuition-tab" data-toggle="tab" href="#nonresident-tuition" aria-controls="nonresident-tuition" aria-selected="false" role="tab">
 										Out of State<span class="sr-only"> Tuition</span>
 									</a>
 								</li>
@@ -115,7 +115,7 @@ if ( $post->post_type === 'degree' ) :
 
 						<div class="card-block d-flex flex-column justify-content-center px-sm-4 px-md-2 px-xl-3 pt-4 py-md-5 pt-lg-4 pb-lg-3 tab-content" id="tuition-panes">
 							<?php if ( $tuition_resident ): ?>
-							<div class="tab-pane fade show active" id="resident-tuition" aria-labelledby="resident-tuition-tab" rol="tabpanel">
+							<div class="tab-pane fade show active" id="resident-tuition" aria-labelledby="resident-tuition-tab" role="tabpanel">
 								<span class="tuition-amount">
 									<?php echo $tuition_resident['value']; ?>
 								</span>

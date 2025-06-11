@@ -73,9 +73,9 @@ function online_post_list_display_default( $content, $posts, $atts ) {
 					</div>
 					<?php endif; ?>
 
-					<h3 class="h6 mb-3 text-uppercase hover-child-text-underline ucf-post-list-item-title">
+					<span class="d-block h6 mb-3 text-uppercase hover-child-text-underline ucf-post-list-item-title">
 						<?php echo $item->post_title; ?>
-					</h3>
+					</span>
 				</a>
 
 				<?php if ( $excerpt ): ?>

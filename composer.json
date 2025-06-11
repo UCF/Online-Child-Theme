@@ -1,0 +1,8 @@
+{
+    "name": "ucf/online-child-theme",
+    "description": "Child theme of the UCF WordPress Theme for UCF Online v3.  Built with the Athena Framework.",
+    "type": "wordpress-theme",
+    "require": {
+        "composer/installers": "~1.0"
+    }
+}
