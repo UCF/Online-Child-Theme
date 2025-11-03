@@ -81,7 +81,7 @@ if ( $post->post_type === 'degree' ) :
 
 <?php endif; ?>
 
-	<div class="col-lg-4 offset-lg-1 mt-4 mt-lg-0">
+	<div class="col-lg-4 offset-lg-1 py-lg-3 mt-4 mt-lg-0">
 		<h2 class="font-condensed h3 text-primary text-uppercase mb-4">
 			<?php echo $degree_careers_heading; ?>
 		</h2>
