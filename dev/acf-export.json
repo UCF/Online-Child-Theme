@@ -610,6 +610,28 @@
                 "endpoint": 0
             },
             {
+                "key": "field_69090cf2be94d",
+                "label": "Course Overview Intro",
+                "name": "course_overview_intro",
+                "aria-label": "",
+                "type": "wysiwyg",
+                "instructions": "Content that will appear between the Course Overview heading and the course overview items below.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "relevanssi_exclude": 0,
+                "default_value": "",
+                "allow_in_bindings": 0,
+                "tabs": "all",
+                "toolbar": "basic",
+                "media_upload": 0,
+                "delay": 0
+            },
+            {
                 "key": "field_5e961a02e3191",
                 "label": "Course Overview",
                 "name": "course_overview",
