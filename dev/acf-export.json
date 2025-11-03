@@ -918,6 +918,28 @@
                 "maxlength": ""
             },
             {
+                "key": "field_690914c0d370f",
+                "label": "Skills Intro Paragraph",
+                "name": "degree_skills_content",
+                "aria-label": "",
+                "type": "wysiwyg",
+                "instructions": "Provides a space for adding additional content before the skills list.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "relevanssi_exclude": 0,
+                "default_value": "",
+                "allow_in_bindings": 0,
+                "tabs": "all",
+                "toolbar": "basic",
+                "media_upload": 0,
+                "delay": 0
+            },
+            {
                 "key": "field_5e9618f641b44",
                 "label": "Skills List",
                 "name": "degree_skills_list",
