@@ -3,6 +3,7 @@ $post = isset( $post ) ? $post : get_queried_object();
 
 if ( $post->post_type === 'degree' ) :
 	$course_overview          = get_field( 'course_overview', $post );
+	$course_overview_intro    = get_field( 'course_overview_intro', $post );
 	$catalog_desc_full        = trim( get_field( 'degree_description_full', $post ) );
 	$course_catalog_link_text = get_field( 'course_catalog_link_text', $post ) ?: 'View all ' . get_header_title( $post ) . ' Courses';
 
@@ -13,6 +14,11 @@ if ( $post->post_type === 'degree' ) :
 			<div class="row my-lg-3">
 				<div class="col-12">
 					<h2 id="course-overview-heading" class="font-condensed text-uppercase mb-4">Course Overview</h2>
+					<?php
+					if ( $course_overview_intro ) {
+						echo $course_overview_intro;
+					}
+					?>
 					<div class="accordion" id="courses">
 
 						<?php while ( have_rows( 'course_overview', $post ) ) : the_row(); ?>
