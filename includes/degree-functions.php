@@ -747,3 +747,29 @@ function online_degree_list_sort_grouped_degrees( $items ) {
 }
 
 add_filter( 'ucf_degree_list_sort_grouped_degrees', 'online_degree_list_sort_grouped_degrees', 10, 1 );
+
+/**
+ * Format the annual earnings amount (string)
+ *
+ * @since 1.7.0
+ * @param string $amount The amount to format
+ *
+ * @return mixed Returns a string if the amount is set, and null if not
+ */
+function online_format_annual_earnings( $amount ) {
+	// Early exit if the amount is null
+	if ( ! $amount ) return null;
+
+	// Lose the commas
+	$amount = str_replace( ',', '', $amount );
+	// Convert to a float
+	$amount = floatval( $amount );
+	// Round to the nearest thousand
+	$amount = round( $amount, -3 );
+	// Drop the zeros
+	$amount = $amount / 1000;
+	// Format the string
+	$amount = '$' . $amount . 'k/yr';
+
+	return $amount;
+}
