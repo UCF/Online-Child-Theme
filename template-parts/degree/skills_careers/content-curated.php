@@ -8,10 +8,13 @@ if ( $post->post_type === 'degree' ) :
 
 	$degree_skills_content     = trim( get_field( 'degree_skills_content', $post ) );
 
-	$degree_prj_openings          = number_format( floatval( get_field( 'degree_prj_openings' ) ) );
-	$degree_prj_change_percentage = get_field( 'degree_prj_change_percentage' );
-	$degree_prj_begin_year        = get_field( 'degree_prj_begin_year' );
-	$degree_prj_end_year          = get_field( 'degree_prj_end_year' );
+	$degree_prj_openings          = number_format( floatval( get_field( 'degree_prj_openings', $post ) ) );
+	$degree_prj_change_percentage = get_field( 'degree_prj_change_percentage', $post );
+	$degree_prj_begin_year        = get_field( 'degree_prj_begin_year', $post );
+	$degree_prj_end_year          = get_field( 'degree_prj_end_year', $post );
+
+	$degree_outcome_salary_amount = get_field( 'degree_outcome_salary_amount', $post );
+	$degree_outcome_salary_info   = get_field( 'degree_outcome_salary_info', $post );
 
 	$projection_disclaimer  = get_theme_mod( 'projection_disclaimer', null );
 
@@ -54,7 +57,7 @@ if ( $post->post_type === 'degree' ) :
 			<?php if( $degree_prj_openings ) : ?>
 
 				<div class="col-4">
-					<div class="h1 text-uppercase text-center"><?php echo $degree_prj_openings; ?></div>
+					<span class="h2 text-uppercase text-center d-block"><?php echo $degree_prj_openings; ?></span>
 					<p class="text-center d-block">Annual Job<br>Openings</p>
 				</div>
 
@@ -63,10 +66,21 @@ if ( $post->post_type === 'degree' ) :
 			<?php if( $degree_prj_change_percentage && $degree_prj_begin_year && $degree_prj_end_year ) : ?>
 
 				<div class="col-4">
-					<div class="h1 text-uppercase text-center"><?php echo $degree_prj_change_percentage; ?>%</div>
+					<span class="h2 text-uppercase text-center d-block"><?php echo $degree_prj_change_percentage; ?>%</span>
 					<p class="text-center d-block">
 						Job Growth<br>Between<br>
 						<?php echo $degree_prj_begin_year; ?> - <?php echo $degree_prj_end_year; ?>
+					</p>
+				</div>
+
+			<?php endif; ?>
+
+			<?php if ( $degree_outcome_salary_amount && $degree_outcome_salary_info ) : ?>
+
+				<div class="col-4">
+					<span class="h2 text-uppercase text-center d-block"><?php echo $degree_outcome_salary_amount; ?></span>
+					<p class="text-center d-block">
+						<?php echo $degree_outcome_salary_info; ?>
 					</p>
 				</div>
 
