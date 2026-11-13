@@ -33,6 +33,10 @@ if ( class_exists( 'UCF_News_Common' ) ) {
 	include_once 'includes/news-functions.php';
 }
 
+if ( class_exists( 'GFForms' ) ) {
+	include_once 'includes/gravity-forms-functions.php';
+}
+
 if ( class_exists( 'UCF_Landing_Page_PostType' ) ) {
 	include_once 'includes/landing-functions.php';
 	include_once 'includes/class-landing-header-content.php';
