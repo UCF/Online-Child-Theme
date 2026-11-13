@@ -12,7 +12,7 @@
  *
  * @since 1.7.1
  * @param bool $disabled Whether the page query argument is disabled.
- * @param array $form The current form object.
+ * @param array $form The current form, as a Gravity Forms Form Object array.
  * @return bool
  **/
 if ( ! function_exists( 'online_gform_disable_page_query_arg' ) ) {
